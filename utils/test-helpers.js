@@ -8,12 +8,121 @@ const Constants = require("../Constants");
 const { endpointTypes, TEST_TAGS, HTTP_STATUS_CODES } = require("../Constants");
 
 class TestHelpers {
+  
+    /**
+   * Debug response structure for troubleshooting
+   */
+  static debugResponseStructure(response, operation = "unknown") {
+    const debugInfo = {
+      operation,
+      timestamp: new Date().toISOString(),
+      responseStructure: {
+        keys: Object.keys(response),
+        dataType: typeof response.data,
+        dataKeys:
+          response.data && typeof response.data === "object"
+            ? Object.keys(response.data)
+            : "N/A",
+        status: response.status,
+        hasIdField: !!(response.id || (response.data && response.data.id)),
+      },
+      sampleData: {
+        data:
+          response.data && typeof response.data === "string"
+            ? response.data.substring(0, 50) +
+              (response.data.length > 50 ? "..." : "")
+            : response.data,
+        id: response.id || "N/A",
+        dataId: (response.data && response.data.id) || "N/A",
+      },
+    };
+
+    global.attachJSON(`Response Structure Debug - ${operation}`, debugInfo);
+    return debugInfo;
+  }
+  
+  
+  /**
+   * Enhanced ID extraction with fallback strategies
+   */
+  static extractIdEnhanced(response) {
+    const strategies = [
+      // Strategy 1: Direct data string
+      () =>
+        typeof response.data === "string" && this.isValidUUID(response.data)
+          ? response.data
+          : null,
+
+      // Strategy 2: Data object with common ID fields
+      () => {
+        if (response.data && typeof response.data === "object") {
+          const idFields = [
+            "id",
+            "uuid",
+            "Id",
+            "ID",
+            "UUID",
+            "guid",
+            "createdId",
+          ];
+          for (const field of idFields) {
+            if (
+              response.data[field] &&
+              this.isValidUUID(response.data[field])
+            ) {
+              return response.data[field];
+            }
+          }
+          // Return any id field even if not UUID format
+          if (response.data.id) return response.data.id;
+        }
+        return null;
+      },
+
+      // Strategy 3: Response level ID
+      () => (response.id && this.isValidUUID(response.id) ? response.id : null),
+
+      // Strategy 4: Look for UUID in entire response
+      () => {
+        const responseString = JSON.stringify(response);
+        const uuidMatch = responseString.match(
+          /[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/i
+        );
+        return uuidMatch ? uuidMatch[0] : null;
+      },
+
+      // Strategy 5: Any string in data that looks like an ID
+      () => {
+        if (typeof response.data === "string" && response.data.length > 10) {
+          return response.data;
+        }
+        return null;
+      },
+    ];
+
+    for (const strategy of strategies) {
+      const result = strategy();
+      if (result) {
+        // FIXED: Safe console usage
+        if (typeof console !== "undefined" && console.debug) {
+          logger.debug(`🔍 ID extracted using strategy: ${strategy.name}`);
+        }
+        return result;
+      }
+    }
+
+    return null;
+  }
+  
   /**
    * Smart ID extraction that handles various response structures
    * - Direct string UUIDs
    * - Objects with id/uuid fields
    * - Nested response structures
    */
+
+
+
 
   static async initializeApiClient() {
     return await global.allureStep(
@@ -740,38 +849,6 @@ class TestHelpers {
     }
 
     return null;
-  }
-
-  /**
-   * Debug response structure for troubleshooting
-   */
-  static debugResponseStructure(response, operation = "unknown") {
-    const debugInfo = {
-      operation,
-      timestamp: new Date().toISOString(),
-      responseStructure: {
-        keys: Object.keys(response),
-        dataType: typeof response.data,
-        dataKeys:
-          response.data && typeof response.data === "object"
-            ? Object.keys(response.data)
-            : "N/A",
-        status: response.status,
-        hasIdField: !!(response.id || (response.data && response.data.id)),
-      },
-      sampleData: {
-        data:
-          response.data && typeof response.data === "string"
-            ? response.data.substring(0, 50) +
-              (response.data.length > 50 ? "..." : "")
-            : response.data,
-        id: response.id || "N/A",
-        dataId: (response.data && response.data.id) || "N/A",
-      },
-    };
-
-    global.attachJSON(`Response Structure Debug - ${operation}`, debugInfo);
-    return debugInfo;
   }
 
   static async makeApiCall(endpoint, method = "POST", data = null) {

@@ -4,6 +4,88 @@ const { exec } = require("child_process");
 const logger = require("./logger");
 
 class TokenManager {
+  static async getValidToken() {
+    // First try to read from file
+    let token = this.readTokenFromFile();
+
+    if (token) {
+      const validation = this.validateToken(token);
+
+      if (validation.isValid) {
+        const minutesUntilExpiry = Math.round(
+          validation.timeUntilExpiry / (1000 * 60)
+        );
+
+        if (minutesUntilExpiry < 5) {
+          logger.warn(
+            `⚠️ Token expires soon (${minutesUntilExpiry} minutes), attempting refresh...`
+          );
+          try {
+            token = await this.refreshToken();
+          } catch (error) {
+            logger.warn(
+              `⚠️ Token refresh failed, using existing token: ${error.message}`
+            );
+          }
+        } else {
+          logger.info(
+            `✅ Using valid token from file (expires in ${minutesUntilExpiry} minutes)`
+          );
+          return token;
+        }
+      } else {
+        logger.warn(
+          `⚠️ Token from file is invalid: ${validation.reason}, attempting refresh...`
+        );
+        try {
+          token = await this.refreshToken();
+        } catch (error) {
+          throw new Error(
+            `No valid token available: ${validation.reason} and refresh failed: ${error.message}`
+          );
+        }
+      }
+    } else {
+      // No token in file, try to refresh
+      logger.info(
+        "🔄 No token found in file, attempting to fetch new token..."
+      );
+      try {
+        token = await this.refreshToken();
+      } catch (error) {
+        throw new Error(
+          `No token available and refresh failed: ${error.message}`
+        );
+      }
+    }
+
+    return token;
+  }
+
+  // Add this method to your existing TokenManager class
+  static formatTokenForHeader(token) {
+    if (!token) return "";
+
+    let cleanToken = token.replace(/['"]/g, "").trim();
+
+    // Remove any existing "Bearer " prefix
+    if (cleanToken.startsWith("Bearer ")) {
+      cleanToken = cleanToken.substring(7);
+    }
+
+    // Add "Bearer " prefix for header
+    const formattedToken = `Bearer ${cleanToken}`;
+
+    // Validate token length
+    if (cleanToken.length < 100) {
+      console.warn(
+        `⚠️  Warning: Token appears short (${cleanToken.length} chars)`
+      );
+    }
+
+    return formattedToken;
+  }
+
   static getTokenFilePath() {
     return path.join(process.cwd(), "token.txt");
   }
@@ -120,88 +202,6 @@ class TokenManager {
         reason: `Token validation failed: ${error.message}`,
       };
     }
-  }
-
-  // Add this method to your existing TokenManager class
-  static formatTokenForHeader(token) {
-    if (!token) return "";
-
-    let cleanToken = token.replace(/['"]/g, "").trim();
-
-    // Remove any existing "Bearer " prefix
-    if (cleanToken.startsWith("Bearer ")) {
-      cleanToken = cleanToken.substring(7);
-    }
-
-    // Add "Bearer " prefix for header
-    const formattedToken = `Bearer ${cleanToken}`;
-
-    // Validate token length
-    if (cleanToken.length < 100) {
-      console.warn(
-        `⚠️  Warning: Token appears short (${cleanToken.length} chars)`
-      );
-    }
-
-    return formattedToken;
-  }
-
-  static async getValidToken() {
-    // First try to read from file
-    let token = this.readTokenFromFile();
-
-    if (token) {
-      const validation = this.validateToken(token);
-
-      if (validation.isValid) {
-        const minutesUntilExpiry = Math.round(
-          validation.timeUntilExpiry / (1000 * 60)
-        );
-
-        if (minutesUntilExpiry < 5) {
-          logger.warn(
-            `⚠️ Token expires soon (${minutesUntilExpiry} minutes), attempting refresh...`
-          );
-          try {
-            token = await this.refreshToken();
-          } catch (error) {
-            logger.warn(
-              `⚠️ Token refresh failed, using existing token: ${error.message}`
-            );
-          }
-        } else {
-          logger.info(
-            `✅ Using valid token from file (expires in ${minutesUntilExpiry} minutes)`
-          );
-          return token;
-        }
-      } else {
-        logger.warn(
-          `⚠️ Token from file is invalid: ${validation.reason}, attempting refresh...`
-        );
-        try {
-          token = await this.refreshToken();
-        } catch (error) {
-          throw new Error(
-            `No valid token available: ${validation.reason} and refresh failed: ${error.message}`
-          );
-        }
-      }
-    } else {
-      // No token in file, try to refresh
-      logger.info(
-        "🔄 No token found in file, attempting to fetch new token..."
-      );
-      try {
-        token = await this.refreshToken();
-      } catch (error) {
-        throw new Error(
-          `No token available and refresh failed: ${error.message}`
-        );
-      }
-    }
-
-    return token;
   }
 
   static async refreshToken() {

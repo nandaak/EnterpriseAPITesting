@@ -23,6 +23,43 @@ class CrudLifecycleHelper {
     }
   }
 
+  // Add this method to CrudLifecycleHelper class for better error recovery
+  setTestPhase(phase) {
+    this.currentTestPhase = phase;
+    if (this.safeConsole("debug")) {
+      console.log(`[DEBUG] Test phase set to: ${phase}`);
+    }
+  }
+
+  // Enhance the enforcePrerequisite method
+  enforcePrerequisite(key) {
+    if (global.skipRemainingTests) {
+      const errorMsg = "Skipping due to global test failure";
+      if (this.safeConsole("log")) {
+        console.log(`[INFO] ⏭️ ${errorMsg}`);
+      }
+      throw new Error(errorMsg);
+    }
+
+    if (key === "createdId") {
+      const currentId = this.getCreatedId();
+      if (!currentId) {
+        const errorMsg = "No created ID available - CREATE test must run first";
+        if (this.safeConsole("log")) {
+          console.log(`[INFO] ⏭️ ${errorMsg}`);
+        }
+        throw new Error(errorMsg);
+      }
+    } else if (!this[key]) {
+      if (this.safeConsole("log")) {
+        console.log(
+          `[WARN] Skipping test: Missing prerequisite (${key} is undefined)`
+        );
+      }
+      throw new Error(`Skipping due to failed prerequisite: ${key}`);
+    }
+  }
+
   // --- Initialization & Setup ---
   async initialize() {
     this.loadSchema(); // Added
@@ -121,28 +158,33 @@ class CrudLifecycleHelper {
   }
 
   // --- Enhanced ID File Management ---
-  saveCreatedIdToFile(createdId) {
+  /**
+   * Enhanced ID file management with test phase awareness
+   */
+  saveCreatedIdToFile(createdId, testPhase = "CREATE") {
     try {
+      const fileData = {
+        createdId: createdId,
+        timestamp: new Date().toISOString(),
+        module: this.actualModulePath,
+        operations: Object.keys(this.moduleConfig.operations),
+        testPhase: testPhase,
+        testRunId: this.getTestRunId(), // Unique identifier for this test run
+      };
+
       // Save to JSON file (for structured data)
       fs.writeFileSync(
         FILE_PATHS.CREATED_ID_FILE,
-        JSON.stringify(
-          {
-            createdId: createdId,
-            timestamp: new Date().toISOString(),
-            module: this.actualModulePath,
-            operations: Object.keys(this.moduleConfig.operations),
-          },
-          null,
-          2
-        )
+        JSON.stringify(fileData, null, 2)
       );
 
       // Save to simple text file (for easy access by other tests)
       fs.writeFileSync(FILE_PATHS.CREATED_ID_TXT, createdId, "utf8");
 
       if (this.safeConsole("log")) {
-        console.log(`[INFO] 💾 Saved created ID to files:`);
+        console.log(
+          `[INFO] 💾 Saved created ID to files (Phase: ${testPhase}):`
+        );
         console.log(`       📄 JSON: ${FILE_PATHS.CREATED_ID_FILE}`);
         console.log(`       📝 TXT: ${FILE_PATHS.CREATED_ID_TXT}`);
         console.log(`       🔑 ID: ${createdId}`);
@@ -158,6 +200,37 @@ class CrudLifecycleHelper {
       }
       return false;
     }
+  }
+
+  /**
+   * Enhanced file existence check for resilience test
+   */
+  verifyFilePersistence() {
+    const fs = require("fs");
+    const { FILE_PATHS } = Constants;
+
+    const filesExist = {
+      txtFile: fs.existsSync(FILE_PATHS.CREATED_ID_TXT),
+      jsonFile: fs.existsSync(FILE_PATHS.CREATED_ID_FILE),
+    };
+
+    if (this.safeConsole("debug")) {
+      console.log(`[DEBUG] File persistence check:`);
+      console.log(`  - TXT File exists: ${filesExist.txtFile}`);
+      console.log(`  - JSON File exists: ${filesExist.jsonFile}`);
+    }
+
+    return filesExist;
+  }
+
+  // Add this method to generate unique test run ID
+  getTestRunId() {
+    if (!this.testRunId) {
+      this.testRunId = `testrun_${Date.now()}_${Math.random()
+        .toString(36)
+        .substr(2, 9)}`;
+    }
+    return this.testRunId;
   }
 
   /**
@@ -438,8 +511,11 @@ class CrudLifecycleHelper {
         `Update operation ${operationKey} not found for module ${this.actualModulePath}`
       );
     }
-    const toRemove = "/" + currentId;
-    const updateEndpoint = operation.endpoint.replace(toRemove, "");
+
+    // FIXED: Use the properly constructed endpoint from modules-config
+    // The endpoint should already have the ID properly integrated
+    const updateEndpoint = operation.endpoint;
+
     if (this.safeConsole("log")) {
       console.log(
         `[INFO] 🌐 Calling ${operationKey} endpoint: ${updateEndpoint}`
@@ -656,25 +732,6 @@ class CrudLifecycleHelper {
     }
   }
 
-  enforcePrerequisite(key) {
-    if (global.skipRemainingTests) {
-      throw new Error("Skipping due to global test failure");
-    }
-
-    if (key === "createdId") {
-      if (!this.getCreatedId()) {
-        throw new Error("No created ID available - CREATE test must run first");
-      }
-    } else if (!this[key]) {
-      if (this.safeConsole("log")) {
-        console.log(
-          `[WARN] Skipping test: Missing prerequisite (${key} is undefined)`
-        );
-      }
-      throw new Error(`Skipping due to failed prerequisite: ${key}`);
-    }
-  }
-
   recordTestStatus(testName, state) {
     const status = state.currentTestResults?.some((r) => r.status === "failed")
       ? "failed"
@@ -688,34 +745,58 @@ class CrudLifecycleHelper {
     });
   }
 
+  // Modify cleanup to be phase-aware
   async cleanup() {
     this.generateSummary();
 
-    // Only clear ID if all tests passed
+    // Only clear ID if all tests passed AND we're in the final phase
     const failedTests = this.testResults.filter(
       (r) => r.status === "failed"
     ).length;
 
-    if (failedTests === 0) {
+    if (failedTests === 0 && this.currentTestPhase === "FINAL") {
       if (this.safeConsole("log")) {
         console.log(
           `[INFO] 🗑️ Cleared created ID from memory and files (all tests passed)`
         );
       }
+      this.clearCreatedId();
     } else {
       if (this.safeConsole("log")) {
         console.log(
-          `[INFO] 💾 Keeping created ID files due to test failures: ${failedTests} failed`
+          `[INFO] 💾 Keeping created ID files (failures: ${failedTests}, phase: ${this.currentTestPhase})`
         );
       }
     }
-
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🏁 Completed CRUD lifecycle tests for ${this.actualModulePath}`
-      );
-    }
   }
+  // async cleanup() {
+  //   this.generateSummary();
+
+  //   // Only clear ID if all tests passed
+  //   const failedTests = this.testResults.filter(
+  //     (r) => r.status === "failed"
+  //   ).length;
+
+  //   if (failedTests === 0) {
+  //     if (this.safeConsole("log")) {
+  //       console.log(
+  //         `[INFO] 🗑️ Cleared created ID from memory and files (all tests passed)`
+  //       );
+  //     }
+  //   } else {
+  //     if (this.safeConsole("log")) {
+  //       console.log(
+  //         `[INFO] 💾 Keeping created ID files due to test failures: ${failedTests} failed`
+  //       );
+  //     }
+  //   }
+
+  //   if (this.safeConsole("log")) {
+  //     console.log(
+  //       `[INFO] 🏁 Completed CRUD lifecycle tests for ${this.actualModulePath}`
+  //     );
+  //   }
+  // }
 
   generateSummary() {
     const summary = {
