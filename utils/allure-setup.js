@@ -1,4 +1,4 @@
-// utils/allure-setup.js - Enhanced with proper status handling
+// utils/allure-setup.js - Professional Allure integration
 const fs = require("fs");
 const path = require("path");
 
@@ -7,6 +7,7 @@ class AllureReporter {
     this.resultsDir = path.join(process.cwd(), "allure-results");
     this.ensureResultsDir();
     this.currentTest = null;
+    this.testSuite = "Enterprise API Testing Suite";
   }
 
   ensureResultsDir() {
@@ -30,31 +31,59 @@ class AllureReporter {
     this.currentTest = {
       uuid: this.generateUUID(),
       name: testName,
-      historyId: testName,
-      fullName: testName,
+      historyId: this.generateHistoryId(testName),
+      fullName: `${this.testSuite} - ${testName}`,
       labels: [
         { name: "framework", value: "Jest" },
         { name: "language", value: "JavaScript" },
-        { name: "epic", value: "API Testing" },
-        { name: "feature", value: "Comprehensive API Security and Validation" },
+        { name: "package", value: "api-testing-project" },
+        { name: "suite", value: this.testSuite },
+        { name: "testType", value: this.determineTestType(testName) },
+        { name: "epic", value: "Enterprise API Testing" },
       ],
       links: [],
       start: Date.now(),
       steps: [],
       attachments: [],
       parameters: [],
-      status: "passed", // Default status
+      status: "passed",
       statusDetails: {},
-      stage: "finished",
+      stage: "running",
     };
 
     console.log(`🔧 Starting Allure test: ${testName}`);
     return this.currentTest;
   }
 
-  endTest(status = "passed") {
+  generateHistoryId(testName) {
+    // Create consistent history ID for trend analysis
+    return Buffer.from(testName).toString("base64");
+  }
+
+  determineTestType(testName) {
+    const name = testName.toLowerCase();
+    if (
+      name.includes("crud") ||
+      name.includes("create") ||
+      name.includes("update") ||
+      name.includes("delete")
+    ) {
+      return "CRUD";
+    } else if (name.includes("security") || name.includes("malicious")) {
+      return "Security";
+    } else if (name.includes("token") || name.includes("auth")) {
+      return "Authentication";
+    } else if (name.includes("validation") || name.includes("schema")) {
+      return "Validation";
+    } else if (name.includes("resilience") || name.includes("persistence")) {
+      return "Resilience";
+    } else {
+      return "Functional";
+    }
+  }
+
+  endTest(status = "passed", error = null) {
     if (this.currentTest) {
-      // Ensure status is valid for Allure
       const validStatus = ["passed", "failed", "broken", "skipped"].includes(
         status
       )
@@ -65,49 +94,90 @@ class AllureReporter {
       this.currentTest.stop = Date.now();
       this.currentTest.duration =
         this.currentTest.stop - this.currentTest.start;
+      this.currentTest.stage = "finished";
 
-      // Add status details for failed tests
-      if (validStatus === "failed") {
+      // Enhanced status details
+      if (validStatus === "failed" || validStatus === "broken") {
         this.currentTest.statusDetails = {
-          message: "Test failed due to assertion errors or exceptions",
-          trace: `Test duration: ${this.currentTest.duration}ms`,
+          message: error?.message || "Test execution failed",
+          trace:
+            error?.stack || `Test failed after ${this.currentTest.duration}ms`,
+          flaky: false,
         };
       }
 
+      // Add severity based on test type
+      this.addSeverityLabel();
+
       this.saveToAllureFormat();
       console.log(
-        `📊 Allure test ended: ${this.currentTest.name} - Status: ${validStatus}`
+        `📊 Allure test ended: ${this.currentTest.name} - Status: ${validStatus}, Duration: ${this.currentTest.duration}ms`
       );
       this.currentTest = null;
     }
   }
 
-  addStep(stepName) {
+  addSeverityLabel() {
+    const testName = this.currentTest.name.toLowerCase();
+    let severity = "normal";
+
+    if (testName.includes("critical") || testName.includes("security")) {
+      severity = "critical";
+    } else if (testName.includes("important") || testName.includes("crud")) {
+      severity = "high";
+    } else if (testName.includes("minor") || testName.includes("optional")) {
+      severity = "low";
+    }
+
+    this.addLabel("severity", severity);
+  }
+
+  startStep(stepName, parameters = {}) {
     if (this.currentTest) {
       const step = {
         name: stepName,
         start: Date.now(),
         status: "passed",
-        stage: "finished",
+        stage: "running",
         steps: [],
         attachments: [],
+        parameters: Object.entries(parameters).map(([name, value]) => ({
+          name,
+          value: String(value),
+          excluded: false,
+          mode: "hidden",
+        })),
       };
       this.currentTest.steps.push(step);
+      console.log(`  ↳ Starting step: ${stepName}`);
       return step;
     }
     return null;
   }
 
-  endStep(step, status = "passed") {
+  endStep(step, status = "passed", error = null) {
     if (step) {
       step.status = status;
       step.stop = Date.now();
       step.duration = step.stop - step.start;
+      step.stage = "finished";
+
+      if (status === "failed" && error) {
+        step.statusDetails = {
+          message: error.message,
+          trace: error.stack,
+        };
+      }
 
       // If step fails, mark the test as failed
       if (status === "failed" && this.currentTest.status === "passed") {
         this.currentTest.status = "failed";
+        this.currentTest.statusDetails = step.statusDetails;
       }
+
+      console.log(
+        `  ↳ Step completed: ${step.name} - ${status} (${step.duration}ms)`
+      );
     }
   }
 
@@ -119,7 +189,6 @@ class AllureReporter {
           ? JSON.stringify(content, null, 2)
           : content.toString();
 
-      // Save attachment file
       const attachmentFile = path.join(
         this.resultsDir,
         `${attachmentId}-attachment.txt`
@@ -131,10 +200,12 @@ class AllureReporter {
         source: `${attachmentId}-attachment.txt`,
         type,
       });
+
+      console.log(`  📎 Attachment added: ${name}`);
     }
   }
 
-  // Allure API methods
+  // Enhanced Allure API methods
   epic(value) {
     this.addLabel("epic", value);
   }
@@ -167,6 +238,27 @@ class AllureReporter {
     }
   }
 
+  addParameter(name, value, mode = "hidden") {
+    if (this.currentTest) {
+      this.currentTest.parameters.push({
+        name,
+        value: String(value),
+        excluded: false,
+        mode,
+      });
+    }
+  }
+
+  addLink(name, url, type = "custom") {
+    if (this.currentTest) {
+      this.currentTest.links.push({
+        name,
+        url,
+        type,
+      });
+    }
+  }
+
   setDescription(value) {
     this.description(value);
   }
@@ -182,7 +274,6 @@ class AllureReporter {
         `${this.currentTest.uuid}-result.json`
       );
 
-      // Format according to Allure specification
       const allureResult = {
         uuid: this.currentTest.uuid,
         historyId: this.currentTest.historyId,
@@ -202,9 +293,6 @@ class AllureReporter {
       };
 
       fs.writeFileSync(resultFile, JSON.stringify(allureResult, null, 2));
-      console.log(
-        `💾 Saved Allure result: ${this.currentTest.name} - ${this.currentTest.status}`
-      );
     }
   }
 
@@ -216,6 +304,7 @@ class AllureReporter {
       statusDetails: step.statusDetails || {},
       steps: step.steps.map((subStep) => this.formatStep(subStep)),
       attachments: step.attachments,
+      parameters: step.parameters,
       start: step.start,
       stop: step.stop,
     };

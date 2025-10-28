@@ -1,337 +1,248 @@
-// jest.setup.js - Complete CommonJS version with all required Allure methods
-const logger = require("./utils/logger");
+// jest.setup.js - Enhanced with missing methods
+const fs = require("fs");
+const path = require("path");
 
-// Enhanced global allure object with all required methods
-global.allure = {
-  // Test lifecycle methods
-  startTest: (testName) => {
-    console.log(`🔧 Starting Allure test: ${testName}`);
-    // Initialize test state for this test
-    global.currentTest = {
-      name: testName,
-      startTime: new Date(),
-      status: "passed",
-      steps: [],
-    };
-  },
+class AllureSetup {
+  constructor() {
+    this.resultsDir = path.join(process.cwd(), "allure-results");
+    this.ensureResultsDir();
+    this._isInitialized = false;
+  }
 
-  endTest: (status = "passed") => {
-    const testName = global.currentTest?.name || "Unknown Test";
-    const duration = global.currentTest
-      ? new Date() - global.currentTest.startTime
-      : 0;
+  ensureResultsDir() {
+    if (!fs.existsSync(this.resultsDir)) {
+      fs.mkdirSync(this.resultsDir, { recursive: true });
+    }
+  }
 
-    console.log(
-      `📊 Allure test ended: ${testName} - Status: ${status}, Duration: ${duration}ms`
+  generateUUID() {
+    return "xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx".replace(
+      /[xy]/g,
+      function (c) {
+        const r = (Math.random() * 16) | 0;
+        const v = c == "x" ? r : (r & 0x3) | 0x8;
+        return v.toString(16);
+      }
+    );
+  }
+
+  // SAFE: Direct console.log without using logger
+  safeLog(message) {
+    console.log(`[ALLURE] ${message}`);
+  }
+
+  attachAllureLog(name, content) {
+    // Prevent recursion - don't process if this is a logger message
+    if (
+      typeof content === "string" &&
+      (content.includes("[INFO]") ||
+        content.includes("[DEBUG]") ||
+        content.includes("[WARN]") ||
+        content.includes("[ERROR]") ||
+        content.includes("[ALLURE]"))
+    ) {
+      return; // Skip logger messages to prevent recursion
+    }
+
+    if (!global.currentAllureTest) return;
+
+    const attachmentId = this.generateUUID();
+    const attachmentContent =
+      typeof content === "object"
+        ? JSON.stringify(content, null, 2)
+        : String(content);
+
+    const attachmentFile = path.join(
+      this.resultsDir,
+      `${attachmentId}-attachment.txt`
+    );
+    fs.writeFileSync(attachmentFile, attachmentContent);
+
+    if (!global.currentAllureTest.attachments) {
+      global.currentAllureTest.attachments = [];
+    }
+
+    global.currentAllureTest.attachments.push({
+      name: name,
+      source: `${attachmentId}-attachment.txt`,
+      type: "text/plain",
+    });
+
+    this.safeLog(`ATTACHMENT: ${name}`);
+  }
+
+  attachJSON(name, jsonData) {
+    if (!global.currentAllureTest) return;
+
+    const attachmentId = this.generateUUID();
+    const jsonContent =
+      typeof jsonData === "object"
+        ? JSON.stringify(jsonData, null, 2)
+        : jsonData;
+
+    const attachmentFile = path.join(
+      this.resultsDir,
+      `${attachmentId}-attachment.json`
+    );
+    fs.writeFileSync(attachmentFile, jsonContent);
+
+    if (!global.currentAllureTest.attachments) {
+      global.currentAllureTest.attachments = [];
+    }
+
+    global.currentAllureTest.attachments.push({
+      name: name,
+      source: `${attachmentId}-attachment.json`,
+      type: "application/json",
+    });
+
+    this.safeLog(`ATTACHMENT: ${name} (JSON)`);
+  }
+
+  addLabel(name, value) {
+    if (!global.currentAllureTest) return;
+
+    if (!global.currentAllureTest.labels) {
+      global.currentAllureTest.labels = [];
+    }
+
+    // Remove existing label if it exists
+    global.currentAllureTest.labels = global.currentAllureTest.labels.filter(
+      (label) => label.name !== name
     );
 
-    // Reset current test
-    global.currentTest = null;
-  },
+    global.currentAllureTest.labels.push({ name, value });
+  }
 
-  // Test metadata methods
-  epic: (name) => {
-    console.log(`📖 EPIC: ${name}`);
-    global.allure.addLabel("epic", name);
-  },
+  // ADD MISSING METHOD: addParameter
+  addParameter(name, value, mode = "hidden") {
+    if (!global.currentAllureTest) return;
 
-  feature: (name) => {
-    console.log(`🎯 FEATURE: ${name}`);
-    global.allure.addLabel("feature", name);
-  },
-
-  story: (name) => {
-    console.log(`📚 STORY: ${name}`);
-    global.allure.addLabel("story", name);
-  },
-
-  severity: (level) => {
-    console.log(`🚨 SEVERITY: ${level}`);
-    global.allure.addLabel("severity", level);
-  },
-
-  description: (text) => {
-    console.log(`📝 DESCRIPTION: ${text}`);
-  },
-
-  addLabel: (name, value) => {
-    console.log(`🏷️ LABEL: ${name}=${value}`);
-  },
-
-  // Step methods
-  step: (name, stepFn) => {
-    console.log(`🔹 ALLURE STEP: ${name}`);
-    const startTime = new Date();
-    try {
-      const result = stepFn();
-      const duration = new Date() - startTime;
-      console.log(`✅ ALLURE STEP COMPLETED: ${name} (${duration}ms)`);
-      return result;
-    } catch (error) {
-      const duration = new Date() - startTime;
-      console.log(
-        `❌ ALLURE STEP FAILED: ${name} - ${error.message} (${duration}ms)`
-      );
-      throw error;
-    }
-  },
-
-  // Attachment methods
-  attachment: (name, content, type = "text/plain") => {
-    console.log(`📎 ATTACHMENT: ${name} (${type})`);
-    if (typeof content === "object") {
-      content = JSON.stringify(content, null, 2);
-    }
-    console.log(`   Content: ${content.substring(0, 100)}...`);
-  },
-
-  // Parameter methods
-  parameter: (name, value) => {
-    console.log(`🔧 PARAMETER: ${name}=${value}`);
-  },
-
-  // Link methods
-  link: (url, name, type) => {
-    console.log(`🔗 LINK: ${name} - ${url} (${type})`);
-  },
-
-  // Suite methods
-  parentSuite: (name) => {
-    console.log(`🏠 PARENT SUITE: ${name}`);
-  },
-
-  suite: (name) => {
-    console.log(`📁 SUITE: ${name}`);
-  },
-
-  subSuite: (name) => {
-    console.log(`📂 SUB SUITE: ${name}`);
-  },
-
-  // Owner methods
-  owner: (name) => {
-    console.log(`👤 OWNER: ${name}`);
-  },
-
-  // Lead methods
-  lead: (name) => {
-    console.log(`👑 LEAD: ${name}`);
-  },
-
-  // Issue and TMS links
-  issue: (name, url) => {
-    console.log(`🐛 ISSUE: ${name} - ${url}`);
-  },
-
-  tms: (name, url) => {
-    console.log(`✅ TMS: ${name} - ${url}`);
-  },
-
-  // Test ID
-  testId: (id) => {
-    console.log(`🆔 TEST ID: ${id}`);
-  },
-
-  // History ID
-  historyId: (id) => {
-    console.log(`🕰️ HISTORY ID: ${id}`);
-  },
-};
-
-// Global allureStep function (enhanced version)
-global.allureStep = async (name, stepFunction) => {
-  console.log(`🔹 STEP: ${name}`);
-  const startTime = new Date();
-
-  try {
-    const result = await stepFunction();
-    const duration = new Date() - startTime;
-    console.log(`✅ STEP COMPLETED: ${name} (${duration}ms)`);
-
-    // Add step to current test if it exists
-    if (global.currentTest) {
-      global.currentTest.steps.push({
-        name,
-        status: "passed",
-        duration,
-      });
+    if (!global.currentAllureTest.parameters) {
+      global.currentAllureTest.parameters = [];
     }
 
-    return result;
-  } catch (error) {
-    const duration = new Date() - startTime;
-    console.log(`❌ STEP FAILED: ${name} - ${error.message} (${duration}ms)`);
+    global.currentAllureTest.parameters.push({
+      name,
+      value: String(value),
+      excluded: false,
+      mode,
+    });
+  }
 
-    // Mark step as failed
-    if (global.currentTest) {
-      global.currentTest.steps.push({
-        name,
-        status: "failed",
-        duration,
-        error: error.message,
-      });
-      global.currentTest.status = "failed";
+  // ADD MISSING METHOD: description
+  description(value) {
+    if (global.currentAllureTest) {
+      global.currentAllureTest.description = value;
+    }
+  }
+
+  // ADD MISSING METHOD: addLink
+  addLink(name, url, type = "custom") {
+    if (!global.currentAllureTest) return;
+
+    if (!global.currentAllureTest.links) {
+      global.currentAllureTest.links = [];
     }
 
-    throw error;
-  }
-};
-
-// Global attach functions
-global.attachJSON = (name, data) => {
-  const content =
-    typeof data === "string" ? data : JSON.stringify(data, null, 2);
-  console.log(
-    `📊 ${name}:`,
-    content.substring(0, 200) + (content.length > 200 ? "..." : "")
-  );
-
-  // Also add as allure attachment
-  if (global.allure.attachment) {
-    global.allure.attachment(name, content, "application/json");
-  }
-};
-
-global.attachAllureLog = (name, message) => {
-  const content =
-    typeof message === "string" ? message : JSON.stringify(message);
-  console.log(`📋 ${name}:`, content);
-
-  // Also add as allure attachment
-  if (global.allure.attachment) {
-    global.allure.attachment(name, content, "text/plain");
-  }
-};
-
-// Enhanced test state tracking
-global.testState = {
-  hasAssertionErrors: false,
-  testStatus: "passed",
-  currentTest: null,
-  startTime: null,
-};
-
-// Enhanced test lifecycle hooks with proper status detection
-beforeEach(() => {
-  const testState = expect.getState();
-  const testName = testState.currentTestName;
-
-  if (testName) {
-    // Start allure test
-    global.allure.startTest(testName);
-
-    // Reset test state
-    global.testState.hasAssertionErrors = false;
-    global.testState.testStatus = "passed";
-    global.testState.currentTest = testName;
-    global.testState.startTime = new Date();
-
-    // Set default labels
-    global.allure.addLabel("framework", "Jest");
-    global.allure.addLabel("language", "JavaScript");
-    global.allure.addLabel("test-type", "api-testing");
-
-    console.log(`🚀 Test starting: ${testName}`);
-  }
-});
-
-afterEach(() => {
-  const testState = expect.getState();
-  const testName = testState.currentTestName || global.testState.currentTest;
-
-  if (!testName) return;
-
-  // Determine test status based on multiple factors
-  let finalStatus = "passed";
-
-  // Check if we have assertion errors
-  if (global.testState.hasAssertionErrors) {
-    finalStatus = "failed";
+    global.currentAllureTest.links.push({
+      name,
+      url,
+      type,
+    });
   }
 
-  // Check Jest's internal state
-  if (testState.snapshotState && testState.snapshotState.unmatched > 0) {
-    finalStatus = "failed";
+  addStep(stepName) {
+    if (!global.currentAllureTest) return null;
+
+    if (!global.currentAllureTest.steps) {
+      global.currentAllureTest.steps = [];
+    }
+
+    const step = {
+      name: stepName,
+      start: Date.now(),
+      status: "passed",
+      stage: "running",
+    };
+
+    global.currentAllureTest.steps.push(step);
+    return step;
   }
 
-  // Check if any test results indicate failure
-  if (
-    testState.currentTestResults &&
-    testState.currentTestResults.some((r) => r.status === "failed")
-  ) {
-    finalStatus = "failed";
+  endStep(step, status = "passed") {
+    if (step) {
+      step.status = status;
+      step.stop = Date.now();
+      step.stage = "finished";
+      step.duration = step.stop - step.start;
+    }
   }
 
-  // Check our internal test state
-  if (global.testState.testStatus === "failed") {
-    finalStatus = "failed";
-  }
+  initialize() {
+    if (this._isInitialized) return;
 
-  // Check if current test was marked as failed
-  if (global.currentTest && global.currentTest.status === "failed") {
-    finalStatus = "failed";
-  }
+    // Global allure methods - SAFE: No logger dependencies
+    global.attachAllureLog = this.attachAllureLog.bind(this);
+    global.attachJSON = this.attachJSON.bind(this);
 
-  // Calculate duration
-  const duration = global.testState.startTime
-    ? new Date() - global.testState.startTime
-    : 0;
-
-  // End the test with proper status
-  global.allure.endTest(finalStatus);
-
-  // Log test completion
-  if (finalStatus === "passed") {
-    console.log(`✅ ${testName} - PASSED (${duration}ms)`);
-  } else {
-    console.log(`❌ ${testName} - FAILED (${duration}ms)`);
-
-    // Log any step failures
-    if (global.currentTest && global.currentTest.steps) {
-      const failedSteps = global.currentTest.steps.filter(
-        (step) => step.status === "failed"
-      );
-      if (failedSteps.length > 0) {
-        console.log(
-          `   Failed steps: ${failedSteps.map((step) => step.name).join(", ")}`
-        );
+    global.allureStep = async function (stepName, stepFunction) {
+      const step = allureSetup.addStep(stepName);
+      try {
+        const result = await stepFunction();
+        allureSetup.endStep(step, "passed");
+        return result;
+      } catch (error) {
+        allureSetup.endStep(step, "failed");
+        throw error;
       }
-    }
+    };
+
+    // Enhanced global allure object with ALL required methods
+    global.allure = {
+      // Labels and metadata
+      addLabel: this.addLabel.bind(this),
+      addParameter: this.addParameter.bind(this),
+      description: this.description.bind(this),
+      addLink: this.addLink.bind(this),
+
+      // Test categorization
+      epic: (value) => this.addLabel("epic", value),
+      feature: (value) => this.addLabel("feature", value),
+      story: (value) => this.addLabel("story", value),
+      severity: (value) => this.addLabel("severity", value),
+
+      // Suite organization
+      suite: (value) => this.addLabel("suite", value),
+      parentSuite: (value) => this.addLabel("parentSuite", value),
+      subSuite: (value) => this.addLabel("subSuite", value),
+
+      // Test management
+      owner: (value) => this.addLabel("owner", value),
+      lead: (value) => this.addLabel("lead", value),
+
+      // Issue tracking
+      issue: (value) =>
+        this.addLink(value, `https://example.com/issue/${value}`, "issue"),
+      tms: (value) =>
+        this.addLink(value, `https://example.com/tms/${value}`, "tms"),
+      testId: (value) => this.addLabel("testId", value),
+
+      // Convenience methods
+      setDescription: this.description.bind(this),
+      setSeverity: (value) => this.addLabel("severity", value),
+    };
+
+    this._isInitialized = true;
+    this.safeLog("Enhanced Allure Setup initialized - COMPLETE METHODS");
+    this.safeLog(
+      "Available methods: addLabel, addParameter, description, epic, feature, story, severity, suite, etc."
+    );
   }
+}
 
-  // Clean up
-  global.testState.currentTest = null;
-  global.testState.startTime = null;
-});
+// Initialize safely
+const allureSetup = new AllureSetup();
+allureSetup.initialize();
 
-// Enhanced error handling
-process.on("unhandledRejection", (reason, promise) => {
-  console.error("❌ Unhandled Rejection at:", promise, "reason:", reason);
-  global.testState.hasAssertionErrors = true;
-  global.testState.testStatus = "failed";
-
-  // Mark current test as failed if there is one
-  if (global.currentTest) {
-    global.currentTest.status = "failed";
-  }
-});
-
-process.on("uncaughtException", (error) => {
-  console.error("❌ Uncaught Exception:", error);
-  global.testState.hasAssertionErrors = true;
-  global.testState.testStatus = "failed";
-
-  // Mark current test as failed if there is one
-  if (global.currentTest) {
-    global.currentTest.status = "failed";
-  }
-});
-
-// Test environment verification
-console.log(
-  "✅ Enhanced Allure Reporter initialized with proper test status detection"
-);
-console.log(
-  "✅ Global allure methods available:",
-  Object.keys(global.allure).join(", ")
-);
+module.exports = allureSetup;

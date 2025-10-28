@@ -18,12 +18,30 @@
                     "failed",
                     "broken"
                 ]
+            },
+            {
+                "name": "Authentication Tests",
+                "messageRegex": ".*token.*|.*auth.*",
+                "matchedStatuses": [
+                    "failed",
+                    "broken"
+                ]
+            },
+            {
+                "name": "API Validation Tests",
+                "messageRegex": ".*validation.*|.*schema.*",
+                "matchedStatuses": [
+                    "failed",
+                    "broken"
+                ]
             }
         ],
         "environment": {
             "framework": "Jest",
             "language": "JavaScript",
-            "allure_version": "2.13.0"
+            "allure_version": "2.13.0",
+            "project": "ERP API Testing",
+            "test_type": "comprehensive"
         }
     }
 }
