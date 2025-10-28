@@ -1,0 +1,103 @@
+{
+  "Accounting": {
+    "Transaction": {
+      "Journal_Entry": {
+        "Post": [
+          "https://api.microtecstage.com/erp-apis/JournalEntry",
+          {
+            "refrenceNumber": null,
+            "journalDate": "2025-10-28",
+            "periodId": "Period1",
+            "isHeaderDescriptionCopied": true,
+            "description": "fgrdgtrg",
+            "journalEntryLines": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "accountId": 86,
+                "creditAmount": 0,
+                "currencyId": 4,
+                "currencyRate": 1,
+                "debitAmount": "150",
+                "lineDescription": "fgrdgtrg",
+                "createdOn": "2025-10-28T10:08:18",
+                "isVatLine": false,
+                "hasVat": false,
+                "costCenters": []
+              }
+            ],
+            "journalEntryAttachments": []
+          }
+        ],
+        "PUT": [
+          "https://api.microtecstage.com/erp-apis/JournalEntry/Edit",
+          {
+            "journalCode": "JENT_00188",
+            "referenceNumber": "10",
+            "journalDate": "2025-10-16T00:00:00",
+            "description": "55",
+            "journalPeriod": "10-2025",
+            "isHeaderDescriptionCopied": false,
+            "type": "Manual",
+            "sourceName": "",
+            "sourceCode": null,
+            "reversedJournalCode": null,
+            "status": "Unbalanced",
+            "totalDebitAmount": 100,
+            "totalCreditAmount": 0,
+            "journalEntryLines": [
+              {
+                "accountName": "default Bank Account",
+                "lineDescription": "default Bank Account",
+                "debitAmount": 100,
+                "currency": "Saudi Riyal",
+                "currencyRate": 1,
+                "debitAmountLocal": 100,
+                "creditAmountLocal": 0,
+                "accountCode": "1101001",
+                "costCenters": [],
+                "selectedFalg": false,
+                "costCenterConfig": "NotAllow",
+                "currencyId": 4,
+                "accountId": 1376,
+                "isVatLine": false,
+                "hasVat": false,
+                "createdOn": "2025-10-16T11:11:35",
+                "creditAmount": 0,
+                "id": "c05fb932-56d0-484c-1747-08de0c2835f4"
+              },
+              {
+                "accountName": "البنك الاهلي",
+                "lineDescription": "البنك الاهلي",
+                "debitAmount": 10,
+                "currency": "US Dollar",
+                "currencyRate": 1,
+                "debitAmountLocal": 10,
+                "creditAmountLocal": 0,
+                "accountCode": "1101002",
+                "costCenters": [],
+                "selectedFalg": true,
+                "costCenterConfig": "NotAllow",
+                "currencyId": 1,
+                "accountId": 2592,
+                "isVatLine": false,
+                "hasVat": false,
+                "createdOn": "2025-10-16T11:12:38",
+                "creditAmount": 0
+              }
+            ],
+            "journalEntryAttachments": [],
+            "id": "<createdId>"
+          }
+        ],
+        "DELETE": [
+          "https://api.microtecstage.com/erp-apis/JournalEntry/<createdId>",
+          {}
+        ],
+        "View": [
+          "https://api.microtecstage.com/erp-apis/JournalEntry/View?Id=<createdId>",
+          {}
+        ]
+      }
+    }
+  }
+}
