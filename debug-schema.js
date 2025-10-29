@@ -6,7 +6,7 @@ const schemaPath = path.join(
   __dirname,
   "test-data",
   "Input",
-  "JL-Backend-Api-Schema.json"
+  "Main-Backend-Api-Schema.json"
 );
 
 try {

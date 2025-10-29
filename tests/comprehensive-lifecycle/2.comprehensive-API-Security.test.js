@@ -100,17 +100,24 @@ describe("Comprehensive API Security Testing", () => {
     securityTestSummary.endTime = new Date().toISOString();
 
     // Generate comprehensive test report
+    const healthyModules = testResults.filter(
+      (r) => r.status === "passed"
+    ).length;
+    const failedModules = testResults.filter(
+      (r) => r.status === "failed"
+    ).length;
+
     const summary = {
-      execution: securityTestSummary,
+      execution: {
+        ...securityTestSummary,
+        healthyModules,
+        failedModules,
+      },
       modules: {
         total: availableModules.length,
-        tested: testResults.filter((r) => r.status).length,
-        details: testResults.map((r) => ({
-          module: r.module,
-          status: r.status,
-          duration: r.duration,
-          tests: r.testCount || 0,
-        })),
+        tested: testResults.length,
+        healthy: healthyModules,
+        failed: failedModules,
       },
       security: {
         authorization: testResults.filter(
@@ -131,6 +138,8 @@ describe("Comprehensive API Security Testing", () => {
     logger.info("=".repeat(50));
     logger.info(`   Total Modules: ${summary.modules.total}`);
     logger.info(`   Tested Modules: ${summary.modules.tested}`);
+    logger.info(`   ✅ Healthy Modules: ${summary.modules.healthy}`);
+    logger.info(`   ❌ Failed Modules: ${summary.modules.failed}`);
     logger.info(`   ✅ Passed Tests: ${securityTestSummary.passedTests}`);
     logger.info(`   ❌ Failed Tests: ${securityTestSummary.failedTests}`);
     logger.info(`   ⏸️  Skipped Tests: ${securityTestSummary.skippedTests}`);
@@ -222,6 +231,12 @@ describe("Comprehensive API Security Testing", () => {
             endpoints: validEndpoints,
             endpointCount: validEndpoints.length,
           });
+
+          logger.debug(
+            `🔍 Found module: ${fullPath} with endpoints: ${validEndpoints.join(
+              ", "
+            )}`
+          );
         }
 
         // Recursively check nested modules with depth control
