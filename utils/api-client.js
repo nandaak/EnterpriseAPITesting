@@ -204,9 +204,15 @@ class ApiClient {
     }
   }
 
+  // Update the get method to use normalized URLs
   async get(url, config = {}) {
-    return this.request({ method: "GET", url, ...config });
+    const normalizedUrl = this.normalizeUrl(url);
+    return this.request({ method: "GET", url: normalizedUrl, ...config });
   }
+
+  // async get(url, config = {}) {
+  //   return this.request({ method: "GET", url, ...config });
+  // }
 
   async post(url, data, config = {}) {
     return this.request({ method: "POST", url, data, ...config });
@@ -308,6 +314,25 @@ class ApiClient {
         `❌ Failed to create API client with token from file: ${error.message}`
       );
       throw error;
+    }
+  }
+
+  // Add this method to your ApiClient class
+  normalizeUrl(url) {
+    if (!url) return url;
+
+    const baseUrl = this.client.defaults.baseURL;
+
+    // Remove duplicate base URLs
+    if (url.startsWith(baseUrl + baseUrl)) {
+      return url.replace(baseUrl, "");
+    }
+
+    // Ensure proper URL format
+    if (url.startsWith("http")) {
+      return url;
+    } else {
+      return url.startsWith("/") ? url : `/${url}`;
     }
   }
 }
