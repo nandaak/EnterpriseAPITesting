@@ -17,7 +17,7 @@ const {
  * Scope: Automatically discovers and tests all modules with endpoints from schema
  *
  * @version 1.0.0
- * @author Enterprise Testing Team
+ * @author Mohamed Said Ibrahim
  */
 
 // Load the generated schema with enhanced error handling
