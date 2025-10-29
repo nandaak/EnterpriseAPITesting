@@ -10,7 +10,7 @@ const FILE_PATHS = {
     "..",
     "test-data",
     "Input",
-    "JL-Backend-Api-Schema.json"
+    "Main-Standarized-Backend-Api-Schema.json"
   ),
   TEST_RESULTS: path.join(__dirname, "..", "test-results"),
   ALLURE_RESULTS: path.join(__dirname, "..", "allure-results"),
