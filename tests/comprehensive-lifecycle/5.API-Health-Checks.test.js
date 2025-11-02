@@ -1,4 +1,3 @@
-const TestHelpers = require("../../utils/test-helpers");
 const logger = require("../../utils/logger");
 const apiClient = require("../../utils/api-client");
 const {
