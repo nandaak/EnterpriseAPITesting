@@ -3,7 +3,7 @@
   "version": "1.3.0",
   "description": "Comprehensive API Testing Suite for ERP System",
   "scripts": {
-        "crud-allure": "npx jest --runInBand tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
+    "crud-allure": "npx jest --runInBand tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
     "crud-minimal": "npx jest --runInBand --no-cache tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.minimal.js",
     "crud-no-allure": "npx jest --runInBand --no-cache tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.no-allure.js",
     "test-debug": "npx jest --runInBand --no-cache --verbose --detectOpenHandles tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
