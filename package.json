@@ -3,8 +3,14 @@
   "version": "1.3.0",
   "description": "Comprehensive API Testing Suite for ERP System",
   "scripts": {
+        "crud-allure": "npx jest --runInBand tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
+    "crud-minimal": "npx jest --runInBand --no-cache tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.minimal.js",
+    "crud-no-allure": "npx jest --runInBand --no-cache tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.no-allure.js",
+    "test-debug": "npx jest --runInBand --no-cache --verbose --detectOpenHandles tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
+    "test:no-babel": "npx jest --runInBand --no-cache --config=jest.config.no-babel.js tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js",
+    "test:simple": "npx jest test-simple.js --no-cache --config=jest.config.no-babel.js",
+    "install-deps": "npm install --save-dev @babel/core @babel/preset-env babel-jest",
     "crud": "npx jest tests/comprehensive-lifecycle/crud.test.js",
-    "crud-allure": "npx jest --runInBand tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
     "create-crude": "npx jest tests/comprehensive-lifecycle/crud.test.js -t 'CREATE CRUD' --verbose",
     "debug-token-status": "node debug-token-status.js",
     "debug-token-issue": "node debug-token-issue.js",
@@ -27,24 +33,15 @@
     "@babel/core": "^7.28.5",
     "@babel/preset-env": "^7.28.5",
     "allure-commandline": "^2.34.1",
-    "allure-js-commons": "^3.4.1",
-    "axios": "^1.13.0",
+    "allure-js-commons": "^3.4.2",
+    "axios": "^1.13.1",
     "babel-jest": "^30.2.0",
     "dotenv": "^17.2.3",
-    "jest": "^30.2.0",
-    "jest-allure2": "^1.2.3",
+    "jest": "^28.1.3",
     "jest-circus": "^30.2.0",
     "jest-circus-allure-environment": "^1.1.1",
     "jest-html-reporter": "^4.3.0",
-    "rimraf": "^6.0.1"
-  },
-  "jest": {
-    "testEnvironment": "node",
-    "setupFilesAfterEnv": [
-      "./jest.setup.js"
-    ],
-    "testTimeout": 30000,
-    "transform": {}
+    "rimraf": "^6.1.0"
   },
   "dependencies": {
     "playwright": "^1.56.1"
