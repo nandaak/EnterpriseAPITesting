@@ -1,11 +1,11 @@
 // tests/comprehensive-lifecycle/crud-lifecycle-helper.js - Enhanced with dynamic operations
 const fs = require("fs");
 const path = require("path");
-const { ApiClient } = require("../../utils/api-client");
-const TestHelpers = require("../../utils/test-helpers");
-const Constants = require("../../Constants");
-const TokenManager = require("../../utils/token-manager");
-const modulesConfig = require("../../config/modules-config");
+const { ApiClient } = require("./api-client");
+const TestHelpers = require("./test-helpers");
+const Constants = require("../Constants");
+const TokenManager = require("./token-manager");
+const modulesConfig = require("../config/modules-config");
 
 const { FILE_PATHS, HTTP_STATUS_CODES } = Constants;
 
