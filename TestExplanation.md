@@ -412,6 +412,6 @@ Update `constants.js` and environment variables to match your ERP system configu
 
 For questions or issues regarding this testing framework, please contact the QA team or refer to the internal documentation wiki.
 
-**Last Updated**: November 2024  
+**Last Updated**: November 2025  
 **Version**: 2.0.0  
 **Maintainer**: Enterprise QA Team

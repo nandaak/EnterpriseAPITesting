@@ -1888,6 +1888,965 @@ class TestHelpers {
       return healthResults;
     });
   }
+
+  /**
+   * REAL Business Logic Flaws Testing
+   * Tests for price manipulation, quantity tampering, workflow bypass
+   */
+  static async testBusinessLogicFlaws(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `Business Logic Flaws Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        // Test 1: Price Manipulation
+        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+          tests.push({
+            name: "Price Manipulation - Negative Values",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+              // Attempt to set negative price
+              testData.price = -100;
+              testData.amount = -50.75;
+
+              try {
+                const response = await apiClient.makeRequest(
+                  moduleConfig.Post[0],
+                  "POST",
+                  testData
+                );
+
+                // If request succeeds with negative values, vulnerability exists
+                if (response.status >= 200 && response.status < 300) {
+                  vulnerabilities.push(
+                    "Price manipulation: Negative values accepted"
+                  );
+                  return {
+                    success: false,
+                    vulnerability: "Negative price values accepted",
+                  };
+                }
+                return { success: true };
+              } catch (error) {
+                // Expected behavior - negative values should be rejected
+                if (error.response && error.response.status === 400) {
+                  return { success: true };
+                }
+                throw error;
+              }
+            },
+          });
+
+          // Test 2: Quantity Tampering
+          tests.push({
+            name: "Quantity Tampering - Excessive Values",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+              // Attempt to set unrealistically high quantity
+              testData.quantity = 999999999;
+              testData.amount = 0.01; // Low price with high quantity
+
+              try {
+                const response = await apiClient.makeRequest(
+                  moduleConfig.Post[0],
+                  "POST",
+                  testData
+                );
+
+                // Check if business logic validates quantity limits
+                if (response.status >= 200 && response.status < 300) {
+                  const responseData = response.data || {};
+                  if (responseData.quantity === 999999999) {
+                    vulnerabilities.push(
+                      "Quantity tampering: Excessive quantities accepted without validation"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "No quantity limit validation",
+                    };
+                  }
+                }
+                return { success: true };
+              } catch (error) {
+                // Expected behavior - excessive quantities should be rejected
+                if (error.response && error.response.status === 400) {
+                  return { success: true };
+                }
+                throw error;
+              }
+            },
+          });
+        }
+
+        // Test 3: Workflow Bypass (if PUT endpoint exists)
+        if (moduleConfig.PUT && moduleConfig.PUT[0] !== "URL_HERE") {
+          tests.push({
+            name: "Workflow State Bypass",
+            test: async () => {
+              // First create a resource
+              const createData = this.getDefaultTestData();
+              const createResponse = await apiClient.makeRequest(
+                moduleConfig.Post[0],
+                "POST",
+                createData
+              );
+
+              if (createResponse.status >= 200 && createResponse.status < 300) {
+                const resourceId = this.extractResourceId(createResponse);
+
+                // Attempt to bypass workflow states
+                const updateData = {
+                  status: "APPROVED", // Skip intermediate states
+                  approvedBy: "attacker",
+                  approvalDate: new Date().toISOString(),
+                };
+
+                try {
+                  const updateResponse = await apiClient.makeRequest(
+                    `${moduleConfig.PUT[0]}/${resourceId}`,
+                    "PUT",
+                    updateData
+                  );
+
+                  if (
+                    updateResponse.status >= 200 &&
+                    updateResponse.status < 300
+                  ) {
+                    vulnerabilities.push(
+                      "Workflow bypass: Direct state transition allowed"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Workflow state bypass possible",
+                    };
+                  }
+                  return { success: true };
+                } catch (error) {
+                  // Expected behavior - workflow bypass should be rejected
+                  if (
+                    (error.response && error.response.status === 400) ||
+                    error.response.status === 403
+                  ) {
+                    return { success: true };
+                  }
+                  throw error;
+                }
+              }
+              return { success: true };
+            },
+          });
+        }
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  /**
+   * REAL Privilege Escalation Testing
+   * Tests for horizontal and vertical privilege escalation
+   */
+  static async testPrivilegeEscalation(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `Privilege Escalation Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        // Test 1: Horizontal Privilege Escalation
+        if (
+          moduleConfig.View &&
+          moduleConfig.View[0] !== "URL_HERE" &&
+          moduleConfig.PUT &&
+          moduleConfig.PUT[0] !== "URL_HERE"
+        ) {
+          tests.push({
+            name: "Horizontal Privilege Escalation - Access Other User Data",
+            test: async () => {
+              // Create two resources (simulating different users)
+              const resource1 = await this.createTestResource(
+                moduleConfig.Post[0]
+              );
+              const resource2 = await this.createTestResource(
+                moduleConfig.Post[0]
+              );
+
+              if (resource1.id && resource2.id) {
+                // Attempt to access resource2 using resource1's context
+                try {
+                  const viewResponse = await apiClient.makeRequest(
+                    `${moduleConfig.View[0]}/${resource2.id}`,
+                    "GET"
+                  );
+
+                  // If we can view other user's resource, vulnerability exists
+                  if (viewResponse.status >= 200 && viewResponse.status < 300) {
+                    vulnerabilities.push(
+                      "Horizontal privilege escalation: Can access other user's resources"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Horizontal access control failure",
+                    };
+                  }
+                } catch (error) {
+                  // Expected behavior - should get 403 or 404
+                  if (
+                    error.response &&
+                    (error.response.status === 403 ||
+                      error.response.status === 404)
+                  ) {
+                    return { success: true };
+                  }
+                  throw error;
+                }
+
+                // Attempt to modify other user's resource
+                try {
+                  const updateData = {
+                    ...this.getDefaultTestData(),
+                    malicious: "escalation_attempt",
+                  };
+                  const updateResponse = await apiClient.makeRequest(
+                    `${moduleConfig.PUT[0]}/${resource2.id}`,
+                    "PUT",
+                    updateData
+                  );
+
+                  if (
+                    updateResponse.status >= 200 &&
+                    updateResponse.status < 300
+                  ) {
+                    vulnerabilities.push(
+                      "Horizontal privilege escalation: Can modify other user's resources"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Horizontal modification allowed",
+                    };
+                  }
+                } catch (error) {
+                  // Expected behavior
+                  if (
+                    error.response &&
+                    (error.response.status === 403 ||
+                      error.response.status === 404)
+                  ) {
+                    return { success: true };
+                  }
+                  throw error;
+                }
+              }
+              return { success: true };
+            },
+          });
+        }
+
+        // Test 2: Parameter-Based Privilege Escalation
+        tests.push({
+          name: "Parameter-Based Privilege Escalation",
+          test: async () => {
+            if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+              const testData = this.getDefaultTestData();
+              // Attempt to escalate privileges through parameters
+              testData.role = "ADMIN";
+              testData.isAdmin = true;
+              testData.permissions = ["ALL"];
+              testData.accessLevel = 999;
+
+              try {
+                const response = await apiClient.makeRequest(
+                  moduleConfig.Post[0],
+                  "POST",
+                  testData
+                );
+
+                if (response.status >= 200 && response.status < 300) {
+                  const responseData = response.data || {};
+                  // Check if privilege parameters were accepted
+                  if (
+                    responseData.role === "ADMIN" ||
+                    responseData.isAdmin === true
+                  ) {
+                    vulnerabilities.push(
+                      "Vertical privilege escalation: Admin privileges granted through parameters"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Parameter-based privilege escalation",
+                    };
+                  }
+                }
+                return { success: true };
+              } catch (error) {
+                // Expected behavior - privilege parameters should be ignored or rejected
+                if (error.response && error.response.status === 400) {
+                  return { success: true };
+                }
+                throw error;
+              }
+            }
+            return { success: true };
+          },
+        });
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  /**
+   * REAL Mass Assignment Vulnerabilities Testing
+   * Tests for parameter pollution and mass assignment
+   */
+  static async testMassAssignment(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `Mass Assignment Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+          // Test 1: Mass Assignment with Extended Properties
+          tests.push({
+            name: "Mass Assignment - Extended Properties",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+
+              // Add potentially dangerous properties
+              const dangerousProperties = {
+                __proto__: { isAdmin: true },
+                constructor: { prototype: { isAdmin: true } },
+                isDeleted: false,
+                isActive: true,
+                createdAt: new Date("2020-01-01"),
+                createdBy: "attacker",
+                modifiedBy: "attacker",
+                auditTrail: "tampered",
+                version: 999,
+                _id: "injected_id",
+                $where: "malicious_code",
+              };
+
+              const massAssignmentData = {
+                ...testData,
+                ...dangerousProperties,
+              };
+
+              try {
+                const response = await apiClient.makeRequest(
+                  moduleConfig.Post[0],
+                  "POST",
+                  massAssignmentData
+                );
+
+                if (response.status >= 200 && response.status < 300) {
+                  const responseData = response.data || {};
+                  // Check if dangerous properties were persisted
+                  const dangerousPropsPersisted = Object.keys(
+                    dangerousProperties
+                  ).some((prop) => responseData[prop] !== undefined);
+
+                  if (dangerousPropsPersisted) {
+                    vulnerabilities.push(
+                      "Mass assignment: Dangerous properties accepted and persisted"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Mass assignment vulnerability detected",
+                    };
+                  }
+                }
+                return { success: true };
+              } catch (error) {
+                // Expected behavior - mass assignment should be blocked
+                if (error.response && error.response.status === 400) {
+                  return { success: true };
+                }
+                throw error;
+              }
+            },
+          });
+
+          // Test 2: Array Parameter Pollution
+          tests.push({
+            name: "Parameter Pollution - Array Injection",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+
+              // Attempt parameter pollution
+              testData.roles = ["USER", "ADMIN"];
+              testData.permissions = ["READ", "WRITE", "DELETE", "ADMIN"];
+              testData.accessList = ["*"];
+
+              // Add duplicate parameters (simulating parameter pollution)
+              const pollutedData = {
+                ...testData,
+                "roles[]": "ADMIN",
+                "permissions[0]": "ADMIN",
+                "accessList[1]": "SENSITIVE_DATA",
+              };
+
+              try {
+                const response = await apiClient.makeRequest(
+                  moduleConfig.Post[0],
+                  "POST",
+                  pollutedData
+                );
+
+                if (response.status >= 200 && response.status < 300) {
+                  const responseData = response.data || {};
+                  // Check if polluted parameters affected the result
+                  if (
+                    (responseData.roles &&
+                      responseData.roles.includes("ADMIN")) ||
+                    (responseData.permissions &&
+                      responseData.permissions.includes("ADMIN"))
+                  ) {
+                    vulnerabilities.push(
+                      "Parameter pollution: Array parameters accepted with elevated privileges"
+                    );
+                    return {
+                      success: false,
+                      vulnerability: "Parameter pollution vulnerability",
+                    };
+                  }
+                }
+                return { success: true };
+              } catch (error) {
+                // Expected behavior
+                if (error.response && error.response.status === 400) {
+                  return { success: true };
+                }
+                throw error;
+              }
+            },
+          });
+        }
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  /**
+   * REAL IDOR (Insecure Direct Object References) Testing
+   */
+  static async testIDORVulnerabilities(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `IDOR Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        if (
+          moduleConfig.View &&
+          moduleConfig.View[0] !== "URL_HERE" &&
+          moduleConfig.Post &&
+          moduleConfig.Post[0] !== "URL_HERE"
+        ) {
+          tests.push({
+            name: "IDOR - Predictable Resource IDs",
+            test: async () => {
+              // Create a resource to get a valid ID
+              const resource = await this.createTestResource(
+                moduleConfig.Post[0]
+              );
+
+              if (resource.id) {
+                // Test predictable ID sequences
+                const predictableIds = [
+                  resource.id + 1,
+                  resource.id - 1,
+                  parseInt(resource.id) + 10,
+                  "1",
+                  "2",
+                  "3", // Common sequential IDs
+                  "admin",
+                  "test",
+                  "demo", // Common string IDs
+                ];
+
+                for (const testId of predictableIds) {
+                  try {
+                    const response = await apiClient.makeRequest(
+                      `${moduleConfig.View[0]}/${testId}`,
+                      "GET"
+                    );
+
+                    // If we can access resources with predictable IDs, vulnerability exists
+                    if (response.status >= 200 && response.status < 300) {
+                      vulnerabilities.push(
+                        `IDOR: Predictable resource ID ${testId} accessible`
+                      );
+                      return {
+                        success: false,
+                        vulnerability: "Predictable resource IDs",
+                      };
+                    }
+                  } catch (error) {
+                    // Expected behavior - should get 404 for non-existent resources
+                    if (error.response && error.response.status !== 404) {
+                      throw error;
+                    }
+                  }
+                }
+              }
+              return { success: true };
+            },
+          });
+
+          // Test 2: IDOR in Update Operations
+          if (moduleConfig.PUT && moduleConfig.PUT[0] !== "URL_HERE") {
+            tests.push({
+              name: "IDOR - Unauthorized Resource Modification",
+              test: async () => {
+                // Create two resources
+                const resource1 = await this.createTestResource(
+                  moduleConfig.Post[0]
+                );
+                const resource2 = await this.createTestResource(
+                  moduleConfig.Post[0]
+                );
+
+                if (resource1.id && resource2.id) {
+                  // Attempt to modify resource2 using resource1's context
+                  const updateData = {
+                    ...this.getDefaultTestData(),
+                    maliciousUpdate: "idor_attempt",
+                    modifiedBy: "attacker",
+                  };
+
+                  try {
+                    const response = await apiClient.makeRequest(
+                      `${moduleConfig.PUT[0]}/${resource2.id}`,
+                      "PUT",
+                      updateData
+                    );
+
+                    if (response.status >= 200 && response.status < 300) {
+                      vulnerabilities.push(
+                        "IDOR: Can modify other user's resources"
+                      );
+                      return {
+                        success: false,
+                        vulnerability: "Unauthorized resource modification",
+                      };
+                    }
+                  } catch (error) {
+                    // Expected behavior - should get 403 or 404
+                    if (
+                      error.response &&
+                      (error.response.status === 403 ||
+                        error.response.status === 404)
+                    ) {
+                      return { success: true };
+                    }
+                    throw error;
+                  }
+                }
+                return { success: true };
+              },
+            });
+          }
+        }
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  /**
+   * REAL Race Conditions Testing
+   */
+  static async testRaceConditions(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `Race Condition Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+          tests.push({
+            name: "Race Condition - Concurrent Duplicate Operations",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+              const concurrentRequests = 5;
+              const promises = [];
+
+              // Send multiple identical requests concurrently
+              for (let i = 0; i < concurrentRequests; i++) {
+                promises.push(
+                  apiClient.makeRequest(moduleConfig.Post[0], "POST", {
+                    ...testData,
+                    requestId: `race_test_${i}`,
+                  })
+                );
+              }
+
+              const results = await Promise.allSettled(promises);
+              const successfulRequests = results.filter(
+                (r) =>
+                  r.status === "fulfilled" &&
+                  r.value.status >= 200 &&
+                  r.value.status < 300
+              ).length;
+
+              // If multiple identical requests succeed, potential race condition
+              if (successfulRequests > 1) {
+                // Check if duplicate resources were created
+                const resourceIds = results
+                  .filter((r) => r.status === "fulfilled" && r.value.data)
+                  .map((r) => this.extractResourceId(r.value))
+                  .filter((id) => id);
+
+                const uniqueIds = [...new Set(resourceIds)];
+
+                if (uniqueIds.length < resourceIds.length) {
+                  vulnerabilities.push(
+                    "Race condition: Duplicate resources created from concurrent requests"
+                  );
+                  return {
+                    success: false,
+                    vulnerability: "Duplicate creation race condition",
+                  };
+                }
+
+                if (successfulRequests === concurrentRequests) {
+                  vulnerabilities.push(
+                    "Race condition: No concurrency control detected"
+                  );
+                  return {
+                    success: false,
+                    vulnerability: "Lack of concurrency control",
+                  };
+                }
+              }
+
+              return { success: true };
+            },
+          });
+        }
+
+        // Test 2: Inventory Race Condition (if applicable)
+        if (
+          (moduleConfig.Post && moduleConfig.Post[0].includes("inventory")) ||
+          (moduleConfig.PUT && moduleConfig.PUT[0].includes("inventory"))
+        ) {
+          tests.push({
+            name: "Inventory Race Condition - Overlapping Updates",
+            test: async () => {
+              // This test would require specific inventory-related endpoints
+              // and is more complex to implement generically
+              return {
+                success: true,
+                skipped: "Requires specific inventory endpoints",
+              };
+            },
+          });
+        }
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  /**
+   * REAL Advanced Input Validation Bypass Testing
+   */
+  static async testAdvancedInputValidation(moduleConfig, moduleName = "") {
+    return await global.allureStep(
+      `Advanced Input Validation Testing for ${moduleName}`,
+      async () => {
+        const vulnerabilities = [];
+        const tests = [];
+
+        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+          // Test 1: Unicode and Encoding Bypass
+          tests.push({
+            name: "Unicode Normalization Bypass",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+
+              // Unicode attacks and encoding bypass attempts
+              const unicodePayloads = [
+                { name: "admin\u202Exyz", expected: "admin" }, // Right-to-left override
+                { name: "admin\u0000", expected: "admin" }, // Null byte injection
+                { name: "admin%00", expected: "admin" }, // URL encoded null
+                { name: "admin<script>", expected: "admin" }, // Basic XSS attempt
+                { name: "../../etc/passwd", expected: "etcpasswd" }, // Path traversal
+                { name: "OR 1=1--", expected: "OR 11" }, // SQL injection attempt
+              ];
+
+              for (const payload of unicodePayloads) {
+                const bypassData = { ...testData, name: payload.name };
+
+                try {
+                  const response = await apiClient.makeRequest(
+                    moduleConfig.Post[0],
+                    "POST",
+                    bypassData
+                  );
+
+                  if (response.status >= 200 && response.status < 300) {
+                    const responseData = response.data || {};
+                    // Check if payload was normalized or rejected
+                    if (responseData.name === payload.name) {
+                      vulnerabilities.push(
+                        `Input validation bypass: Unicode payload '${payload.name}' accepted`
+                      );
+                      return {
+                        success: false,
+                        vulnerability: "Unicode normalization bypass",
+                      };
+                    }
+                  }
+                } catch (error) {
+                  // Expected behavior - malicious payloads should be rejected
+                  if (error.response && error.response.status === 400) {
+                    continue; // This payload was properly rejected, check next one
+                  }
+                  throw error;
+                }
+              }
+              return { success: true };
+            },
+          });
+
+          // Test 2: Type Confusion Attacks
+          tests.push({
+            name: "Type Confusion - Data Type Bypass",
+            test: async () => {
+              const testData = this.getDefaultTestData();
+
+              // Type confusion payloads
+              const typeConfusionPayloads = [
+                { price: "0", expected: 0 }, // String instead of number
+                { quantity: "100", expected: 100 }, // String number
+                { isActive: "true", expected: true }, // String boolean
+                { isActive: "1", expected: true }, // Number as string boolean
+                { amount: "100.50", expected: 100.5 }, // String decimal
+                { tags: "tag1,tag2,tag3", expected: ["tag1", "tag2", "tag3"] }, // String instead of array
+              ];
+
+              for (const payload of typeConfusionPayloads) {
+                const confusionData = { ...testData, ...payload };
+
+                try {
+                  const response = await apiClient.makeRequest(
+                    moduleConfig.Post[0],
+                    "POST",
+                    confusionData
+                  );
+
+                  if (response.status >= 200 && response.status < 300) {
+                    const responseData = response.data || {};
+                    // Check if type confusion was properly handled
+                    const key = Object.keys(payload)[0];
+                    if (
+                      responseData[key] !== undefined &&
+                      typeof responseData[key] !== typeof payload.expected
+                    ) {
+                      vulnerabilities.push(
+                        `Type confusion: Field '${key}' type not properly validated`
+                      );
+                      return {
+                        success: false,
+                        vulnerability: "Type confusion vulnerability",
+                      };
+                    }
+                  }
+                } catch (error) {
+                  // Expected behavior - type validation should handle this
+                  if (error.response && error.response.status === 400) {
+                    continue;
+                  }
+                  throw error;
+                }
+              }
+              return { success: true };
+            },
+          });
+        }
+
+        // Execute all tests
+        const results = [];
+        for (const test of tests) {
+          try {
+            const result = await test.test();
+            results.push({ ...result, name: test.name });
+          } catch (error) {
+            results.push({
+              name: test.name,
+              success: false,
+              error: error.message,
+            });
+          }
+        }
+
+        const failed = results.filter((r) => !r.success);
+        return {
+          results,
+          failed,
+          vulnerabilities,
+          success: failed.length === 0 && vulnerabilities.length === 0,
+        };
+      }
+    );
+  }
+
+  // Helper methods for security testing
+  static async createTestResource(endpoint, data = null) {
+    const testData = data || this.getDefaultTestData();
+    try {
+      const response = await apiClient.makeRequest(endpoint, "POST", testData);
+      if (response.status >= 200 && response.status < 300) {
+        return {
+          id: this.extractResourceId(response),
+          data: response.data,
+        };
+      }
+    } catch (error) {
+      logger.error(`Failed to create test resource: ${error.message}`);
+    }
+    return { id: null, data: null };
+  }
+
+  static extractResourceId(response) {
+    if (!response.data) return null;
+
+    // Common ID field patterns
+    const idFields = [
+      "id",
+      "Id",
+      "ID",
+      "_id",
+      "uuid",
+      "resourceId",
+      "documentId",
+    ];
+
+    for (const field of idFields) {
+      if (response.data[field] !== undefined) {
+        return response.data[field];
+      }
+    }
+
+    // Fallback: look for any field containing 'id'
+    for (const key in response.data) {
+      if (key.toLowerCase().includes("id") && response.data[key]) {
+        return response.data[key];
+      }
+    }
+
+    return null;
+  }
 }
 
 module.exports = TestHelpers;
