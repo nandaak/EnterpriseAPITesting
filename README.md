@@ -591,3 +591,4 @@ For issues, questions, or contributions:
 ---
 
 **🎯 Enterprise API Testing Suite** - Your comprehensive solution for enterprise-grade API testing and validation.
+https://chat.deepseek.com/a/chat/s/dd4f583c-7d6e-470a-a518-549ae396fcc8
