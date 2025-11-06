@@ -1,26 +1,33 @@
-// jest.config.js
-// =============================================================
-// ✅ Jest configuration with Allure integration
-// =============================================================
+// jest.config.js - Fixed configuration with proper setup
 module.exports = {
-  testEnvironment: "<rootDir>/custom-allure-environment.js",
-  setupFilesAfterEnv: ["<rootDir>/jest.setup.js"],
-
+  testEnvironment: "node",
+  testTimeout: 30000,
+  verbose: true,
+  
+  // Enable the setup file
+  setupFilesAfterEnv: ["./jest.setup.js"],
+  
   testMatch: [
     "**/tests/**/*.test.js",
-    "**/tests/**/*.spec.js"
+    "**/tests/**/*.spec.js", 
+    "**/*.test.js",
+    "**/*.spec.js"
   ],
-
-  verbose: true,
+  
+  moduleFileExtensions: ["js", "json"],
+  
+  // Essential flags
+  forceExit: true,
   clearMocks: true,
   resetMocks: true,
   restoreMocks: true,
-
-  testPathIgnorePatterns: ["/node_modules/", "/coverage/"],
-  testTimeout: 60000,
-  forceExit: true,
-
-  testEnvironmentOptions: {
-    resultsDir: "allure-results"
-  }
+  
+  // Disable coverage for now
+  collectCoverage: false,
+  
+  // Simple ignore patterns
+  testPathIgnorePatterns: [
+    "/node_modules/",
+    "/coverage/"
+  ]
 };
