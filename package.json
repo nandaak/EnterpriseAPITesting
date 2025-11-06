@@ -3,6 +3,12 @@
   "version": "1.3.0",
   "description": "Comprehensive API Testing Suite for ERP System",
   "scripts": {
+    "test:failed": "npx jest --onlyFailures",
+    "test:failures-only": "npx jest --silent --testFailureExitCode=0 --json --outputFile=test-results.json && node utils/show-failures.js",
+    "test:rerun-failed": "npx jest --passWithNoTests --lastFailed",
+    "report:failed": "node utils/filter-failed-tests.js",
+    "test:quick-fail": "npx jest --bail --findRelatedTests",
+    "test:fail-fast": "npx jest --bail=1 --verbose",
     "test:security-enhanced": "npx jest tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --config=jest.config.js",
     "test:performance-real": "npx jest tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --config=jest.config.js",
     "test:all-modules": "npx jest tests/comprehensive-lifecycle/ --config=jest.config.js",
