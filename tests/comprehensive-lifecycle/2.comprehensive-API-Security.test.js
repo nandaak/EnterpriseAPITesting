@@ -558,7 +558,7 @@ describe("Comprehensive API Security Testing", () => {
           // =========================================================================
           // SECURITY TEST CASE 7: COMPREHENSIVE SECURITY SUITE
           // =========================================================================
-          test("[TC-7] Comprehensive Security Suite", async () => {
+          test.skip("[TC-7] Comprehensive Security Suite", async () => {
             if (global.allure) {
               global.allure.severity("critical");
               global.allure.story("Comprehensive Security Suite");

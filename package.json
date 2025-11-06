@@ -5,7 +5,7 @@
   "scripts": {
     "test:security-enhanced": "npx jest tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --config=jest.config.js",
     "test:performance-real": "npx jest tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --config=jest.config.js",
-    "test:all-modules": "npx jest tests/comprehensive-lifecycle/ --config=jest.config.js",
+    "test:all-modules": "npx jest --runInBand tests/comprehensive-lifecycle/ --config=jest.config.js",
     "test:orchestrated": "node utils/test-orchestrator.js",
     "crud-allure": "npx jest --runInBand tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
     "crud-minimal": "npx jest --runInBand --no-cache tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.minimal.js",
@@ -26,7 +26,7 @@
     "test": "jest --runInBand --config=jest.config.js",
     "test:allure": "jest --runInBand --config=jest.config.js",
     "verify:allure": "node -e \"require('./utils/test-status-verifier').verifyAllureResults()\" >> verified2.txt",
-    "allure:generate": "allure generate allure-results --clean -o allure-report",
+    "allure:generate": "allure generate allure-results --clean -o allure-report --config allure-config.json",
     "allure:open": "allure open allure-report",
     "test:report": "npm run test:allure && npm run verify:allure && npm run allure:generate && npm run allure:open",
     "allure:serve": "allure serve allure-results",
