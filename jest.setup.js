@@ -1,96 +1,57 @@
-// jest.setup.js - Complete Allure setup
-console.log('[JEST SETUP] Initializing Allure configuration...');
+// jest.setup.js - Simplified setup without Allure
+console.log('[JEST SETUP] Initializing Jest configuration...');
 
-// Initialize global Allure object
+// Mock functions for compatibility (will be no-ops)
+const mockFunction = (name) => {
+  return (...args) => {
+    console.log(`[MOCK] ${name}:`, args.length > 0 ? args[0] : '');
+  };
+};
+
+// Create minimal global object for compatibility
 global.allure = {
-  // Core methods
-  addLabel: (name, value) => {
-    console.log(`[ALLURE] Label: ${name}=${value}`);
-  },
-  addParameter: (name, value, mode = 'hidden') => {
-    console.log(`[ALLURE] Parameter: ${name}=${value}, mode=${mode}`);
-  },
-  description: (value) => {
-    console.log(`[ALLURE] Description: ${value}`);
-  },
-  addLink: (name, url, type = 'custom') => {
-    console.log(`[ALLURE] Link: ${name}, ${url}, type=${type}`);
-  },
-  
-  // Convenience methods
-  epic: (epic) => {
-    console.log(`[ALLURE] Epic: ${epic}`);
-    global.allure.addLabel('epic', epic);
-  },
-  feature: (feature) => {
-    console.log(`[ALLURE] Feature: ${feature}`);
-    global.allure.addLabel('feature', feature);
-  },
-  story: (story) => {
-    console.log(`[ALLURE] Story: ${story}`);
-    global.allure.addLabel('story', story);
-  },
-  severity: (severity) => {
-    console.log(`[ALLURE] Severity: ${severity}`);
-    global.allure.addLabel('severity', severity);
-  },
-  suite: (suite) => {
-    console.log(`[ALLURE] Suite: ${suite}`);
-    global.allure.addLabel('suite', suite);
-  },
-  parentSuite: (parentSuite) => {
-    console.log(`[ALLURE] Parent Suite: ${parentSuite}`);
-    global.allure.addLabel('parentSuite', parentSuite);
-  },
-  subSuite: (subSuite) => {
-    console.log(`[ALLURE] Sub Suite: ${subSuite}`);
-    global.allure.addLabel('subSuite', subSuite);
-  },
-  owner: (owner) => {
-    console.log(`[ALLURE] Owner: ${owner}`);
-    global.allure.addLabel('owner', owner);
-  },
-  lead: (lead) => {
-    console.log(`[ALLURE] Lead: ${lead}`);
-    global.allure.addLabel('lead', lead);
-  },
-  
-  // Issue tracking
-  issue: (value) => {
-    global.allure.addLink(value, `https://example.com/issue/${value}`, 'issue');
-  },
-  tms: (value) => {
-    global.allure.addLink(value, `https://example.com/tms/${value}`, 'tms');
-  },
-  testId: (value) => {
-    global.allure.addLabel('testId', value);
-  }
+  epic: mockFunction('epic'),
+  feature: mockFunction('feature'),
+  story: mockFunction('story'),
+  severity: mockFunction('severity'),
+  suite: mockFunction('suite'),
+  parentSuite: mockFunction('parentSuite'),
+  subSuite: mockFunction('subSuite'),
+  owner: mockFunction('owner'),
+  lead: mockFunction('lead'),
+  addLabel: mockFunction('addLabel'),
+  addParameter: mockFunction('addParameter'),
+  description: mockFunction('description'),
+  addLink: mockFunction('addLink'),
+  issue: mockFunction('issue'),
+  tms: mockFunction('tms'),
+  testId: mockFunction('testId')
 };
 
-// Safe attachment methods
-global.attachAllureLog = (name, content) => {
-  console.log(`[ALLURE ATTACH] ${name}:`, typeof content === 'string' ? content.substring(0, 100) + '...' : '[Object]');
-};
-
-global.attachJSON = (name, jsonData) => {
-  const content = typeof jsonData === 'object' ? JSON.stringify(jsonData, null, 2) : jsonData;
-  console.log(`[ALLURE JSON] ${name}:`, content.substring(0, 100) + '...');
-};
-
-// Safe step function
+// Mock step function
 global.allureStep = async (stepName, stepFunction) => {
-  console.log(`[ALLURE STEP START] ${stepName}`);
+  console.log(`[STEP START] ${stepName}`);
   const startTime = Date.now();
   try {
     const result = await stepFunction();
     const duration = Date.now() - startTime;
-    console.log(`[ALLURE STEP PASS] ${stepName} (${duration}ms)`);
+    console.log(`[STEP PASS] ${stepName} (${duration}ms)`);
     return result;
   } catch (error) {
     const duration = Date.now() - startTime;
-    console.log(`[ALLURE STEP FAIL] ${stepName} (${duration}ms)`, error.message);
+    console.log(`[STEP FAIL] ${stepName} (${duration}ms)`, error.message);
     throw error;
   }
 };
 
-console.log('[JEST SETUP] Allure configuration completed successfully');
+// Mock attachment functions (no-ops for HTML reporter)
+global.attachAllureLog = (name, content) => {
+  console.log(`[ATTACH] ${name}:`, typeof content === 'string' ? content.substring(0, 100) + '...' : '[Object]');
+};
+
+global.attachJSON = (name, jsonData) => {
+  const content = typeof jsonData === 'object' ? JSON.stringify(jsonData, null, 2) : jsonData;
+  console.log(`[JSON ATTACH] ${name}:`, content.substring(0, 100) + '...');
+};
+
+console.log('[JEST SETUP] Configuration completed successfully');

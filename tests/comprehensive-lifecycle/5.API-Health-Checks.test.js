@@ -1,10 +1,7 @@
+// tests/comprehensive-lifecycle/5.API-Health-Checks.test.js
 const logger = require("../../utils/logger");
 const apiClient = require("../../utils/api-client");
-const {
-  schema,
-  TEST_TAGS,
-  endpointTypes,
-} = require("../../Constants/Constants");
+const { schema, TEST_TAGS, endpointTypes } = require("../../constants");
 
 /**
  * API Endpoint Health Checks Test Suite
@@ -19,10 +16,6 @@ describe("API Endpoint Health Checks", () => {
   let testedEndpoints = 0;
 
   beforeAll(() => {
-    if (global.allure) {
-      global.allure.epic("Health Monitoring");
-      global.allure.feature("Endpoint Health Checks");
-    }
     logger.info("🏥 Starting API Endpoint Health Checks");
 
     // Count total endpoints
@@ -70,9 +63,6 @@ describe("API Endpoint Health Checks", () => {
     Object.entries(summary.statusBreakdown).forEach(([status, count]) => {
       logger.info(`   ${status}: ${count} endpoints`);
     });
-
-    global.attachJSON("Health Check Execution Summary", summary);
-    global.attachAllureLog("Detailed Health Check Results", healthCheckResults);
 
     logger.info(`🏁 Completed health checks for ${testedEndpoints} endpoints`);
   });
@@ -291,82 +281,58 @@ describe("API Endpoint Health Checks", () => {
           const endpointName = `${fullModuleName}.${endpointType}`;
 
           test(`[HealthCheck] should verify ${endpointType} endpoint health for ${fullModuleName}`, async () => {
-            if (global.allure) {
-              global.allure.severity("normal");
-              global.allure.story("Endpoint Accessibility");
-              global.allure.description(
-                `Health check for ${endpointType} endpoint in ${fullModuleName}`
-              );
-              global.allure.addLabel("tag", TEST_TAGS.HealthChecks);
-              global.allure.addLabel("module", fullModuleName);
-              global.allure.addLabel("endpoint-type", endpointType);
+            logger.info(`🔍 Checking health of ${endpointName}...`);
+
+            const healthResult = await performHealthCheck(
+              moduleConfig[endpointType][0],
+              endpointType,
+              fullModuleName
+            );
+
+            // Store result for summary
+            healthCheckResults.push(healthResult);
+
+            // Enhanced health check logic - be more lenient for health checks
+            if (!healthResult.healthy) {
+              // For health checks, we want to know if endpoints are accessible
+              // Even if they return error statuses, as long as they respond
+              const isAccessible =
+                healthResult.status && healthResult.status !== "No response";
+
+              if (!isAccessible) {
+                throw new Error(
+                  `Health check failed for ${endpointName}: ${
+                    healthResult.error || `No response received`
+                  }`
+                );
+              } else {
+                // Endpoint responded but with error status - log warning but don't fail
+                logger.warn(
+                  `⚠️ Endpoint ${endpointName} responded with ${healthResult.status} but is accessible`
+                );
+                // We consider this as "healthy" for health check purposes since the endpoint exists
+                healthResult.healthy = true; // Override for summary purposes
+              }
             }
 
-            await global.allureStep(
-              `Health Check for ${endpointName}`,
-              async () => {
-                logger.info(`🔍 Checking health of ${endpointName}...`);
-
-                const healthResult = await performHealthCheck(
-                  moduleConfig[endpointType][0],
-                  endpointType,
-                  fullModuleName
-                );
-
-                // Store result for summary
-                healthCheckResults.push(healthResult);
-
-                global.attachJSON(
-                  `Health Check Result - ${endpointName}`,
-                  healthResult
-                );
-
-                // Enhanced health check logic - be more lenient for health checks
-                if (!healthResult.healthy) {
-                  // For health checks, we want to know if endpoints are accessible
-                  // Even if they return error statuses, as long as they respond
-                  const isAccessible =
-                    healthResult.status &&
-                    healthResult.status !== "No response";
-
-                  if (!isAccessible) {
-                    throw new Error(
-                      `Health check failed for ${endpointName}: ${
-                        healthResult.error || `No response received`
-                      }`
-                    );
-                  } else {
-                    // Endpoint responded but with error status - log warning but don't fail
-                    logger.warn(
-                      `⚠️ Endpoint ${endpointName} responded with ${healthResult.status} but is accessible`
-                    );
-                    // We consider this as "healthy" for health check purposes since the endpoint exists
-                    healthResult.healthy = true; // Override for summary purposes
-                  }
-                }
-
-                logger.info(
-                  `✅ ${endpointName} is accessible (Status: ${healthResult.status}, Time: ${healthResult.responseTime}ms)`
-                );
-
-                // Additional validation for successful responses
-                if (healthResult.status === 200) {
-                  logger.debug(`📋 Endpoint ${endpointName} returned 200 OK`);
-                } else if (healthResult.status === 201) {
-                  logger.debug(
-                    `📋 Endpoint ${endpointName} returned 201 Created`
-                  );
-                } else if (healthResult.status === 204) {
-                  logger.debug(
-                    `📋 Endpoint ${endpointName} returned 204 No Content`
-                  );
-                } else {
-                  logger.info(
-                    `📋 Endpoint ${endpointName} returned ${healthResult.status} - endpoint is accessible`
-                  );
-                }
-              }
+            logger.info(
+              `✅ ${endpointName} is accessible (Status: ${healthResult.status}, Time: ${healthResult.responseTime}ms)`
             );
+
+            // Additional validation for successful responses
+            if (healthResult.status === 200) {
+              logger.debug(`📋 Endpoint ${endpointName} returned 200 OK`);
+            } else if (healthResult.status === 201) {
+              logger.debug(`📋 Endpoint ${endpointName} returned 201 Created`);
+            } else if (healthResult.status === 204) {
+              logger.debug(
+                `📋 Endpoint ${endpointName} returned 204 No Content`
+              );
+            } else {
+              logger.info(
+                `📋 Endpoint ${endpointName} returned ${healthResult.status} - endpoint is accessible`
+              );
+            }
           }, 15000);
         }
       });

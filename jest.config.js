@@ -1,4 +1,4 @@
-// jest.config.js - Fixed configuration with proper setup
+// jest.config.js - Configuration with Jest-HTML-Reporters
 module.exports = {
   testEnvironment: "node",
   testTimeout: 30000,
@@ -29,5 +29,28 @@ module.exports = {
   testPathIgnorePatterns: [
     "/node_modules/",
     "/coverage/"
+  ],
+
+  // Jest HTML Reporters configuration
+  reporters: [
+    "default",
+    [
+      "jest-html-reporters",
+      {
+        pageTitle: "API Testing Report",
+        publicPath: "./html-report",
+        filename: "test-report.html",
+        expand: true,
+        hideIcon: true,
+        includeFailureMsg: true,
+        includeSuiteFailure: true,
+        logoImgPath: undefined,
+        customInfos: [
+          { title: "Project", value: "ERP API Testing" },
+          { title: "Test Type", value: "Comprehensive" },
+          { title: "Framework", value: "Jest" }
+        ]
+      }
+    ]
   ]
 };

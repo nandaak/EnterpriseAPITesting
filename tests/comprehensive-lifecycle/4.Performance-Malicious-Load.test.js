@@ -1,10 +1,7 @@
+// tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js
 const TestHelpers = require("../../utils/test-helpers");
 const logger = require("../../utils/logger");
-const {
-  schema,
-  TEST_TAGS,
-  HTTP_STATUS_CODES,
-} = require("../../Constants/Constants");
+const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../constants");
 
 /**
  * PERFORMANCE UNDER MALICIOUS LOAD TESTING SUITE
@@ -32,16 +29,6 @@ describe("Performance Under Malicious Load", () => {
 
   beforeAll(() => {
     performanceTestSummary.startTime = new Date().toISOString();
-
-    if (global.allure) {
-      global.allure.epic("Performance Testing");
-      global.allure.feature("Malicious Load Performance");
-      global.allure.addLabel("framework", "Jest");
-      global.allure.addLabel("language", "JavaScript");
-      global.allure.addLabel("testType", "performance");
-      global.allure.addLabel("priority", "high");
-    }
-
     logger.info("⚡ Starting Performance Under Malicious Load Testing");
     logger.info("=".repeat(60));
   });
@@ -85,9 +72,6 @@ describe("Performance Under Malicious Load", () => {
     logger.info(`   ⏱️  Total Duration: ${summary.execution.duration}ms`);
     logger.info("=".repeat(50));
 
-    global.attachJSON("Performance Test Execution Summary", summary);
-    global.attachAllureLog("Detailed Performance Results", testResults);
-
     logger.info(
       `🏁 Completed performance tests for ${performanceTestSummary.modulesTested} modules`
     );
@@ -118,7 +102,6 @@ describe("Performance Under Malicious Load", () => {
 
   /**
    * ENHANCED PERFORMANCE TESTING FUNCTION
-   * Following the successful pattern from other test suites
    */
   const runPerformanceTestsOnAllModules = (modules, parentPath = "") => {
     Object.entries(modules).forEach(([moduleName, moduleConfig]) => {
@@ -145,29 +128,7 @@ describe("Performance Under Malicious Load", () => {
 
           beforeAll(() => {
             moduleStartTime = Date.now();
-
-            if (global.allure) {
-              global.allure.story(fullModuleName);
-              global.allure.addLabel("module", fullModuleName);
-            }
-
             logger.info(`⚡ Starting performance tests for: ${fullModuleName}`);
-
-            // Log module configuration for performance testing
-            global.attachJSON(
-              `Performance Test Configuration - ${fullModuleName}`,
-              {
-                module: fullModuleName,
-                endpoint: moduleConfig.Post[0],
-                hasValidEndpoint: isValidUrl(moduleConfig.Post[0]),
-                availableOperations: Object.keys(moduleConfig).filter(
-                  (key) =>
-                    Array.isArray(moduleConfig[key]) &&
-                    moduleConfig[key][0] &&
-                    isValidUrl(moduleConfig[key][0])
-                ),
-              }
-            );
           });
 
           afterAll(() => {
@@ -220,11 +181,6 @@ describe("Performance Under Malicious Load", () => {
 
             testResults.push(testResult);
 
-            global.attachAllureLog(
-              `Performance Test Result - ${fullModuleName}`,
-              testResult
-            );
-
             if (testStatus === "passed") {
               logger.debug(
                 `✅ ${fullModuleName} - ${testName} completed successfully`
@@ -239,257 +195,166 @@ describe("Performance Under Malicious Load", () => {
           // =========================================================================
 
           test("🎯 [TC-1] Performance Under Malicious Load", async () => {
-            if (global.allure) {
-              global.allure.severity("normal");
-              global.allure.story("Performance Under Attack");
-              global.allure.description(
-                `Testing performance under malicious load for ${fullModuleName}`
+            try {
+              testContext.testType = "malicious_load_performance";
+              testContext.operation = "performance_testing";
+
+              logger.info(
+                `⚡ Testing performance under malicious load for ${fullModuleName}...`
               );
-              global.allure.addLabel("tag", TEST_TAGS.Performance);
-              global.allure.addLabel("module", fullModuleName);
-              global.allure.addLabel("test-type", "performance");
-            }
 
-            await global.allureStep(
-              `Performance Testing for ${fullModuleName}`,
-              async () => {
-                try {
-                  testContext.testType = "malicious_load_performance";
-                  testContext.operation = "performance_testing";
+              const performanceResults =
+                await TestHelpers.testPerformanceUnderMaliciousLoad(
+                  moduleConfig,
+                  fullModuleName
+                );
 
-                  logger.info(
-                    `⚡ Testing performance under malicious load for ${fullModuleName}...`
-                  );
+              // Enhanced performance validation with realistic expectations
+              const realisticThresholds = {
+                maxAverageResponseTime: 5000, // 5 seconds for enterprise systems
+                maxErrorRate: 20, // 20% error rate under malicious load is acceptable
+                maxP95ResponseTime: 8000, // 8 seconds P95
+                minSuccessRate: 80, // 80% success rate under attack
+              };
 
-                  const performanceResults =
-                    await TestHelpers.testPerformanceUnderMaliciousLoad(
-                      moduleConfig,
-                      fullModuleName
-                    );
+              const meetsRealisticStandards =
+                performanceResults.metrics.averageResponseTime <
+                  realisticThresholds.maxAverageResponseTime &&
+                performanceResults.metrics.errorRate <
+                  realisticThresholds.maxErrorRate &&
+                performanceResults.metrics.p95ResponseTime <
+                  realisticThresholds.maxP95ResponseTime;
 
-                  // Enhanced performance validation with realistic expectations
-                  await global.allureStep(
-                    "Analyze Performance Results",
-                    async () => {
-                      global.attachJSON(
-                        `Performance Results - ${fullModuleName}`,
-                        performanceResults
-                      );
+              const successRate =
+                (performanceResults.metrics.successfulRequests /
+                  performanceResults.metrics.totalRequests) *
+                  100 || 0;
+              const meetsSuccessRate =
+                successRate >= realisticThresholds.minSuccessRate;
 
-                      // More realistic performance expectations for enterprise APIs
-                      const realisticThresholds = {
-                        maxAverageResponseTime: 5000, // 5 seconds for enterprise systems
-                        maxErrorRate: 20, // 20% error rate under malicious load is acceptable
-                        maxP95ResponseTime: 8000, // 8 seconds P95
-                        minSuccessRate: 80, // 80% success rate under attack
-                      };
+              const overallSuccess =
+                meetsRealisticStandards && meetsSuccessRate;
 
-                      const meetsRealisticStandards =
-                        performanceResults.metrics.averageResponseTime <
-                          realisticThresholds.maxAverageResponseTime &&
-                        performanceResults.metrics.errorRate <
-                          realisticThresholds.maxErrorRate &&
-                        performanceResults.metrics.p95ResponseTime <
-                          realisticThresholds.maxP95ResponseTime;
+              // Log detailed performance metrics
+              logger.info(`📊 Performance Metrics for ${fullModuleName}:`);
+              logger.info(
+                `   ✅ Successful Requests: ${performanceResults.metrics.successfulRequests}/${performanceResults.metrics.totalRequests}`
+              );
+              logger.info(`   📈 Success Rate: ${successRate.toFixed(2)}%`);
+              logger.info(
+                `   ⏱️  Average Response Time: ${performanceResults.metrics.averageResponseTime.toFixed(
+                  2
+                )}ms`
+              );
+              logger.info(
+                `   📉 Error Rate: ${performanceResults.metrics.errorRate.toFixed(
+                  2
+                )}%`
+              );
+              logger.info(
+                `   🚀 Throughput: ${performanceResults.metrics.throughput} req/sec`
+              );
+              logger.info(
+                `   🎯 P95 Response Time: ${performanceResults.metrics.p95ResponseTime.toFixed(
+                  2
+                )}ms`
+              );
 
-                      const successRate =
-                        (performanceResults.metrics.successfulRequests /
-                          performanceResults.metrics.totalRequests) *
-                          100 || 0;
-                      const meetsSuccessRate =
-                        successRate >= realisticThresholds.minSuccessRate;
+              // Use realistic expectations instead of strict failure
+              if (!overallSuccess) {
+                logger.warn(
+                  `⚠️  Performance below optimal standards for ${fullModuleName}, but within acceptable range for malicious load`
+                );
+                logger.warn(
+                  `    Consider this a warning rather than a failure for security testing context`
+                );
 
-                      const overallSuccess =
-                        meetsRealisticStandards && meetsSuccessRate;
-
-                      // Enhanced performance analysis
-                      const performanceAnalysis = {
-                        ...performanceResults,
-                        realisticAssessment: {
-                          meetsStandards: overallSuccess,
-                          successRate: successRate,
-                          meetsSuccessRate: meetsSuccessRate,
-                          meetsResponseTime: meetsRealisticStandards,
-                          thresholds: realisticThresholds,
-                          actualMetrics: {
-                            averageResponseTime:
-                              performanceResults.metrics.averageResponseTime,
-                            errorRate: performanceResults.metrics.errorRate,
-                            p95ResponseTime:
-                              performanceResults.metrics.p95ResponseTime,
-                            successRate: successRate,
-                            throughput: performanceResults.metrics.throughput,
-                          },
-                        },
-                      };
-
-                      global.attachJSON(
-                        `Performance Analysis - ${fullModuleName}`,
-                        performanceAnalysis
-                      );
-
-                      // Log detailed performance metrics
-                      logger.info(
-                        `📊 Performance Metrics for ${fullModuleName}:`
-                      );
-                      logger.info(
-                        `   ✅ Successful Requests: ${performanceResults.metrics.successfulRequests}/${performanceResults.metrics.totalRequests}`
-                      );
-                      logger.info(
-                        `   📈 Success Rate: ${successRate.toFixed(2)}%`
-                      );
-                      logger.info(
-                        `   ⏱️  Average Response Time: ${performanceResults.metrics.averageResponseTime.toFixed(
-                          2
-                        )}ms`
-                      );
-                      logger.info(
-                        `   📉 Error Rate: ${performanceResults.metrics.errorRate.toFixed(
-                          2
-                        )}%`
-                      );
-                      logger.info(
-                        `   🚀 Throughput: ${performanceResults.metrics.throughput} req/sec`
-                      );
-                      logger.info(
-                        `   🎯 P95 Response Time: ${performanceResults.metrics.p95ResponseTime.toFixed(
-                          2
-                        )}ms`
-                      );
-
-                      // Use realistic expectations instead of strict failure
-                      if (!overallSuccess) {
-                        logger.warn(
-                          `⚠️  Performance below optimal standards for ${fullModuleName}, but within acceptable range for malicious load`
-                        );
-                        logger.warn(
-                          `    Consider this a warning rather than a failure for security testing context`
-                        );
-
-                        // Mark as passed with warnings for security testing context
-                        // In performance testing under malicious conditions, some degradation is expected
-                        expect(true).toBe(true);
-                      } else {
-                        logger.info(
-                          `✅ Performance under malicious load validated for ${fullModuleName}`
-                        );
-                      }
-
-                      performanceResults.overallSuccess = overallSuccess;
-                    }
-                  );
-
-                  return performanceResults;
-                } catch (error) {
-                  logger.error(
-                    `❌ Performance test execution failed for ${fullModuleName}: ${error.message}`
-                  );
-
-                  // In performance testing, don't fail the entire test if there are issues
-                  // Instead, log the issue and mark as passed with warnings
-                  global.attachJSON(
-                    `Performance Test Error - ${fullModuleName}`,
-                    {
-                      error: error.message,
-                      module: fullModuleName,
-                      endpoint: moduleConfig.Post[0],
-                      recommendation:
-                        "This may be expected behavior under malicious load conditions",
-                    }
-                  );
-
-                  logger.warn(
-                    `⚠️  Performance test encountered issues for ${fullModuleName}, but continuing...`
-                  );
-
-                  // Mark as passed to avoid failing the entire test suite
-                  expect(true).toBe(true);
-                  return {
-                    success: false,
-                    error: error.message,
-                    metrics: {
-                      totalRequests: 0,
-                      successfulRequests: 0,
-                      failedRequests: 0,
-                      errorRate: 100,
-                      throughput: 0,
-                      averageResponseTime: 0,
-                      p95ResponseTime: 0,
-                    },
-                    skipped: false,
-                  };
-                }
+                // Mark as passed with warnings for security testing context
+                // In performance testing under malicious conditions, some degradation is expected
+                expect(true).toBe(true);
+              } else {
+                logger.info(
+                  `✅ Performance under malicious load validated for ${fullModuleName}`
+                );
               }
-            );
+
+              performanceResults.overallSuccess = overallSuccess;
+              return performanceResults;
+            } catch (error) {
+              logger.error(
+                `❌ Performance test execution failed for ${fullModuleName}: ${error.message}`
+              );
+
+              // In performance testing, don't fail the entire test if there are issues
+              // Instead, log the issue and mark as passed with warnings
+              logger.warn(
+                `⚠️  Performance test encountered issues for ${fullModuleName}, but continuing...`
+              );
+
+              // Mark as passed to avoid failing the entire test suite
+              expect(true).toBe(true);
+              return {
+                success: false,
+                error: error.message,
+                metrics: {
+                  totalRequests: 0,
+                  successfulRequests: 0,
+                  failedRequests: 0,
+                  errorRate: 100,
+                  throughput: 0,
+                  averageResponseTime: 0,
+                  p95ResponseTime: 0,
+                },
+                skipped: false,
+              };
+            }
           }, 60000); // Increased timeout for performance tests
 
           test("🎯 [TC-2] Error Handling Under Load", async () => {
-            if (global.allure) {
-              global.allure.severity("normal");
-              global.allure.story("Error Handling Under Load");
-              global.allure.description(
-                `Testing error handling and graceful degradation for ${fullModuleName} under load`
+            try {
+              testContext.testType = "error_handling_analysis";
+              testContext.operation = "error_analysis";
+
+              logger.info(
+                `🔧 Analyzing error handling for ${fullModuleName} under load...`
               );
-              global.allure.addLabel("tag", TEST_TAGS.Performance);
-              global.allure.addLabel("module", fullModuleName);
-              global.allure.addLabel("test-type", "error-handling");
-            }
 
-            await global.allureStep(
-              `Error Handling Analysis for ${fullModuleName}`,
-              async () => {
-                try {
-                  testContext.testType = "error_handling_analysis";
-                  testContext.operation = "error_analysis";
+              // Analyze the types of errors encountered during performance testing
+              const errorAnalysis = {
+                module: fullModuleName,
+                endpoint: moduleConfig.Post[0],
+                commonErrorPatterns: [],
+                recommendation: "Analyze error patterns for system resilience",
+                timestamp: new Date().toISOString(),
+              };
 
-                  logger.info(
-                    `🔧 Analyzing error handling for ${fullModuleName} under load...`
-                  );
-
-                  // Analyze the types of errors encountered during performance testing
-                  const errorAnalysis = {
-                    module: fullModuleName,
-                    endpoint: moduleConfig.Post[0],
-                    commonErrorPatterns: [],
-                    recommendation:
-                      "Analyze error patterns for system resilience",
-                    timestamp: new Date().toISOString(),
-                  };
-
-                  // Based on the logs, we see consistent 400 errors which might be expected for malicious payloads
-                  if (
-                    performanceResults.metrics &&
-                    performanceResults.metrics.failedRequests > 0
-                  ) {
-                    errorAnalysis.observedBehavior =
-                      "Consistent 400 errors for malicious payloads";
-                    errorAnalysis.assessment =
-                      "This may indicate proper input validation rejecting malicious requests";
-                    errorAnalysis.recommendation =
-                      "Verify that 400 errors are appropriate responses for the type of malicious payloads sent";
-                  }
-
-                  global.attachJSON(
-                    `Error Handling Analysis - ${fullModuleName}`,
-                    errorAnalysis
-                  );
-
-                  logger.info(
-                    `✅ Error handling analysis completed for ${fullModuleName}`
-                  );
-
-                  // This test should always pass as it's analytical
-                  expect(true).toBe(true);
-                } catch (error) {
-                  logger.error(
-                    `❌ Error handling analysis failed for ${fullModuleName}: ${error.message}`
-                  );
-
-                  // Analytical tests should not fail the suite
-                  expect(true).toBe(true);
-                }
+              // Based on the logs, we see consistent 400 errors which might be expected for malicious payloads
+              if (
+                performanceResults.metrics &&
+                performanceResults.metrics.failedRequests > 0
+              ) {
+                errorAnalysis.observedBehavior =
+                  "Consistent 400 errors for malicious payloads";
+                errorAnalysis.assessment =
+                  "This may indicate proper input validation rejecting malicious requests";
+                errorAnalysis.recommendation =
+                  "Verify that 400 errors are appropriate responses for the type of malicious payloads sent";
               }
-            );
+
+              logger.info(
+                `✅ Error handling analysis completed for ${fullModuleName}`
+              );
+
+              // This test should always pass as it's analytical
+              expect(true).toBe(true);
+            } catch (error) {
+              logger.error(
+                `❌ Error handling analysis failed for ${fullModuleName}: ${error.message}`
+              );
+
+              // Analytical tests should not fail the suite
+              expect(true).toBe(true);
+            }
           }, 30000);
         });
       }
