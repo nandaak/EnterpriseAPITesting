@@ -1,7 +1,7 @@
 // tests/comprehensive-lifecycle/5.API-Health-Checks.test.js
 const logger = require("../../utils/logger");
 const apiClient = require("../../utils/api-client");
-const { schema, TEST_TAGS, endpointTypes } = require("../../constants");
+const { schema, TEST_TAGS, endpointTypes } = require("../../Constants");
 
 /**
  * API Endpoint Health Checks Test Suite

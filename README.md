@@ -423,7 +423,7 @@ class ApiClient {
 
 ### Configuration Files
 
-#### 📊 Constants (`config/constants.js`)
+#### 📊 Constants (`config/Constants.js`)
 
 ```javascript
 module.exports = {

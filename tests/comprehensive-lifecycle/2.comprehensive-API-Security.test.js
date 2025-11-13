@@ -1,10 +1,10 @@
 // tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js
 const fs = require("fs");
 const path = require("path");
-const TestHelpers = require("../../utils/test-helpers");
+const SecurityHelpers = require("../../utils/security-helpers");
 const apiClient = require("../../utils/api-client");
 const logger = require("../../utils/logger");
-const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../constants");
+const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
  * COMPREHENSIVE API SECURITY TESTING SUITE
@@ -209,9 +209,8 @@ describe("Comprehensive API Security Testing", () => {
                 `🔐 Testing authorization security for ${fullModuleName}`
               );
 
-              const authResults = await TestHelpers.testAuthorizationSecurity(
-                moduleConfig
-              );
+              const authResults =
+                await SecurityHelpers.testAuthorizationSecurity(moduleConfig);
               securityResults.authorization = authResults;
 
               // Check if any authorization test failed
@@ -252,11 +251,12 @@ describe("Comprehensive API Security Testing", () => {
                 `🦠 Testing malicious payload protection for ${fullModuleName}`
               );
 
-              const maliciousResults = await TestHelpers.testMaliciousPayloads(
-                moduleConfig,
-                "Post",
-                fullModuleName
-              );
+              const maliciousResults =
+                await SecurityHelpers.testMaliciousPayloads(
+                  moduleConfig,
+                  "Post",
+                  fullModuleName
+                );
               securityResults.maliciousPayloads = maliciousResults;
 
               // If any malicious test fails, the whole test fails
@@ -297,11 +297,12 @@ describe("Comprehensive API Security Testing", () => {
                 `📝 Testing null required fields validation for ${fullModuleName}`
               );
 
-              const nullFieldsResult = await TestHelpers.testNullRequiredFields(
-                moduleConfig,
-                "Post",
-                fullModuleName
-              );
+              const nullFieldsResult =
+                await SecurityHelpers.testNullRequiredFields(
+                  moduleConfig,
+                  "Post",
+                  fullModuleName
+                );
               securityResults.nullFields = nullFieldsResult;
 
               if (!nullFieldsResult.skipped && !nullFieldsResult.success) {
@@ -343,11 +344,12 @@ describe("Comprehensive API Security Testing", () => {
                   `✏️ Testing edit with null required fields for ${fullModuleName}`
                 );
 
-                const nullEditResult = await TestHelpers.testNullRequiredFields(
-                  moduleConfig,
-                  "PUT",
-                  fullModuleName
-                );
+                const nullEditResult =
+                  await SecurityHelpers.testNullRequiredFields(
+                    moduleConfig,
+                    "PUT",
+                    fullModuleName
+                  );
                 securityResults.nullFieldsEdit = nullEditResult;
 
                 if (!nullEditResult.skipped && !nullEditResult.success) {
@@ -390,7 +392,7 @@ describe("Comprehensive API Security Testing", () => {
               );
 
               const sqlInjectionResults =
-                await TestHelpers.testSQLInjectionProtection(
+                await SecurityHelpers.testSQLInjectionProtection(
                   moduleConfig,
                   fullModuleName
                 );
@@ -429,7 +431,7 @@ describe("Comprehensive API Security Testing", () => {
 
               logger.info(`🕷️ Testing XSS protection for ${fullModuleName}`);
 
-              const xssResults = await TestHelpers.testXSSProtection(
+              const xssResults = await SecurityHelpers.testXSSProtection(
                 moduleConfig,
                 fullModuleName
               );

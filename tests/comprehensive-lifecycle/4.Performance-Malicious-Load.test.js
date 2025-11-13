@@ -1,7 +1,9 @@
 // tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js
-const TestHelpers = require("../../utils/test-helpers");
+const {
+  testPerformanceUnderMaliciousLoad,
+} = require("../../utils/performance-helpers");
 const logger = require("../../utils/logger");
-const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../constants");
+const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
  * PERFORMANCE UNDER MALICIOUS LOAD TESTING SUITE
@@ -204,7 +206,7 @@ describe("Performance Under Malicious Load", () => {
               );
 
               const performanceResults =
-                await TestHelpers.testPerformanceUnderMaliciousLoad(
+                await testPerformanceUnderMaliciousLoad(
                   moduleConfig,
                   fullModuleName
                 );

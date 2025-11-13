@@ -1,8 +1,14 @@
 // tests/comprehensive-lifecycle/3.Advanced-Security-Testing.test.js
-const TestHelpers = require("../../utils/test-helpers");
+const {
+  testBusinessLogicFlaws,
+  testPrivilegeEscalation,
+  testMassAssignment,
+  testIDORVulnerabilities,
+  testRaceConditions,
+} = require("../../utils/advanced-security-helpers");
 const apiClient = require("../../utils/api-client");
 const logger = require("../../utils/logger");
-const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../constants");
+const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
  * ADVANCED SECURITY TESTING SUITE
@@ -202,11 +208,10 @@ describe("Advanced Security Testing", () => {
                 `💰 Testing business logic flaws for ${fullModuleName}`
               );
 
-              const businessLogicResults =
-                await TestHelpers.testBusinessLogicFlaws(
-                  moduleConfig,
-                  fullModuleName
-                );
+              const businessLogicResults = await testBusinessLogicFlaws(
+                moduleConfig,
+                fullModuleName
+              );
 
               securityResults.businessLogic = businessLogicResults;
 
@@ -258,11 +263,10 @@ describe("Advanced Security Testing", () => {
                 `🔄 Testing privilege escalation for ${fullModuleName}`
               );
 
-              const privilegeResults =
-                await TestHelpers.testPrivilegeEscalation(
-                  moduleConfig,
-                  fullModuleName
-                );
+              const privilegeResults = await testPrivilegeEscalation(
+                moduleConfig,
+                fullModuleName
+              );
 
               securityResults.privilegeEscalation = privilegeResults;
 
@@ -312,11 +316,10 @@ describe("Advanced Security Testing", () => {
 
               logger.info(`📦 Testing mass assignment for ${fullModuleName}`);
 
-              const massAssignmentResults =
-                await TestHelpers.testMassAssignment(
-                  moduleConfig,
-                  fullModuleName
-                );
+              const massAssignmentResults = await testMassAssignment(
+                moduleConfig,
+                fullModuleName
+              );
 
               securityResults.massAssignment = massAssignmentResults;
 
@@ -368,7 +371,7 @@ describe("Advanced Security Testing", () => {
                 `🔗 Testing IDOR vulnerabilities for ${fullModuleName}`
               );
 
-              const idorResults = await TestHelpers.testIDORVulnerabilities(
+              const idorResults = await testIDORVulnerabilities(
                 moduleConfig,
                 fullModuleName
               );
@@ -419,7 +422,7 @@ describe("Advanced Security Testing", () => {
 
               logger.info(`🏁 Testing race conditions for ${fullModuleName}`);
 
-              const raceConditionResults = await TestHelpers.testRaceConditions(
+              const raceConditionResults = await testRaceConditions(
                 moduleConfig,
                 fullModuleName
               );
