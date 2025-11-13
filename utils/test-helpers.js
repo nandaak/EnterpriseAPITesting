@@ -9,41 +9,199 @@ const {
 } = require("../Constants/Constants");
 
 class TestHelpers {
+  /**
+   * ✅ ENHANCED ID EXTRACTION WITH VALIDATION
+   */
+  /**
+   * Comprehensive ID extraction from API responses
+   */
+  /**
+   * Comprehensive ID extraction from API responses
+   */
+  // utils/test-helpers.js (or wherever this class resides)
+
+  static extractId(response) {
+    // REMOVED: global.allureStep call
+    // The logic is now executed directly when extractId is called.
+
+    let extractedId = null;
+    let extractionSource = "none";
+    let logger = console; // Assuming 'logger' is available globally or imported, using console as fallback
+
+    // --- Initial Debug Logging (Adapted without global.attachJSON) ---
+
+    const debugInfo = {
+      responseKeys: Object.keys(response),
+      hasData: !!response.data,
+      dataType: typeof response.data,
+      // Safely preview data or keys
+      dataPreview:
+        typeof response.data === "object" && response.data !== null
+          ? Object.keys(response.data)
+          : response.data,
+      hasResult: !!response.result,
+    };
+
+    // Replace global.attachJSON with a simple console/logger output for context
+    // logger.debug("ID Extraction Debug - Initial Response Context:", debugInfo);
+
+    // --- ID Extraction Strategies ---
+
+    const strategies = [
+      // Strategy 1: Direct ID string in response.data (must be UUID)
+      {
+        name: "response.data (direct UUID string)",
+        check: () =>
+          typeof response.data === "string" && this.isValidUUID(response.data),
+        getValue: () => response.data,
+      },
+      // Strategy 2: ID field within response.data object
+      {
+        name: "response.data object (UUID field)",
+        check: () =>
+          response.data &&
+          typeof response.data === "object" &&
+          response.data !== null,
+        getValue: () => {
+          const idFields = [
+            "id",
+            "uuid",
+            "Id",
+            "ID",
+            "UUID",
+            "guid",
+            "Guid",
+            "GUID",
+            "createdId",
+            "resourceId",
+            "entityId",
+            "referenceId",
+          ];
+          for (const field of idFields) {
+            if (
+              response.data[field] &&
+              this.isValidUUID(response.data[field])
+            ) {
+              extractionSource = `response.data.${field} (UUID)`;
+              return response.data[field];
+            }
+          }
+          return null;
+        },
+      },
+      // Strategy 3: Response object level ID field
+      {
+        name: "response.id (UUID)",
+        check: () => response.id && this.isValidUUID(response.id),
+        getValue: () => response.id,
+      },
+      // Strategy 4: Fallback to non-UUID "id" field
+      {
+        name: "response.data.id (non-UUID fallback)",
+        check: () =>
+          response.data &&
+          typeof response.data === "object" &&
+          response.data !== null &&
+          response.data.id,
+        getValue: () => response.data.id,
+      },
+      // Strategy 5: Regex pattern match in entire response (last resort for UUID)
+      {
+        name: "regex pattern match (last resort)",
+        check: () => true, // Always run this as a last resort
+        getValue: () => {
+          const responseString = JSON.stringify(response);
+          // This regex specifically targets the UUID format found in your log: "289e09dc-d7ab-4d05-5938-08de22a1a23e"
+          const uuidRegex =
+            /[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/i;
+          const uuidMatch = responseString.match(uuidRegex);
+
+          if (uuidMatch) {
+            extractionSource = "regex pattern match (UUID)";
+            return uuidMatch[0];
+          }
+
+          // If UUID extraction fails, you might want to consider non-UUID extraction here too,
+          // but given the API returns a UUID, focusing on UUID is safer.
+          return null;
+        },
+      },
+    ];
+
+    for (const strategy of strategies) {
+      if (strategy.check()) {
+        const result = strategy.getValue();
+        if (result) {
+          extractedId = result;
+          // Only update source if it wasn't set by an internal strategy (like in Strategy 2)
+          if (extractionSource === "none") {
+            extractionSource = strategy.name;
+          }
+          break;
+        }
+      }
+    }
+
+    // --- Final Reporting ---
+    if (extractedId) {
+      logger.info(
+        `✅ ID extracted successfully: ${extractedId} (from ${extractionSource})`
+      );
+    } else {
+      logger.error(
+        `❌ CRITICAL: Could not extract ID from response structure. This will break the lifecycle.`
+      );
+    }
+
+    return extractedId;
+  }
+
+  static isValidId(id) {
+    if (!id) return false;
+
+    const idStr = String(id).trim();
+    if (idStr.length === 0) return false;
+    if (idStr === "null" || idStr === "undefined") return false;
+    if (idStr === "0" || idStr === "0") return false;
+
+    // UUID validation
+    if (idStr.includes("-") && idStr.length === 36) {
+      const uuidRegex =
+        /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+      return uuidRegex.test(idStr);
+    }
+
+    // Numeric ID validation
+    if (!isNaN(idStr) && idStr > 0) return true;
+
+    // String ID validation (minimum length)
+    if (idStr.length >= 1) return true;
+
+    return false;
+  }
+
+  /**
+   * ✅ DEBUG RESPONSE STRUCTURE
+   */
+  static debugResponseStructure(response, operation) {
+    logger.debug(`🔍 ${operation} Response Structure Analysis:`);
+    logger.debug(`   Status: ${response.status}`);
+    logger.debug(`   Headers: ${JSON.stringify(response.headers)}`);
+    logger.debug(`   Data Type: ${typeof response.data}`);
+    logger.debug(
+      `   Data Keys: ${response.data ? Object.keys(response.data) : "NO DATA"}`
+    );
+
+    if (response.data) {
+      logger.debug(
+        `   Data Sample: ${JSON.stringify(response.data).substring(0, 200)}...`
+      );
+    }
+  }
+
   // ===========================================================================
   // CORE UTILITY METHODS
   // ===========================================================================
-
-  /**
-   * Debug response structure for troubleshooting
-   */
-  static debugResponseStructure(response, operation = "unknown") {
-    const debugInfo = {
-      operation,
-      timestamp: new Date().toISOString(),
-      responseStructure: {
-        keys: Object.keys(response),
-        dataType: typeof response.data,
-        dataKeys:
-          response.data && typeof response.data === "object"
-            ? Object.keys(response.data)
-            : "N/A",
-        status: response.status,
-        hasIdField: !!(response.id || (response.data && response.data.id)),
-      },
-      sampleData: {
-        data:
-          response.data && typeof response.data === "string"
-            ? response.data.substring(0, 50) +
-              (response.data.length > 50 ? "..." : "")
-            : response.data,
-        id: response.id || "N/A",
-        dataId: (response.data && response.data.id) || "N/A",
-      },
-    };
-
-    global.attachJSON(`Response Structure Debug - ${operation}`, debugInfo);
-    return debugInfo;
-  }
 
   /**
    * Validate if a string is a valid UUID
@@ -261,134 +419,6 @@ class TestHelpers {
         throw error;
       }
     });
-  }
-
-  /**
-   * Comprehensive ID extraction from API responses
-   */
-  static extractId(response) {
-    return global.allureStep(
-      "Extract Resource ID from API Response",
-      async () => {
-        let extractedId = null;
-        let extractionSource = "none";
-
-        const debugInfo = {
-          responseKeys: Object.keys(response),
-          hasData: !!response.data,
-          dataType: typeof response.data,
-          dataPreview:
-            typeof response.data === "object"
-              ? Object.keys(response.data)
-              : response.data,
-          hasResult: !!response.result,
-        };
-        global.attachJSON(
-          "ID Extraction Debug - Initial Response Context",
-          debugInfo
-        );
-
-        const strategies = [
-          // Strategy 1: Direct ID string in response.data (must be UUID)
-          {
-            name: "response.data (direct UUID string)",
-            check: () =>
-              typeof response.data === "string" &&
-              this.isValidUUID(response.data),
-            getValue: () => response.data,
-          },
-          // Strategy 2: ID field within response.data object
-          {
-            name: "response.data object (UUID field)",
-            check: () => response.data && typeof response.data === "object",
-            getValue: () => {
-              const idFields = [
-                "id",
-                "uuid",
-                "Id",
-                "ID",
-                "UUID",
-                "guid",
-                "Guid",
-                "GUID",
-                "createdId",
-                "resourceId",
-                "entityId",
-                "referenceId",
-              ];
-              for (const field of idFields) {
-                if (
-                  response.data[field] &&
-                  this.isValidUUID(response.data[field])
-                ) {
-                  extractionSource = `response.data.${field} (UUID)`;
-                  return response.data[field];
-                }
-              }
-              return null;
-            },
-          },
-          // Strategy 3: Response object level ID field
-          {
-            name: "response.id (UUID)",
-            check: () => response.id && this.isValidUUID(response.id),
-            getValue: () => response.id,
-          },
-          // Strategy 4: Fallback to non-UUID "id" field
-          {
-            name: "response.data.id (non-UUID fallback)",
-            check: () =>
-              response.data &&
-              typeof response.data === "object" &&
-              response.data.id,
-            getValue: () => response.data.id,
-          },
-          // Strategy 5: Regex pattern match in entire response
-          {
-            name: "regex pattern match (last resort)",
-            check: () => true,
-            getValue: () => {
-              const responseString = JSON.stringify(response);
-              const uuidMatch = responseString.match(
-                /[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}/i
-              );
-              return uuidMatch ? uuidMatch[0] : null;
-            },
-          },
-        ];
-
-        for (const strategy of strategies) {
-          if (strategy.check()) {
-            const result = strategy.getValue();
-            if (result) {
-              extractedId = result;
-              if (extractionSource === "none") extractionSource = strategy.name;
-              break;
-            }
-          }
-        }
-
-        const extractionResult = {
-          success: !!extractedId,
-          value: extractedId,
-          type: typeof extractedId,
-          source: extractionSource,
-          timestamp: new Date().toISOString(),
-        };
-
-        if (extractedId) {
-          global.attachAllureLog("ID Extraction Success", extractionResult);
-          logger.info(
-            `✅ ID extracted successfully: ${extractedId} (from ${extractionSource})`
-          );
-        } else {
-          global.attachAllureLog("ID Extraction Failed", extractionResult);
-          logger.warn(`⚠️ Could not extract ID from response structure`);
-        }
-
-        return extractedId;
-      }
-    );
   }
 
   // ===========================================================================

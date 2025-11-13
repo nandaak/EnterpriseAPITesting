@@ -3,8 +3,8 @@ const path = require("path");
 
 // Change this line to set the root directory to the current location
 // const rootDir = ".";
-const rootDir = "Projjjj";
-const outputFile = "Projjjj-Jest-APi-Testing.txt";
+const rootDir = "utils";
+const outputFile = "utils-Jest-APi-Testing.txt";
 const extensionsToInclude = [".ts", ".js", ".css", ".html", ".json", ".tsx"];
 const excludedDirs = ["node_modules", ".git", "dist", "build"];
 

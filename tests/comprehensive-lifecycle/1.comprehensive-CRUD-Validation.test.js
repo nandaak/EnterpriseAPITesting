@@ -3,6 +3,7 @@ const CrudLifecycleHelper = require("../../utils/crud-lifecycle-helper");
 const logger = require("../../utils/logger");
 const Constants = require("../../Constants");
 const modulesConfig = require("../../config/modules-config");
+const apiClient = require("../../utils/api-client");
 const { URL } = require("url");
 
 const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
@@ -47,36 +48,81 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
 
   // Check if module has minimum required operations for CRUD
   const hasMinimumCRUDOperations = (moduleConfig) => {
-    if (!moduleConfig?.operations) return false;
+    if (!moduleConfig) return false;
 
-    const requiredOps = ["Post", "View"]; // At minimum need CREATE and VIEW
+    const requiredOps = ["Post", "View"];
     const validOps = requiredOps.filter(
       (op) =>
-        moduleConfig.operations[op] &&
-        isValidUrl(moduleConfig.operations[op].endpoint)
+        moduleConfig[op] &&
+        Array.isArray(moduleConfig[op]) &&
+        moduleConfig[op][0] &&
+        isValidUrl(moduleConfig[op][0])
     );
 
-    return validOps.length >= 2; // Need at least CREATE and one other operation
+    return validOps.length >= 2;
   };
 
-  // Skip test if no valid operations are available
+  // ✅ CORRECTED: Skip test if no valid operations are available
   const skipIfNoValidOperations = (moduleConfig, operationType) => {
-    if (!moduleConfig?.operations?.[operationType]) {
+    if (!moduleConfig) {
       return {
         skip: true,
-        reason: `Operation '${operationType}' not configured`,
+        reason: `Module configuration is undefined or null`,
       };
     }
 
-    const operation = moduleConfig.operations[operationType];
-    if (!isValidUrl(operation.endpoint)) {
+    // ✅ FIX: Check directly for operationType in moduleConfig
+    if (!moduleConfig[operationType]) {
       return {
         skip: true,
-        reason: `Invalid URL for operation '${operationType}': ${operation.endpoint}`,
+        reason: `Operation '${operationType}' not configured in module`,
+      };
+    }
+
+    const operation = moduleConfig[operationType];
+
+    // ✅ FIX: Operation is an array [endpoint, payload], so check operation[0]
+    if (!Array.isArray(operation) || !operation[0]) {
+      return {
+        skip: true,
+        reason: `Operation '${operationType}' has invalid format - expected [endpoint, payload] array`,
+      };
+    }
+
+    const endpoint = operation[0];
+    if (!isValidUrl(endpoint)) {
+      return {
+        skip: true,
+        reason: `Invalid URL for operation '${operationType}': ${endpoint}`,
       };
     }
 
     return { skip: false };
+  };
+
+  // ✅ ENHANCED: Check if module has endpoints (for module discovery)
+  const hasEndpoints = (moduleConfig) => {
+    if (!moduleConfig || typeof moduleConfig !== "object") return false;
+
+    const endpointTypes = [
+      "Post",
+      "PUT",
+      "DELETE",
+      "View",
+      "EDIT",
+      "LookUP",
+      "Commit",
+      "GET",
+    ];
+
+    return endpointTypes.some(
+      (operationType) =>
+        moduleConfig[operationType] &&
+        Array.isArray(moduleConfig[operationType]) &&
+        moduleConfig[operationType][0] &&
+        moduleConfig[operationType][0] !== "URL_HERE" &&
+        isValidUrl(moduleConfig[operationType][0])
+    );
   };
 
   // Suite setup
@@ -136,23 +182,18 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
     Object.entries(modules).forEach(([moduleName, moduleConfig]) => {
       if (typeof moduleConfig !== "object" || moduleConfig === null) return;
 
-      const hasEndpoints =
-        moduleConfig.Post ||
-        moduleConfig.PUT ||
-        moduleConfig.DELETE ||
-        moduleConfig.View ||
-        moduleConfig.EDIT ||
-        moduleConfig.LookUP ||
-        moduleConfig.Commit ||
-        moduleConfig.GET;
+      // ✅ FIX: Use the corrected hasEndpoints function
+      const moduleHasEndpoints = hasEndpoints(moduleConfig);
 
-      if (hasEndpoints) {
+      if (moduleHasEndpoints) {
         const fullModuleName = parentPath
           ? `${parentPath}.${moduleName}`
           : moduleName;
 
         crudTestSummary.modulesTested++;
-        if (!fullModuleName.includes("Reports"))
+
+        // ✅ FIX: Only skip Reports modules specifically, not others
+        if (!fullModuleName.includes("Reports")) {
           describe(`CRUD Testing: ${fullModuleName}`, () => {
             let moduleStartTime;
             let crudResults = {};
@@ -164,18 +205,34 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
             beforeAll(async () => {
               moduleStartTime = Date.now();
 
+              // ✅ FIX: Check if module has valid CREATE operation
+              hasValidCreateOperation =
+                moduleConfig.Post &&
+                Array.isArray(moduleConfig.Post) &&
+                moduleConfig.Post[0] &&
+                isValidUrl(moduleConfig.Post[0]);
+
               // Initialize CRUD helper for this module
               crudHelper = new CrudLifecycleHelper(fullModuleName);
               await crudHelper.initialize();
-
-              // Determine if module has valid CREATE operation
-              hasValidCreateOperation =
-                moduleConfig.Post && isValidUrl(moduleConfig.Post.endpoint);
 
               logger.info(`🎯 Starting CRUD tests for: ${fullModuleName}`);
               logger.info(
                 `📊 Has valid CREATE operation: ${hasValidCreateOperation}`
               );
+
+              // Log module configuration for debugging
+              const endpoints = Object.keys(moduleConfig).filter(
+                (key) =>
+                  Array.isArray(moduleConfig[key]) &&
+                  moduleConfig[key][0] &&
+                  typeof moduleConfig[key][0] === "string" &&
+                  moduleConfig[key][0].trim().length > 0 &&
+                  moduleConfig[key][0] !== "URL_HERE" &&
+                  isValidUrl(moduleConfig[key][0])
+              );
+
+              logger.info(`📋 Available endpoints: ${endpoints.join(", ")}`);
             });
 
             afterAll(async () => {
@@ -242,6 +299,10 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
 
               testResults.push(testResult);
 
+              if (crudHelper) {
+                crudHelper.recordTestStatus(testName, testStatus);
+              }
+
               if (testStatus === "passed") {
                 logger.debug(
                   `✅ ${fullModuleName} - ${testName} completed successfully`
@@ -261,14 +322,17 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
                 try {
                   testContext.operation = "CREATE";
 
-                  // Skip if no valid POST operation
+                  // ✅ FIX: Use corrected skip check
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
                     "Post"
                   );
                   if (skipCheck.skip) {
+                    // For configuration issues, we can skip instead of failing
                     logger.warn(`⏸️ CREATE test skipped: ${skipCheck.reason}`);
                     crudTestSummary.skippedTests++;
+
+                    // Mark as passed when skipped due to configuration
                     expect(true).toBe(true);
                     return;
                   }
@@ -544,6 +608,11 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
 
                         // Log URL validity
                         const isValid = isValidUrl(operation[0]);
+                        if (!isValid) {
+                          logger.warn(
+                            `Invalid URL for ${operationName}: ${operation[0]}`
+                          );
+                        }
                       }
                     }
                   );
@@ -590,10 +659,11 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
               TEST_CONFIG.TIMEOUT.SHORT
             );
           });
+        }
       }
 
       // Recursively test nested modules following the same pattern
-      if (typeof moduleConfig === "object" && !hasEndpoints) {
+      if (typeof moduleConfig === "object" && !hasEndpoints(moduleConfig)) {
         runCRUDTestsOnAllModules(
           moduleConfig,
           parentPath ? `${parentPath}.${moduleName}` : moduleName

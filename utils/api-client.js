@@ -36,6 +36,27 @@ class ApiClient {
     this.setupInterceptors();
   }
 
+  /**
+   * Check if the API client is ready with token
+   */
+  isReady() {
+    return !!(this.token && this.client);
+  }
+
+  /**
+   * Get token status for debugging
+   */
+  getTokenStatus() {
+    return {
+      hasToken: !!this.token,
+      tokenLength: this.token ? this.token.length : 0,
+      tokenPreview: this.token
+        ? this.token.substring(0, 20) + "..."
+        : "No token",
+      isReady: this.isReady(),
+    };
+  }
+
   validateTokenConfiguration(config) {
     const authHeader = config.headers?.Authorization;
     const hasToken = authHeader && authHeader.startsWith("Bearer ");

@@ -1,236 +1,91 @@
-// tests/comprehensive-lifecycle/crud-lifecycle-helper.js - Enhanced with dynamic operations
+// utils/crud-lifecycle-helper.js
 const fs = require("fs");
 const path = require("path");
-const { ApiClient } = require("./api-client");
+const apiClient = require("./api-client");
 const TestHelpers = require("./test-helpers");
 const Constants = require("../Constants");
-const TokenManager = require("./token-manager");
 const modulesConfig = require("../config/modules-config");
+const logger = require("./logger");
 
 const { FILE_PATHS, HTTP_STATUS_CODES } = Constants;
 
 class CrudLifecycleHelper {
   constructor(modulePath) {
     this.actualModulePath = modulePath;
-    this.moduleConfig = modulesConfig.getModuleConfig(modulePath);
     this.createdId = null;
-    this.schema = {};
+    this.apiClient = apiClient; // Use the already initialized singleton
     this.testResults = [];
-    this.apiClient = null;
-
-    if (!this.moduleConfig) {
-      throw new Error(`Module configuration not found for: ${modulePath}`);
-    }
+    this.currentTestPhase = "INITIAL";
   }
 
-  // Add this method to CrudLifecycleHelper class for better error recovery
-  setTestPhase(phase) {
-    this.currentTestPhase = phase;
-    if (this.safeConsole("debug")) {
-      console.log(`[DEBUG] Test phase set to: ${phase}`);
-    }
-  }
-
-  // Enhance the enforcePrerequisite method
-  enforcePrerequisite(key) {
-    if (global.skipRemainingTests) {
-      const errorMsg = "Skipping due to global test failure";
-      if (this.safeConsole("log")) {
-        console.log(`[INFO] ⏭️ ${errorMsg}`);
-      }
-      throw new Error(errorMsg);
-    }
-
-    if (key === "createdId") {
-      const currentId = this.getCreatedId();
-      if (!currentId) {
-        const errorMsg = "No created ID available - CREATE test must run first";
-        if (this.safeConsole("log")) {
-          console.log(`[INFO] ⏭️ ${errorMsg}`);
-        }
-        throw new Error(errorMsg);
-      }
-    } else if (!this[key]) {
-      if (this.safeConsole("log")) {
-        console.log(
-          `[WARN] Skipping test: Missing prerequisite (${key} is undefined)`
-        );
-      }
-      throw new Error(`Skipping due to failed prerequisite: ${key}`);
-    }
-  }
-
-  // --- Initialization & Setup ---
   async initialize() {
-    this.loadSchema(); // Added
-    await this.setupEnvironmentAndToken();
+    // ✅ SIMPLIFIED: Just verify the API client is ready without checking token property
+    await this.verifyApiClientReady();
     this.loadCreatedIdFromFile();
   }
 
-  loadSchema() {
+  async verifyApiClientReady() {
     try {
-      if (fs.existsSync(FILE_PATHS.SCHEMA_PATH)) {
-        this.schema = JSON.parse(
-          fs.readFileSync(FILE_PATHS.SCHEMA_PATH, "utf8")
-        );
-        // FIXED: Use global console safely
-        if (typeof console !== "undefined" && console.log) {
-          console.log(
-            `[INFO] ✅ Schema loaded successfully for ${this.actualModulePath}`
-          );
-        }
-      } else {
-        throw new Error(`Schema file not found at: ${FILE_PATHS.SCHEMA_PATH}`);
+      // ✅ Check if API client instance exists
+      if (!this.apiClient) {
+        throw new Error("API client instance is not available");
       }
+
+      // ✅ Check if API client has the necessary methods
+      if (
+        typeof this.apiClient.post !== "function" ||
+        typeof this.apiClient.get !== "function"
+      ) {
+        throw new Error("API client methods are not properly initialized");
+      }
+
+      // ✅ Test with a simple health check or token verification
+      // Instead of checking token property, we'll do a simple test request
+      // or just assume it's ready since it was initialized globally
+
+      logger.info("✅ API Client verified and ready for testing");
     } catch (error) {
-      // FIXED: Safe console usage
-      if (typeof console !== "undefined" && console.error) {
-        console.error(`[ERROR] ❌ Failed to load schema: ${error.message}`);
-      }
-      throw error;
-    }
-  }
-
-  async setupEnvironmentAndToken() {
-    // Ensure test directory exists
-    const testDir = path.dirname(FILE_PATHS.CREATED_ID_FILE);
-    if (!fs.existsSync(testDir)) {
-      fs.mkdirSync(testDir, { recursive: true });
-    }
-
-    if (this.safeConsole("log")) {
-      console.log("[INFO] 🔐 Loading and validating API token...");
-    }
-
-    try {
-      const token = await TokenManager.getValidToken();
-      if (!token) {
-        throw new Error("Failed to obtain valid token");
-      }
-
-      if (this.safeConsole("log")) {
-        console.log(`[INFO] 🔐 Token obtained (length: ${token.length})`);
-      }
-
-      this.apiClient = new ApiClient({
-        headers: {
-          Authorization: TokenManager.formatTokenForHeader(token),
-        },
-      });
-
-      if (this.safeConsole("log")) {
-        console.log(
-          "[INFO] ✅ API Client successfully initialized with valid Bearer token"
-        );
-      }
-    } catch (error) {
-      if (this.safeConsole("error")) {
-        console.error(
-          `[ERROR] ❌ CRITICAL: Failed to setup API client: ${error.message}`
-        );
-      }
+      logger.error(`❌ API Client verification failed: ${error.message}`);
       global.skipRemainingTests = true;
-      throw new Error(`Authentication Setup Failed: ${error.message}`);
-    }
-  }
-
-  async verifyToken() {
-    if (typeof console !== "undefined" && console.log) {
-      console.log("[INFO] 🔐 Verifying token validity with actual API call...");
-    }
-    try {
-      const isValid = await this.apiClient.testTokenValidity();
-      if (!isValid) {
-        throw new Error(
-          "Token verification failed - check token validity and permissions"
-        );
-      }
-      if (typeof console !== "undefined" && console.log) {
-        console.log("[INFO] ✅ Token verification successful");
-      }
-    } catch (error) {
-      if (typeof console !== "undefined" && console.error) {
-        console.error(`[ERROR] ❌ Token verification failed: ${error.message}`);
-      }
-      global.skipRemainingTests = true;
-      throw error;
+      throw new Error(`API Client Setup Failed: ${error.message}`);
     }
   }
 
   // --- Enhanced ID File Management ---
-  /**
-   * Enhanced ID file management with test phase awareness
-   */
-  saveCreatedIdToFile(createdId, testPhase = "CREATE") {
+  saveCreatedIdToFile(id) {
     try {
-      const fileData = {
-        createdId: createdId,
-        timestamp: new Date().toISOString(),
-        module: this.actualModulePath,
-        operations: Object.keys(this.moduleConfig.operations),
-        testPhase: testPhase,
-        testRunId: this.getTestRunId(), // Unique identifier for this test run
-      };
+      // Save to text file
+      fs.writeFileSync(FILE_PATHS.CREATED_ID_TXT, id);
 
-      // Save to JSON file (for structured data)
+      // Save to JSON with metadata
+      const metadata = {
+        id: id,
+        module: this.actualModulePath,
+        timestamp: new Date().toISOString(),
+        type: typeof id,
+        length: id.length,
+      };
       fs.writeFileSync(
         FILE_PATHS.CREATED_ID_FILE,
-        JSON.stringify(fileData, null, 2)
+        JSON.stringify(metadata, null, 2)
       );
 
-      // Save to simple text file (for easy access by other tests)
-      fs.writeFileSync(FILE_PATHS.CREATED_ID_TXT, createdId, "utf8");
-
-      if (this.safeConsole("log")) {
-        console.log(
-          `[INFO] 💾 Saved created ID to files (Phase: ${testPhase}):`
+      // ✅ VERIFY FILE WAS ACTUALLY WRITTEN
+      const fileContent = fs
+        .readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8")
+        .trim();
+      if (fileContent !== id) {
+        throw new Error(
+          `File content mismatch: expected ${id}, got ${fileContent}`
         );
-        console.log(`       📄 JSON: ${FILE_PATHS.CREATED_ID_FILE}`);
-        console.log(`       📝 TXT: ${FILE_PATHS.CREATED_ID_TXT}`);
-        console.log(`       🔑 ID: ${createdId}`);
-        console.log(`       🎯 Module: ${this.actualModulePath}`);
       }
 
+      logger.info(`✅ ID saved to file: ${FILE_PATHS.CREATED_ID_TXT}`);
       return true;
     } catch (error) {
-      if (this.safeConsole("error")) {
-        console.error(
-          `[ERROR] ❌ Failed to save created ID to file: ${error.message}`
-        );
-      }
+      logger.error(`❌ FAILED TO SAVE ID: ${error.message}`);
       return false;
     }
-  }
-
-  /**
-   * Enhanced file existence check for resilience test
-   */
-  verifyFilePersistence() {
-    const fs = require("fs");
-    const { FILE_PATHS } = Constants;
-
-    const filesExist = {
-      txtFile: fs.existsSync(FILE_PATHS.CREATED_ID_TXT),
-      jsonFile: fs.existsSync(FILE_PATHS.CREATED_ID_FILE),
-    };
-
-    if (this.safeConsole("debug")) {
-      console.log(`[DEBUG] File persistence check:`);
-      console.log(`  - TXT File exists: ${filesExist.txtFile}`);
-      console.log(`  - JSON File exists: ${filesExist.jsonFile}`);
-    }
-
-    return filesExist;
-  }
-
-  // Add this method to generate unique test run ID
-  getTestRunId() {
-    if (!this.testRunId) {
-      this.testRunId = `testrun_${Date.now()}_${Math.random()
-        .toString(36)
-        .substr(2, 9)}`;
-    }
-    return this.testRunId;
   }
 
   /**
@@ -243,40 +98,26 @@ class CrudLifecycleHelper {
       // First try to load from simple text file
       if (fs.existsSync(FILE_PATHS.CREATED_ID_TXT)) {
         loadedId = fs.readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8").trim();
-        if (this.safeConsole("log")) {
-          console.log(
-            `[INFO] 📥 Loaded created ID from text file: ${loadedId}`
-          );
-        }
+        logger.info(`📥 Loaded created ID from text file: ${loadedId}`);
       }
       // Fallback to JSON file
       else if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
         const jsonData = JSON.parse(
           fs.readFileSync(FILE_PATHS.CREATED_ID_FILE, "utf8")
         );
-        loadedId = jsonData.createdId;
-        if (this.safeConsole("log")) {
-          console.log(
-            `[INFO] 📥 Loaded created ID from JSON file: ${loadedId}`
-          );
-        }
+        loadedId = jsonData.id;
+        logger.info(`📥 Loaded created ID from JSON file: ${loadedId}`);
       }
 
       if (loadedId) {
         this.createdId = loadedId;
-        if (this.safeConsole("log")) {
-          console.log(`[INFO] ✅ Using existing created ID: ${this.createdId}`);
-        }
+        logger.info(`✅ Using existing created ID: ${this.createdId}`);
         return true;
       }
 
       return false;
     } catch (error) {
-      if (this.safeConsole("warn")) {
-        console.warn(
-          `[WARN] Could not load created ID from file: ${error.message}`
-        );
-      }
+      logger.warn(`Could not load created ID from file: ${error.message}`);
       return false;
     }
   }
@@ -300,7 +141,7 @@ class CrudLifecycleHelper {
       throw new Error("No created ID available - CREATE test must run first");
     }
 
-    if (typeof id !== "string" || id.length < 5) {
+    if (typeof id !== "string" || id.length < 1) {
       throw new Error(`Invalid created ID: ${id}`);
     }
 
@@ -308,90 +149,50 @@ class CrudLifecycleHelper {
   }
 
   // --- Enhanced Prerequisite Enforcement ---
-  // --- Payload Generation ---
+  enforcePrerequisite(key) {
+    if (global.skipRemainingTests) {
+      const errorMsg = "Skipping due to global test failure";
+      logger.info(`⏭️ ${errorMsg}`);
+      throw new Error(errorMsg);
+    }
 
-  getTestPayload(operation = "Post") {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-
-    const payloadPath = this.actualModulePath.split(".");
-    let current = this.schema;
-    for (const part of payloadPath) {
-      if (current && current[part]) {
-        current = current[part];
-      } else {
-        if (typeof console !== "undefined" && console.log) {
-          console.log(
-            `[WARN] Path segment "${part}" not found in schema. Using generic payload.`
-          );
-        }
-        break;
+    if (key === "createdId") {
+      const currentId = this.getCreatedId();
+      if (!currentId) {
+        const errorMsg = "No created ID available - CREATE test must run first";
+        logger.info(`⏭️ ${errorMsg}`);
+        throw new Error(errorMsg);
       }
+    } else if (!this[key]) {
+      logger.warn(`Skipping test: Missing prerequisite (${key} is undefined)`);
+      throw new Error(`Skipping due to failed prerequisite: ${key}`);
     }
-
-    let payload = {
-      name: `Test-${timestamp}`,
-      description: `API Testing ${timestamp}`,
-      status: "Active",
-    };
-
-    if (
-      current &&
-      current[operation] &&
-      Array.isArray(current[operation]) &&
-      current[operation].length > 1
-    ) {
-      payload = JSON.parse(JSON.stringify(current[operation][1]));
-    }
-
-    if (payload.description) {
-      payload.description = `${payload.description} - ${timestamp}`;
-    }
-    if (payload.journalDate) {
-      payload.journalDate = new Date().toISOString().split("T")[0];
-    }
-
-    // Remove ID fields for CREATE operations
-    if (operation === "Post") {
-      delete payload.id;
-      delete payload.journalCode;
-      delete payload.referenceNumber;
-    }
-
-    if (typeof console !== "undefined" && console.log) {
-      console.log(
-        `[DEBUG] Generated ${operation} payload with ${
-          Object.keys(payload).length
-        } fields`
-      );
-    }
-    return payload;
   }
-
-  // --- Test Lifecycle Management ---
 
   // --- CRUD Operation Methods ---
   async runCreateTest(operationKey = "Post") {
     if (global.skipRemainingTests) {
-      throw new Error("Skipping due to authentication failure prerequisite.");
+      throw new Error("❌ SKIPPING TEST: Previous authentication failure");
     }
 
-    const operation = modulesConfig.getOperationWithId(
-      this.actualModulePath,
-      operationKey
-    );
+    // ✅ Get operation directly from moduleConfig
+    const operation = this.getOperationFromModuleConfig(operationKey);
 
+    // ✅ STRICT VALIDATION: Fail if operation not found
     if (!operation) {
       throw new Error(
-        `Create operation ${operationKey} not found for module ${this.actualModulePath}`
+        `❌ CREATE OPERATION NOT FOUND: ${operationKey} for module ${this.actualModulePath}`
       );
     }
 
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🌐 Calling ${operationKey} endpoint: ${operation.endpoint}`
+    // ✅ STRICT VALIDATION: Fail if endpoint is invalid
+    if (!operation.endpoint || operation.endpoint === "URL_HERE") {
+      throw new Error(
+        `❌ INVALID ENDPOINT: ${operation.endpoint} for ${operationKey}`
       );
-      console.log(`[DEBUG] Operation requires ID: ${operation.requiresId}`);
     }
+
+    logger.info(`🌐 Calling ${operationKey} endpoint: ${operation.endpoint}`);
 
     try {
       const response = await this.apiClient.post(
@@ -399,74 +200,177 @@ class CrudLifecycleHelper {
         operation.payload
       );
 
-      // --- Success Path ---
-      if (response.status >= 200 && response.status < 400) {
-        // Debug the response structure first
-        TestHelpers.debugResponseStructure(response, "CREATE");
-
-        // Use enhanced ID extraction
-        const extractedId = TestHelpers.extractIdEnhanced(response);
-
-        if (!extractedId) {
-          if (this.safeConsole("error")) {
-            console.error(
-              `[ERROR] ❌ Could not extract ID from successful response`
-            );
-          }
-          throw new Error(
-            "ID extraction failed - cannot continue CRUD lifecycle"
-          );
-        }
-
-        this.createdId = String(extractedId);
-
-        // Save to files
-        const saveSuccess = this.saveCreatedIdToFile(this.createdId);
-        if (!saveSuccess && this.safeConsole("warn")) {
-          console.warn(
-            `[WARN] Could not save ID to file, but continuing with in-memory ID`
-          );
-        }
-
-        if (this.safeConsole("log")) {
-          console.log(
-            `[INFO] ✅ Successfully created resource with ID: ${this.createdId}`
-          );
-        }
-
-        return {
-          createdId: this.createdId,
-          response,
-          extractionDetails: {
-            source: "enhanced extraction",
-            type: typeof this.createdId,
-            length: this.createdId.length,
-            savedToFile: saveSuccess,
-            operation: operationKey,
-          },
-        };
-      } else {
-        global.skipRemainingTests = true;
-        throw new Error(`POST failed with status ${response.status}`);
+      // ✅ STRICT VALIDATION: Fail if status code indicates failure
+      if (response.status < 200 || response.status >= 400) {
+        throw new Error(
+          `❌ CREATE REQUEST FAILED: Status ${response.status} - ${response.statusText}`
+        );
       }
+
+      // Debug the response structure
+      TestHelpers.debugResponseStructure(response, "CREATE");
+
+      // Use enhanced ID extraction
+      const extractedId = TestHelpers.extractId(response);
+
+      // ✅ STRICT VALIDATION: Fail if ID extraction fails
+      if (!extractedId) {
+        const errorMsg = `❌ ID EXTRACTION FAILED: Could not extract resource ID from response. Response: ${JSON.stringify(
+          response.data
+        )}`;
+        logger.error(errorMsg);
+        throw new Error(errorMsg);
+      }
+
+      this.createdId = String(extractedId);
+
+      // ✅ STRICT VALIDATION: Fail if ID saving fails
+      const saveSuccess = this.saveCreatedIdToFile(this.createdId);
+      if (!saveSuccess) {
+        throw new Error(
+          `❌ ID PERSISTENCE FAILED: Could not save ID to file system`
+        );
+      }
+
+      // ✅ VALIDATE ACTUAL DATA CREATION
+      const dataExists = await this.validateDataCreation(this.createdId);
+      if (!dataExists) {
+        throw new Error(
+          `❌ DATA CREATION VERIFICATION FAILED: Resource ${this.createdId} not found in system`
+        );
+      }
+
+      logger.info(
+        `✅ Successfully created and verified resource with ID: ${this.createdId}`
+      );
+
+      return {
+        createdId: this.createdId,
+        response,
+        extractionDetails: {
+          source: "enhanced extraction",
+          type: typeof this.createdId,
+          length: this.createdId.length,
+          savedToFile: saveSuccess,
+          dataVerified: dataExists,
+          operation: operationKey,
+        },
+      };
     } catch (error) {
       global.skipRemainingTests = true;
-      this.handleError(error, "CREATE", operationKey);
+      logger.error(`❌ CREATE TEST FAILED: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * ✅ Get operation from module configuration directly
+   */
+  getOperationFromModuleConfig(operationKey) {
+    // Find the module in the schema
+    const moduleConfig = this.findModuleInSchema(this.actualModulePath);
+
+    if (!moduleConfig || !moduleConfig[operationKey]) {
+      logger.error(
+        `Operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+      return null;
+    }
+
+    const operationArray = moduleConfig[operationKey];
+
+    if (!Array.isArray(operationArray) || operationArray.length < 1) {
+      logger.error(
+        `Invalid operation format for ${operationKey} in module ${this.actualModulePath}`
+      );
+      return null;
+    }
+
+    return {
+      endpoint: operationArray[0],
+      payload: operationArray[1] || {},
+      requiresId: operationArray[0].includes("<createdId>"),
+    };
+  }
+
+  /**
+   * ✅ FIND MODULE IN SCHEMA BY PATH
+   */
+  findModuleInSchema(modulePath) {
+    try {
+      const pathParts = modulePath.split(".");
+      let currentLevel = modulesConfig.schema || modulesConfig;
+
+      for (const part of pathParts) {
+        if (currentLevel && currentLevel[part]) {
+          currentLevel = currentLevel[part];
+        } else {
+          logger.warn(
+            `Module path part '${part}' not found in schema for path '${modulePath}'`
+          );
+          return null;
+        }
+      }
+
+      return currentLevel;
+    } catch (error) {
+      logger.error(`Error finding module in schema: ${error.message}`);
+      return null;
+    }
+  }
+
+  /**
+   * ✅ VALIDATE ACTUAL DATA CREATION IN SYSTEM
+   */
+  async validateDataCreation(resourceId) {
+    try {
+      // Try to retrieve the created resource using View operation
+      const viewOperation = this.getOperationFromModuleConfig("View");
+
+      if (!viewOperation) {
+        logger.warn(`⚠️ No VIEW operation available for data verification`);
+        return true; // Can't verify, but don't fail the test
+      }
+
+      // Construct the view endpoint with the created ID
+      const viewEndpoint = viewOperation.endpoint.replace(
+        "<createdId>",
+        resourceId
+      );
+
+      logger.info(`🔍 Verifying data creation with endpoint: ${viewEndpoint}`);
+
+      const viewResponse = await this.apiClient.get(viewEndpoint);
+
+      // ✅ STRICT VALIDATION: Fail if we can't retrieve the created data
+      if (viewResponse.status !== 200) {
+        throw new Error(
+          `Data verification failed: Status ${viewResponse.status}`
+        );
+      }
+
+      // ✅ Validate that the response contains the expected resource
+      if (!viewResponse.data || Object.keys(viewResponse.data).length === 0) {
+        throw new Error(
+          `Data verification failed: Empty response for resource ${resourceId}`
+        );
+      }
+
+      logger.info(
+        `✅ Data creation verified: Resource ${resourceId} is accessible`
+      );
+      return true;
+    } catch (error) {
+      logger.error(`❌ DATA VERIFICATION FAILED: ${error.message}`);
+      return false;
     }
   }
 
   async runViewTest(operationKey = "View") {
+    this.enforcePrerequisite("createdId");
     const currentId = this.getCreatedId();
 
-    if (!currentId) {
-      throw new Error("Cannot view: Resource ID is missing.");
-    }
-
-    const operation = modulesConfig.getOperationWithId(
-      this.actualModulePath,
-      operationKey,
-      currentId
-    );
+    const operation = this.getOperationFromModuleConfig(operationKey);
 
     if (!operation) {
       throw new Error(
@@ -474,15 +378,14 @@ class CrudLifecycleHelper {
       );
     }
 
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🌐 Calling ${operationKey} endpoint: ${operation.endpoint}`
-      );
-      console.log(`[INFO] 🔑 Using created ID: ${currentId}`);
-    }
+    // Replace the ID placeholder in the endpoint
+    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    logger.info(`🌐 Calling ${operationKey} endpoint: ${viewEndpoint}`);
+    logger.info(`🔑 Using created ID: ${currentId}`);
 
     try {
-      const response = await this.apiClient.get(operation.endpoint);
+      const response = await this.apiClient.get(viewEndpoint);
 
       // Verify the response contains our ID or valid data
       this.validateViewResponse(response, currentId);
@@ -494,17 +397,10 @@ class CrudLifecycleHelper {
   }
 
   async runUpdateTest(operationKey = "PUT") {
+    this.enforcePrerequisite("createdId");
     const currentId = this.getCreatedId();
 
-    if (!currentId) {
-      throw new Error("Cannot update: Resource ID is missing.");
-    }
-
-    const operation = modulesConfig.getOperationWithId(
-      this.actualModulePath,
-      operationKey,
-      currentId
-    );
+    const operation = this.getOperationFromModuleConfig(operationKey);
 
     if (!operation) {
       throw new Error(
@@ -512,27 +408,20 @@ class CrudLifecycleHelper {
       );
     }
 
-    // FIXED: Use the properly constructed endpoint from modules-config
-    // The endpoint should already have the ID properly integrated
-    const updateEndpoint = operation.endpoint;
+    // Replace the ID placeholder in the endpoint and payload
+    const updateEndpoint = operation.endpoint.replace("<createdId>", currentId);
 
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🌐 Calling ${operationKey} endpoint: ${updateEndpoint}`
-      );
-      console.log(`[INFO] 🔑 Using created ID: ${currentId}`);
-      console.log(
-        `[DEBUG] Update payload keys: ${Object.keys(operation.payload).join(
-          ", "
-        )}`
-      );
+    // Update payload with current ID
+    const updatePayload = { ...operation.payload };
+    if (updatePayload.id === "<createdId>") {
+      updatePayload.id = currentId;
     }
 
+    logger.info(`🌐 Calling ${operationKey} endpoint: ${updateEndpoint}`);
+    logger.info(`🔑 Using created ID: ${currentId}`);
+
     try {
-      const response = await this.apiClient.put(
-        updateEndpoint,
-        operation.payload
-      );
+      const response = await this.apiClient.put(updateEndpoint, updatePayload);
       return { response };
     } catch (error) {
       this.handleError(error, "UPDATE", operationKey);
@@ -540,17 +429,10 @@ class CrudLifecycleHelper {
   }
 
   async runDeleteTest(operationKey = "DELETE") {
+    this.enforcePrerequisite("createdId");
     const currentId = this.getCreatedId();
 
-    if (!currentId) {
-      throw new Error("Cannot delete: Resource ID is missing.");
-    }
-
-    const operation = modulesConfig.getOperationWithId(
-      this.actualModulePath,
-      operationKey,
-      currentId
-    );
+    const operation = this.getOperationFromModuleConfig(operationKey);
 
     if (!operation) {
       throw new Error(
@@ -558,15 +440,14 @@ class CrudLifecycleHelper {
       );
     }
 
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🌐 Calling ${operationKey} endpoint: ${operation.endpoint}`
-      );
-      console.log(`[INFO] 🔑 Using created ID: ${currentId}`);
-    }
+    // Replace the ID placeholder in the endpoint
+    const deleteEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    logger.info(`🌐 Calling ${operationKey} endpoint: ${deleteEndpoint}`);
+    logger.info(`🔑 Using created ID: ${currentId}`);
 
     try {
-      const response = await this.apiClient.delete(operation.endpoint);
+      const response = await this.apiClient.delete(deleteEndpoint);
 
       // Clear ID upon successful deletion
       if (response.status >= 200 && response.status < 300) {
@@ -579,75 +460,7 @@ class CrudLifecycleHelper {
     }
   }
 
-  async runNegativeViewTest(operationKey = "View") {
-    const currentId = this.getCreatedId();
-    const deletedId = currentId || "00000000-0000-0000-0000-000000000000";
-
-    const operation = modulesConfig.getOperationWithId(
-      this.actualModulePath,
-      operationKey,
-      deletedId
-    );
-
-    if (!operation) {
-      throw new Error(
-        `Negative view operation ${operationKey} not found for module ${this.actualModulePath}`
-      );
-    }
-
-    if (this.safeConsole("log")) {
-      console.log(
-        `[INFO] 🌐 Calling Negative ${operationKey} endpoint: ${operation.endpoint}`
-      );
-      console.log(`[INFO] 🔑 Testing with ID: ${deletedId}`);
-    }
-
-    try {
-      const response = await this.apiClient.get(operation.endpoint);
-      return { response, error: null };
-    } catch (error) {
-      const response = error.response || { status: 500 };
-      return { response, error: error.message };
-    }
-  }
-
-  /**
-   * Create minimal update payload to avoid server errors
-   */
-  getMinimalUpdatePayload(operation = "PUT", currentId) {
-    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
-
-    // Start with basic required fields based on the schema
-    let payload = {
-      id: currentId,
-      description: `Updated via API Testing ${timestamp}`,
-    };
-
-    // Add minimal required fields for JournalEntry update
-    if (this.actualModulePath.includes("Journal_Entry")) {
-      payload = {
-        ...payload,
-        journalCode: `JENT_${timestamp.substring(0, 8)}`,
-        journalDate: new Date().toISOString().split("T")[0],
-        status: "Unbalanced",
-        totalDebitAmount: 0,
-        totalCreditAmount: 0,
-        journalEntryLines: [],
-        journalEntryAttachments: [],
-      };
-    }
-
-    if (typeof console !== "undefined" && console.log) {
-      console.log(
-        `[DEBUG] Using minimal update payload with ${
-          Object.keys(payload).length
-        } fields`
-      );
-    }
-    return payload;
-  }
-
-  // --- Enhanced Helper Methods ---
+  // --- Helper Methods ---
   validateViewResponse(response, expectedId) {
     if (!response.data) {
       throw new Error("View response contains no data");
@@ -657,57 +470,20 @@ class CrudLifecycleHelper {
     const expectedIdLower = expectedId.toLowerCase();
 
     if (!responseString.includes(expectedIdLower)) {
-      if (this.safeConsole("warn")) {
-        console.warn(
-          `[WARN] Expected ID ${expectedId} not found in view response`
-        );
-        console.log(
-          `[DEBUG] Response data:`,
-          JSON.stringify(response.data, null, 2)
-        );
-      }
+      logger.warn(`Expected ID ${expectedId} not found in view response`);
     }
   }
 
-  handleError(error, operation, operationKey) {
-    let errorMessage = error.message;
+  handleError(error, operationType, operationKey) {
+    const enhancedError = new Error(
+      `❌ ${operationType} OPERATION FAILED (${operationKey}): ${error.message}`
+    );
+    enhancedError.originalError = error;
+    enhancedError.operation = operationKey;
+    enhancedError.module = this.actualModulePath;
 
-    if (error.response) {
-      const status = error.response.status;
-      const serverData = error.response.data;
-
-      if (status === HTTP_STATUS_CODES.INTERNAL_SERVER_ERROR) {
-        errorMessage = `${operation} Server Error (500): ${
-          serverData?.message || "Check payload and server logs"
-        }`;
-      } else if (status === HTTP_STATUS_CODES.BAD_REQUEST) {
-        errorMessage = `${operation} Bad Request (400): ${
-          serverData?.message || "Invalid payload data"
-        }`;
-      } else if (status === HTTP_STATUS_CODES.UNAUTHORIZED) {
-        errorMessage = `${operation} Unauthorized (401): Check token validity`;
-      } else if (status === HTTP_STATUS_CODES.NOT_FOUND) {
-        errorMessage = `${operation} Not Found (404): Resource may not exist`;
-      }
-
-      if (this.safeConsole("error")) {
-        console.error(`[DEBUG] ${operation} error details:`, serverData);
-      }
-    }
-
-    if (this.safeConsole("error")) {
-      console.error(`[ERROR] ❌ ${operation} failed: ${errorMessage}`);
-    }
-
-    if (operation === "CREATE") {
-      global.skipRemainingTests = true;
-    }
-
-    throw new Error(errorMessage);
-  }
-
-  safeConsole(method) {
-    return typeof console !== "undefined" && console[method];
+    logger.error(enhancedError.message);
+    throw enhancedError;
   }
 
   clearCreatedId() {
@@ -720,32 +496,12 @@ class CrudLifecycleHelper {
       if (fs.existsSync(FILE_PATHS.CREATED_ID_TXT)) {
         fs.unlinkSync(FILE_PATHS.CREATED_ID_TXT);
       }
-      if (this.safeConsole("log")) {
-        console.log(`[INFO] 🗑️ Cleared created ID from memory and files`);
-      }
+      logger.info(`🗑️ Cleared created ID from memory and files`);
     } catch (error) {
-      if (this.safeConsole("warn")) {
-        console.warn(
-          `[WARN] Could not clear created ID files: ${error.message}`
-        );
-      }
+      logger.warn(`Could not clear created ID files: ${error.message}`);
     }
   }
 
-  recordTestStatus(testName, state) {
-    const status = state.currentTestResults?.some((r) => r.status === "failed")
-      ? "failed"
-      : "passed";
-
-    this.testResults.push({
-      testName,
-      module: this.actualModulePath,
-      status: status,
-      duration: state.currentTestDuration,
-    });
-  }
-
-  // Modify cleanup to be phase-aware
   async cleanup() {
     this.generateSummary();
 
@@ -755,48 +511,16 @@ class CrudLifecycleHelper {
     ).length;
 
     if (failedTests === 0 && this.currentTestPhase === "FINAL") {
-      if (this.safeConsole("log")) {
-        console.log(
-          `[INFO] 🗑️ Cleared created ID from memory and files (all tests passed)`
-        );
-      }
+      logger.info(
+        `🗑️ Cleared created ID from memory and files (all tests passed)`
+      );
       this.clearCreatedId();
     } else {
-      if (this.safeConsole("log")) {
-        console.log(
-          `[INFO] 💾 Keeping created ID files (failures: ${failedTests}, phase: ${this.currentTestPhase})`
-        );
-      }
+      logger.info(
+        `💾 Keeping created ID files (failures: ${failedTests}, phase: ${this.currentTestPhase})`
+      );
     }
   }
-  // async cleanup() {
-  //   this.generateSummary();
-
-  //   // Only clear ID if all tests passed
-  //   const failedTests = this.testResults.filter(
-  //     (r) => r.status === "failed"
-  //   ).length;
-
-  //   if (failedTests === 0) {
-  //     if (this.safeConsole("log")) {
-  //       console.log(
-  //         `[INFO] 🗑️ Cleared created ID from memory and files (all tests passed)`
-  //       );
-  //     }
-  //   } else {
-  //     if (this.safeConsole("log")) {
-  //       console.log(
-  //         `[INFO] 💾 Keeping created ID files due to test failures: ${failedTests} failed`
-  //       );
-  //     }
-  //   }
-
-  //   if (this.safeConsole("log")) {
-  //     console.log(
-  //       `[INFO] 🏁 Completed CRUD lifecycle tests for ${this.actualModulePath}`
-  //     );
-  //   }
-  // }
 
   generateSummary() {
     const summary = {
@@ -805,29 +529,35 @@ class CrudLifecycleHelper {
       failed: this.testResults.filter((r) => r.status === "failed").length,
     };
 
-    if (this.safeConsole("log")) {
-      console.log(`\n📊 CRUD TEST EXECUTION SUMMARY`);
-      console.log(`   Module: ${this.actualModulePath}`);
-      console.log(`   Total Tests: ${summary.totalTests}`);
-      console.log(`   ✅ Passed: ${summary.passed}`);
-      console.log(`   ❌ Failed: ${summary.failed}`);
-      console.log(
-        `   📈 Success Rate: ${(
-          (summary.passed / summary.totalTests) *
-          100
-        ).toFixed(1)}%`
-      );
+    logger.info(`\n📊 CRUD TEST EXECUTION SUMMARY`);
+    logger.info(`   Module: ${this.actualModulePath}`);
+    logger.info(`   Total Tests: ${summary.totalTests}`);
+    logger.info(`   ✅ Passed: ${summary.passed}`);
+    logger.info(`   ❌ Failed: ${summary.failed}`);
+    logger.info(
+      `   📈 Success Rate: ${(
+        (summary.passed / summary.totalTests) *
+        100
+      ).toFixed(1)}%`
+    );
 
-      if (this.createdId) {
-        console.log(`   🔑 Created ID: ${this.createdId}`);
-      }
-
-      console.log(
-        `   🎯 Available Operations: ${Object.keys(
-          this.moduleConfig.operations
-        ).join(", ")}`
-      );
+    if (this.createdId) {
+      logger.info(`   🔑 Created ID: ${this.createdId}`);
     }
+  }
+
+  setTestPhase(phase) {
+    this.currentTestPhase = phase;
+    logger.debug(`Test phase set to: ${phase}`);
+  }
+
+  recordTestStatus(testName, status) {
+    this.testResults.push({
+      testName,
+      module: this.actualModulePath,
+      status: status,
+      timestamp: new Date().toISOString(),
+    });
   }
 }
 

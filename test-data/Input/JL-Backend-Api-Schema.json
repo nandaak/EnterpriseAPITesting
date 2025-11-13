@@ -6,7 +6,7 @@
           "https://api.microtecstage.com/erp-apis/JournalEntry",
           {
             "refrenceNumber": null,
-            "journalDate": "2025-10-28",
+            "journalDate": "2025-11-05",
             "periodId": "Period1",
             "isHeaderDescriptionCopied": true,
             "description": "fgrdgtrg",
@@ -19,7 +19,7 @@
                 "currencyRate": 1,
                 "debitAmount": "150",
                 "lineDescription": "fgrdgtrg",
-                "createdOn": "2025-10-28T10:08:18",
+                "createdOn": "2025-11-05T10:08:18",
                 "isVatLine": false,
                 "hasVat": false,
                 "costCenters": []
@@ -31,11 +31,11 @@
         "PUT": [
           "https://api.microtecstage.com/erp-apis/JournalEntry/Edit",
           {
-            "journalCode": "jl20251028_0939",
+            "journalCode": "jl20080828_0939",
             "referenceNumber": null,
-            "journalDate": "2025-10-28T00:00:00",
+            "journalDate": "2025-11-05T00:00:00",
             "description": "Updarttted",
-            "journalPeriod": "10-2025",
+            "journalPeriod": "08-2025",
             "isHeaderDescriptionCopied": true,
             "type": "Manual",
             "sourceName": "",
@@ -61,7 +61,7 @@
                 "accountId": 86,
                 "isVatLine": false,
                 "hasVat": false,
-                "createdOn": "2025-10-28T10:08:18",
+                "createdOn": "2025-08-08T10:08:18",
                 "creditAmount": 0,
                 "id": "4a4bedce-3d0b-4b38-45d0-08de15f76681"
               },
@@ -81,7 +81,7 @@
                 "accountId": 171,
                 "isVatLine": false,
                 "hasVat": false,
-                "createdOn": "2025-10-28T10:43:11",
+                "createdOn": "2025-07-07T10:43:11",
                 "debitAmount": 0
               }
             ],
