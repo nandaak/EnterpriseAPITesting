@@ -1,69 +1,61 @@
-// utils/logger.js - Fixed to avoid circular dependencies
+// utils/logger.js - Portable Logger Utility
 class Logger {
+  /**
+   * Centralized function to format the log message with timestamp and level.
+   * @param {string} level - The log level (e.g., INFO, DEBUG, ERROR).
+   * @param {string} message - The content of the log message.
+   * @returns {string} The formatted log string.
+   */
+  static _formatMessage(level, message) {
+    const timestamp = new Date().toISOString();
+    return `[${level}] ${timestamp} - ${message}`;
+  }
+
+  /**
+   * Logs general informational messages.
+   * @param {string} message
+   */
   static info(message) {
-    console.log(`[INFO] ${new Date().toISOString()} - ${message}`);
-    // SAFE: Only call attachAllureLog if it exists AND is not the logger itself
-    if (global.attachAllureLog && !message.includes("[INFO]")) {
-      try {
-        global.attachAllureLog("INFO", message);
-      } catch (error) {
-        // Safely ignore errors to prevent infinite recursion
-        console.log(`[LOGGER] Safe fallback: ${message}`);
-      }
-    }
+    const formattedMessage = Logger._formatMessage("INFO", `✅ ${message}`);
+    console.log(formattedMessage);
   }
 
+  /**
+   * Logs detailed, internal information, typically for troubleshooting.
+   * @param {string} message
+   */
   static debug(message) {
-    console.log(`[DEBUG] ${new Date().toISOString()} - ${message}`);
-    // SAFE: Only call attachAllureLog if it exists AND is not the logger itself
-    if (global.attachAllureLog && !message.includes("[DEBUG]")) {
-      try {
-        global.attachAllureLog("DEBUG", message);
-      } catch (error) {
-        // Safely ignore errors to prevent infinite recursion
-        console.log(`[LOGGER] Safe fallback: ${message}`);
-      }
-    }
+    const formattedMessage = Logger._formatMessage("DEBUG", `🔍 ${message}`);
+    // Use console.log for debug to ensure it's always output unless configured otherwise
+    console.log(formattedMessage);
   }
 
+  /**
+   * Logs messages that indicate a potential problem or non-fatal issue.
+   * @param {string} message
+   */
   static warn(message) {
-    console.warn(`[WARN] ${new Date().toISOString()} - ${message}`);
-    // SAFE: Only call attachAllureLog if it exists AND is not the logger itself
-    if (global.attachAllureLog && !message.includes("[WARN]")) {
-      try {
-        global.attachAllureLog("WARN", message);
-      } catch (error) {
-        // Safely ignore errors to prevent infinite recursion
-        console.warn(`[LOGGER] Safe fallback: ${message}`);
-      }
-    }
+    const formattedMessage = Logger._formatMessage("WARN", `⚠️ ${message}`);
+    console.warn(formattedMessage);
   }
 
+  /**
+   * Logs messages for expected but failed operations or standard errors.
+   * @param {string} message
+   */
   static error(message) {
-    console.error(`[ERROR] ${new Date().toISOString()} - ${message}`);
-    // SAFE: Only call attachAllureLog if it exists AND is not the logger itself
-    if (global.attachAllureLog && !message.includes("[ERROR]")) {
-      try {
-        global.attachAllureLog("ERROR", message);
-      } catch (error) {
-        // Safely ignore errors to prevent infinite recursion
-        console.error(`[LOGGER] Safe fallback: ${message}`);
-      }
-    }
+    const formattedMessage = Logger._formatMessage("ERROR", `❌ ${message}`);
+    console.error(formattedMessage);
   }
 
-  // Safe method for allure attachment without recursion
-  static safeAttach(name, content) {
-    if (global.attachAllureLog && !global._isAttaching) {
-      global._isAttaching = true;
-      try {
-        global.attachAllureLog(name, content);
-      } catch (error) {
-        // Ignore errors safely
-      } finally {
-        global._isAttaching = false;
-      }
-    }
+  /**
+   * Logs a critical, unrecoverable error that likely requires immediate attention/exit.
+   * @param {string} message
+   */
+  static fatal(message) {
+    const formattedMessage = Logger._formatMessage("FATAL", `🔥 ${message}`);
+    console.error(formattedMessage);
+    // Optional: In a real system, you might trigger an email alert or process exit here.
   }
 }
 

@@ -10,7 +10,6 @@
     "test:quick-fail": "npx jest --bail --findRelatedTests",
     "test:fail-fast": "npx jest --bail=1 --verbose",
     "test:CRUD": "npx jest tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js",
-
     "test:security-enhanced": "npx jest tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --config=jest.config.js",
     "test:performance-real": "npx jest tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --config=jest.config.js",
     "test:all-modules": "npx jest tests/comprehensive-lifecycle/ --config=jest.config.js",

@@ -10,23 +10,11 @@ const FILE_PATHS = {
     "..",
     "test-data",
     "Input",
-    "JL-Backend-Api-Schema.json"
+    "Main-Standarized-Backend-Api-Schema.json"
   ),
   TEST_RESULTS: path.join(__dirname, "..", "test-results"),
-  ALLURE_RESULTS: path.join(__dirname, "..", "allure-results"),
 };
 
-// Test tags for Allure filtering
-const TEST_TAGS = {
-  CRUD: "CRUD",
-  POSTTransaction: "POSTTransaction",
-  Malicious: "Malicious",
-  Mandatory: "Mandatory",
-  ComprehensiveSecurity: "ComprehensiveSecurity",
-  AdvancedSecurity: "AdvancedSecurity",
-  Performance: "Performance",
-  HealthChecks: "HealthChecks",
-};
 
 const endpointTypes = [
   "Post",
@@ -80,13 +68,12 @@ const TEST_CONFIG = {
 const createdIdFile = "./createdId.json";
 
 // Load the generated schema
-const SCHEMA_PATH = "./test-data/Input/JL-Backend-Api-Schema.json";
+const SCHEMA_PATH = "./test-data/Input/Main-Standarized-Backend-Api-Schema.json";
 const schema = JSON.parse(fs.readFileSync(SCHEMA_PATH, "utf8"));
 
 // Export as CommonJS module
 module.exports = {
   FILE_PATHS,
-  TEST_TAGS,
   endpointTypes,
   HTTP_STATUS_CODES,
   SECURITY_PAYLOADS,

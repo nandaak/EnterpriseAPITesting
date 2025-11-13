@@ -1,7 +1,6 @@
 // Constants/index.js - Main constants entry point
 const {
   endpointTypes,
-  TEST_TAGS,
   HTTP_STATUS_CODES,
   SECURITY_PAYLOADS,
 } = require("./Constants");
@@ -10,7 +9,6 @@ const { ERROR_MESSAGES, SUCCESS_MESSAGES } = require("./MessageConstants");
 
 module.exports = {
   ...endpointTypes,
-  TEST_TAGS,
   HTTP_STATUS_CODES,
   SECURITY_PAYLOADS,
   FILE_PATHS,
