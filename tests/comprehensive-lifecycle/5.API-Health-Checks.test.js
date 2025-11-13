@@ -1,7 +1,7 @@
 // tests/comprehensive-lifecycle/5.API-Health-Checks.test.js
 const logger = require("../../utils/logger");
 const apiClient = require("../../utils/api-client");
-const { schema, TEST_TAGS, endpointTypes } = require("../../Constants");
+const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
  * API Endpoint Health Checks Test Suite
@@ -19,7 +19,7 @@ describe("API Endpoint Health Checks", () => {
     logger.info("🏥 Starting API Endpoint Health Checks");
 
     // Count total endpoints
-    totalEndpoints = countEndpointsInSchema(schema);
+    totalEndpoints = countEndpointsInSchema(FILE_PATHS.SCHEMA_PATH);
     logger.info(`📊 Total endpoints to check: ${totalEndpoints}`);
   });
 
@@ -348,7 +348,7 @@ describe("API Endpoint Health Checks", () => {
   };
 
   // Run health checks on all endpoints
-  runHealthChecksOnAllEndpoints(schema);
+  runHealthChecksOnAllEndpoints(FILE_PATHS.SCHEMA_PATH);
 
   // Add a final summary test
   test("Health Check Summary Report", () => {

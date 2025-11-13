@@ -8,9 +8,10 @@ const {
 } = require("../../utils/advanced-security-helpers");
 const apiClient = require("../../utils/api-client");
 const logger = require("../../utils/logger");
-const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../Constants");
+const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
+ *
  * ADVANCED SECURITY TESTING SUITE
  *
  * Enhanced version with real security tests targeting actual vulnerabilities
@@ -481,5 +482,5 @@ describe("Advanced Security Testing", () => {
   };
 
   // Run advanced security tests on all modules
-  runAdvancedSecurityOnAllModules(schema);
+  runAdvancedSecurityOnAllModules(FILE_PATHS.SCHEMA_PATH);
 });

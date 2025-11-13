@@ -3,7 +3,7 @@ const {
   testPerformanceUnderMaliciousLoad,
 } = require("../../utils/performance-helpers");
 const logger = require("../../utils/logger");
-const { schema, TEST_TAGS, HTTP_STATUS_CODES } = require("../../Constants");
+const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
 
 /**
  * PERFORMANCE UNDER MALICIOUS LOAD TESTING SUITE
@@ -372,5 +372,5 @@ describe("Performance Under Malicious Load", () => {
   };
 
   // Run performance tests on all modules
-  runPerformanceTestsOnAllModules(schema);
+  runPerformanceTestsOnAllModules(FILE_PATHS.SCHEMA_PATH);
 });
