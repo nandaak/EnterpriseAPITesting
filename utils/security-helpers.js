@@ -12,6 +12,23 @@ const MALICIOUS_PAYLOADS = require("../test-data/security/malicious-payloads");
  * All functions are refactored to remove Allure dependencies and return structured results.
  */
 class SecurityHelpers {
+  // ... inside SecurityHelpers class
+  /**
+   * Fetches pre-defined malicious payloads.
+   * NOTE: This relies on the imported MALICIOUS_PAYLOADS.
+   * @returns {object} The malicious payloads object.
+   */
+  static generateMaliciousPayloads() {
+    return MALICIOUS_PAYLOADS;
+  }
+
+  static generateSQLInjectionPayloads() {
+    return MALICIOUS_PAYLOADS.SQL_INJECTION;
+  }
+  static generateXSSPayloads() {
+    return MALICIOUS_PAYLOADS.XSS;
+  }
+
   /**
    * Finds the primary operation (e.g., 'Post', 'PUT', 'GET') endpoint from a module config.
    * @param {object} moduleConfig - The configuration object for the module.
@@ -86,15 +103,6 @@ class SecurityHelpers {
         description: "Test",
       }),
     };
-  }
-
-  /**
-   * Fetches pre-defined malicious payloads.
-   * NOTE: This relies on the imported MALICIOUS_PAYLOADS.
-   * @returns {object} The malicious payloads object.
-   */
-  static generateMaliciousPayloads() {
-    return MALICIOUS_PAYLOADS;
   }
 
   // --- CORE UTILITY FUNCTIONS ---
@@ -614,24 +622,6 @@ class SecurityHelpers {
     // If the payload is modified or absent, assume it was sanitized or not reflected.
     // This logic is a simplification for a security helper utility.
     return true;
-  }
-
-  /**
-   * Placeholder to generate complex SQL injection payloads.
-   * NOTE: Relies on MALICIOUS_PAYLOADS for the structure.
-   * @returns {object} Structured SQL payloads.
-   */
-  static generateSQLInjectionPayloads() {
-    return MALICIOUS_PAYLOADS.sqlInjection;
-  }
-
-  /**
-   * Placeholder to generate complex XSS payloads.
-   * NOTE: Relies on MALICIOUS_PAYLOADS for the structure.
-   * @returns {object} Structured XSS payloads.
-   */
-  static generateXSSPayloads() {
-    return MALICIOUS_PAYLOADS.xss;
   }
 
   // --- INTERNAL FUZZING HELPERS ---

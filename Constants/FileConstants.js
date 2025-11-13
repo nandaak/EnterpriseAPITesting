@@ -10,6 +10,13 @@ const FILE_PATHS = {
     "..",
     "test-data",
     "Input",
+    "Main-Backend-Api-Schema.json"
+  ),
+  STANDARIZED_SCHEMA_PATH: path.join(
+    __dirname,
+    "..",
+    "test-data",
+    "Input",
     "Main-Standarized-Backend-Api-Schema.json"
   ),
   TEST_RESULTS: path.join(__dirname, "..", "test-results"),

@@ -16,20 +16,20 @@ class ModulesConfig {
 
   loadSchema() {
     try {
-      if (fs.existsSync(FILE_PATHS.SCHEMA_PATH)) {
-        const schemaData = fs.readFileSync(FILE_PATHS.SCHEMA_PATH, "utf8");
+      if (fs.existsSync(FILE_PATHS.STANDARIZED_SCHEMA_PATH)) {
+        const schemaData = fs.readFileSync(FILE_PATHS.STANDARIZED_SCHEMA_PATH, "utf8");
         this.schema = JSON.parse(schemaData);
 
         if (this.safeConsole("log")) {
           console.log(
             "✅ Schema loaded successfully from:",
-            FILE_PATHS.SCHEMA_PATH
+            FILE_PATHS.STANDARIZED_SCHEMA_PATH
           );
         }
 
         return this.schema;
       } else {
-        throw new Error(`Schema file not found at: ${FILE_PATHS.SCHEMA_PATH}`);
+        throw new Error(`Schema file not found at: ${FILE_PATHS.STANDARIZED_SCHEMA_PATH}`);
       }
     } catch (error) {
       if (this.safeConsole("error")) {

@@ -37,6 +37,25 @@ class ApiClient {
   }
 
   /**
+   * Creates a client instance configured to send requests without an Authorization token.
+   * @returns {ApiClient} A new client instance.
+   */
+  static withNoToken() {
+    // Assuming a standard configuration utility
+    return this.createInstance({ headers: { Authorization: null } });
+    // OR, if using Axios directly: return axios.create({ baseURL, headers: { Authorization: null } })
+  }
+
+  /**
+   * Creates a client instance configured with an invalid Authorization token.
+   * @returns {ApiClient} A new client instance.
+   */
+  static withWrongToken() {
+    const invalidToken = "Bearer invalid-token-for-security-test-purposes";
+    return this.createInstance({ headers: { Authorization: invalidToken } });
+  }
+
+  /**
    * Check if the API client is ready with token
    */
   isReady() {
