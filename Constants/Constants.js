@@ -4,6 +4,8 @@ const path = require("path");
 
 // File paths and constants
 const FILE_PATHS = {
+  SCHEMA_PATH: require("./../test-data/Input/Main-Backend-Api-Schema.json"), // Make sure this path is correct
+  TOKEN_PATH: "./token.txt",
   // Path to your API's input JSON files
   INPUT_DATA_ROOT: path.join(__dirname, "test-data", "Input"),
   // Path to store generated IDs for CRUD lifecycle
