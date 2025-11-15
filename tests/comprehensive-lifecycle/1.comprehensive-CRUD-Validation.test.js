@@ -1,10 +1,10 @@
 // tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js
 const CrudLifecycleHelper = require("../../utils/crud-lifecycle-helper");
 const logger = require("../../utils/logger");
-const Constants = require("../../Constants");
 const modulesConfig = require("../../config/modules-config");
 const apiClient = require("../../utils/api-client");
 const { URL } = require("url");
+const Constants = require("../../Constants");
 
 const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
 

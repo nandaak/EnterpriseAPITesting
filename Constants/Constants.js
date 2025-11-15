@@ -4,6 +4,10 @@ const path = require("path");
 
 // File paths and constants
 const FILE_PATHS = {
+  BACKEND_API_SCHEMA: path.join(
+    __dirname,
+    "../test-data/Input/Main-Backend-Api-Schema.json"
+  ),
   SCHEMA_PATH: require("./../test-data/Input/Main-Backend-Api-Schema.json"), // Make sure this path is correct
   TOKEN_PATH: "./token.txt",
   // Path to your API's input JSON files

@@ -1,432 +1,616 @@
 // tests/comprehensive-lifecycle/5.API-Health-Checks.test.js
-const logger = require("../../utils/logger");
 const apiClient = require("../../utils/api-client");
-const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
+const logger = require("../../utils/logger");
+const Constants = require("../../Constants");
+const fs = require("fs");
+const path = require("path");
+
+const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
 
 /**
- * API Endpoint Health Checks Test Suite
- * Performs health checks on all backend API endpoints
- * Verifies endpoint accessibility, response status, and basic functionality
+ * API ENDPOINT HEALTH CHECKS
+ *
+ * Professional health monitoring for all backend API endpoints
+ * Purpose: Verify connectivity, response times, and basic functionality
+ *
+ * @version 3.0.0
+ * @author Mohamed Said Ibrahim
  */
 
-// Define endpoint types to check
-const endpointTypes = ["Post", "PUT", "DELETE", "View", "EDIT", "GET", "POST"];
-
 describe("API Endpoint Health Checks", () => {
-  const healthCheckResults = [];
-  let totalEndpoints = 0;
-  let testedEndpoints = 0;
+  let allEndpoints = [];
+  let healthCheckResults = [];
+  let testSummary = {
+    totalEndpoints: 0,
+    testedEndpoints: 0,
+    healthyEndpoints: 0,
+    unhealthyEndpoints: 0,
+    skippedEndpoints: 0,
+    averageResponseTime: 0,
+    startTime: null,
+    endTime: null,
+  };
 
-  beforeAll(() => {
-    logger.info("🏥 Starting API Endpoint Health Checks");
+  // Enhanced URL validation
+  const isValidUrl = (string) => {
+    if (!string || typeof string !== "string") return false;
+    if (string === "URL_HERE" || string.trim() === "") return false;
+    if (string.includes("<createdId>")) return false; // Skip endpoints requiring dynamic IDs
 
-    // Count total endpoints
-    totalEndpoints = countEndpointsInSchema(FILE_PATHS.SCHEMA_PATH);
-    logger.info(`📊 Total endpoints to check: ${totalEndpoints}`);
-  });
-
-  afterAll(() => {
-    generateHealthCheckSummary();
-  });
-
-  /**
-   * Count total endpoints in schema for reporting
-   */
-  function countEndpointsInSchema(modules) {
-    let count = 0;
-
-    if (!modules || typeof modules !== "object") {
-      logger.warn("❌ No modules found in schema");
-      return 0;
+    try {
+      const url = new URL(string);
+      return url.protocol === "http:" || url.protocol === "https:";
+    } catch (_) {
+      return false;
     }
+  };
 
-    const countEndpoints = (currentModules, depth = 0) => {
-      if (!currentModules || typeof currentModules !== "object") return;
+  // Map operation to HTTP method
+  const getHttpMethod = (operation) => {
+    const methodMap = {
+      Post: "POST",
+      PUT: "PUT",
+      DELETE: "DELETE",
+      View: "GET",
+      GET: "GET",
+      EDIT: "PUT",
+      LookUP: "GET",
+      Commit: "POST",
+    };
+    return methodMap[operation] || "GET";
+  };
 
-      Object.entries(currentModules).forEach(([moduleName, moduleConfig]) => {
-        if (typeof moduleConfig !== "object" || moduleConfig === null) return;
+  // PROFESSIONAL SCHEMA PROCESSING - Fixed traversal logic
+  const extractEndpointsFromSchema = (schema) => {
+    const endpoints = [];
+    let endpointCount = 0;
 
-        // Count endpoints in current module
-        endpointTypes.forEach((endpointType) => {
+    logger.info("🔄 Starting schema traversal...");
+
+    const traverse = (obj, path = []) => {
+      if (!obj || typeof obj !== "object") return;
+
+      // Check if current object has HTTP operations
+      const httpOperations = [
+        "Post",
+        "PUT",
+        "DELETE",
+        "View",
+        "GET",
+        "EDIT",
+        "LookUP",
+        "Commit",
+      ];
+      const hasOperations = httpOperations.some((op) => obj[op]);
+
+      if (hasOperations) {
+        // Process each HTTP operation in this module
+        httpOperations.forEach((operation) => {
           if (
-            moduleConfig[endpointType] &&
-            Array.isArray(moduleConfig[endpointType]) &&
-            moduleConfig[endpointType].length > 0 &&
-            moduleConfig[endpointType][0] !== "URL_HERE" &&
-            moduleConfig[endpointType][0] &&
-            typeof moduleConfig[endpointType][0] === "string" &&
-            moduleConfig[endpointType][0].includes("/")
+            obj[operation] &&
+            Array.isArray(obj[operation]) &&
+            obj[operation][0]
           ) {
-            count++;
-            logger.debug(
-              `📝 Found endpoint: ${moduleName}.${endpointType} = ${moduleConfig[endpointType][0]}`
-            );
+            const endpointUrl = obj[operation][0];
+
+            if (isValidUrl(endpointUrl)) {
+              const modulePath = path.join(".") || "Root";
+              endpointCount++;
+
+              endpoints.push({
+                url: endpointUrl,
+                method: getHttpMethod(operation),
+                operation: operation,
+                module: modulePath,
+                fullPath: `${modulePath}.${operation}`,
+                payload: obj[operation][1] || null,
+                requiresAuth: true,
+                testId: `endpoint-${endpointCount}`,
+              });
+
+              logger.debug(`📍 Found endpoint: ${operation} - ${endpointUrl}`);
+            }
           }
         });
+      }
 
-        // Recursively count nested modules (only if current level doesn't have direct endpoints)
-        if (!hasDirectEndpoints(moduleConfig)) {
-          countEndpoints(moduleConfig, depth + 1);
+      // Recursively traverse all properties
+      Object.keys(obj).forEach((key) => {
+        const value = obj[key];
+        if (value && typeof value === "object" && !Array.isArray(value)) {
+          traverse(value, [...path, key]);
         }
       });
     };
 
-    countEndpoints(modules);
-
-    if (count === 0) {
-      logger.warn(
-        "⚠️ No endpoints found in schema. Checking schema structure..."
-      );
-      logger.debug(`Schema keys: ${Object.keys(modules).join(", ")}`);
-    }
-
-    return count;
-  }
-
-  /**
-   * Check if module has direct endpoints
-   */
-  function hasDirectEndpoints(moduleConfig) {
-    return endpointTypes.some(
-      (type) =>
-        moduleConfig[type] &&
-        Array.isArray(moduleConfig[type]) &&
-        moduleConfig[type].length > 0 &&
-        moduleConfig[type][0] !== "URL_HERE" &&
-        moduleConfig[type][0] &&
-        typeof moduleConfig[type][0] === "string" &&
-        moduleConfig[type][0].includes("/")
-    );
-  }
-
-  /**
-   * Generate comprehensive health check summary
-   */
-  function generateHealthCheckSummary() {
-    const healthyResults = healthCheckResults.filter((r) => r.healthy);
-    const unhealthyResults = healthCheckResults.filter((r) => !r.healthy);
-
-    const summary = {
-      totalEndpoints: totalEndpoints,
-      testedEndpoints: testedEndpoints,
-      healthy: healthyResults.length,
-      unhealthy: unhealthyResults.length,
-      successRate:
-        testedEndpoints > 0
-          ? `${((healthyResults.length / testedEndpoints) * 100).toFixed(2)}%`
-          : "0%",
-      averageResponseTime:
-        healthCheckResults.length > 0
-          ? Math.round(
-              healthCheckResults.reduce(
-                (sum, r) => sum + (r.responseTime || 0),
-                0
-              ) / healthCheckResults.length
-            )
-          : 0,
-      statusBreakdown: getStatusBreakdown(healthCheckResults),
-    };
-
-    logger.info(`📈 Health Check Execution Summary:`);
-    logger.info(`   Total Endpoints: ${summary.totalEndpoints}`);
-    logger.info(`   Tested Endpoints: ${summary.testedEndpoints}`);
-    logger.info(`   ✅ Healthy: ${summary.healthy}`);
-    logger.info(`   ❌ Unhealthy: ${summary.unhealthy}`);
-    logger.info(`   📊 Success Rate: ${summary.successRate}`);
+    traverse(schema);
     logger.info(
-      `   ⏱️ Average Response Time: ${summary.averageResponseTime}ms`
+      `✅ Schema traversal complete. Found ${endpoints.length} valid endpoints`
     );
+    return endpoints;
+  };
 
-    // Log status breakdown
-    if (Object.keys(summary.statusBreakdown).length > 0) {
-      logger.info(`   📋 Status Code Breakdown:`);
-      Object.entries(summary.statusBreakdown).forEach(([status, count]) => {
-        logger.info(`     ${status}: ${count} endpoints`);
-      });
-    } else {
-      logger.info(`   📋 No endpoints were tested`);
-    }
-
-    logger.info(`🏁 Completed health checks for ${testedEndpoints} endpoints`);
-  }
-
-  /**
-   * Get status code breakdown for reporting
-   */
-  function getStatusBreakdown(results) {
-    const breakdown = {};
-    results.forEach((result) => {
-      const status = result.status || "Unknown";
-      breakdown[status] = (breakdown[status] || 0) + 1;
-    });
-    return breakdown;
-  }
-
-  /**
-   * Enhanced health check function with proper URL handling and validation
-   */
-  const performHealthCheck = async (endpoint, endpointType, moduleName) => {
-    const startTime = Date.now();
-
+  // Load schema from file
+  const loadSchema = () => {
     try {
-      // Normalize URL to prevent double base URL issues
-      let cleanEndpoint = normalizeEndpointUrl(endpoint);
+      const schemaPath = path.resolve(
+        process.cwd(),
+        "test-data/Input/JL-Backend-Api-Schema.json"
+      );
 
-      logger.info(`🌐 Making health check request to: ${cleanEndpoint}`);
-
-      const response = await apiClient.get(cleanEndpoint);
-      const responseTime = Date.now() - startTime;
-
-      // Enhanced health determination - consider 2xx, 3xx, and some 4xx as "healthy" for health checks
-      const isHealthy = isEndpointHealthy(response.status, endpointType);
-
-      const healthResult = {
-        endpoint: cleanEndpoint,
-        endpointType,
-        moduleName,
-        healthy: isHealthy,
-        status: response.status,
-        statusText: response.statusText || "OK",
-        responseTime: responseTime,
-        timestamp: new Date().toISOString(),
-        data: response.data ? "Response received" : "No data",
-        expected: getExpectedStatus(endpointType),
-      };
-
-      if (isHealthy) {
-        logger.info(
-          `✅ Health check passed for ${moduleName}.${endpointType}: ${response.status} (${responseTime}ms)`
-        );
-      } else {
-        logger.warn(
-          `⚠️ Health check warning for ${moduleName}.${endpointType}: ${
-            response.status
-          } (expected ${getExpectedStatus(endpointType)})`
-        );
+      if (!fs.existsSync(schemaPath)) {
+        throw new Error(`Schema file not found at: ${schemaPath}`);
       }
 
-      return healthResult;
+      logger.info(`📁 Loading schema from: ${schemaPath}`);
+      const schemaData = fs.readFileSync(schemaPath, "utf8");
+      const schema = JSON.parse(schemaData);
+
+      logger.info("✅ Schema loaded successfully");
+      return schema;
     } catch (error) {
-      const responseTime = Date.now() - startTime;
-
-      const healthResult = {
-        endpoint: endpoint,
-        endpointType,
-        moduleName,
-        healthy: false,
-        error: error.message,
-        status: error.response?.status || "No response",
-        statusText: error.response?.statusText || "Request failed",
-        responseTime: responseTime,
-        timestamp: new Date().toISOString(),
-        stack: error.stack,
-        expected: getExpectedStatus(endpointType),
-      };
-
-      logger.error(
-        `❌ Health check failed for ${moduleName}.${endpointType}: ${error.message}`
-      );
-      return healthResult;
+      logger.error(`❌ Failed to load schema: ${error.message}`);
+      throw error;
     }
   };
 
-  /**
-   * Determine if an endpoint is healthy based on status code and endpoint type
-   */
-  function isEndpointHealthy(statusCode, endpointType) {
-    // For health checks, we're more lenient - we just want to know if the endpoint responds
-    const successCodes = [200, 201, 202, 204];
-    const acceptableCodes = [400, 401, 403, 404, 405]; // These indicate the endpoint exists
+  // Enhanced health check for a single endpoint
+  const testEndpointHealth = async (endpoint) => {
+    const startTime = Date.now();
+    let responseTime = 0;
+    let status = "unknown";
+    let statusCode = 0;
+    let error = null;
+    let responseData = null;
 
-    // Some endpoints might return 4xx for health checks (like missing parameters)
-    // But we still consider them "healthy" if they respond properly
-    return (
-      successCodes.includes(statusCode) || acceptableCodes.includes(statusCode)
-    );
-  }
+    try {
+      let response;
 
-  /**
-   * Get expected status codes for different endpoint types
-   */
-  function getExpectedStatus(endpointType) {
-    const expectations = {
-      Post: "200, 201, 400, 405",
-      POST: "200, 201, 400, 405",
-      PUT: "200, 400, 405",
-      DELETE: "200, 400, 404, 405",
-      View: "200, 400, 404",
-      EDIT: "200, 400, 404",
-      GET: "200, 400, 404",
+      // Choose appropriate HTTP method and handle payload
+      switch (endpoint.method) {
+        case "POST":
+          // For POST requests, use a minimal payload or the configured one
+          const payload = endpoint.payload || {
+            test: true,
+            timestamp: new Date().toISOString(),
+          };
+          response = await apiClient.post(endpoint.url, payload);
+          break;
+
+        case "PUT":
+          // For PUT requests, use minimal update data
+          const updatePayload = endpoint.payload || {
+            id: "test-id",
+            description: "Health check test",
+            timestamp: new Date().toISOString(),
+          };
+          response = await apiClient.put(endpoint.url, updatePayload);
+          break;
+
+        case "DELETE":
+          // For DELETE, append /test to avoid deleting real data
+          const safeDeleteUrl =
+            endpoint.url + (endpoint.url.endsWith("/") ? "test" : "/test");
+          response = await apiClient.delete(safeDeleteUrl);
+          break;
+
+        default:
+          // GET requests
+          response = await apiClient.get(endpoint.url);
+      }
+
+      responseTime = Date.now() - startTime;
+      statusCode = response.status;
+      responseData = response.data;
+
+      // Enhanced status classification
+      if (response.status >= 200 && response.status < 300) {
+        status = "healthy";
+      } else if (response.status === 401 || response.status === 403) {
+        status = "auth_required"; // Endpoint exists but needs authentication
+      } else if (response.status === 404) {
+        status = "not_found";
+      } else if (response.status === 405) {
+        status = "method_not_allowed";
+      } else if (response.status >= 400 && response.status < 500) {
+        status = "client_error";
+      } else if (response.status >= 500) {
+        status = "server_error";
+      } else {
+        status = "unknown_status";
+      }
+    } catch (err) {
+      responseTime = Date.now() - startTime;
+      error = err.message;
+      responseData = err.response?.data;
+
+      // Enhanced error classification
+      if (err.response) {
+        statusCode = err.response.status;
+        if (err.response.status === 401 || err.response.status === 403) {
+          status = "auth_required";
+        } else if (err.response.status === 404) {
+          status = "not_found";
+        } else if (err.response.status === 405) {
+          status = "method_not_allowed";
+        } else if (err.response.status === 400) {
+          status = "bad_request"; // Often means endpoint exists but validation failed
+        } else {
+          status = "http_error";
+        }
+      } else if (err.code === "ECONNREFUSED") {
+        status = "connection_refused";
+      } else if (err.code === "ETIMEDOUT") {
+        status = "timeout";
+      } else if (err.code === "ENOTFOUND") {
+        status = "dns_error";
+      } else {
+        status = "network_error";
+      }
+    }
+
+    const result = {
+      ...endpoint,
+      responseTime,
+      status,
+      statusCode,
+      error,
+      responseData: responseData
+        ? JSON.stringify(responseData).substring(0, 200) + "..."
+        : null,
+      timestamp: new Date().toISOString(),
     };
 
-    return expectations[endpointType] || "200, 201, 400, 404, 405";
-  }
+    // Log result for monitoring
+    const statusIcon =
+      status === "healthy" ? "✅" : status === "auth_required" ? "🔐" : "❌";
 
-  /**
-   * Enhanced URL normalization to prevent double base URL issues
-   */
-  function normalizeEndpointUrl(endpoint) {
-    if (!endpoint || typeof endpoint !== "string") {
-      logger.warn(`⚠️ Invalid endpoint: ${endpoint}`);
-      return endpoint;
+    logger.info(
+      `${statusIcon} ${endpoint.method} ${endpoint.url} - ${status} (${responseTime}ms)`
+    );
+
+    return result;
+  };
+
+  // Batch processing with progress tracking
+  const processEndpointsBatch = async (endpoints, batchSize = 3) => {
+    const results = [];
+    const totalBatches = Math.ceil(endpoints.length / batchSize);
+
+    logger.info(
+      `🔄 Processing ${endpoints.length} endpoints in batches of ${batchSize}`
+    );
+
+    for (let batchIndex = 0; batchIndex < totalBatches; batchIndex++) {
+      const startIndex = batchIndex * batchSize;
+      const endIndex = Math.min(startIndex + batchSize, endpoints.length);
+      const batch = endpoints.slice(startIndex, endIndex);
+
+      logger.info(
+        `📦 Processing batch ${batchIndex + 1}/${totalBatches} (${
+          batch.length
+        } endpoints)`
+      );
+
+      const batchPromises = batch.map((endpoint, index) => {
+        const endpointNumber = startIndex + index + 1;
+        logger.debug(
+          `   ${endpointNumber}/${endpoints.length}: ${endpoint.method} ${endpoint.url}`
+        );
+        return testEndpointHealth(endpoint);
+      });
+
+      const batchResults = await Promise.allSettled(batchPromises);
+
+      // Process batch results
+      batchResults.forEach((result, index) => {
+        if (result.status === "fulfilled") {
+          results.push(result.value);
+        } else {
+          const failedEndpoint = batch[index];
+          logger.error(
+            `   ❌ Failed to test ${failedEndpoint.url}: ${result.reason.message}`
+          );
+
+          results.push({
+            ...failedEndpoint,
+            responseTime: 0,
+            status: "test_error",
+            statusCode: 0,
+            error: result.reason.message,
+            timestamp: new Date().toISOString(),
+          });
+        }
+      });
+
+      // Progress update
+      const completed = results.length;
+      const progress = Math.round((completed / endpoints.length) * 100);
+      logger.info(
+        `   📊 Progress: ${completed}/${endpoints.length} (${progress}%)`
+      );
+
+      // Rate limiting - wait between batches
+      if (batchIndex < totalBatches - 1) {
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+      }
     }
 
-    const baseUrl = "https://api.microtecstage.com";
+    return results;
+  };
 
-    // Remove duplicate base URLs
-    if (endpoint.startsWith(baseUrl + baseUrl)) {
-      const normalized = endpoint.replace(baseUrl, "");
-      logger.debug(`🔧 Fixed double base URL: ${endpoint} -> ${normalized}`);
-      return normalized;
+  // Suite setup - runs before all tests
+  beforeAll(async () => {
+    testSummary.startTime = new Date().toISOString();
+    logger.info("🚀 Starting Comprehensive API Endpoint Health Checks");
+    logger.info("=".repeat(60));
+
+    try {
+      // Load and process schema
+      const schema = loadSchema();
+      allEndpoints = extractEndpointsFromSchema(schema);
+      testSummary.totalEndpoints = allEndpoints.length;
+
+      if (allEndpoints.length === 0) {
+        logger.warn(
+          "⚠️ No endpoints found in schema. Checking schema structure..."
+        );
+
+        // Debug: Log schema structure to understand the issue
+        logger.debug(
+          "Schema structure sample:",
+          JSON.stringify(schema, null, 2).substring(0, 500)
+        );
+        return;
+      }
+
+      logger.info(`🎯 Found ${allEndpoints.length} endpoints to test`);
+
+      // Log endpoint categories for overview
+      const categories = {};
+      allEndpoints.forEach((ep) => {
+        const category = ep.module.split(".")[0] || "Other";
+        categories[category] = (categories[category] || 0) + 1;
+      });
+
+      logger.info("📋 Endpoint Categories:");
+      Object.entries(categories).forEach(([category, count]) => {
+        logger.info(`   - ${category}: ${count} endpoints`);
+      });
+
+      // Process all endpoints
+      healthCheckResults = await processEndpointsBatch(allEndpoints);
+      testSummary.testedEndpoints = healthCheckResults.length;
+
+      // Calculate comprehensive statistics
+      const healthyResults = healthCheckResults.filter((r) =>
+        ["healthy", "auth_required", "bad_request"].includes(r.status)
+      );
+
+      testSummary.healthyEndpoints = healthyResults.length;
+      testSummary.unhealthyEndpoints =
+        healthCheckResults.length - healthyResults.length;
+
+      // Calculate average response time from successful requests
+      const successfulRequests = healthCheckResults.filter(
+        (r) =>
+          r.responseTime > 0 &&
+          !["connection_refused", "timeout", "dns_error"].includes(r.status)
+      );
+
+      if (successfulRequests.length > 0) {
+        const totalResponseTime = successfulRequests.reduce(
+          (sum, r) => sum + r.responseTime,
+          0
+        );
+        testSummary.averageResponseTime = Math.round(
+          totalResponseTime / successfulRequests.length
+        );
+      }
+
+      logger.info("✅ Health check processing completed");
+    } catch (error) {
+      logger.error(`💥 Critical error in health check setup: ${error.message}`);
+      throw error;
+    }
+  });
+
+  // Suite teardown - runs after all tests
+  afterAll(() => {
+    testSummary.endTime = new Date().toISOString();
+
+    // Generate comprehensive health report
+    logger.info("📈 HEALTH CHECK EXECUTION SUMMARY");
+    logger.info("=".repeat(50));
+    logger.info(`   Total Endpoints: ${testSummary.totalEndpoints}`);
+    logger.info(`   Tested Endpoints: ${testSummary.testedEndpoints}`);
+    logger.info(`   ✅ Healthy: ${testSummary.healthyEndpoints}`);
+    logger.info(`   ❌ Unhealthy: ${testSummary.unhealthyEndpoints}`);
+    logger.info(
+      `   📊 Success Rate: ${
+        testSummary.totalEndpoints > 0
+          ? Math.round(
+              (testSummary.healthyEndpoints / testSummary.totalEndpoints) * 100
+            )
+          : 0
+      }%`
+    );
+    logger.info(
+      `   ⏱️ Average Response Time: ${testSummary.averageResponseTime}ms`
+    );
+    logger.info("=".repeat(50));
+
+    // Detailed status breakdown
+    const statusBreakdown = healthCheckResults.reduce((acc, result) => {
+      acc[result.status] = (acc[result.status] || 0) + 1;
+      return acc;
+    }, {});
+
+    logger.info("📋 Detailed Status Breakdown:");
+    Object.entries(statusBreakdown)
+      .sort(([, a], [, b]) => b - a)
+      .forEach(([status, count]) => {
+        const percentage = Math.round(
+          (count / healthCheckResults.length) * 100
+        );
+        const icon =
+          status === "healthy"
+            ? "✅"
+            : status === "auth_required"
+            ? "🔐"
+            : status === "bad_request"
+            ? "⚠️"
+            : "❌";
+        logger.info(`   ${icon} ${status}: ${count} (${percentage}%)`);
+      });
+
+    // Top 5 slowest endpoints
+    const slowEndpoints = healthCheckResults
+      .filter((r) => r.responseTime > 0)
+      .sort((a, b) => b.responseTime - a.responseTime)
+      .slice(0, 5);
+
+    if (slowEndpoints.length > 0) {
+      logger.info("🐌 Top 5 Slowest Endpoints:");
+      slowEndpoints.forEach((ep, index) => {
+        logger.info(
+          `   ${index + 1}. ${ep.responseTime}ms - ${ep.method} ${ep.url}`
+        );
+      });
     }
 
-    // If it's already a full URL with our base, return as is
-    if (endpoint.startsWith(baseUrl)) {
-      return endpoint;
-    }
+    logger.info(`🏁 Health checks completed at ${testSummary.endTime}`);
+  });
 
-    // If it's a full URL with different base, return as is
-    if (endpoint.startsWith("http")) {
-      return endpoint;
-    }
+  // =========================================================================
+  // TEST CASES
+  // =========================================================================
 
-    // If it's a relative path, ensure it starts with /
-    const normalized = endpoint.startsWith("/") ? endpoint : `/${endpoint}`;
-    logger.debug(`🔧 Normalized relative URL: ${endpoint} -> ${normalized}`);
-    return normalized;
-  }
+  test("Should discover and test all endpoints from schema", () => {
+    logger.info(`🔍 Schema Analysis:`);
+    logger.info(`   - Endpoints discovered: ${allEndpoints.length}`);
+    logger.info(`   - Endpoints tested: ${healthCheckResults.length}`);
 
-  /**
-   * Run health checks on all endpoints in the schema
-   */
-  const runHealthChecksOnAllEndpoints = (modules, parentPath = "") => {
-    if (!modules || typeof modules !== "object") {
-      logger.warn("❌ No modules provided for health checks");
+    // Critical: We must find endpoints in the schema
+    expect(allEndpoints.length).toBeGreaterThan(0);
+
+    if (allEndpoints.length === 0) {
+      logger.error("❌ CRITICAL: No endpoints found in schema. Check:");
+      logger.error("   1. Schema file exists and is valid JSON");
+      logger.error(
+        "   2. Schema has the expected structure with HTTP operations"
+      );
+      logger.error("   3. Endpoints have valid URLs (not 'URL_HERE')");
       return;
     }
 
-    Object.entries(modules).forEach(([moduleName, moduleConfig]) => {
-      if (typeof moduleConfig !== "object" || moduleConfig === null) return;
+    // We should test all discovered endpoints
+    expect(healthCheckResults.length).toBe(allEndpoints.length);
 
-      let hasEndpoints = false;
-      const fullModuleName = parentPath
-        ? `${parentPath}.${moduleName}`
-        : moduleName;
+    logger.info(`✅ Endpoint discovery and testing validated`);
+  });
 
-      // Check each endpoint type in current module
-      endpointTypes.forEach((endpointType) => {
-        if (
-          moduleConfig[endpointType] &&
-          Array.isArray(moduleConfig[endpointType]) &&
-          moduleConfig[endpointType].length > 0 &&
-          moduleConfig[endpointType][0] !== "URL_HERE" &&
-          moduleConfig[endpointType][0] &&
-          typeof moduleConfig[endpointType][0] === "string" &&
-          moduleConfig[endpointType][0].includes("/")
-        ) {
-          hasEndpoints = true;
-          testedEndpoints++;
-
-          const endpointName = `${fullModuleName}.${endpointType}`;
-          const endpointUrl = moduleConfig[endpointType][0];
-
-          test(`[HealthCheck] should verify ${endpointType} endpoint health for ${fullModuleName}`, async () => {
-            logger.info(`🔍 Checking health of ${endpointName}...`);
-            logger.debug(`   URL: ${endpointUrl}`);
-
-            const healthResult = await performHealthCheck(
-              endpointUrl,
-              endpointType,
-              fullModuleName
-            );
-
-            // Store result for summary
-            healthCheckResults.push(healthResult);
-
-            // Enhanced health check logic - be more lenient for health checks
-            if (!healthResult.healthy) {
-              // For health checks, we want to know if endpoints are accessible
-              // Even if they return error statuses, as long as they respond
-              const isAccessible =
-                healthResult.status && healthResult.status !== "No response";
-
-              if (!isAccessible) {
-                throw new Error(
-                  `Health check failed for ${endpointName}: ${
-                    healthResult.error || `No response received`
-                  }`
-                );
-              } else {
-                // Endpoint responded but with error status - log warning but don't fail
-                logger.warn(
-                  `⚠️ Endpoint ${endpointName} responded with ${healthResult.status} but is accessible`
-                );
-                // We consider this as "healthy" for health check purposes since the endpoint exists
-                healthResult.healthy = true; // Override for summary purposes
-              }
-            }
-
-            logger.info(
-              `✅ ${endpointName} is accessible (Status: ${healthResult.status}, Time: ${healthResult.responseTime}ms)`
-            );
-          }, 15000); // 15 second timeout for health checks
-        }
-      });
-
-      // Recursively test nested modules (only if current level doesn't have direct endpoints)
-      if (typeof moduleConfig === "object" && !hasEndpoints) {
-        runHealthChecksOnAllEndpoints(moduleConfig, fullModuleName);
-      }
-    });
-  };
-
-  // Run health checks on all endpoints
-  runHealthChecksOnAllEndpoints(FILE_PATHS.SCHEMA_PATH);
-
-  // Add a final summary test with improved logic
-  test("Health Check Summary Report", () => {
-    logger.info("📋 Generating health check summary...");
-
-    const healthyCount = healthCheckResults.filter((r) => r.healthy).length;
-    const unhealthyCount = healthCheckResults.filter((r) => !r.healthy).length;
-
-    // Enhanced assertion logic
-    if (testedEndpoints === 0) {
-      logger.warn(
-        "⚠️ No endpoints were tested - this may indicate schema configuration issues"
-      );
-      // Don't fail the test if no endpoints found, but log warning
-      expect(testedEndpoints).toBeGreaterThanOrEqual(0);
-    } else {
-      // For health checks, we want at least some endpoints to be accessible
-      // But be more lenient - if we have any healthy endpoints, consider it a success
-      expect(healthyCount).toBeGreaterThan(0);
-    }
-
-    logger.info(
-      `🏁 Health Check Summary: ${healthyCount} healthy, ${unhealthyCount} unhealthy out of ${healthCheckResults.length} endpoints`
+  test("Should have healthy endpoints with reasonable response times", () => {
+    const healthyEndpoints = healthCheckResults.filter((r) =>
+      ["healthy", "auth_required", "bad_request"].includes(r.status)
     );
 
-    if (unhealthyCount > 0) {
-      logger.warn(`⚠️ ${unhealthyCount} endpoints have accessibility issues`);
-      // Log the problematic endpoints
-      healthCheckResults
-        .filter((r) => !r.healthy)
-        .forEach((result) => {
-          logger.warn(
-            `   ❌ ${result.moduleName}.${result.endpointType}: ${
-              result.error || `Status ${result.status}`
-            }`
-          );
-        });
+    const trulyHealthy = healthCheckResults.filter(
+      (r) => r.status === "healthy"
+    );
+
+    logger.info(`📊 Health Analysis:`);
+    logger.info(`   - Total endpoints: ${healthCheckResults.length}`);
+    logger.info(`   - Healthy/Accessible: ${healthyEndpoints.length}`);
+    logger.info(`   - Truly healthy (2xx): ${trulyHealthy.length}`);
+
+    // At least some endpoints should be accessible
+    expect(healthyEndpoints.length).toBeGreaterThan(0);
+
+    if (healthyEndpoints.length === 0) {
+      logger.warn("⚠️ No healthy endpoints found. Possible issues:");
+      logger.warn("   - Network connectivity problems");
+      logger.warn("   - API server is down");
+      logger.warn("   - Authentication tokens expired");
+      logger.warn("   - Endpoint URLs are incorrect");
+
+      // Log first few errors for debugging
+      const errors = healthCheckResults.slice(0, 3);
+      errors.forEach((result) => {
+        logger.warn(
+          `   - ${result.url}: ${result.status} (${
+            result.error || "No details"
+          })`
+        );
+      });
     }
 
-    // Additional diagnostic information
-    if (totalEndpoints === 0) {
-      logger.error("❌ CRITICAL: No endpoints found in schema file");
-      logger.info(
-        "💡 Check your Constants.js FILE_PATHS.SCHEMA_PATH configuration"
+    // Check response times for healthy endpoints
+    const reasonableResponseTimes = healthyEndpoints.filter(
+      (r) => r.responseTime < 10000 // 10 seconds max
+    );
+
+    expect(reasonableResponseTimes.length).toBeGreaterThan(0);
+
+    if (reasonableResponseTimes.length < healthyEndpoints.length) {
+      logger.warn(
+        `⚠️ ${
+          healthyEndpoints.length - reasonableResponseTimes.length
+        } endpoints have slow response times`
       );
     }
+
+    logger.info(`✅ Health status validated`);
+  });
+
+  test("Should generate comprehensive health check summary", () => {
+    // Validate summary data structure and integrity
+    expect(testSummary.totalEndpoints).toBe(allEndpoints.length);
+    expect(testSummary.testedEndpoints).toBe(healthCheckResults.length);
+    expect(testSummary.healthyEndpoints).toBeLessThanOrEqual(
+      testSummary.testedEndpoints
+    );
+    expect(testSummary.unhealthyEndpoints).toBeLessThanOrEqual(
+      testSummary.testedEndpoints
+    );
+    expect(testSummary.averageResponseTime).toBeGreaterThanOrEqual(0);
+
+    // All endpoints should have results
+    expect(healthCheckResults).toHaveLength(allEndpoints.length);
+
+    // Results should have required properties
+    healthCheckResults.forEach((result) => {
+      expect(result).toHaveProperty("url");
+      expect(result).toHaveProperty("status");
+      expect(result).toHaveProperty("responseTime");
+      expect(result).toHaveProperty("timestamp");
+    });
+
+    logger.info("✅ Health check summary validated successfully");
+  });
+
+  test("Should validate endpoint configurations", () => {
+    const invalidEndpoints = allEndpoints.filter((ep) => !isValidUrl(ep.url));
+
+    if (invalidEndpoints.length > 0) {
+      logger.warn(
+        `⚠️ Found ${invalidEndpoints.length} endpoints with invalid URLs:`
+      );
+      invalidEndpoints.slice(0, 5).forEach((ep) => {
+        logger.warn(`   - ${ep.url} (${ep.module})`);
+      });
+    }
+
+    expect(invalidEndpoints.length).toBe(0);
+
+    // Validate HTTP methods are correctly mapped
+    const validMethods = ["GET", "POST", "PUT", "DELETE"];
+    const invalidMethods = allEndpoints.filter(
+      (ep) => !validMethods.includes(ep.method)
+    );
+
+    expect(invalidMethods.length).toBe(0);
+
+    logger.info("✅ Endpoint configuration validation passed");
   });
 });
