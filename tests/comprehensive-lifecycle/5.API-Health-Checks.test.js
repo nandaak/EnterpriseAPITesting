@@ -6,7 +6,7 @@ const fs = require("fs");
 const path = require("path");
 
 const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
-
+const API_Schema = "test-data/Input/Main-Backend-Api-Schema.json";
 /**
  * INDIVIDUAL API ENDPOINT HEALTH CHECKS
  *
@@ -170,10 +170,7 @@ describe("Individual API Endpoint Health Checks", () => {
   // Load schema from file
   const loadSchema = () => {
     try {
-      const schemaPath = path.resolve(
-        process.cwd(),
-        "test-data/Input/JL-Backend-Api-Schema.json"
-      );
+      const schemaPath = path.resolve(process.cwd(), API_Schema);
 
       if (!fs.existsSync(schemaPath)) {
         throw new Error(`Schema file not found at: ${schemaPath}`);
