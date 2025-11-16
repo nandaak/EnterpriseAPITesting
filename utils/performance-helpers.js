@@ -1,207 +1,168 @@
-/**
- * @fileoverview Test Helpers for Performance Under Malicious Load Testing.
- * This module exports functions to execute load tests using malicious payloads
- * to assess system performance and resilience.
- */
-
+// utils/performance-helpers.js
 const apiClient = require("./api-client");
 const logger = require("./logger");
-const { HTTP_STATUS_CODES } = require("../Constants");
-const { generateMaliciousPayload } = require("./security-helpers");
-// Assuming security-helpers provides functions for test tokens and malicious data
-const { getLowPrivilegeToken } = require("./security-helpers");
+const Constants = require("../Constants");
 
-// --- Configuration ---
-const CONCURRENCY_LEVEL = 10; // Number of concurrent requests
-const DURATION_SECONDS = 10; // Duration of the load test
-const TOTAL_REQUESTS = CONCURRENCY_LEVEL * 10 * DURATION_SECONDS; // Target request count (approx 10 req/s per user)
-const REQUEST_DELAY_MS = 1000 / 10; // 100ms delay for 10 requests per second rate
+const { TEST_CONFIG } = Constants;
+
+// --- 1. MALICIOUS PAYLOAD GENERATOR ---
 
 /**
- * @typedef {Object} PerformanceMetrics
- * @property {number} totalRequests - Total requests sent.
- * @property {number} successfulRequests - Requests with 2xx status.
- * @property {number} failedRequests - Requests with 4xx/5xx status or network errors.
- * @property {number} errorRate - Percentage of failed requests.
- * @property {number} throughput - Requests per second (req/sec).
- * @property {number} averageResponseTime - Average response time in ms.
- * @property {number} p95ResponseTime - 95th percentile response time in ms.
+ * Generates a payload intended to stress or maliciously test an API endpoint.
+ * This function cycles through different payload types/sizes to simulate varied malicious input.
+ *
+ * @param {string} moduleName - The name of the module being tested.
+ * @param {number} requestIndex - The index of the current request (used for variance).
+ * @returns {object} A payload object containing stressful or malicious data.
  */
+function generateMaliciousPayload(moduleName, requestIndex) {
+  const attackVectors = [
+    // 0: Deeply nested object payload (DoS vector)
+    () => {
+      const createNestedObject = (depth) => {
+        if (depth === 0) return { val: "leaf" };
+        return {
+          module: moduleName,
+          index: requestIndex,
+          next: createNestedObject(depth - 1),
+        };
+      };
+      return createNestedObject(15); // 15 levels deep
+    },
+    // 1: Large array payload (Memory consumption vector)
+    () => ({
+      module: moduleName,
+      data: Array(2000).fill("A".repeat(100)), // 200KB of data
+    }),
+    // 2: SQL Injection/XSS combined payload (Security stress vector)
+    () => ({
+      module: moduleName,
+      id: `' OR '1'='1' --`,
+      name: `<script>alert('XSS_ATTACK_${requestIndex}')</script>`,
+    }),
+    // 3: Extremely long string payload (Input validation stress)
+    () => ({
+      module: moduleName,
+      data: "A".repeat(1024 * 5), // 5KB single string
+    }),
+  ];
+
+  // Cycle through the attack vectors based on the request index
+  const vectorIndex = requestIndex % attackVectors.length;
+  return attackVectors[vectorIndex]();
+}
+
+// --- 2. PERFORMANCE TEST EXECUTION ---
 
 /**
  * Executes a load test against a module's POST endpoint using malicious payloads.
- * Assesses performance and resilience under simulated attack.
  *
- * @param {object} moduleConfig The configuration for the current module.
- * @param {string} fullModuleName The full path name of the module being tested.
- * @returns {Promise<{metrics: PerformanceMetrics, details: string}>} The performance test results.
+ * @param {object} moduleConfig - The configuration object for the module (must contain a 'Post' array).
+ * @param {string} fullModuleName - The dot-separated name of the module.
+ * @returns {Promise<object>} An object containing the test results, metrics, and status.
  */
-const testPerformanceUnderMaliciousLoad = async (
-  moduleConfig,
-  fullModuleName
-) => {
-  logger.debug(`[PERF-LOAD] Starting load test on ${fullModuleName}...`);
+async function testPerformanceUnderMaliciousLoad(moduleConfig, fullModuleName) {
+  const defaultPostUrl = moduleConfig.Post?.[0];
 
-  // 1. Get Target Endpoint (POST is mandatory for this test)
-  const endpoint =
-    moduleConfig.Post &&
-    Array.isArray(moduleConfig.Post) &&
-    moduleConfig.Post[0];
-
-  if (!endpoint || endpoint === "URL_HERE") {
+  if (!defaultPostUrl) {
     return {
-      metrics: {
-        totalRequests: 0,
-        successfulRequests: 0,
-        failedRequests: 0,
-        errorRate: 0,
-        throughput: 0,
-        averageResponseTime: 0,
-        p95ResponseTime: 0,
-      },
-      details: `Skipped: No valid POST endpoint found for ${fullModuleName}.`,
+      status: "skipped",
+      metrics: {},
+      details: "No POST endpoint found to perform load test.",
     };
   }
 
-  // 2. Setup Test Environment
-  const userToken = await getLowPrivilegeToken();
-  const headers = { Authorization: `Bearer ${userToken}` };
-  const responseTimes = [];
+  const maxConcurrentRequests = TEST_CONFIG.MALICIOUS_LOAD.CONCURRENCY || 10;
+  const totalRequests = TEST_CONFIG.MALICIOUS_LOAD.TOTAL_REQUESTS || 100;
+  const requestPromises = [];
+
   let successfulRequests = 0;
   let failedRequests = 0;
-
+  const responseTimes = [];
   const startTime = Date.now();
-  logger.info(
-    `[PERF-LOAD] Targeting ${endpoint} with ${CONCURRENCY_LEVEL} concurrent users for ${DURATION_SECONDS}s.`
-  );
 
-  // 3. Define the Request Execution Logic
   const executeRequest = async (i) => {
+    // Generate a payload that cycles through different attack vectors
     const payload = generateMaliciousPayload(
       fullModuleName,
-      "performance_test"
+      i // use request index to generate varied payload
     );
+
     const requestStart = Date.now();
-
     try {
-      // Use the POST method
-      const response = await apiClient.post(endpoint, payload, { headers });
-      const responseTime = Date.now() - requestStart;
-      responseTimes.push(responseTime);
+      // Using POST endpoint with malicious payload
+      const response = await apiClient.post(defaultPostUrl, payload, {
+        validateStatus: (status) => status < 500, // Treat 4xx errors (expected under malicious load) as non-network failures
+      });
 
-      // A 4xx (Client Error) for a malicious payload is often a SUCCESSFUL security response.
-      // For PERFORMANCE, we only count 2xx as SUCCESSFUL for throughput/RT purposes.
-      if (response.status >= 200 && response.status < 300) {
+      const duration = Date.now() - requestStart;
+      responseTimes.push(duration);
+
+      if (response.status >= 200 && response.status < 400) {
+        // Unexpected success under malicious load is still a functional success for this test
         successfulRequests++;
+      } else if (response.status >= 400 && response.status < 500) {
+        // Expected failure (e.g., 400 Bad Request, 401 Auth) under malicious load
+        successfulRequests++; // Count as functional success if system handled the bad input gracefully
       } else {
+        // Actual failure (e.g., 5xx Server Error)
         failedRequests++;
       }
     } catch (error) {
-      const responseTime = Date.now() - requestStart;
-      responseTimes.push(responseTime);
-
-      // If the API correctly rejects a malicious request (e.g., 400, 403)
-      if (
-        error.response &&
-        error.response.status >= 400 &&
-        error.response.status < 500
-      ) {
-        // Count as a failure for standard performance metric, but successful for security.
-        failedRequests++;
-      } else {
-        // 5xx or Network errors (system failure)
-        failedRequests++;
-      }
+      const duration = Date.now() - requestStart;
+      responseTimes.push(duration);
+      failedRequests++;
+      // logger.error(`Request ${i} failed for ${fullModuleName}: ${error.message}`);
     }
   };
 
-  // 4. Run the Concurrent Load Test using promises/timeout
-  const loadTestLoop = async () => {
-    const totalRequests = Math.min(TOTAL_REQUESTS, 1000); // Capping max requests for a practical Jest test
-    const requests = [];
-
-    for (let i = 0; i < totalRequests; i++) {
-      // Initiate concurrent requests
-      requests.push(executeRequest(i));
-
-      // Introduce a small delay to control the flow and prevent network saturation errors
-      await new Promise((resolve) => setTimeout(resolve, REQUEST_DELAY_MS));
+  // Execute concurrent requests in batches
+  for (let i = 0; i < totalRequests; i += maxConcurrentRequests) {
+    const batch = [];
+    for (let j = 0; j < maxConcurrentRequests && i + j < totalRequests; j++) {
+      batch.push(executeRequest(i + j));
     }
-
-    await Promise.allSettled(requests);
-  };
-
-  await loadTestLoop();
-  const endTime = Date.now();
-  const duration = endTime - startTime;
-  const totalRequests = successfulRequests + failedRequests;
-
-  // 5. Calculate Metrics
-  const { averageResponseTime, p95ResponseTime } =
-    calculatePerformanceStatistics(responseTimes);
-
-  const metrics = {
-    totalRequests,
-    successfulRequests,
-    failedRequests,
-    errorRate: totalRequests > 0 ? (failedRequests / totalRequests) * 100 : 0,
-    throughput: duration > 0 ? (totalRequests / duration) * 1000 : 0, // req/sec
-    averageResponseTime,
-    p95ResponseTime,
-  };
-
-  logger.debug(
-    `[PERF-LOAD] Finished. Total time: ${duration}ms. Req/s: ${metrics.throughput.toFixed(
-      2
-    )}`
-  );
-
-  return {
-    metrics,
-    details: `Performance test completed. Total requests: ${
-      metrics.totalRequests
-    }, Success Rate: ${(
-      (metrics.successfulRequests / metrics.totalRequests) *
-      100
-    ).toFixed(2)}%.`,
-  };
-};
-
-// =========================================================================
-// PERFORMANCE CALCULATION HELPERS
-// =========================================================================
-
-/**
- * Calculates average and percentile response times.
- * @param {number[]} responseTimes - Array of response times in milliseconds.
- * @returns {{averageResponseTime: number, p95ResponseTime: number}}
- */
-function calculatePerformanceStatistics(responseTimes) {
-  if (responseTimes.length === 0) {
-    return { averageResponseTime: 0, p95ResponseTime: 0 };
+    await Promise.all(batch);
   }
 
-  // Average
-  const sum = responseTimes.reduce((a, b) => a + b, 0);
-  const averageResponseTime = sum / responseTimes.length;
+  const endTime = Date.now();
+  const totalDuration = endTime - startTime;
 
-  // P95 (95th Percentile)
-  const sortedTimes = [...responseTimes].sort((a, b) => a - b);
-  const p95Index = Math.floor(sortedTimes.length * 0.95);
-  // Use the index, or the last element if the index is out of bounds
-  const p95ResponseTime =
-    sortedTimes[Math.min(p95Index, sortedTimes.length - 1)];
+  // Check for response times before calculating metrics
+  if (responseTimes.length === 0) {
+    return {
+      status: "failed",
+      metrics: { totalRequests, successfulRequests, failedRequests },
+      details: "All requests failed, no response times recorded.",
+    };
+  }
+
+  // Performance Metrics Calculation
+  responseTimes.sort((a, b) => a - b);
+  const totalResponseTime = responseTimes.reduce((a, b) => a + b, 0);
+
+  const metrics = {
+    totalRequests: totalRequests,
+    successfulRequests: successfulRequests,
+    failedRequests: failedRequests,
+    averageResponseTime: totalResponseTime / responseTimes.length,
+    throughput: totalRequests / (totalDuration / 1000), // requests per second
+    p95ResponseTime: responseTimes[Math.floor(responseTimes.length * 0.95)],
+    successRate: (successfulRequests / totalRequests) * 100,
+    totalDuration: totalDuration,
+  };
+
+  const overallStatus = failedRequests === totalRequests ? "failed" : "passed";
 
   return {
-    averageResponseTime: parseFloat(averageResponseTime.toFixed(2)),
-    p95ResponseTime: parseFloat(p95ResponseTime.toFixed(2)),
+    status: overallStatus,
+    metrics: metrics,
   };
 }
 
-// =========================================================================
-// EXPORTS
-// =========================================================================
+// --- 3. EXPORTS ---
 
 module.exports = {
   testPerformanceUnderMaliciousLoad,
+  generateMaliciousPayload, // <-- FIX: Exporting the defined function
 };
