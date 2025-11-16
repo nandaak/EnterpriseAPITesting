@@ -77,6 +77,13 @@ const SECURITY_PAYLOADS = {
 };
 
 const TEST_CONFIG = {
+  MALICIOUS_LOAD: {
+    // These are defaults used in performance-helpers.js, but must be defined.
+    CONCURRENCY: 10,
+    TOTAL_REQUESTS: 100,
+    // Optional: define timeout for performance tests
+    REQUEST_TIMEOUT_MS: 5000,
+  },
   TIMEOUT: {
     SHORT: 10000,
     MEDIUM: 30000,

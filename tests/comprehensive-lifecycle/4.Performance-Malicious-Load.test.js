@@ -4,7 +4,7 @@ const {
 } = require("../../utils/performance-helpers");
 const logger = require("../../utils/logger");
 const { TEST_TAGS, FILE_PATHS, HTTP_STATUS_CODES } = require("../../Constants");
-const { loadSchema, isValidUrl } = require("../../utils/helper"); // <-- FIX: Import necessary helpers
+const { loadSchema, isValidUrl } = require("../../utils/helper");
 
 /**
  * PERFORMANCE UNDER MALICIOUS LOAD TESTING SUITE
@@ -13,19 +13,18 @@ const { loadSchema, isValidUrl } = require("../../utils/helper"); // <-- FIX: Im
  * Coverage: Concurrent requests, error handling, response times, throughput
  * Scope: Automatically tests all modules with POST endpoints under stress conditions
  *
- * @version 2.0.2
+ * @version 2.0.3
  * @author Mohamed Said Ibrahim
  */
 
 // Load the schema once at the top level
 let API_MODULE_SCHEMA = {};
 try {
-  API_MODULE_SCHEMA = loadSchema(); // <-- FIX: Load schema using the helper function
+  API_MODULE_SCHEMA = loadSchema();
 } catch (error) {
   logger.error(
     `FATAL: Failed to load API schema for performance tests: ${error.message}`
   );
-  // If loading fails, API_MODULE_SCHEMA will be an empty object, causing TC-0 to fail correctly.
 }
 
 describe("Performance Under Malicious Load", () => {
@@ -134,7 +133,7 @@ describe("Performance Under Malicious Load", () => {
 
         describe(`Performance Testing: ${fullModuleName}`, () => {
           let moduleStartTime;
-          let performanceResults = {};
+          let performanceResults = {}; // Reset results for each module suite
           let testContext = {};
           let moduleTestCount = 0;
 
@@ -169,7 +168,9 @@ describe("Performance Under Malicious Load", () => {
             performanceTestSummary.totalTests++;
 
             let testStatus = "passed";
-            if (testState.testFailureExceptions.length > 0) {
+
+            // 🎯 FIX 1: Safely handle potentially undefined testFailureExceptions array
+            if ((testState.testFailureExceptions || []).length > 0) {
               testStatus = "failed";
               performanceTestSummary.failedTests++;
             } else if (performanceResults.skipped) {
@@ -183,6 +184,7 @@ describe("Performance Under Malicious Load", () => {
               module: fullModuleName,
               testName: testName,
               status: testStatus,
+              // Use defensive chaining here in case metrics is undefined
               performanceMetrics: performanceResults.metrics || {},
               timestamp: new Date().toISOString(),
               context: testContext,
@@ -228,7 +230,15 @@ describe("Performance Under Malicious Load", () => {
               return;
             }
 
+            // Defensively check for metrics before declaring the variable
             const metrics = results.metrics;
+            if (!metrics) {
+              logger.error(
+                `❌ TC-1 failed to generate metrics for ${fullModuleName}. Check test helper.`
+              );
+              expect(metrics).toBeDefined(); // Fail the test explicitly
+              return;
+            }
 
             // Enhanced performance validation with realistic expectations
             const realisticThresholds = {
@@ -300,9 +310,10 @@ describe("Performance Under Malicious Load", () => {
             testContext.testType = "error_handling_analysis";
 
             // This test analyzes the results from TC-1
-            if (performanceResults.skipped) {
+            // 🎯 FIX 2: Safely check for skipped/missing metrics before accessing properties
+            if (performanceResults.skipped || !performanceResults.metrics) {
               logger.warn(
-                `⏸️ Error analysis skipped for ${fullModuleName}. Load test was skipped.`
+                `⏸️ Error analysis skipped for ${fullModuleName}. Load test was skipped or failed setup.`
               );
               expect(true).toBe(true);
               return;
@@ -314,6 +325,7 @@ describe("Performance Under Malicious Load", () => {
               `🔧 Analyzing error handling stability for ${fullModuleName} under load...`
             );
 
+            // This line (318) is now safe due to the check above
             const errorRate =
               metrics.totalRequests > 0
                 ? (metrics.failedRequests / metrics.totalRequests) * 100
@@ -373,5 +385,5 @@ describe("Performance Under Malicious Load", () => {
   });
 
   // 2. Run performance tests on all modules (dynamic suite generation)
-  runPerformanceTestsOnAllModules(API_MODULE_SCHEMA); // <-- FIX: Use the loaded object
+  runPerformanceTestsOnAllModules(API_MODULE_SCHEMA);
 });
