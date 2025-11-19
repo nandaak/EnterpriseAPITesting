@@ -243,7 +243,7 @@ class SchemaLoader {
       return url;
     }
 
-    const baseUrl = "https://api.microtecstage.com";
+    const baseUrl = "https://microtecsaudi.com:2032";
 
     // Fix double base URL issues
     if (url.startsWith(baseUrl + baseUrl)) {

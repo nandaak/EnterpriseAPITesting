@@ -5,7 +5,7 @@ const logger = require("../utils/logger");
 
 // Enhanced configuration with better token handling
 const getApiConfig = () => {
-  const baseURL = process.env.API_BASE_URL || "https://api.microtecstage.com";
+  const baseURL = process.env.API_BASE_URL || "https://microtecsaudi.com:2032";
 
   // Get and validate token
   let rawToken = TokenManager.readTokenFromFile();

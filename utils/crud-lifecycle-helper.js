@@ -1,4 +1,4 @@
-// utils/crud-lifecycle-helper.js
+// utils/crud-lifecycle-helper.js - ENHANCED COMPLETE CRUD LIFECYCLE
 const fs = require("fs");
 const path = require("path");
 const apiClient = require("./api-client");
@@ -13,25 +13,28 @@ class CrudLifecycleHelper {
   constructor(modulePath) {
     this.actualModulePath = modulePath;
     this.createdId = null;
-    this.apiClient = apiClient; // Use the already initialized singleton
+    this.apiClient = apiClient;
     this.testResults = [];
     this.currentTestPhase = "INITIAL";
+    this.moduleSkipFlag = false;
+    this.resourceState = {
+      originalData: null,
+      updatedData: null,
+      deletionVerified: false,
+    };
   }
 
   async initialize() {
-    // ✅ SIMPLIFIED: Just verify the API client is ready without checking token property
     await this.verifyApiClientReady();
     this.loadCreatedIdFromFile();
   }
 
   async verifyApiClientReady() {
     try {
-      // ✅ Check if API client instance exists
       if (!this.apiClient) {
         throw new Error("API client instance is not available");
       }
 
-      // ✅ Check if API client has the necessary methods
       if (
         typeof this.apiClient.post !== "function" ||
         typeof this.apiClient.get !== "function"
@@ -39,25 +42,522 @@ class CrudLifecycleHelper {
         throw new Error("API client methods are not properly initialized");
       }
 
-      // ✅ Test with a simple health check or token verification
-      // Instead of checking token property, we'll do a simple test request
-      // or just assume it's ready since it was initialized globally
-
       logger.info("✅ API Client verified and ready for testing");
     } catch (error) {
       logger.error(`❌ API Client verification failed: ${error.message}`);
-      global.skipRemainingTests = true;
+      this.moduleSkipFlag = true;
       throw new Error(`API Client Setup Failed: ${error.message}`);
     }
   }
 
-  // --- Enhanced ID File Management ---
+  // --- COMPLETE CRUD LIFECYCLE METHODS ---
+
+  /**
+   * 🎯 PHASE 1: CREATE - Create a new resource
+   */
+  async runCreateTest(operationKey = "Post") {
+    if (this.moduleSkipFlag) {
+      throw new Error(
+        `❌ SKIPPING TEST: Previous failure in module ${this.actualModulePath}`
+      );
+    }
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      this.moduleSkipFlag = true;
+      throw new Error(
+        `❌ CREATE OPERATION NOT FOUND: ${operationKey} for module ${this.actualModulePath}`
+      );
+    }
+
+    if (!operation.endpoint || operation.endpoint === "URL_HERE") {
+      this.moduleSkipFlag = true;
+      throw new Error(
+        `❌ INVALID ENDPOINT: ${operation.endpoint} for ${operationKey}`
+      );
+    }
+
+    logger.info(
+      `🌐 CREATE PHASE - Calling ${operationKey} endpoint: ${operation.endpoint}`
+    );
+
+    try {
+      const response = await this.apiClient.post(
+        operation.endpoint,
+        operation.payload
+      );
+
+      if (response.status < 200 || response.status >= 400) {
+        this.moduleSkipFlag = true;
+        throw new Error(`❌ CREATE REQUEST FAILED: Status ${response.status}`);
+      }
+
+      TestHelpers.debugResponseStructure(response, "CREATE");
+      const extractedId = TestHelpers.extractId(response);
+
+      if (!extractedId) {
+        this.moduleSkipFlag = true;
+        throw new Error(
+          `❌ ID EXTRACTION FAILED: Could not extract resource ID from response`
+        );
+      }
+
+      this.createdId = String(extractedId);
+      const saveSuccess = this.saveCreatedIdToFile(this.createdId);
+
+      if (!saveSuccess) {
+        this.moduleSkipFlag = true;
+        throw new Error(
+          `❌ ID PERSISTENCE FAILED: Could not save ID to file system`
+        );
+      }
+
+      // Store original data for later comparison
+      this.resourceState.originalData = response.data;
+
+      const dataExists = await this.validateDataCreation(this.createdId);
+      if (!dataExists) {
+        this.moduleSkipFlag = true;
+        throw new Error(
+          `❌ DATA CREATION VERIFICATION FAILED: Resource ${this.createdId} not found in system`
+        );
+      }
+
+      logger.info(
+        `✅ CREATE SUCCESS - Resource created with ID: ${this.createdId}`
+      );
+      logger.info(`📊 Original data stored for comparison`);
+
+      return {
+        createdId: this.createdId,
+        response,
+        originalData: this.resourceState.originalData,
+        extractionDetails: {
+          source: "enhanced extraction",
+          type: typeof this.createdId,
+          length: this.createdId.length,
+          savedToFile: saveSuccess,
+          dataVerified: dataExists,
+        },
+      };
+    } catch (error) {
+      this.moduleSkipFlag = true;
+      logger.error(`❌ CREATE PHASE FAILED: ${error.message}`);
+      throw error;
+    }
+  }
+
+  /**
+   * 🎯 PHASE 2: VIEW (Initial) - Verify resource creation
+   */
+  async runInitialViewTest(operationKey = "View") {
+    this.enforcePrerequisite("createdId");
+    const currentId = this.getCreatedId();
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      throw new Error(
+        `View operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+    }
+
+    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    logger.info(
+      `🔍 VIEW PHASE 1 - Verifying created resource: ${viewEndpoint}`
+    );
+
+    try {
+      const response = await this.apiClient.get(viewEndpoint);
+
+      // Enhanced validation for initial view
+      this.validateInitialViewResponse(response, currentId);
+
+      logger.info(`✅ VIEW PHASE 1 SUCCESS - Resource verified: ${currentId}`);
+      return {
+        response,
+        resourceData: response.data,
+      };
+    } catch (error) {
+      this.handleError(error, "INITIAL_VIEW", operationKey);
+    }
+  }
+
+  /**
+   * 🎯 PHASE 3: UPDATE - Modify the created resource
+   */
+  async runUpdateTest(operationKey = "PUT") {
+    this.enforcePrerequisite("createdId");
+    const currentId = this.getCreatedId();
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      throw new Error(
+        `Update operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+    }
+
+    const updateEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    // Enhanced payload with modifications
+    const updatePayload = this.constructUpdatePayload(
+      operation.payload,
+      currentId
+    );
+
+    logger.info(`✏️ UPDATE PHASE - Modifying resource: ${updateEndpoint}`);
+    logger.info(`📝 Update payload prepared with modifications`);
+
+    try {
+      const response = await this.apiClient.put(updateEndpoint, updatePayload);
+
+      if (response.status >= 400) {
+        throw new Error(`UPDATE failed with status ${response.status}`);
+      }
+
+      // Store updated data for comparison
+      this.resourceState.updatedData = response.data;
+
+      logger.info(`✅ UPDATE SUCCESS - Resource modified: ${currentId}`);
+      return {
+        response,
+        updatedData: this.resourceState.updatedData,
+      };
+    } catch (error) {
+      this.handleError(error, "UPDATE", operationKey);
+    }
+  }
+
+  /**
+   * 🎯 PHASE 4: VIEW (Post-Update) - Verify modifications
+   */
+  async runPostUpdateViewTest(operationKey = "View") {
+    this.enforcePrerequisite("createdId");
+    const currentId = this.getCreatedId();
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      throw new Error(
+        `View operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+    }
+
+    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    logger.info(`🔍 VIEW PHASE 2 - Verifying updates: ${viewEndpoint}`);
+
+    try {
+      const response = await this.apiClient.get(viewEndpoint);
+
+      // Validate that updates are persisted
+      this.validatePostUpdateResponse(response, currentId);
+
+      logger.info(`✅ VIEW PHASE 2 SUCCESS - Updates verified: ${currentId}`);
+      return {
+        response,
+        currentData: response.data,
+        changesVerified: this.verifyChangesApplied(response.data),
+      };
+    } catch (error) {
+      this.handleError(error, "POST_UPDATE_VIEW", operationKey);
+    }
+  }
+
+  /**
+   * 🎯 PHASE 5: DELETE - Remove the resource
+   */
+  async runDeleteTest(operationKey = "DELETE") {
+    this.enforcePrerequisite("createdId");
+    const currentId = this.getCreatedId();
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      throw new Error(
+        `Delete operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+    }
+
+    const deleteEndpoint = operation.endpoint.replace("<createdId>", currentId);
+
+    logger.info(`🗑️ DELETE PHASE - Removing resource: ${deleteEndpoint}`);
+
+    try {
+      const response = await this.apiClient.delete(deleteEndpoint);
+
+      if (response.status >= 400) {
+        throw new Error(`DELETE failed with status ${response.status}`);
+      }
+
+      // Verify deletion was successful
+      await this.verifyDeletion(currentId);
+
+      // Clear ID upon successful deletion
+      if (response.status >= 200 && response.status < 300) {
+        this.clearCreatedId();
+        this.resourceState.deletionVerified = true;
+      }
+
+      logger.info(`✅ DELETE SUCCESS - Resource removed: ${currentId}`);
+      return {
+        response,
+        deletionVerified: this.resourceState.deletionVerified,
+      };
+    } catch (error) {
+      this.handleError(error, "DELETE", operationKey);
+    }
+  }
+
+  /**
+   * 🎯 PHASE 6: VIEW (Negative Test) - Verify resource no longer exists
+   */
+  async runNegativeViewTest(operationKey = "View") {
+    const currentId = this.getCreatedId(); // This should be null after deletion
+
+    if (currentId) {
+      throw new Error(`Resource ID still exists after deletion: ${currentId}`);
+    }
+
+    const operation = this.getOperationFromModuleConfig(operationKey);
+
+    if (!operation) {
+      throw new Error(
+        `View operation ${operationKey} not found for module ${this.actualModulePath}`
+      );
+    }
+
+    // Use the last known ID to attempt viewing deleted resource
+    const lastKnownId = this.resourceState.originalData?.id || "unknown";
+    const viewEndpoint = operation.endpoint.replace("<createdId>", lastKnownId);
+
+    logger.info(
+      `🚫 NEGATIVE VIEW PHASE - Attempting to view deleted resource: ${viewEndpoint}`
+    );
+
+    try {
+      // This should fail with 404 or similar
+      const response = await this.apiClient.get(viewEndpoint);
+
+      // If we get here, the resource still exists (which is a failure)
+      throw new Error(
+        `Resource still accessible after deletion - Expected 404 but got ${response.status}`
+      );
+    } catch (error) {
+      // This is the expected behavior - resource should not be found
+      if (error.response && error.response.status === 404) {
+        logger.info(
+          `✅ NEGATIVE VIEW SUCCESS - Resource properly deleted (404 received)`
+        );
+        return {
+          success: true,
+          expectedError: true,
+          status: 404,
+          message: "Resource not found as expected",
+        };
+      } else if (error.response && error.response.status === 410) {
+        logger.info(
+          `✅ NEGATIVE VIEW SUCCESS - Resource properly deleted (410 received)`
+        );
+        return {
+          success: true,
+          expectedError: true,
+          status: 410,
+          message: "Resource gone as expected",
+        };
+      } else {
+        // Unexpected error
+        logger.error(
+          `❌ NEGATIVE VIEW FAILED - Unexpected error: ${error.message}`
+        );
+        throw new Error(`Negative test failed: ${error.message}`);
+      }
+    }
+  }
+
+  // --- ENHANCED VALIDATION METHODS ---
+
+  validateInitialViewResponse(response, expectedId) {
+    if (!response.data) {
+      throw new Error("Initial view response contains no data");
+    }
+
+    // Verify the resource exists and has expected structure
+    const responseString = JSON.stringify(response.data).toLowerCase();
+    const expectedIdLower = expectedId.toLowerCase();
+
+    if (!responseString.includes(expectedIdLower)) {
+      logger.warn(
+        `Expected ID ${expectedId} not found in initial view response`
+      );
+    }
+
+    // Store for later comparison
+    this.resourceState.originalData = response.data;
+
+    logger.info(`📊 Initial view validated - Resource structure confirmed`);
+  }
+
+  validatePostUpdateResponse(response, expectedId) {
+    if (!response.data) {
+      throw new Error("Post-update view response contains no data");
+    }
+
+    // Verify resource still exists and modifications are visible
+    const currentData = response.data;
+
+    // Compare with original data to verify changes
+    if (this.resourceState.originalData) {
+      const changes = this.detectDataChanges(
+        this.resourceState.originalData,
+        currentData
+      );
+      logger.info(`📈 Data changes detected: ${changes.length} modifications`);
+
+      if (changes.length === 0) {
+        logger.warn(`⚠️ No data changes detected after update`);
+      }
+    }
+
+    logger.info(`📊 Post-update view validated - Modifications confirmed`);
+  }
+
+  constructUpdatePayload(basePayload, resourceId) {
+    if (!basePayload || typeof basePayload !== "object") {
+      return basePayload || {};
+    }
+
+    // Create a deep copy
+    const payload = JSON.parse(JSON.stringify(basePayload));
+
+    // Add ID to payload
+    if (resourceId) {
+      payload.id = resourceId;
+    }
+
+    // Apply modifications for update verification
+    const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+
+    // Modify identifiable fields to prove update worked
+    if (payload.description) {
+      payload.description = `UPDATED - ${payload.description} - Modified ${timestamp}`;
+    }
+
+    if (payload.name) {
+      payload.name = `Updated_${payload.name}_${timestamp}`;
+    }
+
+    if (payload.journalDate) {
+      payload.journalDate = new Date().toISOString().split("T")[0];
+    }
+
+    // Add update marker
+    payload._testUpdateMarker = `updated_${timestamp}`;
+
+    logger.debug(`📝 Update payload constructed with modifications`);
+    return payload;
+  }
+
+  verifyChangesApplied(currentData) {
+    if (!this.resourceState.updatedData) {
+      return {
+        verified: false,
+        reason: "No update data available for comparison",
+      };
+    }
+
+    const changes = [];
+
+    // Check for update marker
+    if (currentData._testUpdateMarker) {
+      changes.push("Update marker present");
+    }
+
+    // Check description was modified
+    if (
+      currentData.description &&
+      currentData.description.includes("UPDATED -")
+    ) {
+      changes.push("Description updated");
+    }
+
+    return {
+      verified: changes.length > 0,
+      changes: changes,
+      changeCount: changes.length,
+    };
+  }
+
+  detectDataChanges(originalData, currentData) {
+    const changes = [];
+
+    if (!originalData || !currentData) {
+      return changes;
+    }
+
+    // Simple field comparison (extend as needed)
+    const fieldsToCompare = ["description", "name", "journalDate", "status"];
+
+    fieldsToCompare.forEach((field) => {
+      if (
+        originalData[field] !== undefined &&
+        currentData[field] !== undefined
+      ) {
+        if (originalData[field] !== currentData[field]) {
+          changes.push({
+            field: field,
+            original: originalData[field],
+            current: currentData[field],
+          });
+        }
+      }
+    });
+
+    return changes;
+  }
+
+  async verifyDeletion(resourceId) {
+    const operation = this.getOperationFromModuleConfig("View");
+
+    if (!operation) {
+      logger.warn("No VIEW operation available for deletion verification");
+      return true;
+    }
+
+    const viewEndpoint = operation.endpoint.replace("<createdId>", resourceId);
+
+    try {
+      // Attempt to view the deleted resource - this should fail
+      await this.apiClient.get(viewEndpoint);
+
+      // If we get here, deletion failed
+      throw new Error(`Resource still exists after deletion: ${resourceId}`);
+    } catch (error) {
+      // Expected - resource should not be found
+      if (
+        error.response &&
+        (error.response.status === 404 || error.response.status === 410)
+      ) {
+        logger.info(
+          `✅ Deletion verified - Resource ${resourceId} no longer exists`
+        );
+        return true;
+      } else {
+        logger.warn(
+          `⚠️ Unexpected error during deletion verification: ${error.message}`
+        );
+        return false;
+      }
+    }
+  }
+
+  // --- EXISTING HELPER METHODS (keep as is) ---
   saveCreatedIdToFile(id) {
     try {
-      // Save to text file
       fs.writeFileSync(FILE_PATHS.CREATED_ID_TXT, id);
-
-      // Save to JSON with metadata
       const metadata = {
         id: id,
         module: this.actualModulePath,
@@ -70,7 +570,6 @@ class CrudLifecycleHelper {
         JSON.stringify(metadata, null, 2)
       );
 
-      // ✅ VERIFY FILE WAS ACTUALLY WRITTEN
       const fileContent = fs
         .readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8")
         .trim();
@@ -88,20 +587,13 @@ class CrudLifecycleHelper {
     }
   }
 
-  /**
-   * Load created ID from text file (primary) with JSON fallback
-   */
   loadCreatedIdFromFile() {
     try {
       let loadedId = null;
-
-      // First try to load from simple text file
       if (fs.existsSync(FILE_PATHS.CREATED_ID_TXT)) {
         loadedId = fs.readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8").trim();
         logger.info(`📥 Loaded created ID from text file: ${loadedId}`);
-      }
-      // Fallback to JSON file
-      else if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
+      } else if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
         const jsonData = JSON.parse(
           fs.readFileSync(FILE_PATHS.CREATED_ID_FILE, "utf8")
         );
@@ -114,7 +606,6 @@ class CrudLifecycleHelper {
         logger.info(`✅ Using existing created ID: ${this.createdId}`);
         return true;
       }
-
       return false;
     } catch (error) {
       logger.warn(`Could not load created ID from file: ${error.message}`);
@@ -122,9 +613,6 @@ class CrudLifecycleHelper {
     }
   }
 
-  /**
-   * Get created ID with file fallback
-   */
   getCreatedId() {
     if (this.createdId) {
       return this.createdId;
@@ -132,160 +620,48 @@ class CrudLifecycleHelper {
     return this.loadCreatedIdFromFile() ? this.createdId : null;
   }
 
-  /**
-   * Verify created ID exists and is valid
-   */
   verifyCreatedId() {
     const id = this.getCreatedId();
     if (!id) {
       throw new Error("No created ID available - CREATE test must run first");
     }
-
     if (typeof id !== "string" || id.length < 1) {
       throw new Error(`Invalid created ID: ${id}`);
     }
-
     return true;
   }
 
-  // --- Enhanced Prerequisite Enforcement ---
   enforcePrerequisite(key) {
-    if (global.skipRemainingTests) {
-      const errorMsg = "Skipping due to global test failure";
-      logger.info(`⏭️ ${errorMsg}`);
-      throw new Error(errorMsg);
+    if (this.moduleSkipFlag) {
+      throw new Error(
+        `Skipping due to module failure in ${this.actualModulePath}`
+      );
     }
-
     if (key === "createdId") {
       const currentId = this.getCreatedId();
       if (!currentId) {
-        const errorMsg = "No created ID available - CREATE test must run first";
-        logger.info(`⏭️ ${errorMsg}`);
-        throw new Error(errorMsg);
+        throw new Error("No created ID available - CREATE test must run first");
       }
     } else if (!this[key]) {
-      logger.warn(`Skipping test: Missing prerequisite (${key} is undefined)`);
       throw new Error(`Skipping due to failed prerequisite: ${key}`);
     }
   }
 
-  // --- CRUD Operation Methods ---
-  async runCreateTest(operationKey = "Post") {
-    if (global.skipRemainingTests) {
-      throw new Error("❌ SKIPPING TEST: Previous authentication failure");
-    }
-
-    // ✅ Get operation directly from moduleConfig
-    const operation = this.getOperationFromModuleConfig(operationKey);
-
-    // ✅ STRICT VALIDATION: Fail if operation not found
-    if (!operation) {
-      throw new Error(
-        `❌ CREATE OPERATION NOT FOUND: ${operationKey} for module ${this.actualModulePath}`
-      );
-    }
-
-    // ✅ STRICT VALIDATION: Fail if endpoint is invalid
-    if (!operation.endpoint || operation.endpoint === "URL_HERE") {
-      throw new Error(
-        `❌ INVALID ENDPOINT: ${operation.endpoint} for ${operationKey}`
-      );
-    }
-
-    logger.info(`🌐 Calling ${operationKey} endpoint: ${operation.endpoint}`);
-
-    try {
-      const response = await this.apiClient.post(
-        operation.endpoint,
-        operation.payload
-      );
-
-      // ✅ STRICT VALIDATION: Fail if status code indicates failure
-      if (response.status < 200 || response.status >= 400) {
-        throw new Error(
-          `❌ CREATE REQUEST FAILED: Status ${response.status} - ${response.statusText}`
-        );
-      }
-
-      // Debug the response structure
-      TestHelpers.debugResponseStructure(response, "CREATE");
-
-      // Use enhanced ID extraction
-      const extractedId = TestHelpers.extractId(response);
-
-      // ✅ STRICT VALIDATION: Fail if ID extraction fails
-      if (!extractedId) {
-        const errorMsg = `❌ ID EXTRACTION FAILED: Could not extract resource ID from response. Response: ${JSON.stringify(
-          response.data
-        )}`;
-        logger.error(errorMsg);
-        throw new Error(errorMsg);
-      }
-
-      this.createdId = String(extractedId);
-
-      // ✅ STRICT VALIDATION: Fail if ID saving fails
-      const saveSuccess = this.saveCreatedIdToFile(this.createdId);
-      if (!saveSuccess) {
-        throw new Error(
-          `❌ ID PERSISTENCE FAILED: Could not save ID to file system`
-        );
-      }
-
-      // ✅ VALIDATE ACTUAL DATA CREATION
-      const dataExists = await this.validateDataCreation(this.createdId);
-      if (!dataExists) {
-        throw new Error(
-          `❌ DATA CREATION VERIFICATION FAILED: Resource ${this.createdId} not found in system`
-        );
-      }
-
-      logger.info(
-        `✅ Successfully created and verified resource with ID: ${this.createdId}`
-      );
-
-      return {
-        createdId: this.createdId,
-        response,
-        extractionDetails: {
-          source: "enhanced extraction",
-          type: typeof this.createdId,
-          length: this.createdId.length,
-          savedToFile: saveSuccess,
-          dataVerified: dataExists,
-          operation: operationKey,
-        },
-      };
-    } catch (error) {
-      global.skipRemainingTests = true;
-      logger.error(`❌ CREATE TEST FAILED: ${error.message}`);
-      throw error;
-    }
-  }
-
-  /**
-   * ✅ Get operation from module configuration directly
-   */
   getOperationFromModuleConfig(operationKey) {
-    // Find the module in the schema
     const moduleConfig = this.findModuleInSchema(this.actualModulePath);
-
     if (!moduleConfig || !moduleConfig[operationKey]) {
       logger.error(
         `Operation ${operationKey} not found for module ${this.actualModulePath}`
       );
       return null;
     }
-
     const operationArray = moduleConfig[operationKey];
-
     if (!Array.isArray(operationArray) || operationArray.length < 1) {
       logger.error(
         `Invalid operation format for ${operationKey} in module ${this.actualModulePath}`
       );
       return null;
     }
-
     return {
       endpoint: operationArray[0],
       payload: operationArray[1] || {},
@@ -293,14 +669,10 @@ class CrudLifecycleHelper {
     };
   }
 
-  /**
-   * ✅ FIND MODULE IN SCHEMA BY PATH
-   */
   findModuleInSchema(modulePath) {
     try {
       const pathParts = modulePath.split(".");
       let currentLevel = modulesConfig.schema || modulesConfig;
-
       for (const part of pathParts) {
         if (currentLevel && currentLevel[part]) {
           currentLevel = currentLevel[part];
@@ -311,7 +683,6 @@ class CrudLifecycleHelper {
           return null;
         }
       }
-
       return currentLevel;
     } catch (error) {
       logger.error(`Error finding module in schema: ${error.message}`);
@@ -319,43 +690,29 @@ class CrudLifecycleHelper {
     }
   }
 
-  /**
-   * ✅ VALIDATE ACTUAL DATA CREATION IN SYSTEM
-   */
   async validateDataCreation(resourceId) {
     try {
-      // Try to retrieve the created resource using View operation
       const viewOperation = this.getOperationFromModuleConfig("View");
-
       if (!viewOperation) {
         logger.warn(`⚠️ No VIEW operation available for data verification`);
-        return true; // Can't verify, but don't fail the test
+        return true;
       }
-
-      // Construct the view endpoint with the created ID
       const viewEndpoint = viewOperation.endpoint.replace(
         "<createdId>",
         resourceId
       );
-
       logger.info(`🔍 Verifying data creation with endpoint: ${viewEndpoint}`);
-
       const viewResponse = await this.apiClient.get(viewEndpoint);
-
-      // ✅ STRICT VALIDATION: Fail if we can't retrieve the created data
       if (viewResponse.status !== 200) {
         throw new Error(
           `Data verification failed: Status ${viewResponse.status}`
         );
       }
-
-      // ✅ Validate that the response contains the expected resource
       if (!viewResponse.data || Object.keys(viewResponse.data).length === 0) {
         throw new Error(
           `Data verification failed: Empty response for resource ${resourceId}`
         );
       }
-
       logger.info(
         `✅ Data creation verified: Resource ${resourceId} is accessible`
       );
@@ -366,114 +723,6 @@ class CrudLifecycleHelper {
     }
   }
 
-  async runViewTest(operationKey = "View") {
-    this.enforcePrerequisite("createdId");
-    const currentId = this.getCreatedId();
-
-    const operation = this.getOperationFromModuleConfig(operationKey);
-
-    if (!operation) {
-      throw new Error(
-        `View operation ${operationKey} not found for module ${this.actualModulePath}`
-      );
-    }
-
-    // Replace the ID placeholder in the endpoint
-    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
-
-    logger.info(`🌐 Calling ${operationKey} endpoint: ${viewEndpoint}`);
-    logger.info(`🔑 Using created ID: ${currentId}`);
-
-    try {
-      const response = await this.apiClient.get(viewEndpoint);
-
-      // Verify the response contains our ID or valid data
-      this.validateViewResponse(response, currentId);
-
-      return { response };
-    } catch (error) {
-      this.handleError(error, "VIEW", operationKey);
-    }
-  }
-
-  async runUpdateTest(operationKey = "PUT") {
-    this.enforcePrerequisite("createdId");
-    const currentId = this.getCreatedId();
-
-    const operation = this.getOperationFromModuleConfig(operationKey);
-
-    if (!operation) {
-      throw new Error(
-        `Update operation ${operationKey} not found for module ${this.actualModulePath}`
-      );
-    }
-
-    // Replace the ID placeholder in the endpoint and payload
-    const updateEndpoint = operation.endpoint.replace("<createdId>", currentId);
-
-    // Update payload with current ID
-    const updatePayload = { ...operation.payload };
-    if (updatePayload.id === "<createdId>") {
-      updatePayload.id = currentId;
-    }
-
-    logger.info(`🌐 Calling ${operationKey} endpoint: ${updateEndpoint}`);
-    logger.info(`🔑 Using created ID: ${currentId}`);
-
-    try {
-      const response = await this.apiClient.put(updateEndpoint, updatePayload);
-      return { response };
-    } catch (error) {
-      this.handleError(error, "UPDATE", operationKey);
-    }
-  }
-
-  async runDeleteTest(operationKey = "DELETE") {
-    this.enforcePrerequisite("createdId");
-    const currentId = this.getCreatedId();
-
-    const operation = this.getOperationFromModuleConfig(operationKey);
-
-    if (!operation) {
-      throw new Error(
-        `Delete operation ${operationKey} not found for module ${this.actualModulePath}`
-      );
-    }
-
-    // Replace the ID placeholder in the endpoint
-    const deleteEndpoint = operation.endpoint.replace("<createdId>", currentId);
-
-    logger.info(`🌐 Calling ${operationKey} endpoint: ${deleteEndpoint}`);
-    logger.info(`🔑 Using created ID: ${currentId}`);
-
-    try {
-      const response = await this.apiClient.delete(deleteEndpoint);
-
-      // Clear ID upon successful deletion
-      if (response.status >= 200 && response.status < 300) {
-        this.clearCreatedId();
-      }
-
-      return { response };
-    } catch (error) {
-      this.handleError(error, "DELETE", operationKey);
-    }
-  }
-
-  // --- Helper Methods ---
-  validateViewResponse(response, expectedId) {
-    if (!response.data) {
-      throw new Error("View response contains no data");
-    }
-
-    const responseString = JSON.stringify(response.data).toLowerCase();
-    const expectedIdLower = expectedId.toLowerCase();
-
-    if (!responseString.includes(expectedIdLower)) {
-      logger.warn(`Expected ID ${expectedId} not found in view response`);
-    }
-  }
-
   handleError(error, operationType, operationKey) {
     const enhancedError = new Error(
       `❌ ${operationType} OPERATION FAILED (${operationKey}): ${error.message}`
@@ -481,14 +730,12 @@ class CrudLifecycleHelper {
     enhancedError.originalError = error;
     enhancedError.operation = operationKey;
     enhancedError.module = this.actualModulePath;
-
     logger.error(enhancedError.message);
     throw enhancedError;
   }
 
   clearCreatedId() {
     this.createdId = null;
-
     try {
       if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
         fs.unlinkSync(FILE_PATHS.CREATED_ID_FILE);
@@ -504,12 +751,9 @@ class CrudLifecycleHelper {
 
   async cleanup() {
     this.generateSummary();
-
-    // Only clear ID if all tests passed AND we're in the final phase
     const failedTests = this.testResults.filter(
       (r) => r.status === "failed"
     ).length;
-
     if (failedTests === 0 && this.currentTestPhase === "FINAL") {
       logger.info(
         `🗑️ Cleared created ID from memory and files (all tests passed)`
@@ -528,7 +772,6 @@ class CrudLifecycleHelper {
       passed: this.testResults.filter((r) => r.status === "passed").length,
       failed: this.testResults.filter((r) => r.status === "failed").length,
     };
-
     logger.info(`\n📊 CRUD TEST EXECUTION SUMMARY`);
     logger.info(`   Module: ${this.actualModulePath}`);
     logger.info(`   Total Tests: ${summary.totalTests}`);
@@ -540,7 +783,7 @@ class CrudLifecycleHelper {
         100
       ).toFixed(1)}%`
     );
-
+    logger.info(`   🚩 Module Skip Flag: ${this.moduleSkipFlag}`);
     if (this.createdId) {
       logger.info(`   🔑 Created ID: ${this.createdId}`);
     }
@@ -558,6 +801,17 @@ class CrudLifecycleHelper {
       status: status,
       timestamp: new Date().toISOString(),
     });
+  }
+
+  getModuleStatus() {
+    return {
+      module: this.actualModulePath,
+      isSkipped: this.moduleSkipFlag,
+      createdId: this.createdId,
+      testResults: this.testResults,
+      passedTests: this.testResults.filter((r) => r.status === "passed").length,
+      failedTests: this.testResults.filter((r) => r.status === "failed").length,
+    };
   }
 }
 

@@ -1,4 +1,5 @@
 // utils/logger.js - Portable Logger Utility
+
 class Logger {
   /**
    * Centralized function to format the log message with timestamp and level.

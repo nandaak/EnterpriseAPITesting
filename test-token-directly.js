@@ -24,7 +24,7 @@ async function testTokenDirectly() {
   console.log("1. Testing GET request:");
   try {
     const getResponse = await axios.get(
-      "https://api.microtecstage.com/erp-apis/JournalEntry",
+      "https://microtecsaudi.com:2032/erp-apis/JournalEntry",
       {
         headers: { Authorization: authHeader },
       }
@@ -62,7 +62,7 @@ async function testTokenDirectly() {
 
   try {
     const postResponse = await axios.post(
-      "https://api.microtecstage.com/erp-apis/JournalEntry",
+      "https://microtecsaudi.com:2032/erp-apis/JournalEntry",
       postData,
       {
         headers: {

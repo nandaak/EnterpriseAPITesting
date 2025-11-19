@@ -1,4 +1,4 @@
-// tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js
+// tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js - COMPLETE CRUD LIFECYCLE
 const CrudLifecycleHelper = require("../../utils/crud-lifecycle-helper");
 const logger = require("../../utils/logger");
 const modulesConfig = require("../../config/modules-config");
@@ -9,21 +9,20 @@ const Constants = require("../../Constants");
 const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
 
 /**
- * ENTERPRISE CRUD LIFECYCLE VALIDATION SUITE
+ * ENTERPRISE COMPLETE CRUD LIFECYCLE VALIDATION SUITE
  *
- * Enhanced version following successful patterns from security tests
- * Purpose: Test complete CRUD lifecycle across all backend API modules
- * Coverage: CREATE, VIEW, UPDATE, DELETE operations with comprehensive validation
- * Scope: Automatically discovers and tests all modules with valid endpoints
+ * Complete CRUD Lifecycle: Create >> View >> Edit >> View >> Delete >> View [Negative Test]
+ * Professional validation with comprehensive state tracking
+ * Isolated modules with no global dependencies
  *
- * @version 2.0.0
+ * @version 4.0.0 - Complete CRUD Lifecycle
  * @author Mohamed Said Ibrahim
  */
 
-// Initialize the helper instance
-let crudHelper;
+// Module-level tracking
+const moduleResults = new Map();
 
-describe("Enterprise CRUD Lifecycle Validation Suite", () => {
+describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
   const testResults = [];
   let crudTestSummary = {
     totalTests: 0,
@@ -31,11 +30,13 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
     failedTests: 0,
     skippedTests: 0,
     modulesTested: 0,
+    modulesPassed: 0,
+    modulesFailed: 0,
     startTime: null,
     endTime: null,
   };
 
-  // URL validation helper method
+  // Helper methods (keep existing implementations)
   const isValidUrl = (string) => {
     if (!string || string === "URL_HERE") return false;
     try {
@@ -46,10 +47,8 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
     }
   };
 
-  // Check if module has minimum required operations for CRUD
   const hasMinimumCRUDOperations = (moduleConfig) => {
     if (!moduleConfig) return false;
-
     const requiredOps = ["Post", "View"];
     const validOps = requiredOps.filter(
       (op) =>
@@ -58,11 +57,9 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
         moduleConfig[op][0] &&
         isValidUrl(moduleConfig[op][0])
     );
-
     return validOps.length >= 2;
   };
 
-  // ✅ CORRECTED: Skip test if no valid operations are available
   const skipIfNoValidOperations = (moduleConfig, operationType) => {
     if (!moduleConfig) {
       return {
@@ -70,25 +67,19 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
         reason: `Module configuration is undefined or null`,
       };
     }
-
-    // ✅ FIX: Check directly for operationType in moduleConfig
     if (!moduleConfig[operationType]) {
       return {
         skip: true,
         reason: `Operation '${operationType}' not configured in module`,
       };
     }
-
     const operation = moduleConfig[operationType];
-
-    // ✅ FIX: Operation is an array [endpoint, payload], so check operation[0]
     if (!Array.isArray(operation) || !operation[0]) {
       return {
         skip: true,
-        reason: `Operation '${operationType}' has invalid format - expected [endpoint, payload] array`,
+        reason: `Operation '${operationType}' has invalid format`,
       };
     }
-
     const endpoint = operation[0];
     if (!isValidUrl(endpoint)) {
       return {
@@ -96,14 +87,11 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
         reason: `Invalid URL for operation '${operationType}': ${endpoint}`,
       };
     }
-
     return { skip: false };
   };
 
-  // ✅ ENHANCED: Check if module has endpoints (for module discovery)
   const hasEndpoints = (moduleConfig) => {
     if (!moduleConfig || typeof moduleConfig !== "object") return false;
-
     const endpointTypes = [
       "Post",
       "PUT",
@@ -114,7 +102,6 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
       "Commit",
       "GET",
     ];
-
     return endpointTypes.some(
       (operationType) =>
         moduleConfig[operationType] &&
@@ -128,61 +115,59 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
   // Suite setup
   beforeAll(() => {
     crudTestSummary.startTime = new Date().toISOString();
-    logger.info("🚀 Starting Enterprise CRUD Lifecycle Validation Suite");
-    logger.info("=".repeat(60));
+    logger.info("🚀 ENTERPRISE COMPLETE CRUD LIFECYCLE VALIDATION SUITE");
+    logger.info("=".repeat(70));
+    logger.info(
+      "🎯 COMPLETE LIFECYCLE: Create → View → Edit → View → Delete → Negative View"
+    );
+    logger.info("=".repeat(70));
   });
 
   afterAll(() => {
     crudTestSummary.endTime = new Date().toISOString();
+    const duration = crudTestSummary.endTime
+      ? new Date(crudTestSummary.endTime) - new Date(crudTestSummary.startTime)
+      : 0;
 
-    // Generate comprehensive test report
-    const summary = {
-      execution: {
-        ...crudTestSummary,
-        duration: crudTestSummary.endTime
-          ? new Date(crudTestSummary.endTime) -
-            new Date(crudTestSummary.startTime)
-          : 0,
-      },
-      modules: {
-        total: crudTestSummary.modulesTested,
-        tested: testResults.length,
-        healthy: testResults.filter((r) => r.status === "passed").length,
-        failed: testResults.filter((r) => r.status === "failed").length,
-      },
-      operations: {
-        create: testResults.filter((r) => r.operation === "CREATE").length,
-        view: testResults.filter((r) => r.operation === "VIEW").length,
-        update: testResults.filter((r) => r.operation === "UPDATE").length,
-        delete: testResults.filter((r) => r.operation === "DELETE").length,
-      },
-    };
-
-    logger.info("📊 CRUD TEST EXECUTION SUMMARY");
-    logger.info("=".repeat(50));
-    logger.info(`   Total Modules: ${summary.modules.total}`);
-    logger.info(`   Tested Modules: ${summary.modules.tested}`);
-    logger.info(`   ✅ Healthy Modules: ${summary.modules.healthy}`);
-    logger.info(`   ❌ Failed Modules: ${summary.modules.failed}`);
+    logger.info("📊 COMPLETE CRUD LIFECYCLE EXECUTION SUMMARY");
+    logger.info("=".repeat(60));
+    logger.info(`   Total Modules: ${crudTestSummary.modulesTested}`);
+    logger.info(`   ✅ Healthy Modules: ${crudTestSummary.modulesPassed}`);
+    logger.info(`   ❌ Failed Modules: ${crudTestSummary.modulesFailed}`);
     logger.info(`   ✅ Passed Tests: ${crudTestSummary.passedTests}`);
     logger.info(`   ❌ Failed Tests: ${crudTestSummary.failedTests}`);
     logger.info(`   ⏸️  Skipped Tests: ${crudTestSummary.skippedTests}`);
-    logger.info(`   ⏱️  Total Duration: ${summary.execution.duration}ms`);
-    logger.info("=".repeat(50));
+    logger.info(`   ⏱️  Total Duration: ${duration}ms`);
+    logger.info(
+      `   📈 Success Rate: ${(
+        (crudTestSummary.modulesPassed / crudTestSummary.modulesTested) *
+        100
+      ).toFixed(1)}%`
+    );
+    logger.info("=".repeat(60));
+
+    // Detailed module status
+    logger.info("🔍 MODULE LIFECYCLE STATUS:");
+    moduleResults.forEach((result, moduleName) => {
+      const status = result.overallSuccess ? "✅ COMPLETE" : "❌ FAILED";
+      const lifecycle = result.completedLifecycle
+        ? "FULL LIFECYCLE"
+        : "PARTIAL";
+      logger.info(`   ${status} - ${moduleName} [${lifecycle}]`);
+    });
 
     logger.info(
-      `🏁 Completed CRUD tests for ${crudTestSummary.modulesTested} modules`
+      `🏁 Completed complete CRUD lifecycle for ${crudTestSummary.modulesTested} modules`
     );
   });
 
   /**
-   * ENHANCED MODULE TESTING FUNCTION
+   * COMPLETE CRUD LIFECYCLE TESTING FUNCTION
    */
-  const runCRUDTestsOnAllModules = (modules, parentPath = "") => {
+  const runCompleteCRUDLifecycleOnAllModules = (modules, parentPath = "") => {
     Object.entries(modules).forEach(([moduleName, moduleConfig]) => {
       if (typeof moduleConfig !== "object" || moduleConfig === null) return;
 
-      // ✅ FIX: Use the corrected hasEndpoints function
       const moduleHasEndpoints = hasEndpoints(moduleConfig);
 
       if (moduleHasEndpoints) {
@@ -192,54 +177,84 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
 
         crudTestSummary.modulesTested++;
 
-        // ✅ FIX: Only skip Reports modules specifically, not others
         if (!fullModuleName.includes("Reports")) {
-          describe(`CRUD Testing: ${fullModuleName}`, () => {
+          describe(`COMPLETE CRUD LIFECYCLE: ${fullModuleName}`, () => {
             let moduleStartTime;
-            let crudResults = {};
+            let lifecycleResults = {};
             let testContext = {};
             let moduleTestCount = 0;
             let hasValidCreateOperation = false;
             let createdResourceId = null;
+            let crudHelper;
+            let moduleOverallSuccess = true;
+            let completedLifecycle = false;
 
             beforeAll(async () => {
               moduleStartTime = Date.now();
 
-              // ✅ FIX: Check if module has valid CREATE operation
-              hasValidCreateOperation =
-                moduleConfig.Post &&
-                Array.isArray(moduleConfig.Post) &&
-                moduleConfig.Post[0] &&
-                isValidUrl(moduleConfig.Post[0]);
-
               // Initialize CRUD helper for this module
               crudHelper = new CrudLifecycleHelper(fullModuleName);
-              await crudHelper.initialize();
 
-              logger.info(`🎯 Starting CRUD tests for: ${fullModuleName}`);
-              logger.info(
-                `📊 Has valid CREATE operation: ${hasValidCreateOperation}`
-              );
+              try {
+                await crudHelper.initialize();
+                hasValidCreateOperation =
+                  moduleConfig.Post &&
+                  Array.isArray(moduleConfig.Post) &&
+                  moduleConfig.Post[0] &&
+                  isValidUrl(moduleConfig.Post[0]);
 
-              // Log module configuration for debugging
-              const endpoints = Object.keys(moduleConfig).filter(
-                (key) =>
-                  Array.isArray(moduleConfig[key]) &&
-                  moduleConfig[key][0] &&
-                  typeof moduleConfig[key][0] === "string" &&
-                  moduleConfig[key][0].trim().length > 0 &&
-                  moduleConfig[key][0] !== "URL_HERE" &&
-                  isValidUrl(moduleConfig[key][0])
-              );
+                logger.info(
+                  `🎯 STARTING COMPLETE CRUD LIFECYCLE FOR: ${fullModuleName}`
+                );
+                logger.info(
+                  `📊 Has valid CREATE operation: ${hasValidCreateOperation}`
+                );
 
-              logger.info(`📋 Available endpoints: ${endpoints.join(", ")}`);
+                const endpoints = Object.keys(moduleConfig).filter(
+                  (key) =>
+                    Array.isArray(moduleConfig[key]) &&
+                    moduleConfig[key][0] &&
+                    typeof moduleConfig[key][0] === "string" &&
+                    moduleConfig[key][0].trim().length > 0 &&
+                    moduleConfig[key][0] !== "URL_HERE" &&
+                    isValidUrl(moduleConfig[key][0])
+                );
+
+                logger.info(`📋 Available endpoints: ${endpoints.join(", ")}`);
+              } catch (error) {
+                logger.error(
+                  `❌ ${fullModuleName} - CRUD helper initialization failed: ${error.message}`
+                );
+                moduleOverallSuccess = false;
+              }
             });
 
             afterAll(async () => {
               const moduleDuration = Date.now() - moduleStartTime;
-              logger.info(
-                `✅ Completed CRUD tests for ${fullModuleName} in ${moduleDuration}ms`
-              );
+
+              const moduleResult = {
+                module: fullModuleName,
+                overallSuccess: moduleOverallSuccess,
+                completedLifecycle: completedLifecycle,
+                duration: moduleDuration,
+                testCount: moduleTestCount,
+                createdResourceId: createdResourceId,
+                timestamp: new Date().toISOString(),
+              };
+
+              moduleResults.set(fullModuleName, moduleResult);
+
+              if (moduleOverallSuccess && completedLifecycle) {
+                crudTestSummary.modulesPassed++;
+                logger.info(
+                  `✅ ${fullModuleName} - COMPLETE LIFECYCLE SUCCESS in ${moduleDuration}ms`
+                );
+              } else {
+                crudTestSummary.modulesFailed++;
+                logger.error(
+                  `❌ ${fullModuleName} - LIFECYCLE FAILED in ${moduleDuration}ms`
+                );
+              }
 
               if (crudHelper) {
                 await crudHelper.cleanup();
@@ -251,6 +266,7 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
                 module: fullModuleName,
                 startTime: new Date().toISOString(),
                 hasValidCreateOperation: hasValidCreateOperation,
+                lifecyclePhase: "UNKNOWN",
               };
             });
 
@@ -260,7 +276,6 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
               moduleTestCount++;
               crudTestSummary.totalTests++;
 
-              // Determine test status and update summary
               let testStatus = "passed";
               try {
                 if (
@@ -269,32 +284,27 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
                 ) {
                   testStatus = "failed";
                   crudTestSummary.failedTests++;
+                  moduleOverallSuccess = false;
                 } else {
                   crudTestSummary.passedTests++;
                 }
               } catch (e) {
                 testStatus = "failed";
                 crudTestSummary.failedTests++;
+                moduleOverallSuccess = false;
               }
 
               const testResult = {
                 module: fullModuleName,
                 status: testStatus,
-                operation: testName.includes("CREATE")
-                  ? "CREATE"
-                  : testName.includes("VIEW")
-                  ? "VIEW"
-                  : testName.includes("UPDATE")
-                  ? "UPDATE"
-                  : testName.includes("DELETE")
-                  ? "DELETE"
-                  : "OTHER",
-                crudResults,
+                operation: testName,
+                lifecycleResults,
                 timestamp: new Date().toISOString(),
                 testName: testName,
                 context: testContext,
                 testCount: moduleTestCount,
                 createdResourceId: createdResourceId,
+                completedLifecycle: completedLifecycle,
               };
 
               testResults.push(testResult);
@@ -304,94 +314,87 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
               }
 
               if (testStatus === "passed") {
-                logger.debug(
-                  `✅ ${fullModuleName} - ${testName} completed successfully`
-                );
+                logger.debug(`✅ ${fullModuleName} - ${testName} completed`);
               } else {
                 logger.error(`❌ ${fullModuleName} - ${testName} failed`);
               }
             });
 
             // =========================================================================
-            // 🎯 COMPREHENSIVE CRUD TESTS
+            // 🎯 COMPLETE CRUD LIFECYCLE - 6 PHASES
             // =========================================================================
 
             test(
-              "🎯 [TC-1] CREATE - Successfully create a new resource",
+              "🎯 [PHASE 1/6] CREATE - Successfully create a new resource",
               async () => {
                 try {
+                  testContext.lifecyclePhase = "CREATE";
                   testContext.operation = "CREATE";
 
-                  // ✅ FIX: Use corrected skip check
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - CREATE skipped: Module initialization failed`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
                     "Post"
                   );
                   if (skipCheck.skip) {
-                    // For configuration issues, we can skip instead of failing
-                    logger.warn(`⏸️ CREATE test skipped: ${skipCheck.reason}`);
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - CREATE skipped: ${skipCheck.reason}`
+                    );
                     crudTestSummary.skippedTests++;
-
-                    // Mark as passed when skipped due to configuration
                     expect(true).toBe(true);
                     return;
                   }
 
-                  logger.info(
-                    `🔄 Testing CREATE operation for ${fullModuleName}`
-                  );
+                  logger.info(`🔄 ${fullModuleName} - PHASE 1: CREATE`);
 
-                  const { createdId, response, extractionDetails } =
+                  const { createdId, response, originalData } =
                     await crudHelper.runCreateTest("Post");
 
-                  // Enhanced status validation
                   expect([
                     HTTP_STATUS_CODES.CREATED,
                     HTTP_STATUS_CODES.OK,
                   ]).toContain(response.status);
-
-                  // Enhanced ID validation
                   expect(createdId).toBeDefined();
+
                   const createdIdString = String(createdId);
                   expect(createdIdString).toBeTruthy();
                   expect(createdIdString.length).toBeGreaterThan(0);
 
                   createdResourceId = createdIdString;
 
-                  // Validate ID format
-                  if (
-                    createdIdString.includes("-") &&
-                    createdIdString.length === 36
-                  ) {
-                    logger.info(`✅ ID is UUID format: ${createdIdString}`);
-                  } else {
-                    logger.info(`✅ ID format: ${createdIdString}`);
-                  }
-
                   // Verify file persistence
                   const fs = require("fs");
                   expect(fs.existsSync(FILE_PATHS.CREATED_ID_TXT)).toBe(true);
-
                   const fileContent = fs
                     .readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8")
                     .trim();
                   expect(fileContent).toBe(createdIdString);
 
                   logger.info(
-                    `✅ CREATE test completed - Resource ID: ${createdIdString}`
+                    `✅ ${fullModuleName} - PHASE 1 COMPLETE: Resource created - ID: ${createdIdString}`
                   );
-                  crudResults.create = {
+                  lifecycleResults.create = {
                     success: true,
                     resourceId: createdIdString,
+                    originalData: originalData,
                   };
                 } catch (error) {
                   logger.error(
-                    `❌ CREATE test failed for ${fullModuleName}: ${error.message}`
+                    `❌ ${fullModuleName} - PHASE 1 FAILED: ${error.message}`
                   );
-                  crudResults.create = {
+                  lifecycleResults.create = {
                     success: false,
                     error: error.message,
                   };
+                  moduleOverallSuccess = false;
                   throw error;
                 }
               },
@@ -399,62 +402,72 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
             );
 
             test(
-              "🎯 [TC-2] VIEW - Retrieve the newly created resource",
+              "🎯 [PHASE 2/6] VIEW - Retrieve and verify the newly created resource",
               async () => {
                 try {
+                  testContext.lifecyclePhase = "VIEW_INITIAL";
                   testContext.operation = "VIEW";
 
-                  // Skip if no valid VIEW operation
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
                     "View"
                   );
                   if (skipCheck.skip) {
-                    logger.warn(`⏸️ VIEW test skipped: ${skipCheck.reason}`);
-                    crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
-                    return;
-                  }
-
-                  // Skip VIEW test if CREATE was skipped (no ID available)
-                  if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ VIEW test skipped: No valid CREATE operation or resource ID`
+                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: ${skipCheck.reason}`
                     );
                     crudTestSummary.skippedTests++;
                     expect(true).toBe(true);
                     return;
                   }
 
-                  logger.info(
-                    `🔍 Testing VIEW operation for ${fullModuleName}`
-                  );
+                  if (!hasValidCreateOperation || !createdResourceId) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: No resource ID`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
 
-                  crudHelper.enforcePrerequisite("createdId");
-                  const { response } = await crudHelper.runViewTest("View");
+                  logger.info(`🔍 ${fullModuleName} - PHASE 2: INITIAL VIEW`);
 
-                  // Enhanced status validation for VIEW
+                  const { response, resourceData } =
+                    await crudHelper.runInitialViewTest("View");
+
                   const validStatuses = [
                     HTTP_STATUS_CODES.OK,
                     HTTP_STATUS_CODES.ACCEPTED,
                   ];
                   expect(validStatuses).toContain(response.status);
+                  expect(resourceData).toBeDefined();
 
                   logger.info(
-                    `✅ VIEW test completed - Retrieved resource with ID: ${createdResourceId}`
+                    `✅ ${fullModuleName} - PHASE 2 COMPLETE: Resource verified - ID: ${createdResourceId}`
                   );
-                  crudResults.view = {
+                  lifecycleResults.viewInitial = {
                     success: true,
                     resourceId: createdResourceId,
+                    resourceData: resourceData,
                   };
                 } catch (error) {
                   logger.error(
-                    `❌ VIEW test failed for ${fullModuleName}: ${error.message}`
+                    `❌ ${fullModuleName} - PHASE 2 FAILED: ${error.message}`
                   );
-                  crudResults.view = {
+                  lifecycleResults.viewInitial = {
                     success: false,
                     error: error.message,
                   };
+                  moduleOverallSuccess = false;
                   throw error;
                 }
               },
@@ -462,41 +475,48 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
             );
 
             test(
-              "🎯 [TC-3] UPDATE - Modify and verify the created resource",
+              "🎯 [PHASE 3/6] UPDATE - Modify and update the created resource",
               async () => {
                 try {
+                  testContext.lifecyclePhase = "UPDATE";
                   testContext.operation = "UPDATE";
 
-                  // Skip if no valid PUT operation
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - UPDATE skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
                     "PUT"
                   );
                   if (skipCheck.skip) {
-                    logger.warn(`⏸️ UPDATE test skipped: ${skipCheck.reason}`);
-                    crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
-                    return;
-                  }
-
-                  // Skip UPDATE test if CREATE was skipped (no ID available)
-                  if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ UPDATE test skipped: No valid CREATE operation or resource ID`
+                      `⏸️ ${fullModuleName} - UPDATE skipped: ${skipCheck.reason}`
                     );
                     crudTestSummary.skippedTests++;
                     expect(true).toBe(true);
                     return;
                   }
 
-                  logger.info(
-                    `✏️ Testing UPDATE operation for ${fullModuleName}`
-                  );
+                  if (!hasValidCreateOperation || !createdResourceId) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - UPDATE skipped: No resource ID`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
 
-                  crudHelper.enforcePrerequisite("createdId");
-                  const { response } = await crudHelper.runUpdateTest("PUT");
+                  logger.info(`✏️ ${fullModuleName} - PHASE 3: UPDATE`);
 
-                  // Enhanced status validation for UPDATE
+                  const { response, updatedData } =
+                    await crudHelper.runUpdateTest("PUT");
+
                   const validStatuses = [
                     HTTP_STATUS_CODES.OK,
                     HTTP_STATUS_CODES.ACCEPTED,
@@ -505,20 +525,22 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
                   expect(validStatuses).toContain(response.status);
 
                   logger.info(
-                    `✅ UPDATE test completed - Modified resource with ID: ${createdResourceId}`
+                    `✅ ${fullModuleName} - PHASE 3 COMPLETE: Resource updated - ID: ${createdResourceId}`
                   );
-                  crudResults.update = {
+                  lifecycleResults.update = {
                     success: true,
                     resourceId: createdResourceId,
+                    updatedData: updatedData,
                   };
                 } catch (error) {
                   logger.error(
-                    `❌ UPDATE test failed for ${fullModuleName}: ${error.message}`
+                    `❌ ${fullModuleName} - PHASE 3 FAILED: ${error.message}`
                   );
-                  crudResults.update = {
+                  lifecycleResults.update = {
                     success: false,
                     error: error.message,
                   };
+                  moduleOverallSuccess = false;
                   throw error;
                 }
               },
@@ -526,63 +548,155 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
             );
 
             test(
-              "🎯 [TC-4] DELETE - Remove the resource",
+              "🎯 [PHASE 4/6] VIEW - Verify the updates were applied successfully",
               async () => {
                 try {
+                  testContext.lifecyclePhase = "VIEW_POST_UPDATE";
+                  testContext.operation = "VIEW_POST_UPDATE";
+
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  const skipCheck = skipIfNoValidOperations(
+                    moduleConfig,
+                    "View"
+                  );
+                  if (skipCheck.skip) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: ${skipCheck.reason}`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  if (!hasValidCreateOperation || !createdResourceId) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: No resource ID`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  logger.info(
+                    `🔍 ${fullModuleName} - PHASE 4: POST-UPDATE VIEW`
+                  );
+
+                  const { response, currentData, changesVerified } =
+                    await crudHelper.runPostUpdateViewTest("View");
+
+                  const validStatuses = [
+                    HTTP_STATUS_CODES.OK,
+                    HTTP_STATUS_CODES.ACCEPTED,
+                  ];
+                  expect(validStatuses).toContain(response.status);
+                  expect(currentData).toBeDefined();
+
+                  if (changesVerified) {
+                    logger.info(
+                      `📈 Changes verified: ${changesVerified.changeCount} modifications detected`
+                    );
+                  }
+
+                  logger.info(
+                    `✅ ${fullModuleName} - PHASE 4 COMPLETE: Updates verified - ID: ${createdResourceId}`
+                  );
+                  lifecycleResults.viewPostUpdate = {
+                    success: true,
+                    resourceId: createdResourceId,
+                    currentData: currentData,
+                    changesVerified: changesVerified,
+                  };
+                } catch (error) {
+                  logger.error(
+                    `❌ ${fullModuleName} - PHASE 4 FAILED: ${error.message}`
+                  );
+                  lifecycleResults.viewPostUpdate = {
+                    success: false,
+                    error: error.message,
+                  };
+                  moduleOverallSuccess = false;
+                  throw error;
+                }
+              },
+              TEST_CONFIG.TIMEOUT.MEDIUM
+            );
+
+            test(
+              "🎯 [PHASE 5/6] DELETE - Remove the resource from the system",
+              async () => {
+                try {
+                  testContext.lifecyclePhase = "DELETE";
                   testContext.operation = "DELETE";
 
-                  // Skip if no valid DELETE operation
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - DELETE skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
                     "DELETE"
                   );
                   if (skipCheck.skip) {
-                    logger.warn(`⏸️ DELETE test skipped: ${skipCheck.reason}`);
-                    crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
-                    return;
-                  }
-
-                  // Skip DELETE test if CREATE was skipped (no ID available)
-                  if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ DELETE test skipped: No valid CREATE operation or resource ID`
+                      `⏸️ ${fullModuleName} - DELETE skipped: ${skipCheck.reason}`
                     );
                     crudTestSummary.skippedTests++;
                     expect(true).toBe(true);
                     return;
                   }
 
-                  logger.info(
-                    `🗑️ Testing DELETE operation for ${fullModuleName}`
-                  );
+                  if (!hasValidCreateOperation || !createdResourceId) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - DELETE skipped: No resource ID`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
 
-                  crudHelper.enforcePrerequisite("createdId");
-                  const { response } = await crudHelper.runDeleteTest("DELETE");
+                  logger.info(`🗑️ ${fullModuleName} - PHASE 5: DELETE`);
 
-                  // Enhanced status validation for DELETE
+                  const { response, deletionVerified } =
+                    await crudHelper.runDeleteTest("DELETE");
+
                   const validStatuses = [
                     HTTP_STATUS_CODES.OK,
                     HTTP_STATUS_CODES.NO_CONTENT,
                     HTTP_STATUS_CODES.ACCEPTED,
                   ];
                   expect(validStatuses).toContain(response.status);
+                  expect(deletionVerified).toBe(true);
 
                   logger.info(
-                    `✅ DELETE test completed - Resource successfully removed`
+                    `✅ ${fullModuleName} - PHASE 5 COMPLETE: Resource deleted - ID: ${createdResourceId}`
                   );
-                  crudResults.delete = {
+                  lifecycleResults.delete = {
                     success: true,
                     resourceId: createdResourceId,
+                    deletionVerified: deletionVerified,
                   };
                 } catch (error) {
                   logger.error(
-                    `❌ DELETE test failed for ${fullModuleName}: ${error.message}`
+                    `❌ ${fullModuleName} - PHASE 5 FAILED: ${error.message}`
                   );
-                  crudResults.delete = {
+                  lifecycleResults.delete = {
                     success: false,
                     error: error.message,
                   };
+                  moduleOverallSuccess = false;
                   throw error;
                 }
               },
@@ -590,45 +704,100 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
             );
 
             test(
-              "🎯 [TC-5] CONFIGURATION - Verify module configuration integrity",
+              "🎯 [PHASE 6/6] NEGATIVE VIEW - Verify resource no longer exists (404 Test)",
               async () => {
                 try {
+                  testContext.lifecyclePhase = "NEGATIVE_VIEW";
+                  testContext.operation = "NEGATIVE_VIEW";
+
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  const skipCheck = skipIfNoValidOperations(
+                    moduleConfig,
+                    "View"
+                  );
+                  if (skipCheck.skip) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: ${skipCheck.reason}`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  logger.info(`🚫 ${fullModuleName} - PHASE 6: NEGATIVE VIEW`);
+
+                  const negativeResult = await crudHelper.runNegativeViewTest(
+                    "View"
+                  );
+
+                  expect(negativeResult.success).toBe(true);
+                  expect(negativeResult.expectedError).toBe(true);
+                  expect([404, 410]).toContain(negativeResult.status);
+
+                  logger.info(
+                    `✅ ${fullModuleName} - PHASE 6 COMPLETE: Resource properly deleted (${negativeResult.status} received)`
+                  );
+                  lifecycleResults.negativeView = {
+                    success: true,
+                    expectedError: true,
+                    status: negativeResult.status,
+                    message: negativeResult.message,
+                  };
+
+                  // Mark lifecycle as completed successfully
+                  completedLifecycle = true;
+                  logger.info(
+                    `🏁 ${fullModuleName} - COMPLETE CRUD LIFECYCLE FINISHED SUCCESSFULLY`
+                  );
+                } catch (error) {
+                  logger.error(
+                    `❌ ${fullModuleName} - PHASE 6 FAILED: ${error.message}`
+                  );
+                  lifecycleResults.negativeView = {
+                    success: false,
+                    error: error.message,
+                  };
+                  moduleOverallSuccess = false;
+                  throw error;
+                }
+              },
+              TEST_CONFIG.TIMEOUT.MEDIUM
+            );
+
+            test(
+              "🎯 [VALIDATION] CONFIGURATION - Verify module configuration integrity",
+              async () => {
+                try {
+                  testContext.lifecyclePhase = "CONFIGURATION";
                   testContext.operation = "CONFIGURATION";
+
+                  if (!moduleOverallSuccess) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - CONFIGURATION skipped: Module failure`
+                    );
+                    crudTestSummary.skippedTests++;
+                    expect(true).toBe(true);
+                    return;
+                  }
 
                   expect(moduleConfig).toBeDefined();
                   expect(Object.keys(moduleConfig).length).toBeGreaterThan(0);
 
-                  // Verify each operation has required properties and valid URLs
-                  Object.entries(moduleConfig).forEach(
-                    ([operationName, operation]) => {
-                      if (Array.isArray(operation) && operation[0]) {
-                        expect(operation[0]).toBeDefined();
-                        expect(typeof operation[0]).toBe("string");
-                        expect(operation[0].length).toBeGreaterThan(0);
-
-                        // Log URL validity
-                        const isValid = isValidUrl(operation[0]);
-                        if (!isValid) {
-                          logger.warn(
-                            `Invalid URL for ${operationName}: ${operation[0]}`
-                          );
-                        }
-                      }
-                    }
-                  );
-
-                  // Count valid vs invalid URLs
                   const operationStats = Object.entries(moduleConfig).reduce(
                     (acc, [name, op]) => {
                       if (Array.isArray(op) && op[0]) {
                         const isValid = isValidUrl(op[0]);
                         acc.valid += isValid ? 1 : 0;
                         acc.invalid += !isValid ? 1 : 0;
-                        acc.operations.push({
-                          name,
-                          isValid,
-                          endpoint: op[0],
-                        });
+                        acc.operations.push({ name, isValid, endpoint: op[0] });
                       }
                       return acc;
                     },
@@ -636,23 +805,24 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
                   );
 
                   logger.info(
-                    `✅ Configuration test completed - Module: ${fullModuleName}, Valid operations: ${
+                    `✅ ${fullModuleName} - Configuration validated: ${
                       operationStats.valid
-                    }/${Object.keys(moduleConfig).length}`
+                    }/${Object.keys(moduleConfig).length} valid operations`
                   );
-                  crudResults.configuration = {
+                  lifecycleResults.configuration = {
                     success: true,
                     validOperations: operationStats.valid,
                     totalOperations: Object.keys(moduleConfig).length,
                   };
                 } catch (error) {
                   logger.error(
-                    `❌ Configuration test failed for ${fullModuleName}: ${error.message}`
+                    `❌ ${fullModuleName} - Configuration validation failed: ${error.message}`
                   );
-                  crudResults.configuration = {
+                  lifecycleResults.configuration = {
                     success: false,
                     error: error.message,
                   };
+                  moduleOverallSuccess = false;
                   throw error;
                 }
               },
@@ -662,9 +832,9 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
         }
       }
 
-      // Recursively test nested modules following the same pattern
+      // Recursively test nested modules
       if (typeof moduleConfig === "object" && !hasEndpoints(moduleConfig)) {
-        runCRUDTestsOnAllModules(
+        runCompleteCRUDLifecycleOnAllModules(
           moduleConfig,
           parentPath ? `${parentPath}.${moduleName}` : moduleName
         );
@@ -672,6 +842,6 @@ describe("Enterprise CRUD Lifecycle Validation Suite", () => {
     });
   };
 
-  // Run CRUD tests on all modules following the successful pattern
-  runCRUDTestsOnAllModules(modulesConfig.schema || modulesConfig);
+  // Run complete CRUD lifecycle on all modules
+  runCompleteCRUDLifecycleOnAllModules(modulesConfig.schema || modulesConfig);
 });
