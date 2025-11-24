@@ -1,7 +1,7 @@
 {
-  "id": "67a42394-fbaf-4b18-a4d6-08de277264d6",
-  "module": "Sales.Master_Data.Project_Definition",
-  "timestamp": "2025-11-19T14:24:32.640Z",
+  "id": "17987a69-16b3-420b-b066-08ddf360e24c",
+  "module": "Inventory.Master_Data.Warehouse_definitions",
+  "timestamp": "2025-11-24T14:51:56.764Z",
   "type": "string",
   "length": 36
 }

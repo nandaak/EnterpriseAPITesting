@@ -55,6 +55,6 @@ module.exports = {
   ],
 
   // Test failure options
-  bail: 1, // Stop after 1 failure
+  bail: false, // Continue running all tests even if some fail
   verbose: true, // Show detailed failure info
 };
