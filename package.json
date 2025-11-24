@@ -7,7 +7,7 @@
     "test:Security": "npm test -- tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --verbose",
     "test:Performance": "npm test -- tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --verbose",
     "test:Health": "npm test -- tests/comprehensive-lifecycle/5.API-Health-Checks.test.js --verbose",
-    "test:all-modules": "node run-all-tests.js",
+    "test:all-modules": "node run-all-tests-with-report.js",
     "test:all-sequential": "npx jest tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js && npx jest tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --config=jest.config.js && npx jest tests/comprehensive-lifecycle/3.Advanced-Security-Testing.test.js --config=jest.config.js && npx jest tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --config=jest.config.js && npx jest tests/comprehensive-lifecycle/5.API-Health-Checks.test.js --config=jest.config.js",
     "test:failed": "npx jest --onlyFailures",
     "test:failures-only": "npx jest --silent --testFailureExitCode=0 --json --outputFile=test-results.json && node utils/show-failures.js",
