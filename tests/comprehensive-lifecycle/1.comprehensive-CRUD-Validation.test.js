@@ -15,7 +15,15 @@ const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
  * Professional validation with comprehensive state tracking
  * Isolated modules with no global dependencies
  *
- * @version 4.0.0 - Complete CRUD Lifecycle
+ * ID MANAGEMENT SYSTEM:
+ * - createdId.txt (root): Current active ID used for UPDATE/DELETE/VIEW operations
+ * - tests/createdId.json: Legacy single-module ID storage (backward compatibility)
+ * - tests/createdIds.json: NEW - Centralized registry for ALL module IDs (no overwriting)
+ *
+ * The centralized registry maintains complete history of all created IDs across
+ * all tested modules, enabling comprehensive tracking and audit trails.
+ *
+ * @version 5.0.0 - Enhanced with Centralized ID Registry
  * @author Mohamed Said Ibrahim
  */
 
@@ -155,6 +163,18 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
         : "PARTIAL";
       logger.info(`   ${status} - ${moduleName} [${lifecycle}]`);
     });
+
+    // Display centralized registry statistics
+    try {
+      const registryStats = CrudLifecycleHelper.getRegistryStats();
+      logger.info("=".repeat(60));
+      logger.info("📋 CENTRALIZED ID REGISTRY STATISTICS:");
+      logger.info(`   Total Modules Tracked: ${registryStats.totalModules}`);
+      logger.info(`   Total IDs Created: ${registryStats.totalIds}`);
+      logger.info(`   Registry Location: tests/createdIds.json`);
+    } catch (error) {
+      logger.warn(`Could not retrieve registry statistics: ${error.message}`);
+    }
 
     logger.info(
       `🏁 Completed complete CRUD lifecycle for ${crudTestSummary.modulesTested} modules`

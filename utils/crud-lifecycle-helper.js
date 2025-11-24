@@ -557,7 +557,10 @@ class CrudLifecycleHelper {
   // --- EXISTING HELPER METHODS (keep as is) ---
   saveCreatedIdToFile(id) {
     try {
+      // Save to root createdId.txt for backward compatibility and easy access
       fs.writeFileSync(FILE_PATHS.CREATED_ID_TXT, id);
+      
+      // Save to legacy createdId.json for backward compatibility
       const metadata = {
         id: id,
         module: this.actualModulePath,
@@ -570,6 +573,9 @@ class CrudLifecycleHelper {
         JSON.stringify(metadata, null, 2)
       );
 
+      // Save to centralized createdIds.json (append, not overwrite)
+      this.saveToCreatedIdsRegistry(id);
+
       const fileContent = fs
         .readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8")
         .trim();
@@ -580,6 +586,7 @@ class CrudLifecycleHelper {
       }
 
       logger.info(`✅ ID saved to file: ${FILE_PATHS.CREATED_ID_TXT}`);
+      logger.info(`✅ ID registered in centralized registry for module: ${this.actualModulePath}`);
       return true;
     } catch (error) {
       logger.error(`❌ FAILED TO SAVE ID: ${error.message}`);
@@ -587,18 +594,90 @@ class CrudLifecycleHelper {
     }
   }
 
+  /**
+   * Save created ID to centralized registry (tests/createdIds.json)
+   * This maintains a history of all created IDs for all modules
+   */
+  saveToCreatedIdsRegistry(id) {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      // Load existing registry or create new one
+      let registry = {
+        modules: {},
+        metadata: {
+          created: new Date().toISOString(),
+          lastUpdated: new Date().toISOString(),
+          totalModules: 0,
+          description: "Centralized storage for all created resource IDs across all tested modules"
+        }
+      };
+
+      if (fs.existsSync(registryPath)) {
+        const existingData = fs.readFileSync(registryPath, 'utf8');
+        registry = JSON.parse(existingData);
+      }
+
+      // Initialize module entry if it doesn't exist
+      if (!registry.modules[this.actualModulePath]) {
+        registry.modules[this.actualModulePath] = {
+          ids: [],
+          firstCreated: new Date().toISOString(),
+          lastCreated: null,
+          totalCreated: 0
+        };
+      }
+
+      // Add new ID to module's history
+      registry.modules[this.actualModulePath].ids.push({
+        id: id,
+        timestamp: new Date().toISOString(),
+        type: typeof id,
+        length: id.length
+      });
+
+      registry.modules[this.actualModulePath].lastCreated = new Date().toISOString();
+      registry.modules[this.actualModulePath].totalCreated = registry.modules[this.actualModulePath].ids.length;
+      registry.modules[this.actualModulePath].currentId = id;
+
+      // Update metadata
+      registry.metadata.lastUpdated = new Date().toISOString();
+      registry.metadata.totalModules = Object.keys(registry.modules).length;
+
+      // Save updated registry
+      fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
+      
+      logger.debug(`📝 Registry updated: ${this.actualModulePath} now has ${registry.modules[this.actualModulePath].totalCreated} IDs`);
+      return true;
+    } catch (error) {
+      logger.error(`❌ Failed to update centralized registry: ${error.message}`);
+      return false;
+    }
+  }
+
   loadCreatedIdFromFile() {
     try {
       let loadedId = null;
+      
+      // Priority 1: Load from root createdId.txt (most recent, used for UPDATE/DELETE/VIEW)
       if (fs.existsSync(FILE_PATHS.CREATED_ID_TXT)) {
         loadedId = fs.readFileSync(FILE_PATHS.CREATED_ID_TXT, "utf8").trim();
-        logger.info(`📥 Loaded created ID from text file: ${loadedId}`);
-      } else if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
+        logger.info(`📥 Loaded created ID from root text file: ${loadedId}`);
+      } 
+      // Priority 2: Load from legacy createdId.json
+      else if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
         const jsonData = JSON.parse(
           fs.readFileSync(FILE_PATHS.CREATED_ID_FILE, "utf8")
         );
         loadedId = jsonData.id;
-        logger.info(`📥 Loaded created ID from JSON file: ${loadedId}`);
+        logger.info(`📥 Loaded created ID from legacy JSON file: ${loadedId}`);
+      }
+      // Priority 3: Load from centralized registry for this specific module
+      else {
+        loadedId = this.loadFromCreatedIdsRegistry();
+        if (loadedId) {
+          logger.info(`📥 Loaded created ID from centralized registry: ${loadedId}`);
+        }
       }
 
       if (loadedId) {
@@ -610,6 +689,37 @@ class CrudLifecycleHelper {
     } catch (error) {
       logger.warn(`Could not load created ID from file: ${error.message}`);
       return false;
+    }
+  }
+
+  /**
+   * Load the most recent created ID for this module from centralized registry
+   */
+  loadFromCreatedIdsRegistry() {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return null;
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      if (registry.modules && registry.modules[this.actualModulePath]) {
+        const moduleData = registry.modules[this.actualModulePath];
+        
+        // Return the current ID or the most recent one
+        if (moduleData.currentId) {
+          return moduleData.currentId;
+        } else if (moduleData.ids && moduleData.ids.length > 0) {
+          return moduleData.ids[moduleData.ids.length - 1].id;
+        }
+      }
+      
+      return null;
+    } catch (error) {
+      logger.warn(`Could not load from centralized registry: ${error.message}`);
+      return null;
     }
   }
 
@@ -737,15 +847,50 @@ class CrudLifecycleHelper {
   clearCreatedId() {
     this.createdId = null;
     try {
+      // Clear legacy files
       if (fs.existsSync(FILE_PATHS.CREATED_ID_FILE)) {
         fs.unlinkSync(FILE_PATHS.CREATED_ID_FILE);
       }
       if (fs.existsSync(FILE_PATHS.CREATED_ID_TXT)) {
         fs.unlinkSync(FILE_PATHS.CREATED_ID_TXT);
       }
+      
+      // Mark as deleted in centralized registry (but keep history)
+      this.markAsDeletedInRegistry();
+      
       logger.info(`🗑️ Cleared created ID from memory and files`);
     } catch (error) {
       logger.warn(`Could not clear created ID files: ${error.message}`);
+    }
+  }
+
+  /**
+   * Mark the current ID as deleted in the centralized registry
+   * Keeps the history but clears the currentId field
+   */
+  markAsDeletedInRegistry() {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return;
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      if (registry.modules && registry.modules[this.actualModulePath]) {
+        // Clear current ID but keep history
+        registry.modules[this.actualModulePath].currentId = null;
+        registry.modules[this.actualModulePath].lastDeleted = new Date().toISOString();
+        
+        // Update metadata
+        registry.metadata.lastUpdated = new Date().toISOString();
+        
+        fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
+        logger.debug(`📝 Marked ID as deleted in registry for module: ${this.actualModulePath}`);
+      }
+    } catch (error) {
+      logger.warn(`Could not update registry deletion status: ${error.message}`);
     }
   }
 
@@ -812,6 +957,76 @@ class CrudLifecycleHelper {
       passedTests: this.testResults.filter((r) => r.status === "passed").length,
       failedTests: this.testResults.filter((r) => r.status === "failed").length,
     };
+  }
+
+  /**
+   * Get all created IDs for this module from the centralized registry
+   * @returns {Array} Array of ID objects with timestamps
+   */
+  getAllModuleIds() {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return [];
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      if (registry.modules && registry.modules[this.actualModulePath]) {
+        return registry.modules[this.actualModulePath].ids || [];
+      }
+      
+      return [];
+    } catch (error) {
+      logger.warn(`Could not retrieve module IDs: ${error.message}`);
+      return [];
+    }
+  }
+
+  /**
+   * Get statistics from the centralized registry
+   * @returns {Object} Registry statistics
+   */
+  static getRegistryStats() {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return {
+          totalModules: 0,
+          totalIds: 0,
+          modules: []
+        };
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      const stats = {
+        totalModules: Object.keys(registry.modules || {}).length,
+        totalIds: 0,
+        modules: []
+      };
+
+      Object.entries(registry.modules || {}).forEach(([moduleName, moduleData]) => {
+        stats.totalIds += moduleData.totalCreated || 0;
+        stats.modules.push({
+          name: moduleName,
+          totalCreated: moduleData.totalCreated || 0,
+          currentId: moduleData.currentId || null,
+          lastCreated: moduleData.lastCreated || null
+        });
+      });
+
+      return stats;
+    } catch (error) {
+      logger.warn(`Could not retrieve registry stats: ${error.message}`);
+      return {
+        totalModules: 0,
+        totalIds: 0,
+        modules: []
+      };
+    }
   }
 }
 
