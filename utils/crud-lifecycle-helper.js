@@ -175,6 +175,9 @@ class CrudLifecycleHelper {
       // Enhanced validation for initial view
       this.validateInitialViewResponse(response, currentId);
 
+      // Record view in registry
+      this.recordViewInRegistry();
+
       logger.info(`✅ VIEW PHASE 1 SUCCESS - Resource verified: ${currentId}`);
       return {
         response,
@@ -221,6 +224,9 @@ class CrudLifecycleHelper {
       // Store updated data for comparison
       this.resourceState.updatedData = response.data;
 
+      // Record update in registry
+      this.recordUpdateInRegistry(this.resourceState.updatedData);
+
       logger.info(`✅ UPDATE SUCCESS - Resource modified: ${currentId}`);
       return {
         response,
@@ -255,6 +261,9 @@ class CrudLifecycleHelper {
 
       // Validate that updates are persisted
       this.validatePostUpdateResponse(response, currentId);
+
+      // Record view in registry
+      this.recordViewInRegistry();
 
       logger.info(`✅ VIEW PHASE 2 SUCCESS - Updates verified: ${currentId}`);
       return {
@@ -597,10 +606,12 @@ class CrudLifecycleHelper {
   /**
    * Save created ID to centralized registry (tests/createdIds.json)
    * This maintains a history of all created IDs for all modules
+   * Enhanced to store complete createdId.json objects with full metadata
    */
   saveToCreatedIdsRegistry(id) {
     try {
       const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      const legacyPath = path.join(process.cwd(), 'tests', 'createdId.json');
       
       // Load existing registry or create new one
       let registry = {
@@ -609,6 +620,7 @@ class CrudLifecycleHelper {
           created: new Date().toISOString(),
           lastUpdated: new Date().toISOString(),
           totalModules: 0,
+          totalIds: 0,
           description: "Centralized storage for all created resource IDs across all tested modules"
         }
       };
@@ -618,40 +630,234 @@ class CrudLifecycleHelper {
         registry = JSON.parse(existingData);
       }
 
+      // Read the legacy createdId.json for complete metadata
+      let legacyData = null;
+      if (fs.existsSync(legacyPath)) {
+        try {
+          legacyData = JSON.parse(fs.readFileSync(legacyPath, 'utf8'));
+        } catch (e) {
+          logger.warn(`Could not parse legacy createdId.json: ${e.message}`);
+        }
+      }
+
       // Initialize module entry if it doesn't exist
       if (!registry.modules[this.actualModulePath]) {
         registry.modules[this.actualModulePath] = {
+          moduleName: this.actualModulePath,
+          moduleDisplayName: this.formatModuleDisplayName(this.actualModulePath),
           ids: [],
+          idObjects: [],
           firstCreated: new Date().toISOString(),
           lastCreated: null,
-          totalCreated: 0
+          lastDeleted: null,
+          totalCreated: 0,
+          totalDeleted: 0,
+          currentId: null,
+          currentIdObject: null,
+          statistics: {
+            averageIdLength: 0,
+            idFormats: {},
+            creationTimes: []
+          }
         };
       }
 
-      // Add new ID to module's history
+      const timestamp = new Date().toISOString();
+      
+      // Create comprehensive ID object (enhanced createdId.json format)
+      const idObject = {
+        id: id,
+        module: this.actualModulePath,
+        moduleDisplayName: this.formatModuleDisplayName(this.actualModulePath),
+        timestamp: timestamp,
+        type: typeof id,
+        length: id.length,
+        format: this.detectIdFormat(id),
+        testRun: {
+          timestamp: timestamp,
+          testPhase: this.currentTestPhase || 'CREATE',
+          testResults: this.testResults.length,
+          moduleStatus: this.moduleSkipFlag ? 'SKIPPED' : 'ACTIVE'
+        },
+        lifecycle: {
+          created: timestamp,
+          updated: null,
+          deleted: null,
+          viewedCount: 0,
+          lastViewed: null
+        },
+        metadata: {
+          originalData: this.resourceState.originalData ? 
+            this.sanitizeDataForStorage(this.resourceState.originalData) : null,
+          creationMethod: 'POST',
+          apiEndpoint: this.getModuleEndpoint('Post'),
+          testSuite: 'comprehensive-CRUD-Validation'
+        }
+      };
+
+      // Add to simple IDs array (backward compatibility)
       registry.modules[this.actualModulePath].ids.push({
         id: id,
-        timestamp: new Date().toISOString(),
+        timestamp: timestamp,
         type: typeof id,
         length: id.length
       });
 
-      registry.modules[this.actualModulePath].lastCreated = new Date().toISOString();
+      // Add complete ID object to new array
+      registry.modules[this.actualModulePath].idObjects.push(idObject);
+
+      // Update module metadata
+      registry.modules[this.actualModulePath].lastCreated = timestamp;
       registry.modules[this.actualModulePath].totalCreated = registry.modules[this.actualModulePath].ids.length;
       registry.modules[this.actualModulePath].currentId = id;
+      registry.modules[this.actualModulePath].currentIdObject = idObject;
 
-      // Update metadata
-      registry.metadata.lastUpdated = new Date().toISOString();
+      // Update statistics
+      this.updateModuleStatistics(registry.modules[this.actualModulePath], id);
+
+      // Update global metadata
+      registry.metadata.lastUpdated = timestamp;
       registry.metadata.totalModules = Object.keys(registry.modules).length;
+      registry.metadata.totalIds = Object.values(registry.modules).reduce(
+        (sum, mod) => sum + mod.totalCreated, 0
+      );
 
       // Save updated registry
       fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
       
       logger.debug(`📝 Registry updated: ${this.actualModulePath} now has ${registry.modules[this.actualModulePath].totalCreated} IDs`);
+      logger.debug(`📊 Complete ID object stored with full metadata`);
       return true;
     } catch (error) {
       logger.error(`❌ Failed to update centralized registry: ${error.message}`);
       return false;
+    }
+  }
+
+  /**
+   * Format module name for display
+   */
+  formatModuleDisplayName(modulePath) {
+    if (!modulePath) return '';
+    return modulePath.split('.').map(part => 
+      part.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())
+    ).join(' → ');
+  }
+
+  /**
+   * Detect ID format (UUID, GUID, numeric, etc.)
+   */
+  detectIdFormat(id) {
+    if (!id) return 'unknown';
+    
+    const idStr = String(id);
+    
+    // UUID v4 format
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-4[0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}$/i.test(idStr)) {
+      return 'UUID-v4';
+    }
+    
+    // Generic UUID/GUID format
+    if (/^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i.test(idStr)) {
+      return 'UUID/GUID';
+    }
+    
+    // Numeric ID
+    if (/^\d+$/.test(idStr)) {
+      return 'Numeric';
+    }
+    
+    // Alphanumeric
+    if (/^[a-z0-9]+$/i.test(idStr)) {
+      return 'Alphanumeric';
+    }
+    
+    return 'Custom';
+  }
+
+  /**
+   * Sanitize data for storage (remove sensitive info, limit size)
+   */
+  sanitizeDataForStorage(data) {
+    if (!data) return null;
+    
+    try {
+      const sanitized = JSON.parse(JSON.stringify(data));
+      
+      // Remove potentially sensitive fields
+      const sensitiveFields = ['password', 'token', 'secret', 'apiKey', 'authorization'];
+      const removeSensitiveFields = (obj) => {
+        if (typeof obj !== 'object' || obj === null) return;
+        
+        Object.keys(obj).forEach(key => {
+          if (sensitiveFields.some(field => key.toLowerCase().includes(field))) {
+            obj[key] = '[REDACTED]';
+          } else if (typeof obj[key] === 'object') {
+            removeSensitiveFields(obj[key]);
+          }
+        });
+      };
+      
+      removeSensitiveFields(sanitized);
+      
+      // Limit size (keep only first 100 chars of long strings)
+      const limitSize = (obj) => {
+        if (typeof obj !== 'object' || obj === null) return;
+        
+        Object.keys(obj).forEach(key => {
+          if (typeof obj[key] === 'string' && obj[key].length > 100) {
+            obj[key] = obj[key].substring(0, 100) + '... [truncated]';
+          } else if (typeof obj[key] === 'object') {
+            limitSize(obj[key]);
+          }
+        });
+      };
+      
+      limitSize(sanitized);
+      
+      return sanitized;
+    } catch (error) {
+      logger.warn(`Could not sanitize data: ${error.message}`);
+      return null;
+    }
+  }
+
+  /**
+   * Get module endpoint for operation
+   */
+  getModuleEndpoint(operationType) {
+    try {
+      const operation = this.getOperationFromModuleConfig(operationType);
+      return operation ? operation.endpoint : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
+  /**
+   * Update module statistics
+   */
+  updateModuleStatistics(moduleData, newId) {
+    if (!moduleData.statistics) {
+      moduleData.statistics = {
+        averageIdLength: 0,
+        idFormats: {},
+        creationTimes: []
+      };
+    }
+
+    // Update average ID length
+    const totalLength = moduleData.ids.reduce((sum, idEntry) => sum + (idEntry.length || 0), 0);
+    moduleData.statistics.averageIdLength = (totalLength / moduleData.ids.length).toFixed(2);
+
+    // Update ID format counts
+    const format = this.detectIdFormat(newId);
+    moduleData.statistics.idFormats[format] = (moduleData.statistics.idFormats[format] || 0) + 1;
+
+    // Track creation times (keep last 10)
+    moduleData.statistics.creationTimes.push(new Date().toISOString());
+    if (moduleData.statistics.creationTimes.length > 10) {
+      moduleData.statistics.creationTimes = moduleData.statistics.creationTimes.slice(-10);
     }
   }
 
@@ -867,6 +1073,7 @@ class CrudLifecycleHelper {
   /**
    * Mark the current ID as deleted in the centralized registry
    * Keeps the history but clears the currentId field
+   * Updates lifecycle information in the ID object
    */
   markAsDeletedInRegistry() {
     try {
@@ -879,18 +1086,138 @@ class CrudLifecycleHelper {
       const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
       
       if (registry.modules && registry.modules[this.actualModulePath]) {
+        const moduleData = registry.modules[this.actualModulePath];
+        const deletionTimestamp = new Date().toISOString();
+        
+        // Update the lifecycle of the current ID object
+        if (moduleData.currentIdObject && moduleData.idObjects.length > 0) {
+          // Find and update the current ID object
+          const currentIdObj = moduleData.idObjects.find(
+            obj => obj.id === moduleData.currentId
+          );
+          
+          if (currentIdObj && currentIdObj.lifecycle) {
+            currentIdObj.lifecycle.deleted = deletionTimestamp;
+            currentIdObj.lifecycle.status = 'DELETED';
+            currentIdObj.lifecycle.completedFullCycle = true;
+          }
+        }
+        
         // Clear current ID but keep history
-        registry.modules[this.actualModulePath].currentId = null;
-        registry.modules[this.actualModulePath].lastDeleted = new Date().toISOString();
+        moduleData.currentId = null;
+        moduleData.currentIdObject = null;
+        moduleData.lastDeleted = deletionTimestamp;
+        moduleData.totalDeleted = (moduleData.totalDeleted || 0) + 1;
+        
+        // Update deletion statistics
+        if (!moduleData.statistics.deletionTimes) {
+          moduleData.statistics.deletionTimes = [];
+        }
+        moduleData.statistics.deletionTimes.push(deletionTimestamp);
+        if (moduleData.statistics.deletionTimes.length > 10) {
+          moduleData.statistics.deletionTimes = moduleData.statistics.deletionTimes.slice(-10);
+        }
+        
+        // Update metadata
+        registry.metadata.lastUpdated = deletionTimestamp;
+        
+        fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
+        logger.debug(`📝 Marked ID as deleted in registry for module: ${this.actualModulePath}`);
+        logger.debug(`🗑️ Updated lifecycle information for deleted resource`);
+      }
+    } catch (error) {
+      logger.warn(`Could not update registry deletion status: ${error.message}`);
+    }
+  }
+
+  /**
+   * Update ID object lifecycle when viewed
+   */
+  recordViewInRegistry() {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return;
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      if (registry.modules && registry.modules[this.actualModulePath]) {
+        const moduleData = registry.modules[this.actualModulePath];
+        
+        // Update the lifecycle of the current ID object
+        if (moduleData.currentIdObject && moduleData.idObjects.length > 0) {
+          const currentIdObj = moduleData.idObjects.find(
+            obj => obj.id === moduleData.currentId
+          );
+          
+          if (currentIdObj && currentIdObj.lifecycle) {
+            currentIdObj.lifecycle.viewedCount = (currentIdObj.lifecycle.viewedCount || 0) + 1;
+            currentIdObj.lifecycle.lastViewed = new Date().toISOString();
+          }
+        }
         
         // Update metadata
         registry.metadata.lastUpdated = new Date().toISOString();
         
         fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
-        logger.debug(`📝 Marked ID as deleted in registry for module: ${this.actualModulePath}`);
+        logger.debug(`👁️ Recorded view in registry for module: ${this.actualModulePath}`);
       }
     } catch (error) {
-      logger.warn(`Could not update registry deletion status: ${error.message}`);
+      logger.warn(`Could not record view in registry: ${error.message}`);
+    }
+  }
+
+  /**
+   * Update ID object lifecycle when updated
+   */
+  recordUpdateInRegistry(updatedData) {
+    try {
+      const registryPath = path.join(process.cwd(), 'tests', 'createdIds.json');
+      
+      if (!fs.existsSync(registryPath)) {
+        return;
+      }
+
+      const registry = JSON.parse(fs.readFileSync(registryPath, 'utf8'));
+      
+      if (registry.modules && registry.modules[this.actualModulePath]) {
+        const moduleData = registry.modules[this.actualModulePath];
+        const updateTimestamp = new Date().toISOString();
+        
+        // Update the lifecycle of the current ID object
+        if (moduleData.currentIdObject && moduleData.idObjects.length > 0) {
+          const currentIdObj = moduleData.idObjects.find(
+            obj => obj.id === moduleData.currentId
+          );
+          
+          if (currentIdObj) {
+            if (!currentIdObj.lifecycle.updates) {
+              currentIdObj.lifecycle.updates = [];
+            }
+            
+            currentIdObj.lifecycle.updated = updateTimestamp;
+            currentIdObj.lifecycle.updates.push({
+              timestamp: updateTimestamp,
+              data: this.sanitizeDataForStorage(updatedData)
+            });
+            
+            // Keep only last 3 updates
+            if (currentIdObj.lifecycle.updates.length > 3) {
+              currentIdObj.lifecycle.updates = currentIdObj.lifecycle.updates.slice(-3);
+            }
+          }
+        }
+        
+        // Update metadata
+        registry.metadata.lastUpdated = updateTimestamp;
+        
+        fs.writeFileSync(registryPath, JSON.stringify(registry, null, 2));
+        logger.debug(`✏️ Recorded update in registry for module: ${this.actualModulePath}`);
+      }
+    } catch (error) {
+      logger.warn(`Could not record update in registry: ${error.message}`);
     }
   }
 
