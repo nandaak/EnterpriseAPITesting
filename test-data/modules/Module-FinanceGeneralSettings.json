@@ -14,9 +14,9 @@
       "PUT": [
         "/erp-apis/FinanceGeneralSettings",
         {
-          "fundTransferContraAccountId": 1,
-          "advancedPaymentTaxId": 1,
-          "taxId": 1,
+          "fundTransferContraAccountId": "<createdId>",
+          "advancedPaymentTaxId": "<createdId>",
+          "taxId": "<createdId>",
           "enableAutoInvoiceReconciliation": true
         }
       ],

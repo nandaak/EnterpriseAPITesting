@@ -83,40 +83,40 @@
       "PUT": [
         "/erp-apis/Invoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:30:10.966Z",
           "description": "string",
           "isExternalPurchase": true,
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorName": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "reference": "string",
           "sourceType": "Direct",
-          "sourceId": "00000000-0000-0000-0000-000000000000",
+          "sourceId": "<createdId>",
           "sourceCode": "string",
           "invoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -125,12 +125,12 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
-              "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+              "sourceDetailId": "<createdId>",
               "invoiceTracking": {}
             }
           ]
@@ -141,7 +141,7 @@
     },
     "GET__erp-apis_Invoice_GetById__Id_": {
       "GET": [
-        "/erp-apis/Invoice/GetById/{Id}",
+        "/erp-apis/Invoice/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -151,7 +151,7 @@
     },
     "DELETE__erp-apis_Invoice__Id_": {
       "DELETE": [
-        "/erp-apis/Invoice/{Id}",
+        "/erp-apis/Invoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -161,7 +161,7 @@
     },
     "GET__erp-apis_Invoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/Invoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/Invoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -251,7 +251,7 @@
     },
     "DELETE__erp-apis_Invoice_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/Invoice/DeleteLine/{Id}",
+        "/erp-apis/Invoice/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -273,7 +273,7 @@
     },
     "POST__erp-apis_Invoice__Id__Post": {
       "POST": [
-        "/erp-apis/Invoice/{Id}/Post",
+        "/erp-apis/Invoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -294,7 +294,7 @@
     },
     "GET__erp-apis_Invoice__Id__GetInvoiceToReturnById": {
       "GET": [
-        "/erp-apis/Invoice/{Id}/GetInvoiceToReturnById",
+        "/erp-apis/Invoice/<createdId>/GetInvoiceToReturnById",
         {}
       ],
       "summary": "",

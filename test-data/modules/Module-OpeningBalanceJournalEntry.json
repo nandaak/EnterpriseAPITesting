@@ -56,7 +56,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -66,7 +66,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesVendorDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesVendorDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesVendorDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -76,7 +76,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesAssetDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesAssetDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesAssetDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -144,21 +144,21 @@
       "PUT": [
         "/erp-apis/OpeningBalanceJournalEntry/Edit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "referenceNumber": "string",
           "journalDate": "2025-11-26T16:30:10.971Z",
           "description": "string",
           "journalEntryLines": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "accountId": 1,
+              "id": "<createdId>",
+              "accountId": "<createdId>",
               "lineDescription": "string",
               "debitAmount": 1,
               "creditAmount": 1,
               "debitAmountLocal": 1,
               "creditAmountLocal": 1,
               "currencyRate": 1,
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "costCenters": [
                 {}
               ]
@@ -173,7 +173,7 @@
       "PUT": [
         "/erp-apis/OpeningBalanceJournalEntry/ChangeStatus",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "status": "Draft",
           "ignoreWarning": true
         }
@@ -193,7 +193,7 @@
     },
     "POST__erp-apis_OpeningBalanceJournalEntry__Id__UnPost": {
       "POST": [
-        "/erp-apis/OpeningBalanceJournalEntry/{Id}/UnPost",
+        "/erp-apis/OpeningBalanceJournalEntry/<createdId>/UnPost",
         {}
       ],
       "summary": "",

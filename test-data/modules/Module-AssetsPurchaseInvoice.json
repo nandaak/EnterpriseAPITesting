@@ -63,35 +63,35 @@
       "PUT": [
         "/erp-apis/AssetsPurchaseInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:30:10.937Z",
           "description": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorCode": "string",
           "vendorName": "string",
           "vendorNameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyNameAr": "string",
           "currencyRate": 1,
           "reference": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "assetsPurchaseInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "quantity": 1,
               "cost": 1,
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
-              "assetLocationId": 1,
+              "assetLocationId": "<createdId>",
               "assetLocationName": "string",
               "activationDate": "2025-11-26T16:30:10.937Z"
             }
@@ -103,7 +103,7 @@
     },
     "GET__erp-apis_AssetsPurchaseInvoice_GetById__Id_": {
       "GET": [
-        "/erp-apis/AssetsPurchaseInvoice/GetById/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -157,7 +157,7 @@
     },
     "POST__erp-apis_AssetsPurchaseInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsPurchaseInvoice/{Id}/Post",
+        "/erp-apis/AssetsPurchaseInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -167,7 +167,7 @@
     },
     "DELETE__erp-apis_AssetsPurchaseInvoice_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsPurchaseInvoice/DeleteLine/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -177,7 +177,7 @@
     },
     "DELETE__erp-apis_AssetsPurchaseInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",

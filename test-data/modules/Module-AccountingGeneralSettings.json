@@ -14,9 +14,9 @@
       "PUT": [
         "/erp-apis/AccountingGeneralSettings",
         {
-          "currentYearEarningAccountId": 1,
+          "currentYearEarningAccountId": "<createdId>",
           "isHeaderDescriptionCopied": true,
-          "taxId": 1,
+          "taxId": "<createdId>",
           "isJournalLineDescriptionRequired": true
         }
       ],

@@ -2,7 +2,7 @@
   "Attachments": {
     "DownloadBase64Attachment": {
       "GET": [
-        "/erp-apis/api/attachments/DownloadBase64Attachment/{attachmentId}",
+        "/erp-apis/api/attachments/DownloadBase64Attachment/<createdId>",
         {}
       ],
       "summary": "",
@@ -12,7 +12,7 @@
     },
     "DownloadAttachment": {
       "GET": [
-        "/erp-apis/api/attachments/DownloadAttachment/{attachmentId}",
+        "/erp-apis/api/attachments/DownloadAttachment/<createdId>",
         {}
       ],
       "summary": "",

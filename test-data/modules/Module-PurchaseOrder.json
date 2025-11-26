@@ -79,34 +79,34 @@
       "PUT": [
         "/erp-apis/PurchaseOrder",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "orderDate": "2025-11-26T16:30:10.977Z",
           "description": "string",
           "termsAndCondition": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorName": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "purchaseOrderDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -115,7 +115,7 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
               "trackingType": {},
               "hasExpiryDate": true
@@ -123,8 +123,8 @@
           ],
           "purchaseOrderAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ]
@@ -135,7 +135,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id_": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}",
+        "/erp-apis/PurchaseOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -145,7 +145,7 @@
     },
     "DELETE__erp-apis_PurchaseOrder__Id_": {
       "DELETE": [
-        "/erp-apis/PurchaseOrder/{Id}",
+        "/erp-apis/PurchaseOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -155,7 +155,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id__View": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}/View",
+        "/erp-apis/PurchaseOrder/<createdId>/View",
         {}
       ],
       "summary": "",
@@ -165,7 +165,7 @@
     },
     "DELETE__erp-apis_PurchaseOrder__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/PurchaseOrder/{Id}/DeleteLine",
+        "/erp-apis/PurchaseOrder/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -175,7 +175,7 @@
     },
     "POST__erp-apis_PurchaseOrder__Id__Post": {
       "POST": [
-        "/erp-apis/PurchaseOrder/{Id}/Post",
+        "/erp-apis/PurchaseOrder/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -256,7 +256,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id__GetPurchaseOrderToInvoice": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}/GetPurchaseOrderToInvoice",
+        "/erp-apis/PurchaseOrder/<createdId>/GetPurchaseOrderToInvoice",
         {}
       ],
       "summary": "",

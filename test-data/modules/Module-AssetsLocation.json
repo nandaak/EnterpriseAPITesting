@@ -2,7 +2,7 @@
   "AssetsLocation": {
     "GET__erp-apis_AssetsLocation__id_": {
       "GET": [
-        "/erp-apis/AssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -12,7 +12,7 @@
     },
     "DELETE__erp-apis_AssetsLocation__id_": {
       "DELETE": [
-        "/erp-apis/AssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -22,7 +22,7 @@
     },
     "GET__erp-apis_AssetsLocation_GetByIdViewAssetsLocation__id_": {
       "GET": [
-        "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -77,10 +77,10 @@
       "PUT": [
         "/erp-apis/AssetsLocation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
-          "parentId": 1,
-          "costCenterId": 1,
+          "parentId": "<createdId>",
+          "costCenterId": "<createdId>",
           "isDetailed": true
         }
       ],

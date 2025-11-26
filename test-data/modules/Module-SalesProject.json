@@ -34,11 +34,11 @@
       "PUT": [
         "/erp-apis/SalesProject",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "startDate": "2025-11-26T16:30:10.987Z",
           "endDate": "2025-11-26T16:30:10.987Z",
           "contractValue": 1
@@ -49,7 +49,7 @@
     },
     "GET__erp-apis_SalesProject__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/{Id}",
+        "/erp-apis/SalesProject/<createdId>",
         {}
       ],
       "summary": "",
@@ -59,7 +59,7 @@
     },
     "DELETE__erp-apis_SalesProject__Id_": {
       "DELETE": [
-        "/erp-apis/SalesProject/{Id}",
+        "/erp-apis/SalesProject/<createdId>",
         {}
       ],
       "summary": "",
@@ -69,7 +69,7 @@
     },
     "GET__erp-apis_SalesProject_View__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/View/{Id}",
+        "/erp-apis/SalesProject/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -119,7 +119,7 @@
     },
     "GET__erp-apis_SalesProject_GetSalesProjectForInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/GetSalesProjectForInvoice/{Id}",
+        "/erp-apis/SalesProject/GetSalesProjectForInvoice/<createdId>",
         {}
       ],
       "summary": "",

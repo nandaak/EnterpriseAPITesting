@@ -1,0 +1,79 @@
+{
+  "User": {
+    "POST__erp-apis_User": {
+      "POST": [
+        "/erp-apis/User",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "name": "string",
+          "email": "string",
+          "subdomain": "string",
+          "tenantId": "00000000-0000-0000-0000-000000000000",
+          "identityId": "string",
+          "phone": "string",
+          "countryCode": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_User_UsersDropdownQuery": {
+      "GET": [
+        "/erp-apis/User/UsersDropdownQuery",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_User_GetUserNameById": {
+      "GET": [
+        "/erp-apis/User/GetUserNameById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "PUT__erp-apis_User_UpdateUserProfile": {
+      "PUT": [
+        "/erp-apis/User/UpdateUserProfile",
+        {
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "name": "string",
+          "email": "string",
+          "phone": "string",
+          "countryCode": "string",
+          "phoneCode": "string",
+          "photo": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_User_ChangePassword": {
+      "PUT": [
+        "/erp-apis/User/ChangePassword",
+        {
+          "currentPassword": "string",
+          "newPassword": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_User_UpdateUserActivation": {
+      "PUT": [
+        "/erp-apis/User/UpdateUserActivation",
+        {
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "isActive": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

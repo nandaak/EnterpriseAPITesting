@@ -41,7 +41,7 @@
       "PUT": [
         "/erp-apis/User/UpdateUserProfile",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "name": "string",
           "email": "string",
           "phone": "string",
@@ -68,7 +68,7 @@
       "PUT": [
         "/erp-apis/User/UpdateUserActivation",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "isActive": true
         }
       ],

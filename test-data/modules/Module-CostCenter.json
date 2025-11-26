@@ -82,10 +82,10 @@
       "PUT": [
         "/erp-apis/CostCenter/EditCostCenter",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "parentId": 1,
+          "parentId": "<createdId>",
           "isDetail": true,
           "isActive": true
         }
@@ -97,7 +97,7 @@
       "PUT": [
         "/erp-apis/CostCenter/CostCenterActivation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "status": true
         }
       ],

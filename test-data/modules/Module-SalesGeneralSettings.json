@@ -16,7 +16,7 @@
         {
           "invoiceOverdueBlocked": true,
           "creditLimitRestricted": true,
-          "serviceItemsRevenueAccountId": 1
+          "serviceItemsRevenueAccountId": "<createdId>"
         }
       ],
       "summary": "",

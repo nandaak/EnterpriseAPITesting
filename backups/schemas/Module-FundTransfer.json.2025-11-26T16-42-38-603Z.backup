@@ -1,0 +1,165 @@
+{
+  "FundTransfer": {
+    "GET__erp-apis_FundTransfer": {
+      "GET": [
+        "/erp-apis/FundTransfer",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "PaymentHub",
+        "PaymentHubDetailId",
+        "BankAccountId",
+        "CurrencyId",
+        "Status",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_FundTransfer": {
+      "POST": [
+        "/erp-apis/FundTransfer",
+        {
+          "date": "2025-11-26T16:30:10.961Z",
+          "description": "string",
+          "reference": "string",
+          "amount": 1,
+          "fromPaymentHubDetails": "string",
+          "fromBankAccount": "string",
+          "toPaymentHubDetails": "string",
+          "toBankAccount": "string",
+          "fundTransferToDetail": {
+            "paymentHubId": "Treasury",
+            "paymentHubDetailsId": 1,
+            "bankAccountId": 1,
+            "currencyId": 1,
+            "paymentMethodId": 1,
+            "rate": 1,
+            "currentBalance": 1,
+            "amount": 1,
+            "glAccountId": 1,
+            "fundTransferStatus": "From",
+            "commissionValue": 1,
+            "bankReference": "string"
+          },
+          "fundTransferFromDetail": {}
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_FundTransfer": {
+      "PUT": [
+        "/erp-apis/FundTransfer",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "date": "2025-11-26T16:30:10.961Z",
+          "description": "string",
+          "reference": "string",
+          "amount": 1,
+          "fromPaymentHubDetails": "string",
+          "fromBankAccount": "string",
+          "toPaymentHubDetails": "string",
+          "toBankAccount": "string",
+          "fundTransferToDetail": {
+            "paymentHubId": "Treasury",
+            "paymentHubDetailsId": 1,
+            "bankAccountId": 1,
+            "currencyId": 1,
+            "paymentMethodId": 1,
+            "rate": 1,
+            "currentBalance": 1,
+            "amount": 1,
+            "fundTransferStatus": "From",
+            "commissionAmount": 1,
+            "bankReference": "string"
+          },
+          "fundTransferFromDetail": {}
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FundTransfer__Id_": {
+      "GET": [
+        "/erp-apis/FundTransfer/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_FundTransfer__Id_": {
+      "DELETE": [
+        "/erp-apis/FundTransfer/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_FundTransfer_Export": {
+      "GET": [
+        "/erp-apis/FundTransfer/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_FundTransfer__Id__View": {
+      "GET": [
+        "/erp-apis/FundTransfer/{Id}/View",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_FundTransfer__Id__Post": {
+      "POST": [
+        "/erp-apis/FundTransfer/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_FundTransfer_PrintOutFundTransfer": {
+      "GET": [
+        "/erp-apis/FundTransfer/PrintOutFundTransfer",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

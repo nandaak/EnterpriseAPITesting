@@ -37,12 +37,12 @@
       "PUT": [
         "/erp-apis/PaymentTerms",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "paymentTermLines": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "dueTermValue": 1,
               "afterValue": 1,
               "afterPeriod": {},
@@ -82,7 +82,7 @@
     },
     "GET__erp-apis_PaymentTerms__Id_": {
       "GET": [
-        "/erp-apis/PaymentTerms/{Id}",
+        "/erp-apis/PaymentTerms/<createdId>",
         {}
       ],
       "summary": "",
@@ -92,7 +92,7 @@
     },
     "DELETE__erp-apis_PaymentTerms__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentTerms/{Id}",
+        "/erp-apis/PaymentTerms/<createdId>",
         {}
       ],
       "summary": "",
@@ -102,7 +102,7 @@
     },
     "GET__erp-apis_PaymentTerms_View__Id_": {
       "GET": [
-        "/erp-apis/PaymentTerms/View/{Id}",
+        "/erp-apis/PaymentTerms/View/<createdId>",
         {}
       ],
       "summary": "",

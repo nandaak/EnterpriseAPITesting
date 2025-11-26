@@ -18,7 +18,7 @@
     },
     "GET__erp-apis_UserBranchAccess__UserId_": {
       "GET": [
-        "/erp-apis/UserBranchAccess/{UserId}",
+        "/erp-apis/UserBranchAccess/<createdId>",
         {}
       ],
       "summary": "",
@@ -30,7 +30,7 @@
       "PUT": [
         "/erp-apis/UserBranchAccess",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "branchIds": [
             "00000000-0000-0000-0000-000000000000"
           ]

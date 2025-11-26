@@ -57,14 +57,14 @@
       "PUT": [
         "/erp-apis/ReturnSalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "returnInvoiceDate": "2025-11-26T16:30:10.981Z",
           "description": "string",
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
           "returnSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "toReturnQuantity": 1
             }
           ]
@@ -75,7 +75,7 @@
     },
     "GET__erp-apis_ReturnSalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/ReturnSalesInvoice/{Id}",
+        "/erp-apis/ReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -85,7 +85,7 @@
     },
     "DELETE__erp-apis_ReturnSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/ReturnSalesInvoice/{Id}",
+        "/erp-apis/ReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -95,7 +95,7 @@
     },
     "GET__erp-apis_ReturnSalesInvoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -123,7 +123,7 @@
     },
     "POST__erp-apis_ReturnSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/ReturnSalesInvoice/{Id}/Post",
+        "/erp-apis/ReturnSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -151,7 +151,7 @@
     },
     "DELETE__erp-apis_ReturnSalesInvoice__Id_DeleteSalesInvoiceLine": {
       "DELETE": [
-        "/erp-apis/ReturnSalesInvoice/{Id}DeleteSalesInvoiceLine",
+        "/erp-apis/ReturnSalesInvoice/<createdId>DeleteSalesInvoiceLine",
         {}
       ],
       "summary": "",

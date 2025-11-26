@@ -74,14 +74,14 @@
       "PUT": [
         "/erp-apis/Vendor",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "photo": "string",
           "birthDate": "2025-11-26T16:30:11.000Z",
-          "vendorCategoryId": 1,
+          "vendorCategoryId": "<createdId>",
           "vendorInformation": {
-            "id": 1,
+            "id": "<createdId>",
             "contactPhone": "string",
             "contactMobileCode": "string",
             "contactMobile": "string",
@@ -95,33 +95,33 @@
             "contactPersonEmail": "string"
           },
           "vendorAddress": {
-            "id": 1,
+            "id": "<createdId>",
             "state": "string",
             "street": "string",
             "longitude": 1,
             "latitude": 1,
             "radius": 1,
-            "countryId": "string",
-            "cityId": 1
+            "countryId": "<createdId>",
+            "cityId": "<createdId>"
           },
           "vendorLegal": {
-            "id": 1,
-            "taxId": "string",
-            "commercialId": "string"
+            "id": "<createdId>",
+            "taxId": "<createdId>",
+            "commercialId": "<createdId>"
           },
           "vendorFinancial": {
-            "id": 1,
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "id": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "vendorAccounting": {
-            "id": 1,
-            "payableAccountId": 1,
-            "purchaseAccountId": 1,
-            "purchaseReturnAccountId": 1,
-            "discountAccountId": 1
+            "id": "<createdId>",
+            "payableAccountId": "<createdId>",
+            "purchaseAccountId": "<createdId>",
+            "purchaseReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "vendorTagIds": [
             1
@@ -150,7 +150,7 @@
     },
     "GET__erp-apis_Vendor_DropDownByAccountId__AccountId_": {
       "GET": [
-        "/erp-apis/Vendor/DropDownByAccountId/{AccountId}",
+        "/erp-apis/Vendor/DropDownByAccountId/<createdId>",
         {}
       ],
       "summary": "",
@@ -212,7 +212,7 @@
     },
     "GET__erp-apis_Vendor__Id_": {
       "GET": [
-        "/erp-apis/Vendor/{Id}",
+        "/erp-apis/Vendor/<createdId>",
         {}
       ],
       "summary": "",
@@ -222,7 +222,7 @@
     },
     "DELETE__erp-apis_Vendor__Id_": {
       "DELETE": [
-        "/erp-apis/Vendor/{Id}",
+        "/erp-apis/Vendor/<createdId>",
         {}
       ],
       "summary": "",
@@ -232,7 +232,7 @@
     },
     "GET__erp-apis_Vendor_View__Id_": {
       "GET": [
-        "/erp-apis/Vendor/View/{Id}",
+        "/erp-apis/Vendor/View/<createdId>",
         {}
       ],
       "summary": "",

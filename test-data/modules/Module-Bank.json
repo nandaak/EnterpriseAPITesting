@@ -50,7 +50,7 @@
     },
     "GET__erp-apis_Bank__Id_": {
       "GET": [
-        "/erp-apis/Bank/{Id}",
+        "/erp-apis/Bank/<createdId>",
         {}
       ],
       "summary": "",
@@ -60,7 +60,7 @@
     },
     "DELETE__erp-apis_Bank__Id_": {
       "DELETE": [
-        "/erp-apis/Bank/{Id}",
+        "/erp-apis/Bank/<createdId>",
         {}
       ],
       "summary": "",
@@ -102,7 +102,7 @@
     },
     "GET__erp-apis_Bank_GetAccountBalance__Id_": {
       "GET": [
-        "/erp-apis/Bank/GetAccountBalance/{Id}",
+        "/erp-apis/Bank/GetAccountBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -132,7 +132,7 @@
       "PUT": [
         "/erp-apis/Bank/Edit",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "shortName": "string",
           "contactName": "string",
@@ -144,11 +144,11 @@
           "fax": "string",
           "bankAccounts": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "accountNumber": "string",
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "iban": "string",
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "accountOpeningBalance": 1,
               "openingBalance": 1,
               "userPermission": [
@@ -166,7 +166,7 @@
     },
     "DELETE__erp-apis_Bank_DeleteAccount__Id_": {
       "DELETE": [
-        "/erp-apis/Bank/DeleteAccount/{Id}",
+        "/erp-apis/Bank/DeleteAccount/<createdId>",
         {}
       ],
       "summary": "",
@@ -176,7 +176,7 @@
     },
     "GET__erp-apis_Bank_View__Id_": {
       "GET": [
-        "/erp-apis/Bank/View/{Id}",
+        "/erp-apis/Bank/View/<createdId>",
         {}
       ],
       "summary": "",

@@ -17,13 +17,13 @@
       "PUT": [
         "/erp-apis/AssetsDepreciation",
         {
-          "headerId": "00000000-0000-0000-0000-000000000000",
+          "headerId": "<createdId>",
           "depreciationDate": "2025-11-26T16:30:10.933Z",
           "description": "string",
           "assetLines": [
             {
-              "lineId": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "lineId": "<createdId>",
+              "assetId": "<createdId>",
               "note": "string"
             }
           ]
@@ -53,7 +53,7 @@
     },
     "DELETE__erp-apis_AssetsDepreciation__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsDepreciation/{Id}/DeleteLine",
+        "/erp-apis/AssetsDepreciation/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -63,7 +63,7 @@
     },
     "DELETE__erp-apis_AssetsDepreciation__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsDepreciation/{Id}",
+        "/erp-apis/AssetsDepreciation/<createdId>",
         {}
       ],
       "summary": "",
@@ -73,7 +73,7 @@
     },
     "GET__erp-apis_AssetsDepreciation__AssetsDepreciationId_": {
       "GET": [
-        "/erp-apis/AssetsDepreciation/{AssetsDepreciationId}",
+        "/erp-apis/AssetsDepreciation/<createdId>",
         {}
       ],
       "summary": "",
@@ -83,7 +83,7 @@
     },
     "POST__erp-apis_AssetsDepreciation__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsDepreciation/{Id}/Post",
+        "/erp-apis/AssetsDepreciation/<createdId>/Post",
         {}
       ],
       "summary": "",

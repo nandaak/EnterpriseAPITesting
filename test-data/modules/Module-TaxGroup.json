@@ -42,7 +42,7 @@
       "PUT": [
         "/erp-apis/TaxGroup",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string"

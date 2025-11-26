@@ -2,7 +2,7 @@
   "Branch": {
     "GET__erp-apis_Branch__CompanyId__GetAll": {
       "GET": [
-        "/erp-apis/Branch/{CompanyId}/GetAll",
+        "/erp-apis/Branch/<createdId>/GetAll",
         {}
       ],
       "summary": "",
@@ -17,7 +17,7 @@
     },
     "GET__erp-apis_Branch__Id__GetCompanyBranch": {
       "GET": [
-        "/erp-apis/Branch/{Id}/GetCompanyBranch",
+        "/erp-apis/Branch/<createdId>/GetCompanyBranch",
         {}
       ],
       "summary": "",
@@ -39,7 +39,7 @@
       "PUT": [
         "/erp-apis/Branch",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "nameEn": "string",
           "nameAr": "string",
           "branchRegion": "string",

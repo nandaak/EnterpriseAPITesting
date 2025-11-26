@@ -37,18 +37,18 @@
       "PUT": [
         "/erp-apis/SalesMan",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "salesTeamId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "salesTeamId": "<createdId>",
           "salesPhone": "string",
           "name": "string",
           "nameAr": "string",
           "isActive": true,
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "branchesIds": [
             "00000000-0000-0000-0000-000000000000"
           ],
-          "paymentTermId": 1,
-          "treasuryId": 1,
+          "paymentTermId": "<createdId>",
+          "treasuryId": "<createdId>",
           "paymentMethods": [
             1
           ]
@@ -121,7 +121,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManPermission",
         {
-          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "salesManId": "<createdId>",
           "canCreateReturnSalesInvoice": true,
           "canCreateVisit": true,
           "showCustomerStatement": true,
@@ -143,8 +143,8 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManPricePolicy",
         {
-          "salesManId": "00000000-0000-0000-0000-000000000000",
-          "pricePolicyId": 1
+          "salesManId": "<createdId>",
+          "pricePolicyId": "<createdId>"
         }
       ],
       "summary": "",
@@ -154,7 +154,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "creditLimit": 1,
           "isCreditLimitActive": true
         }
@@ -169,7 +169,7 @@
           "targetAmount": 1,
           "commissionPercentage": 1,
           "commissionBascis": "NetSales",
-          "salesManId": "00000000-0000-0000-0000-000000000000"
+          "salesManId": "<createdId>"
         }
       ],
       "summary": "",
@@ -179,8 +179,8 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManWarehouse",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "warehouseId": 1
+          "id": "<createdId>",
+          "warehouseId": "<createdId>"
         }
       ],
       "summary": "",
@@ -190,7 +190,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManActivation",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "isActive": true
         }
       ],
@@ -199,7 +199,7 @@
     },
     "DELETE__erp-apis_SalesMan__Id_": {
       "DELETE": [
-        "/erp-apis/SalesMan/{Id}",
+        "/erp-apis/SalesMan/<createdId>",
         {}
       ],
       "summary": "",
@@ -209,7 +209,7 @@
     },
     "GET__erp-apis_SalesMan__Id_": {
       "GET": [
-        "/erp-apis/SalesMan/{Id}",
+        "/erp-apis/SalesMan/<createdId>",
         {}
       ],
       "summary": "",

@@ -28,19 +28,19 @@
       "PUT": [
         "/erp-apis/Assets",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
-          "assetGroupId": 1,
+          "assetGroupId": "<createdId>",
           "barcode": "string",
           "isDepreciate": true,
           "depreciationMethod": "StraightLine",
           "depreciationRate": 1,
           "usefulLife": 1,
           "salvageValue": 1,
-          "assetAccountId": 1,
-          "accumulatedDepreciationAccountId": 1,
-          "assetExpenseAccountId": 1,
-          "plAccountId": 1
+          "assetAccountId": "<createdId>",
+          "accumulatedDepreciationAccountId": "<createdId>",
+          "assetExpenseAccountId": "<createdId>",
+          "plAccountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -59,7 +59,7 @@
     },
     "GET__erp-apis_Assets__Id_": {
       "GET": [
-        "/erp-apis/Assets/{Id}",
+        "/erp-apis/Assets/<createdId>",
         {}
       ],
       "summary": "",
@@ -69,7 +69,7 @@
     },
     "DELETE__erp-apis_Assets__Id_": {
       "DELETE": [
-        "/erp-apis/Assets/{Id}",
+        "/erp-apis/Assets/<createdId>",
         {}
       ],
       "summary": "",

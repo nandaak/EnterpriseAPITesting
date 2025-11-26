@@ -36,16 +36,16 @@
       "PUT": [
         "/erp-apis/CustomerCategory",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string",
-          "receivableAccountId": 1,
-          "salesAccountId": 1,
-          "salesReturnAccountId": 1,
-          "discountAccountId": 1,
-          "pricePolicyId": 1,
-          "paymentTermId": 1,
+          "receivableAccountId": "<createdId>",
+          "salesAccountId": "<createdId>",
+          "salesReturnAccountId": "<createdId>",
+          "discountAccountId": "<createdId>",
+          "pricePolicyId": "<createdId>",
+          "paymentTermId": "<createdId>",
           "marketType": "B2B"
         }
       ],
@@ -86,7 +86,7 @@
     },
     "GET__erp-apis_CustomerCategory__Id_": {
       "GET": [
-        "/erp-apis/CustomerCategory/{Id}",
+        "/erp-apis/CustomerCategory/<createdId>",
         {}
       ],
       "summary": "",
@@ -96,7 +96,7 @@
     },
     "DELETE__erp-apis_CustomerCategory__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerCategory/{Id}",
+        "/erp-apis/CustomerCategory/<createdId>",
         {}
       ],
       "summary": "",

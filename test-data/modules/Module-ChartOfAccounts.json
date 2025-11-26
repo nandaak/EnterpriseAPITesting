@@ -150,16 +150,16 @@
       "PUT": [
         "/erp-apis/ChartOfAccounts/EditAccount",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "parentId": 1,
+          "parentId": "<createdId>",
           "natureId": "Debit",
           "costCenterConfig": "Mandatory",
           "hasNoChild": true,
-          "accountTypeId": 1,
-          "accountSectionId": 1,
-          "currencyId": 1,
+          "accountTypeId": "<createdId>",
+          "accountSectionId": "<createdId>",
+          "currencyId": "<createdId>",
           "tags": [
             1
           ],
@@ -171,9 +171,9 @@
           "periodicActiveTo": "2025-11-26T16:30:10.943Z",
           "costCenters": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "percentage": 1,
-              "costCenterId": 1
+              "costCenterId": "<createdId>"
             }
           ]
         }
@@ -185,7 +185,7 @@
       "PUT": [
         "/erp-apis/ChartOfAccounts/AccountActivation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "accountActivation": "Active",
           "periodicActiveFrom": "2025-11-26T16:30:10.943Z",
           "periodicActiveTo": "2025-11-26T16:30:10.943Z"

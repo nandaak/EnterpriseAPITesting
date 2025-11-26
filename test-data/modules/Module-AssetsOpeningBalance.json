@@ -40,19 +40,19 @@
       "PUT": [
         "/erp-apis/AssetsOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "assetOpeningBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
-          "accumulatedDepOpeningBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "assetOpeningBalanceJournalEntryLineId": "<createdId>",
+          "accumulatedDepOpeningBalanceJournalEntryLineId": "<createdId>",
           "details": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "purchaseValue": 1,
               "accumulatedDepreciation": 1,
               "purchaseDate": "2025-11-26T16:30:10.935Z",
               "depreciationStartDate": "2025-11-26T16:30:10.935Z",
               "lastDepreciationDate": "2025-11-26T16:30:10.935Z",
-              "locationId": 1
+              "locationId": "<createdId>"
             }
           ]
         }
@@ -62,7 +62,7 @@
     },
     "GET__erp-apis_AssetsOpeningBalance__id_": {
       "GET": [
-        "/erp-apis/AssetsOpeningBalance/{id}",
+        "/erp-apis/AssetsOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -72,7 +72,7 @@
     },
     "DELETE__erp-apis_AssetsOpeningBalance__id_": {
       "DELETE": [
-        "/erp-apis/AssetsOpeningBalance/{id}",
+        "/erp-apis/AssetsOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -82,7 +82,7 @@
     },
     "GET__erp-apis_AssetsOpeningBalance_GetAssetsOpeningBalanceViewById__id_": {
       "GET": [
-        "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/{id}",
+        "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -110,7 +110,7 @@
     },
     "POST__erp-apis_AssetsOpeningBalance__id__Unpost": {
       "POST": [
-        "/erp-apis/AssetsOpeningBalance/{id}/Unpost",
+        "/erp-apis/AssetsOpeningBalance/<createdId>/Unpost",
         {}
       ],
       "summary": "",
@@ -120,7 +120,7 @@
     },
     "POST__erp-apis_AssetsOpeningBalance__id__Post": {
       "POST": [
-        "/erp-apis/AssetsOpeningBalance/{id}/Post",
+        "/erp-apis/AssetsOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -130,7 +130,7 @@
     },
     "DELETE__erp-apis_AssetsOpeningBalance_Line__id_": {
       "DELETE": [
-        "/erp-apis/AssetsOpeningBalance/Line/{id}",
+        "/erp-apis/AssetsOpeningBalance/Line/<createdId>",
         {}
       ],
       "summary": "",

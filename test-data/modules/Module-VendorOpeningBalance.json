@@ -40,13 +40,13 @@
       "PUT": [
         "/erp-apis/VendorOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "openingBalanceJournalEntryLineId": "<createdId>",
           "amountNature": "Debit",
           "vendorOpeningBalanceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "vendorId": 1,
+              "id": "<createdId>",
+              "vendorId": "<createdId>",
               "balance": 1,
               "balanceType": {},
               "dueDates": [
@@ -61,7 +61,7 @@
     },
     "DELETE__erp-apis_VendorOpeningBalance__Id_": {
       "DELETE": [
-        "/erp-apis/VendorOpeningBalance/{Id}",
+        "/erp-apis/VendorOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -71,7 +71,7 @@
     },
     "GET__erp-apis_VendorOpeningBalance__Id_": {
       "GET": [
-        "/erp-apis/VendorOpeningBalance/{Id}",
+        "/erp-apis/VendorOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -99,7 +99,7 @@
     },
     "GET__erp-apis_VendorOpeningBalance_GetOpeningBalanceView__Id_": {
       "GET": [
-        "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/{Id}",
+        "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/<createdId>",
         {}
       ],
       "summary": "",
@@ -109,7 +109,7 @@
     },
     "POST__erp-apis_VendorOpeningBalance__Id__Post": {
       "POST": [
-        "/erp-apis/VendorOpeningBalance/{Id}/Post",
+        "/erp-apis/VendorOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -119,7 +119,7 @@
     },
     "POST__erp-apis_VendorOpeningBalance__Id__UnPost": {
       "POST": [
-        "/erp-apis/VendorOpeningBalance/{Id}/UnPost",
+        "/erp-apis/VendorOpeningBalance/<createdId>/UnPost",
         {}
       ],
       "summary": "",

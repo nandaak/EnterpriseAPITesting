@@ -2,7 +2,7 @@
   "Company": {
     "GET__erp-apis_Company__Id__GetCompanyAddress": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyAddress",
+        "/erp-apis/Company/<createdId>/GetCompanyAddress",
         {}
       ],
       "summary": "",
@@ -12,7 +12,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyContact": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyContact",
+        "/erp-apis/Company/<createdId>/GetCompanyContact",
         {}
       ],
       "summary": "",
@@ -22,7 +22,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyLegal": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyLegal",
+        "/erp-apis/Company/<createdId>/GetCompanyLegal",
         {}
       ],
       "summary": "",
@@ -32,7 +32,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyHierarchy": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyHierarchy",
+        "/erp-apis/Company/<createdId>/GetCompanyHierarchy",
         {}
       ],
       "summary": "",
@@ -68,7 +68,7 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyAddress",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "region": "string",
           "longitude": 1,
           "latitude": 1,
@@ -76,7 +76,7 @@
           "city": 1,
           "address": "string",
           "countryCode": "string",
-          "currencyId": 1
+          "currencyId": "<createdId>"
         }
       ],
       "summary": "",
@@ -86,7 +86,7 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyContact",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "nameEn": "string",
           "nameAr": "string",
           "companyLogo": "string",
@@ -108,13 +108,13 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyLegal",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "companyName": "string",
           "companyEmail": "string",
           "organizationUnit": "string",
           "organization": "string",
-          "taxId": "string",
-          "commercialId": "string",
+          "taxId": "<createdId>",
+          "commercialId": "<createdId>",
           "registeredAddress": "string",
           "businessCategory": "string",
           "streetName": "string",

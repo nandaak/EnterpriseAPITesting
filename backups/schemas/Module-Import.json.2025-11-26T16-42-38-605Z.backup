@@ -1,0 +1,79 @@
+{
+  "Import": {
+    "POST__erp-apis_Import": {
+      "POST": [
+        "/erp-apis/Import",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Import_Confirm__type_": {
+      "POST": [
+        "/erp-apis/Import/Confirm/{type}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "type"
+      ]
+    },
+    "GET__erp-apis_Import_ExcelWithErrors__type_": {
+      "GET": [
+        "/erp-apis/Import/ExcelWithErrors/{type}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "type"
+      ]
+    },
+    "GET__erp-apis_Import_GetRows": {
+      "GET": [
+        "/erp-apis/Import/GetRows",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "ImportType",
+        "SearchTerm",
+        "ShowFailed",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Import_DownloadTemplate__type_": {
+      "GET": [
+        "/erp-apis/Import/DownloadTemplate/{type}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "type",
+        "filters"
+      ]
+    },
+    "GET__erp-apis_Import_GetStatistics__type_": {
+      "GET": [
+        "/erp-apis/Import/GetStatistics/{type}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "type"
+      ]
+    },
+    "POST__erp-apis_Import_CancelUpload__type_": {
+      "POST": [
+        "/erp-apis/Import/CancelUpload/{type}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "type"
+      ]
+    }
+  }
+}

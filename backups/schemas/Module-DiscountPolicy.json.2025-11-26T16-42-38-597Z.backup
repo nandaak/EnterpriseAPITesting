@@ -1,0 +1,129 @@
+{
+  "DiscountPolicy": {
+    "GET__erp-apis_DiscountPolicy": {
+      "GET": [
+        "/erp-apis/DiscountPolicy",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_DiscountPolicy": {
+      "POST": [
+        "/erp-apis/DiscountPolicy",
+        {
+          "name": "string",
+          "nameAr": "string",
+          "discountPercentage": 1,
+          "userIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_DiscountPolicy": {
+      "PUT": [
+        "/erp-apis/DiscountPolicy",
+        {
+          "id": 1,
+          "name": "string",
+          "nameAr": "string",
+          "discountPercentage": 1,
+          "userIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_DiscountPolicy__Id_": {
+      "GET": [
+        "/erp-apis/DiscountPolicy/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_DiscountPolicy__Id_": {
+      "DELETE": [
+        "/erp-apis/DiscountPolicy/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_DiscountPolicy_View__Id_": {
+      "GET": [
+        "/erp-apis/DiscountPolicy/View/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_DiscountPolicy_DeleteUserLine__Id_": {
+      "DELETE": [
+        "/erp-apis/DiscountPolicy/DeleteUserLine/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_DiscountPolicy_Export": {
+      "GET": [
+        "/erp-apis/DiscountPolicy/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_DiscountPolicy_GetUsersAdvancedSearch": {
+      "GET": [
+        "/erp-apis/DiscountPolicy/GetUsersAdvancedSearch",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_DiscountPolicy_GetCurrentUserDiscountPolicy": {
+      "GET": [
+        "/erp-apis/DiscountPolicy/GetCurrentUserDiscountPolicy",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

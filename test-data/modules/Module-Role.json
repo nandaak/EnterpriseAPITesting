@@ -43,10 +43,10 @@
       "PUT": [
         "/erp-apis/Role",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "licenseId": 1,
+          "licenseId": "<createdId>",
           "isActive": true,
           "actionIds": [
             1
@@ -61,7 +61,7 @@
     },
     "DELETE__erp-apis_Role__Id_": {
       "DELETE": [
-        "/erp-apis/Role/{Id}",
+        "/erp-apis/Role/<createdId>",
         {}
       ],
       "summary": "",

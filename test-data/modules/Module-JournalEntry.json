@@ -99,15 +99,15 @@
       "PUT": [
         "/erp-apis/JournalEntry/Edit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "referenceNumber": "string",
           "journalDate": "2025-11-26T16:30:10.967Z",
           "description": "string",
           "isHeaderDescriptionCopied": true,
           "journalEntryLines": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "accountId": 1,
+              "id": "<createdId>",
+              "accountId": "<createdId>",
               "lineDescription": "string",
               "debitAmount": 1,
               "creditAmount": 1,
@@ -116,7 +116,7 @@
               "currencyRate": 1,
               "isVatLine": true,
               "hasVat": true,
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "createdOn": "2025-11-26T16:30:10.967Z",
               "costCenters": [
                 {}
@@ -125,8 +125,8 @@
           ],
           "journalEntryAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ]
@@ -139,7 +139,7 @@
       "PUT": [
         "/erp-apis/JournalEntry/ChangeStatus",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "status": "Draft"
         }
       ],
@@ -158,7 +158,7 @@
     },
     "DELETE__erp-apis_JournalEntry__Id_": {
       "DELETE": [
-        "/erp-apis/JournalEntry/{Id}",
+        "/erp-apis/JournalEntry/<createdId>",
         {}
       ],
       "summary": "",
@@ -196,7 +196,7 @@
     },
     "POST__erp-apis_JournalEntry__Id__Reverse": {
       "POST": [
-        "/erp-apis/JournalEntry/{Id}/Reverse",
+        "/erp-apis/JournalEntry/<createdId>/Reverse",
         {}
       ],
       "summary": "",
@@ -231,7 +231,7 @@
     },
     "POST__erp-apis_JournalEntry__Id__Unpost": {
       "POST": [
-        "/erp-apis/JournalEntry/{Id}/Unpost",
+        "/erp-apis/JournalEntry/<createdId>/Unpost",
         {}
       ],
       "summary": "",

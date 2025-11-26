@@ -94,37 +94,37 @@
       "PUT": [
         "/erp-apis/SalesOrder",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "orderDate": "2025-11-26T16:30:10.986Z",
           "expiryDate": "2025-11-26T16:30:10.986Z",
           "description": "string",
           "termsAndConditions": "string",
-          "customerId": 1,
-          "currencyId": 1,
+          "customerId": "<createdId>",
+          "currencyId": "<createdId>",
           "currencyRate": 1,
-          "salesmanId": "00000000-0000-0000-0000-000000000000",
-          "paymentTermId": 1,
-          "pricePolicyId": 1,
+          "salesmanId": "<createdId>",
+          "paymentTermId": "<createdId>",
+          "pricePolicyId": "<createdId>",
           "items": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
-              "taxId": 1,
+              "taxId": "<createdId>",
               "categoryType": {},
               "description": "string",
               "quantity": 1,
@@ -140,15 +140,15 @@
           ],
           "salesOrderAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ],
           "salesDiscounts": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "discountPolicyId": 1,
+              "id": "<createdId>",
+              "discountPolicyId": "<createdId>",
               "discountPolicyName": "string",
               "discountPercentage": 1,
               "isActive": true
@@ -161,7 +161,7 @@
     },
     "GET__erp-apis_SalesOrder__Id_": {
       "GET": [
-        "/erp-apis/SalesOrder/{Id}",
+        "/erp-apis/SalesOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -171,7 +171,7 @@
     },
     "DELETE__erp-apis_SalesOrder__Id_": {
       "DELETE": [
-        "/erp-apis/SalesOrder/{Id}",
+        "/erp-apis/SalesOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -207,7 +207,7 @@
     },
     "GET__erp-apis_SalesOrder_GetSalesOrderViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesOrder/GetSalesOrderViewById/{Id}",
+        "/erp-apis/SalesOrder/GetSalesOrderViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -267,7 +267,7 @@
     },
     "GET__erp-apis_SalesOrder__Id__GetSalesOrderToInvoice": {
       "GET": [
-        "/erp-apis/SalesOrder/{Id}/GetSalesOrderToInvoice",
+        "/erp-apis/SalesOrder/<createdId>/GetSalesOrderToInvoice",
         {}
       ],
       "summary": "",
@@ -277,7 +277,7 @@
     },
     "POST__erp-apis_SalesOrder__Id__Post": {
       "POST": [
-        "/erp-apis/SalesOrder/{Id}/Post",
+        "/erp-apis/SalesOrder/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -287,7 +287,7 @@
     },
     "DELETE__erp-apis_SalesOrder__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/SalesOrder/{Id}/DeleteLine",
+        "/erp-apis/SalesOrder/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",

@@ -37,15 +37,15 @@
       "PUT": [
         "/erp-apis/Treasury",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "branches": [
             "00000000-0000-0000-0000-000000000000"
           ],
-          "accountId": 1,
-          "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "accountId": "<createdId>",
+          "journalEntryLineId": "<createdId>",
           "accountOpeningBalance": 1,
           "openingBalance": 1
         }
@@ -83,7 +83,7 @@
     },
     "GET__erp-apis_Treasury__Id_": {
       "GET": [
-        "/erp-apis/Treasury/{Id}",
+        "/erp-apis/Treasury/<createdId>",
         {}
       ],
       "summary": "",
@@ -93,7 +93,7 @@
     },
     "DELETE__erp-apis_Treasury__Id_": {
       "DELETE": [
-        "/erp-apis/Treasury/{Id}",
+        "/erp-apis/Treasury/<createdId>",
         {}
       ],
       "summary": "",
@@ -103,7 +103,7 @@
     },
     "GET__erp-apis_Treasury_GetBalance__Id_": {
       "GET": [
-        "/erp-apis/Treasury/GetBalance/{Id}",
+        "/erp-apis/Treasury/GetBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -113,7 +113,7 @@
     },
     "GET__erp-apis_Treasury_View__Id_": {
       "GET": [
-        "/erp-apis/Treasury/View/{Id}",
+        "/erp-apis/Treasury/View/<createdId>",
         {}
       ],
       "summary": "",

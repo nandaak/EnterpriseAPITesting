@@ -26,7 +26,7 @@
     },
     "GET__erp-apis_SalesArea_GetSalesAreaById__Id_": {
       "GET": [
-        "/erp-apis/SalesArea/GetSalesAreaById/{Id}",
+        "/erp-apis/SalesArea/GetSalesAreaById/<createdId>",
         {}
       ],
       "summary": "",
@@ -36,7 +36,7 @@
     },
     "GET__erp-apis_SalesArea_GetSalesAreaViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesArea/GetSalesAreaViewById/{Id}",
+        "/erp-apis/SalesArea/GetSalesAreaViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -73,7 +73,7 @@
       "PUT": [
         "/erp-apis/SalesArea/EditSalesArea",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "latitude": 1,
           "longitude": 1,

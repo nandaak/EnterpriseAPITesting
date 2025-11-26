@@ -71,29 +71,29 @@
       "PUT": [
         "/erp-apis/PaymentIn",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "paymentInDate": "2025-11-26T16:30:10.972Z",
           "description": "string",
-          "paymentHubDetailId": "string",
-          "bankAccountId": 1,
-          "currencyId": 1,
+          "paymentHubDetailId": "<createdId>",
+          "bankAccountId": "<createdId>",
+          "currencyId": "<createdId>",
           "rate": 1,
-          "glAccountId": 1,
-          "taxId": 1,
+          "glAccountId": "<createdId>",
+          "taxId": "<createdId>",
           "isCustomerAdvancedPayment": true,
           "isAmountIncludesVat": true,
           "paymentInDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "amount": 1,
               "rate": 1,
-              "currencyId": 1,
-              "paymentMethodId": 1,
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "<createdId>",
               "paymentInMethodDetail": {},
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "notes": "string",
               "paymentInDetailCostCenters": [
                 {}
@@ -132,7 +132,7 @@
     },
     "GET__erp-apis_PaymentIn__Id_": {
       "GET": [
-        "/erp-apis/PaymentIn/{Id}",
+        "/erp-apis/PaymentIn/<createdId>",
         {}
       ],
       "summary": "",
@@ -142,7 +142,7 @@
     },
     "DELETE__erp-apis_PaymentIn__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentIn/{Id}",
+        "/erp-apis/PaymentIn/<createdId>",
         {}
       ],
       "summary": "",
@@ -152,7 +152,7 @@
     },
     "GET__erp-apis_PaymentIn_GetView__Id_": {
       "GET": [
-        "/erp-apis/PaymentIn/GetView/{Id}",
+        "/erp-apis/PaymentIn/GetView/<createdId>",
         {}
       ],
       "summary": "",
@@ -179,7 +179,7 @@
     },
     "DELETE__erp-apis_PaymentIn_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentIn/DeleteLine/{Id}",
+        "/erp-apis/PaymentIn/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -199,7 +199,7 @@
     },
     "POST__erp-apis_PaymentIn__Id__Post": {
       "POST": [
-        "/erp-apis/PaymentIn/{Id}/Post",
+        "/erp-apis/PaymentIn/<createdId>/Post",
         {}
       ],
       "summary": "",

@@ -132,52 +132,52 @@
       "PUT": [
         "/erp-apis/SalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:30:10.984Z",
           "invoiceDueDate": "2025-11-26T16:30:10.984Z",
           "description": "string",
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerName": "string",
           "customerCreditLimit": 1,
-          "pricePolicyId": 1,
-          "currencyId": 1,
+          "pricePolicyId": "<createdId>",
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "reference": "string",
-          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "salesManId": "<createdId>",
           "salesManName": "string",
           "sourceType": "Direct",
           "applicationSource": "ERP",
           "isLinkedToAdvancedPayment": true,
           "salesInvoiceSources": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
+              "sourceId": "<createdId>",
               "sourceCode": "string"
             }
           ],
           "salesInvoiceDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -188,15 +188,15 @@
               "discountAmount": 1,
               "isVatIncluded": true,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
-              "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
-              "pricePolicyDetailId": 1,
+              "itemStockBatchHeaderId": "<createdId>",
+              "pricePolicyDetailId": "<createdId>",
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
-              "sourceDetailId": "00000000-0000-0000-0000-000000000000",
-              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "sourceDetailId": "<createdId>",
+              "sourceId": "<createdId>",
               "isServiceItem": true,
               "salesInvoiceTracking": {},
               "salesDetailDiscounts": [
@@ -206,7 +206,7 @@
           ],
           "salesInvoiceBalances": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "dueAmount": 1,
               "dueDate": "2025-11-26T16:30:10.984Z",
               "dueBalance": 1
@@ -214,12 +214,12 @@
           ],
           "salesDiscounts": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "discountPolicyId": 1,
+              "id": "<createdId>",
+              "discountPolicyId": "<createdId>",
               "discountPolicyName": "string",
               "discountPercentage": 1,
               "isActive": true,
-              "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+              "salesOrderHeaderId": "<createdId>"
             }
           ]
         }
@@ -248,7 +248,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}",
+        "/erp-apis/SalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -258,7 +258,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}",
+        "/erp-apis/SalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -268,7 +268,7 @@
     },
     "GET__erp-apis_SalesInvoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesInvoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/SalesInvoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -405,7 +405,7 @@
     },
     "POST__erp-apis_SalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/SalesInvoice/{Id}/Post",
+        "/erp-apis/SalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -415,7 +415,7 @@
     },
     "POST__erp-apis_SalesInvoice__Id__UploadToZatca": {
       "POST": [
-        "/erp-apis/SalesInvoice/{Id}/UploadToZatca",
+        "/erp-apis/SalesInvoice/<createdId>/UploadToZatca",
         {}
       ],
       "summary": "",
@@ -442,7 +442,7 @@
     },
     "GET__erp-apis_SalesInvoice__SalesInvoiceId__GetSalesInvoicePaymentIntent": {
       "GET": [
-        "/erp-apis/SalesInvoice/{SalesInvoiceId}/GetSalesInvoicePaymentIntent",
+        "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoicePaymentIntent",
         {}
       ],
       "summary": "",
@@ -464,7 +464,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id__GetSalesInvoiceToReturnById": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}/GetSalesInvoiceToReturnById",
+        "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoiceToReturnById",
         {}
       ],
       "summary": "",
@@ -474,7 +474,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id__DeleteSalesInvoiceLine": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}/DeleteSalesInvoiceLine",
+        "/erp-apis/SalesInvoice/<createdId>/DeleteSalesInvoiceLine",
         {}
       ],
       "summary": "",
@@ -484,7 +484,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id__Test": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}/Test",
+        "/erp-apis/SalesInvoice/<createdId>/Test",
         {}
       ],
       "summary": "",
@@ -513,7 +513,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id__ZatcaLogs": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}/ZatcaLogs",
+        "/erp-apis/SalesInvoice/<createdId>/ZatcaLogs",
         {}
       ],
       "summary": "",

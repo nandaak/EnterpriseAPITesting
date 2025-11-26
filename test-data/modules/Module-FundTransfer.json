@@ -57,7 +57,7 @@
       "PUT": [
         "/erp-apis/FundTransfer",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:30:10.961Z",
           "description": "string",
           "reference": "string",
@@ -68,10 +68,10 @@
           "toBankAccount": "string",
           "fundTransferToDetail": {
             "paymentHubId": "Treasury",
-            "paymentHubDetailsId": 1,
-            "bankAccountId": 1,
-            "currencyId": 1,
-            "paymentMethodId": 1,
+            "paymentHubDetailsId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
+            "paymentMethodId": "<createdId>",
             "rate": 1,
             "currentBalance": 1,
             "amount": 1,
@@ -87,7 +87,7 @@
     },
     "GET__erp-apis_FundTransfer__Id_": {
       "GET": [
-        "/erp-apis/FundTransfer/{Id}",
+        "/erp-apis/FundTransfer/<createdId>",
         {}
       ],
       "summary": "",
@@ -97,7 +97,7 @@
     },
     "DELETE__erp-apis_FundTransfer__Id_": {
       "DELETE": [
-        "/erp-apis/FundTransfer/{Id}",
+        "/erp-apis/FundTransfer/<createdId>",
         {}
       ],
       "summary": "",
@@ -125,7 +125,7 @@
     },
     "GET__erp-apis_FundTransfer__Id__View": {
       "GET": [
-        "/erp-apis/FundTransfer/{Id}/View",
+        "/erp-apis/FundTransfer/<createdId>/View",
         {}
       ],
       "summary": "",
@@ -135,7 +135,7 @@
     },
     "POST__erp-apis_FundTransfer__Id__Post": {
       "POST": [
-        "/erp-apis/FundTransfer/{Id}/Post",
+        "/erp-apis/FundTransfer/<createdId>/Post",
         {}
       ],
       "summary": "",

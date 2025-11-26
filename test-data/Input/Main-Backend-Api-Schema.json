@@ -34,7 +34,7 @@
         "PUT": [
           "/erp-apis/DiscountPolicy",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "discountPercentage": 1,
@@ -44,15 +44,15 @@
           }
         ],
         "DELETE": [
-          "/erp-apis/DiscountPolicy/15",
+          "/erp-apis/DiscountPolicy/<createdId>",
           {}
         ],
         "View": [
-          "/erp-apis/DiscountPolicy/2",
+          "/erp-apis/DiscountPolicy/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/DiscountPolicy/19",
+          "/erp-apis/DiscountPolicy/<createdId>",
           {}
         ]
       },
@@ -95,7 +95,7 @@
         "PUT": [
           "/erp-apis/FinancialYear",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "code": "string"
           }
@@ -105,7 +105,7 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/FinancialYear/1",
+          "/erp-apis/FinancialYear/<createdId>",
           {}
         ],
         "LookUP": [
@@ -180,15 +180,15 @@
         "PUT": [
           "/erp-apis/CurrencyConversion",
           {
-            "id": 1,
-            "fromCurrencyId": 1,
+            "id": "<createdId>",
+            "fromCurrencyId": "<createdId>",
             "fromCurrencyRate": 1,
-            "toCurrencyId": 1,
+            "toCurrencyId": "<createdId>",
             "note": "string"
           }
         ],
         "DELETE": [
-          "/erp-apis/CurrencyConversion/101",
+          "/erp-apis/CurrencyConversion/<createdId>",
           {}
         ]
       },
@@ -206,12 +206,12 @@
         "PUT": [
           "/erp-apis/Tag",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "code": "string",
             "modulesId": [
-              1
+              "<createdId>"
             ],
             "isActive": true
           }
@@ -392,16 +392,16 @@
         "PUT": [
           "/erp-apis/ChartOfAccounts/EditAccount",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
-            "parentId": 1,
+            "parentId": "<createdId>",
             "natureId": "Debit",
             "costCenterConfig": "Mandatory",
             "hasNoChild": true,
-            "accountTypeId": 1,
-            "accountSectionId": 1,
-            "currencyId": 1,
+            "accountTypeId": "<createdId>",
+            "accountSectionId": "<createdId>",
+            "currencyId": "<createdId>",
             "tags": [
               1
             ],
@@ -413,9 +413,9 @@
             "periodicActiveTo": "2025-11-26T16:30:10.884Z",
             "costCenters": [
               {
-                "id": 1,
+                "id": "<createdId>",
                 "percentage": 1,
-                "costCenterId": 1
+                "costCenterId": "<createdId>"
               }
             ]
           }
@@ -439,10 +439,10 @@
         "PUT": [
           "/erp-apis/CostCenter/EditCostCenter",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
-            "parentId": 1,
+            "parentId": "<createdId>",
             "isDetail": true,
             "isActive": true
           }
@@ -492,15 +492,15 @@
         "PUT": [
           "/erp-apis/JournalEntry/Edit",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "referenceNumber": "string",
             "journalDate": "2025-11-26T16:30:10.884Z",
             "description": "string",
             "isHeaderDescriptionCopied": true,
             "journalEntryLines": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "accountId": 1,
+                "id": "<createdId>",
+                "accountId": "<createdId>",
                 "lineDescription": "string",
                 "debitAmount": 1,
                 "creditAmount": 1,
@@ -509,7 +509,7 @@
                 "currencyRate": 1,
                 "isVatLine": true,
                 "hasVat": true,
-                "currencyId": 1,
+                "currencyId": "<createdId>",
                 "createdOn": "2025-11-26T16:30:10.884Z",
                 "costCenters": [
                   {}
@@ -518,8 +518,8 @@
             ],
             "journalEntryAttachments": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "attachmentId": "string",
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
                 "name": "string"
               }
             ]
@@ -637,21 +637,21 @@
         "PUT": [
           "/erp-apis/Treasury",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
-            "currencyId": 1,
+            "currencyId": "<createdId>",
             "branches": [
               "00000000-0000-0000-0000-000000000000"
             ],
-            "accountId": 1,
-            "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "accountId": "<createdId>",
+            "journalEntryLineId": "<createdId>",
             "accountOpeningBalance": 1,
             "openingBalance": 1
           }
         ],
         "DELETE": [
-          "/erp-apis/Treasury/35",
+          "/erp-apis/Treasury/<createdId>",
           {
             "Id": 35
           }
@@ -695,7 +695,7 @@
         "PUT": [
           "/erp-apis/Bank/Edit",
           {
-            "id": 1,
+            "id": "<createdId>",
             "code": "string",
             "shortName": "string",
             "contactName": "string",
@@ -707,11 +707,11 @@
             "fax": "string",
             "bankAccounts": [
               {
-                "id": 1,
+                "id": "<createdId>",
                 "accountNumber": "string",
-                "glAccountId": 1,
+                "glAccountId": "<createdId>",
                 "iban": "string",
-                "currencyId": 1,
+                "currencyId": "<createdId>",
                 "accountOpeningBalance": 1,
                 "openingBalance": 1,
                 "userPermission": [
@@ -725,13 +725,13 @@
           }
         ],
         "DELETE": [
-          "/erp-apis/Bank/50",
+          "/erp-apis/Bank/<createdId>",
           {
             "Id": 50
           }
         ],
         "View": [
-          "/erp-apis/Bank/View/89",
+          "/erp-apis/Bank/View/<createdId>",
           {
             "id": 89,
             "code": "3XOI2",
@@ -778,7 +778,7 @@
           {}
         ],
         "View": [
-          "/erp-apis/PaymentMethod/71",
+          "/erp-apis/PaymentMethod/<createdId>",
           {}
         ]
       },
@@ -801,12 +801,12 @@
         "PUT": [
           "/erp-apis/PaymentTerms",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "paymentTermLines": [
               {
-                "id": 1,
+                "id": "<createdId>",
                 "dueTermValue": 1,
                 "afterValue": 1,
                 "afterPeriod": {},
@@ -816,17 +816,17 @@
           }
         ],
         "DELETE": [
-          "/erp-apis/PaymentTerms/33",
+          "/erp-apis/PaymentTerms/<createdId>",
           {
             "Id": 33
           }
         ],
         "View": [
-          "/erp-apis/PaymentTerms/View/39",
+          "/erp-apis/PaymentTerms/View/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/PaymentTerms/39",
+          "/erp-apis/PaymentTerms/<createdId>",
           {}
         ]
       }
@@ -922,29 +922,29 @@
         "PUT": [
           "/erp-apis/PaymentIn",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "paymentInDate": "2025-11-26T16:30:10.884Z",
             "description": "string",
-            "paymentHubDetailId": "string",
-            "bankAccountId": 1,
-            "currencyId": 1,
+            "paymentHubDetailId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
             "rate": 1,
-            "glAccountId": 1,
-            "taxId": 1,
+            "glAccountId": "<createdId>",
+            "taxId": "<createdId>",
             "isCustomerAdvancedPayment": true,
             "isAmountIncludesVat": true,
             "paymentInDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "amount": 1,
                 "rate": 1,
-                "currencyId": 1,
-                "paymentMethodId": 1,
+                "currencyId": "<createdId>",
+                "paymentMethodId": "<createdId>",
                 "paymentMethodType": {},
                 "paidBy": {},
-                "paidByDetailsId": "string",
+                "paidByDetailsId": "<createdId>",
                 "paymentInMethodDetail": {},
-                "glAccountId": 1,
+                "glAccountId": "<createdId>",
                 "notes": "string",
                 "paymentInDetailCostCenters": [
                   {}
@@ -1004,26 +1004,26 @@
         "PUT": [
           "/erp-apis/PaymentOut",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "paymentOutDate": "2025-11-26T16:30:10.884Z",
             "description": "string",
-            "paymentHubDetailId": "string",
-            "bankAccountId": 1,
-            "currencyId": 1,
+            "paymentHubDetailId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
             "rate": 1,
-            "glAccountId": 1,
+            "glAccountId": "<createdId>",
             "paymentOutDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "amount": 1,
                 "rate": 1,
-                "currencyId": 1,
-                "paymentMethodId": 1,
+                "currencyId": "<createdId>",
+                "paymentMethodId": "<createdId>",
                 "paymentMethodType": {},
                 "paidBy": {},
-                "paidByDetailsId": "string",
+                "paidByDetailsId": "<createdId>",
                 "paymentOutMethodDetail": {},
-                "glAccountId": 1,
+                "glAccountId": "<createdId>",
                 "notes": "string",
                 "isVatLine": true,
                 "hasVat": true,
@@ -1077,7 +1077,7 @@
         "PUT": [
           "/erp-apis/FundTransfer",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "date": "2025-11-26T16:30:10.884Z",
             "description": "string",
             "reference": "string",
@@ -1088,10 +1088,10 @@
             "toBankAccount": "string",
             "fundTransferToDetail": {
               "paymentHubId": "Treasury",
-              "paymentHubDetailsId": 1,
-              "bankAccountId": 1,
-              "currencyId": 1,
-              "paymentMethodId": 1,
+              "paymentHubDetailsId": "<createdId>",
+              "bankAccountId": "<createdId>",
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
               "rate": 1,
               "currentBalance": 1,
               "amount": 1,
@@ -1167,25 +1167,25 @@
         "PUT": [
           "/erp-apis/CustomerCategory",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "code": "string",
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1,
-            "pricePolicyId": 1,
-            "paymentTermId": 1,
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>",
+            "pricePolicyId": "<createdId>",
+            "paymentTermId": "<createdId>",
             "marketType": "B2B"
           }
         ],
         "DELETE": [
-          "/erp-apis/CustomerCategory/32",
+          "/erp-apis/CustomerCategory/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/CustomerCategory/37",
+          "/erp-apis/CustomerCategory/<createdId>",
           {}
         ]
       },
@@ -1265,10 +1265,10 @@
         "PUT": [
           "/erp-apis/Customer",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
-            "categoryId": 1,
+            "categoryId": "<createdId>",
             "marketType": "B2B",
             "birthdate": "2025-11-26T16:30:10.884Z",
             "photo": "string",
@@ -1289,11 +1289,11 @@
               "contactPersonName": "string"
             },
             "financialInfo": {
-              "paymentTermId": 1,
-              "pricePolicyId": 1,
+              "paymentTermId": "<createdId>",
+              "pricePolicyId": "<createdId>",
               "allowCreditLimit": true,
               "creditLimit": 1,
-              "currencyId": 1
+              "currencyId": "<createdId>"
             },
             "legalInfo": {
               "commercialRegistrationNumber": "string",
@@ -1303,22 +1303,22 @@
               "cityName": "string",
               "postalZone": "string",
               "countrySubEntity": "string",
-              "countryId": "string",
+              "countryId": "<createdId>",
               "buildingNumber": "string",
               "additionalStreetName": "string",
               "registrationName": "string",
-              "otherID": "string",
+              "otherID": "<createdId>",
               "nationalNumber": "string"
             },
             "accountingInfo": {
-              "receivableAccountId": 1,
-              "salesAccountId": 1,
-              "salesReturnAccountId": 1,
-              "discountAccountId": 1
+              "receivableAccountId": "<createdId>",
+              "salesAccountId": "<createdId>",
+              "salesReturnAccountId": "<createdId>",
+              "discountAccountId": "<createdId>"
             },
             "customerAddresses": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "longitude": 1,
                 "latitude": 1,
                 "errorRadius": 1
@@ -1326,21 +1326,21 @@
             ],
             "customerMarketPlaces": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-                "salesManId": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "<createdId>",
+                "salesManId": "<createdId>",
                 "address": "string"
               }
             ]
           }
         ],
         "DELETE": [
-          "/erp-apis/Customer/15",
+          "/erp-apis/Customer/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/Customer/14",
+          "/erp-apis/Customer/<createdId>",
           {}
         ]
       },
@@ -1355,7 +1355,7 @@
         "PUT": [
           "/erp-apis/SalesTeam/EditSalesTeamGeneral",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string"
           }
@@ -1388,18 +1388,18 @@
         "PUT": [
           "/erp-apis/SalesMan",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "salesTeamId": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
+            "salesTeamId": "<createdId>",
             "salesPhone": "string",
             "name": "string",
             "nameAr": "string",
             "isActive": true,
-            "userId": "00000000-0000-0000-0000-000000000000",
+            "userId": "<createdId>",
             "branchesIds": [
               "00000000-0000-0000-0000-000000000000"
             ],
-            "paymentTermId": 1,
-            "treasuryId": 1,
+            "paymentTermId": "<createdId>",
+            "treasuryId": "<createdId>",
             "paymentMethods": [
               1
             ]
@@ -1439,20 +1439,20 @@
         "PUT": [
           "/erp-apis/PricePolicy",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "policySource": "Manual",
             "policyItemsList": [
               {
-                "id": 1,
-                "itemId": 1,
-                "itemVariantId": 1,
-                "uomId": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
                 "isVatApplied": true,
                 "isSellingPriceIncludeVat": true,
                 "taxRatio": 1,
-                "taxId": 1,
+                "taxId": "<createdId>",
                 "price": 1,
                 "priceWithVat": 1
               }
@@ -1460,7 +1460,7 @@
           }
         ],
         "DELETE": [
-          "/erp-apis/PricePolicy/20",
+          "/erp-apis/PricePolicy/<createdId>",
           {}
         ],
         "LookUP": [
@@ -1483,7 +1483,7 @@
         "PUT": [
           "/erp-apis/MarketPlace",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "status": "Active",
@@ -1517,11 +1517,11 @@
         "PUT": [
           "/erp-apis/SalesProject",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "description": "string",
-            "customerId": 1,
+            "customerId": "<createdId>",
             "startDate": "2025-11-26T16:30:10.885Z",
             "endDate": "2025-11-26T16:30:10.885Z",
             "contractValue": 1
@@ -1564,13 +1564,13 @@
         "PUT": [
           "/erp-apis/CustomerOpeningBalance",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
+            "openingBalanceJournalEntryLineId": "<createdId>",
             "amountNature": "Debit",
             "customerOpeningBalanceDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "customerId": 1,
+                "id": "<createdId>",
+                "customerId": "<createdId>",
                 "balance": 1,
                 "balanceType": {},
                 "dueDates": [
@@ -1661,37 +1661,37 @@
         "PUT": [
           "/erp-apis/SalesOrder",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "orderDate": "2025-11-26T16:30:10.885Z",
             "expiryDate": "2025-11-26T16:30:10.885Z",
             "description": "string",
             "termsAndConditions": "string",
-            "customerId": 1,
-            "currencyId": 1,
+            "customerId": "<createdId>",
+            "currencyId": "<createdId>",
             "currencyRate": 1,
-            "salesmanId": "00000000-0000-0000-0000-000000000000",
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "salesmanId": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "items": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "barCode": "string",
-                "barCodeId": 1,
-                "itemId": 1,
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
                 "itemCode": "string",
                 "itemName": "string",
-                "itemVariantId": 1,
+                "itemVariantId": "<createdId>",
                 "itemVariantCode": "string",
                 "itemVariantNameEn": "string",
                 "itemVariantNameAr": "string",
-                "categoryId": 1,
+                "categoryId": "<createdId>",
                 "itemCategoryNameAr": "string",
                 "itemCategoryNameEn": "string",
-                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomId": "<createdId>",
                 "uomCode": "string",
                 "uomNameAr": "string",
                 "uomNameEn": "string",
-                "taxId": 1,
+                "taxId": "<createdId>",
                 "categoryType": {},
                 "description": "string",
                 "quantity": 1,
@@ -1707,15 +1707,15 @@
             ],
             "salesOrderAttachments": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "attachmentId": "string",
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
                 "name": "string"
               }
             ],
             "salesDiscounts": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "discountPolicyId": 1,
+                "id": "<createdId>",
+                "discountPolicyId": "<createdId>",
                 "discountPolicyName": "string",
                 "discountPercentage": 1,
                 "isActive": true
@@ -1840,52 +1840,52 @@
         "PUT": [
           "/erp-apis/SalesInvoice",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "invoiceDate": "2025-11-26T16:30:10.885Z",
             "invoiceDueDate": "2025-11-26T16:30:10.885Z",
             "description": "string",
-            "warehouseId": 1,
+            "warehouseId": "<createdId>",
             "warehouseName": "string",
-            "customerId": 1,
+            "customerId": "<createdId>",
             "customerName": "string",
             "customerCreditLimit": 1,
-            "pricePolicyId": 1,
-            "currencyId": 1,
+            "pricePolicyId": "<createdId>",
+            "currencyId": "<createdId>",
             "currencyName": "string",
             "currencyRate": 1,
-            "paymentTermId": 1,
+            "paymentTermId": "<createdId>",
             "reference": "string",
-            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "salesManId": "<createdId>",
             "salesManName": "string",
             "sourceType": "Direct",
             "applicationSource": "ERP",
             "isLinkedToAdvancedPayment": true,
             "salesInvoiceSources": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
+                "sourceId": "<createdId>",
                 "sourceCode": "string"
               }
             ],
             "salesInvoiceDetails": [
               {
                 "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "barCode": "string",
-                "barCodeId": 1,
-                "itemId": 1,
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
                 "itemCode": "string",
                 "itemName": "string",
-                "itemVariantId": 1,
+                "itemVariantId": "<createdId>",
                 "itemVariantCode": "string",
                 "itemVariantNameEn": "string",
                 "itemVariantNameAr": "string",
-                "categoryId": 1,
+                "categoryId": "<createdId>",
                 "itemCategoryNameAr": "string",
                 "itemCategoryNameEn": "string",
                 "categoryType": {},
                 "description": "string",
-                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomId": "<createdId>",
                 "uomCode": "string",
                 "uomNameAr": "string",
                 "uomNameEn": "string",
@@ -1896,15 +1896,15 @@
                 "discountAmount": 1,
                 "isVatIncluded": true,
                 "vatPercentage": 1,
-                "taxId": 1,
+                "taxId": "<createdId>",
                 "notes": "string",
-                "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
-                "pricePolicyDetailId": 1,
+                "itemStockBatchHeaderId": "<createdId>",
+                "pricePolicyDetailId": "<createdId>",
                 "invoiceEntryMode": {},
                 "trackingType": {},
                 "hasExpiryDate": true,
-                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
-                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceDetailId": "<createdId>",
+                "sourceId": "<createdId>",
                 "isServiceItem": true,
                 "salesInvoiceTracking": {},
                 "salesDetailDiscounts": [
@@ -1914,7 +1914,7 @@
             ],
             "salesInvoiceBalances": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "dueAmount": 1,
                 "dueDate": "2025-11-26T16:30:10.885Z",
                 "dueBalance": 1
@@ -1922,12 +1922,12 @@
             ],
             "salesDiscounts": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "discountPolicyId": 1,
+                "id": "<createdId>",
+                "discountPolicyId": "<createdId>",
                 "discountPolicyName": "string",
                 "discountPercentage": 1,
                 "isActive": true,
-                "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+                "salesOrderHeaderId": "<createdId>"
               }
             ]
           }
@@ -1975,14 +1975,14 @@
         "PUT": [
           "/erp-apis/ReturnSalesInvoice",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "returnInvoiceDate": "2025-11-26T16:30:10.885Z",
             "description": "string",
-            "warehouseId": 1,
+            "warehouseId": "<createdId>",
             "warehouseName": "string",
             "returnSalesInvoiceDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "toReturnQuantity": 1
               }
             ]
@@ -2025,22 +2025,22 @@
         "PUT": [
           "/erp-apis/SalesProjectInvoice",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "invoiceDate": "2025-11-26T16:30:10.885Z",
             "code": "string",
             "description": "string",
-            "taxId": 1,
+            "taxId": "<createdId>",
             "vatPercentage": 1,
-            "salesProjectId": "00000000-0000-0000-0000-000000000000",
+            "salesProjectId": "<createdId>",
             "actualExecutionValue": 1,
             "taxableTotal": 1,
             "items": [
               {
-                "id": 1,
+                "id": "<createdId>",
                 "itemName": "string",
                 "itemValue": 1,
                 "itemType": {},
-                "taxId": 1,
+                "taxId": "<createdId>",
                 "taxPercentage": 1,
                 "taxAmount": 1,
                 "total": 1
@@ -2163,24 +2163,24 @@
         "PUT": [
           "/erp-apis/VendorCategory",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
-            "payableAccountId": 1,
-            "purchaseAccountId": 1,
-            "purchaseReturnAccountId": 1,
-            "discountAccountId": 1,
-            "pricePolicyId": 1,
-            "paymentTermId": 1,
+            "payableAccountId": "<createdId>",
+            "purchaseAccountId": "<createdId>",
+            "purchaseReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>",
+            "pricePolicyId": "<createdId>",
+            "paymentTermId": "<createdId>",
             "marketType": "B2B"
           }
         ],
         "DELETE": [
-          "/erp-apis/VendorCategory/24",
+          "/erp-apis/VendorCategory/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/VendorCategory/48",
+          "/erp-apis/VendorCategory/<createdId>",
           {}
         ]
       },
@@ -2239,14 +2239,14 @@
         "PUT": [
           "/erp-apis/Vendor",
           {
-            "id": 1,
+            "id": "<createdId>",
             "name": "string",
             "nameAr": "string",
             "photo": "string",
             "birthDate": "2025-11-26T16:30:10.885Z",
-            "vendorCategoryId": 1,
+            "vendorCategoryId": "<createdId>",
             "vendorInformation": {
-              "id": 1,
+              "id": "<createdId>",
               "contactPhone": "string",
               "contactMobileCode": "string",
               "contactMobile": "string",
@@ -2260,33 +2260,33 @@
               "contactPersonEmail": "string"
             },
             "vendorAddress": {
-              "id": 1,
+              "id": "<createdId>",
               "state": "string",
               "street": "string",
               "longitude": 1,
               "latitude": 1,
               "radius": 1,
-              "countryId": "string",
-              "cityId": 1
+              "countryId": "<createdId>",
+              "cityId": "<createdId>"
             },
             "vendorLegal": {
-              "id": 1,
-              "taxId": "string",
-              "commercialId": "string"
+              "id": "<createdId>",
+              "taxId": "<createdId>",
+              "commercialId": "<createdId>"
             },
             "vendorFinancial": {
-              "id": 1,
-              "paymentTermId": 1,
-              "pricePolicyId": 1,
+              "id": "<createdId>",
+              "paymentTermId": "<createdId>",
+              "pricePolicyId": "<createdId>",
               "creditLimit": 1,
-              "currencyId": 1
+              "currencyId": "<createdId>"
             },
             "vendorAccounting": {
-              "id": 1,
-              "payableAccountId": 1,
-              "purchaseAccountId": 1,
-              "purchaseReturnAccountId": 1,
-              "discountAccountId": 1
+              "id": "<createdId>",
+              "payableAccountId": "<createdId>",
+              "purchaseAccountId": "<createdId>",
+              "purchaseReturnAccountId": "<createdId>",
+              "discountAccountId": "<createdId>"
             },
             "vendorTagIds": [
               1
@@ -2298,11 +2298,11 @@
           {}
         ],
         "View": [
-          "/erp-apis/Vendor/View/24",
+          "/erp-apis/Vendor/View/<createdId>",
           {}
         ],
         "EDIT": [
-          "/erp-apis/Vendor/24",
+          "/erp-apis/Vendor/<createdId>",
           {}
         ]
       }
@@ -2382,34 +2382,34 @@
         "PUT": [
           "/erp-apis/PurchaseOrder",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "orderDate": "2025-11-26T16:30:10.885Z",
             "description": "string",
             "termsAndCondition": "string",
-            "vendorId": 1,
+            "vendorId": "<createdId>",
             "vendorName": "string",
-            "currencyId": 1,
+            "currencyId": "<createdId>",
             "currencyName": "string",
             "currencyRate": 1,
-            "paymentTermId": 1,
+            "paymentTermId": "<createdId>",
             "purchaseOrderDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "barCode": "string",
-                "barCodeId": 1,
-                "itemId": 1,
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
                 "itemCode": "string",
                 "itemName": "string",
-                "itemVariantId": 1,
+                "itemVariantId": "<createdId>",
                 "itemVariantCode": "string",
                 "itemVariantNameEn": "string",
                 "itemVariantNameAr": "string",
-                "categoryId": 1,
+                "categoryId": "<createdId>",
                 "itemCategoryNameAr": "string",
                 "itemCategoryNameEn": "string",
                 "categoryType": {},
                 "description": "string",
-                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomId": "<createdId>",
                 "uomCode": "string",
                 "uomNameAr": "string",
                 "uomNameEn": "string",
@@ -2418,7 +2418,7 @@
                 "discountPercentage": 1,
                 "discountAmount": 1,
                 "vatPercentage": 1,
-                "taxId": 1,
+                "taxId": "<createdId>",
                 "notes": "string",
                 "trackingType": {},
                 "hasExpiryDate": true
@@ -2426,8 +2426,8 @@
             ],
             "purchaseOrderAttachments": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "attachmentId": "string",
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
                 "name": "string"
               }
             ]
@@ -2501,26 +2501,26 @@
         "PUT": [
           "/erp-apis/Invoice/GetInvoiceViewById/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
           {
-            "id": "d1e94ec2-22bc-4855-2e60-08de0c2877c6",
+            "id": "<createdId>",
             "invoiceDate": "2025-10-16T12:04:10",
             "description": "456654",
-            "warehouseId": 16,
+            "warehouseId": "<createdId>",
             "warehouseName": "مخزن رئيسي 1",
-            "vendorId": 15,
+            "vendorId": "<createdId>",
             "vendorName": "sayed",
             "currencyRate": 1,
-            "paymentTermId": 11,
+            "paymentTermId": "<createdId>",
             "reference": "58",
-            "currencyId": 4,
+            "currencyId": "<createdId>",
             "currencyName": "Saudi Riyal",
             "invoiceDetails": [
               {
-                "id": "15079822-12b4-4bbb-309c-08de0c2877d6",
+                "id": "<createdId>",
                 "itemsUOM": [
                   {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                    "itemUOMId": "<createdId>",
+                    "itemId": "<createdId>",
+                    "uomId": "<createdId>",
                     "uomCode": "G8roW",
                     "uomNameAr": "وحدة القياس الأساسية",
                     "uomNameEn": "BaseUOM",
@@ -2530,13 +2530,13 @@
                 "barCode": "",
                 "bardCodeId": null,
                 "description": "(2) Phone--",
-                "itemId": 25,
+                "itemId": "<createdId>",
                 "itemCode": "2",
-                "itemVariantId": 101,
+                "itemVariantId": "<createdId>",
                 "discount": 0,
                 "discountAmount": 0,
                 "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "uomId": "<createdId>",
                 "taxRatio": "",
                 "quantity": "10",
                 "cost": "10000",
@@ -2548,9 +2548,9 @@
                 "trackingTypeAr": "",
                 "discountPercentage": 0,
                 "vatPercentage": 15,
-                "taxId": 137,
+                "taxId": "<createdId>",
                 "itemName": "2-Phone--",
-                "categoryId": 38,
+                "categoryId": "<createdId>",
                 "itemCategoryNameAr": "الفئة الإفتراضية",
                 "itemCategoryNameEn": "Default category",
                 "categoryType": "Storable",
@@ -2567,11 +2567,11 @@
                 "subTotal": 100000,
                 "isServiceItem": false,
                 "invoiceTracking": {
-                  "id": "abfdbda1-78e3-4252-9aa6-08de0c2877e7",
+                  "id": "<createdId>",
                   "vendorBatchNo": "",
                   "expireDate": null,
                   "systemPatchNo": "",
-                  "serialId": "",
+                  "serialId": "<createdId>",
                   "trackingType": "NoTracking",
                   "selectedValue": "",
                   "hasExpiryDate": false
@@ -2612,12 +2612,12 @@
         "PUT": [
           "/erp-apis/ReturnInvoice",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
+            "id": "<createdId>",
             "returnInvoiceDate": "2025-11-26T16:30:10.886Z",
             "description": "string",
             "returnInvoiceDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
                 "toReturnQuantity": 1
               }
             ]
@@ -2713,10 +2713,10 @@
         "PUT": [
           "/inventory-apis/ReOrderRules",
           {
-            "id": 9,
-            "itemVariantId": 101,
+            "id": "<createdId>",
+            "itemVariantId": "<createdId>",
             "itemsDisplaylabel": "-",
-            "warehouseId": 16,
+            "warehouseId": "<createdId>",
             "warehouseDisplaylabel": "مخزن رئيسي 1",
             "balance": 3651,
             "minQty": "10",
@@ -2746,12 +2746,12 @@
         "PUT": [
           "/inventory-apis/Item/EditGeneralData",
           {
-            "id": 358,
+            "id": "<createdId>",
             "code": "its_00017",
             "name": "non",
             "nameAr": "non",
             "photo": null,
-            "categoryId": 38,
+            "categoryId": "<createdId>",
             "tags": [],
             "countryId": null,
             "taxId": null,
@@ -2767,11 +2767,11 @@
           }
         ],
         "DELETE": [
-          "/inventory-apis/Item/358",
+          "/inventory-apis/Item/<createdId>",
           {}
         ],
         "LookUP": [
-          "/inventory-apis/Item/GetGeneralData/78",
+          "/inventory-apis/Item/GetGeneralData/<createdId>",
           {}
         ]
       },
@@ -2822,12 +2822,12 @@
         "PUT": [
           "/inventory-apis/UOMCategories/Edit",
           {
-            "id": 38,
+            "id": "<createdId>",
             "nameAr": "nonnnn",
             "nameEn": "nonnnn",
             "unitOfMeasures": [
               {
-                "id": "8ba4b86a-8a37-417a-a1f5-e06861184988",
+                "id": "<createdId>",
                 "code": "",
                 "nameAr": "سنتيمتر (سم)",
                 "nameEn": "Centimeter (cm)",
@@ -2838,12 +2838,12 @@
                 "calculation": "1",
                 "reversal": "1",
                 "BaseReversal": 1,
-                "uomCategoryId": 0,
-                "systemUnitOfMeasureId": 3,
-                "fromUnitOfMeasureId": ""
+                "uomCategoryId": "<createdId>",
+                "systemUnitOfMeasureId": "<createdId>",
+                "fromUnitOfMeasureId": "<createdId>"
               },
               {
-                "id": "cc969dfa-47a0-42fa-b34f-c96818e8791f",
+                "id": "<createdId>",
                 "code": "odeGa",
                 "nameAr": "متر (م)",
                 "nameEn": "Meter (m)",
@@ -2856,12 +2856,12 @@
                 "reversalShow": "1 / 1 (1)",
                 "reversal": "1 / 1 (1)",
                 "BaseReversalShow": "1 / 1 (1)",
-                "systemUnitOfMeasureCategoryId": 1,
+                "systemUnitOfMeasureCategoryId": "<createdId>",
                 "isBaseUnit": false,
-                "uomCategoryId": 38,
+                "uomCategoryId": "<createdId>",
                 "systemUnitOfMeasureName": "Meter (m)",
-                "systemUnitOfMeasureId": 1,
-                "fromUnitOfMeasureId": "8ba4b86a-8a37-417a-a1f5-e06861184988",
+                "systemUnitOfMeasureId": "<createdId>",
+                "fromUnitOfMeasureId": "<createdId>",
                 "fromUnitOfMeasureName": "Centimeter (cm)"
               }
             ]
@@ -2872,7 +2872,7 @@
           {}
         ],
         "View": [
-          "/inventory-apis/UOMCategories/GetUOMCategoryWithUomsById/2",
+          "/inventory-apis/UOMCategories/GetUOMCategoryWithUomsById/<createdId>",
           {}
         ],
         "EDIT": [
@@ -2894,12 +2894,12 @@
         "PUT": [
           "/inventory-apis/AttributeGroup/EditAttributeGroupWithAttributeValues",
           {
-            "id": 22,
+            "id": "<createdId>",
             "nameAr": "mon",
             "nameEn": "mon",
             "ItemAttributes": [
               {
-                "id": 58,
+                "id": "<createdId>",
                 "nameAr": "1000",
                 "nameEn": "50",
                 "isActive": true
@@ -2908,7 +2908,7 @@
           }
         ],
         "DELETE": [
-          "/inventory-apis/AttributeGroup/22",
+          "/inventory-apis/AttributeGroup/<createdId>",
           {}
         ],
         "LookUP": [
@@ -2945,7 +2945,7 @@
             ],
             "addressWarehouse": null,
             "warehouseAccount": {
-              "glAccountId": 1376,
+              "glAccountId": "<createdId>",
               "glAccountName": "1101001-default Bank Account",
               "cashSalesAccountId": null,
               "creditSalesAccountId": null,
@@ -2959,7 +2959,7 @@
           }
         ],
         "DELETE": [
-          "/inventory-apis/WareHouse/DeleteWareHouse/43",
+          "/inventory-apis/WareHouse/DeleteWareHouse/<createdId>",
           {}
         ],
         "View": [
@@ -2967,7 +2967,7 @@
           {}
         ],
         "EDIT": [
-          "/inventory-apis/WareHouse/177",
+          "/inventory-apis/WareHouse/<createdId>",
           {}
         ]
       },
@@ -2986,13 +2986,13 @@
         "PUT": [
           "/inventory-apis/OperationalTag",
           {
-            "id": "3f9fddd3-b235-4841-2cbd-08de0c98240f",
+            "id": "<createdId>",
             "code": "00004",
             "name": "icskla",
             "nameAr": "icskla",
             "operationType": "StockOut ",
-            "warehouseId": 16,
-            "glAccountId": 2592
+            "warehouseId": "<createdId>",
+            "glAccountId": "<createdId>"
           }
         ],
         "DELETE": [
@@ -3036,19 +3036,19 @@
         "PUT": [
           "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
           {
-            "id": "53f72b84-9b42-40ef-530f-08de0c9a3c47",
+            "id": "<createdId>",
             "description": "588885",
             "editInventoryCountItems": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "inventoryCountId": "53f72b84-9b42-40ef-530f-08de0c9a3c47",
+                "id": "<createdId>",
+                "inventoryCountId": "<createdId>",
                 "itemStockBatchHeaderId": null,
-                "itemId": 25,
-                "itemVariantId": 101,
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
                 "itemVariantCode": "0000",
                 "itemCode": "2",
                 "description": "Phone - -",
-                "unitOfMeasureId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "unitOfMeasureId": "<createdId>",
                 "unitOfMeasureName": "BaseUOM",
                 "trackingNo": null,
                 "trackingType": "NoTracking",
@@ -3117,34 +3117,34 @@
         "PUT": [
           "/inventory-apis/StockIn",
           {
-            "id": "7f24c4f2-f91f-483c-aaec-08de0c9a993f",
+            "id": "<createdId>",
             "code": "STIN_00037",
             "receiptDate": "2025-10-16T09:58:08.293",
             "sourceDocumentType": null,
-            "sourceDocumentId": "6634f094-f287-40fa-44b2-08ddf5f93b14",
-            "warehouseId": 18,
+            "sourceDocumentId": "<createdId>",
+            "warehouseId": "<createdId>",
             "warehouseName": "مخزن رئيسي 3",
             "notes": "555",
             "stockInStatus": "",
             "stockInDetails": [
               {
                 "itemNumber": "",
-                "id": "b2ca110d-1fe8-451b-846f-08de0c9a9949",
+                "id": "<createdId>",
                 "barCode": null,
                 "itemCode": "2",
                 "itemName": "2-Phone--",
                 "bardCodeId": null,
                 "description": "(2) Phone--",
-                "itemId": 25,
+                "itemId": "<createdId>",
                 "itemCodeName": "2",
-                "itemVariantId": 101,
+                "itemVariantId": "<createdId>",
                 "itemVariantCode": "0000",
                 "itemVariantNameAr": "-",
                 "itemVariantNameEn": "-",
                 "uomName": "BaseUOM",
                 "uomNameAr": "وحدة القياس الأساسية",
                 "uomNameEn": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "uomId": "<createdId>",
                 "quantity": "100",
                 "cost": "30000",
                 "subTotal": 200,
@@ -3154,9 +3154,9 @@
                 "trackingType": "NoTracking",
                 "uomOptions": [
                   {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                    "itemUOMId": "<createdId>",
+                    "itemId": "<createdId>",
+                    "uomId": "<createdId>",
                     "uomCode": "G8roW",
                     "uomNameAr": "وحدة القياس الأساسية",
                     "uomNameEn": "BaseUOM",
@@ -3164,7 +3164,7 @@
                   }
                 ],
                 "stockInTracking": {
-                  "id": "cf40f88c-3c80-49f0-3037-08de0c9a9954",
+                  "id": "<createdId>",
                   "vendorBatchNo": null,
                   "expireDate": null,
                   "systemPatchNo": null,
@@ -3220,21 +3220,21 @@
         "PUT": [
           "/inventory-apis/StockOut",
           {
-            "id": "94d1fca9-dab1-455f-c139-08de0c9af5c3",
+            "id": "<createdId>",
             "receiptDate": "2025-10-16",
             "sourceDocumentType": "OperationalTag",
-            "sourceDocumentId": "16759204-eaa1-43ad-2103-08ddf8ee0372",
-            "warehouseId": 16,
+            "sourceDocumentId": "<createdId>",
+            "warehouseId": "<createdId>",
             "notes": "6668",
             "stockOutStatus": "Saved",
             "stockOutDetails": [
               {
-                "id": "fb0b1634-4d99-4a4d-a684-08de0c9af5ce",
+                "id": "<createdId>",
                 "barCode": null,
                 "bardCodeId": null,
-                "itemId": 25,
-                "itemVariantId": 101,
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
                 "description": "-",
                 "quantity": 80,
                 "cost": 20000,
@@ -3243,7 +3243,7 @@
                 "stockOutEntryMode": "Manual",
                 "trackingType": "NoTracking",
                 "stockOutTracking": {
-                  "id": "59daefcb-b712-42fa-bc4f-08de0c9af5d7",
+                  "id": "<createdId>",
                   "quantity": 80,
                   "trackingNo": null,
                   "hasExpiryDate": false,
@@ -3294,29 +3294,29 @@
         "PUT": [
           "/inventory-apis/StockTransfer",
           {
-            "id": "d7536d43-c458-421d-4312-08de0c9b584c",
+            "id": "<createdId>",
             "receiptDate": "2025-10-16",
             "sourceType": "Direct",
             "sourceId": null,
-            "issuedWarehouseId": 16,
-            "targetWarehouseId": 18,
+            "issuedWarehouseId": "<createdId>",
+            "targetWarehouseId": "<createdId>",
             "transferRequestId": null,
             "notes": "9999",
             "stockTransferDetails": [
               {
-                "id": "9f84b582-0445-47bb-abc2-08de0c9b5856",
+                "id": "<createdId>",
                 "barCode": null,
                 "bardCodeId": null,
-                "itemId": 25,
-                "itemVariantId": 101,
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
                 "description": "Phone--",
                 "quantity": 200,
                 "notes": null,
                 "hasExpiryDate": false,
                 "trackingType": "NoTracking",
                 "stockTransferTracking": {
-                  "id": "5cbd7d8a-74b1-4184-6770-08de0c9b585f",
+                  "id": "<createdId>",
                   "trackingNo": "",
                   "hasExpiryDate": false,
                   "expireDate": null,
@@ -3462,7 +3462,7 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/FixedAssetsGroup/3",
+          "/erp-apis/FixedAssetsGroup/<createdId>",
           {}
         ]
       },
@@ -3484,7 +3484,7 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/Assets/4",
+          "/erp-apis/Assets/<createdId>",
           {}
         ]
       },

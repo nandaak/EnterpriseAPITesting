@@ -30,7 +30,7 @@
     },
     "GET__erp-apis_Device__Id_": {
       "GET": [
-        "/erp-apis/Device/{Id}",
+        "/erp-apis/Device/<createdId>",
         {}
       ],
       "summary": "",
@@ -40,7 +40,7 @@
     },
     "DELETE__erp-apis_Device__Id_": {
       "DELETE": [
-        "/erp-apis/Device/{Id}",
+        "/erp-apis/Device/<createdId>",
         {}
       ],
       "summary": "",
@@ -87,11 +87,11 @@
       "PUT": [
         "/erp-apis/Device/EditDevice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "prefix": "string",
-          "salesManId": "00000000-0000-0000-0000-000000000000"
+          "salesManId": "<createdId>"
         }
       ],
       "summary": "",
@@ -101,7 +101,7 @@
       "PUT": [
         "/erp-apis/Device/EditDeviceActivation",
         {
-          "deviceId": "00000000-0000-0000-0000-000000000000",
+          "deviceId": "<createdId>",
           "isActive": true
         }
       ],

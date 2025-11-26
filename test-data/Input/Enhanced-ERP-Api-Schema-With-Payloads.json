@@ -14,9 +14,9 @@
       "PUT": [
         "/erp-apis/AccountingGeneralSettings",
         {
-          "currentYearEarningAccountId": 1,
+          "currentYearEarningAccountId": "<createdId>",
           "isHeaderDescriptionCopied": true,
-          "taxId": 1,
+          "taxId": "<createdId>",
           "isJournalLineDescriptionRequired": true
         }
       ],
@@ -157,19 +157,19 @@
       "PUT": [
         "/erp-apis/Assets",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
-          "assetGroupId": 1,
+          "assetGroupId": "<createdId>",
           "barcode": "string",
           "isDepreciate": true,
           "depreciationMethod": "StraightLine",
           "depreciationRate": 1,
           "usefulLife": 1,
           "salvageValue": 1,
-          "assetAccountId": 1,
-          "accumulatedDepreciationAccountId": 1,
-          "assetExpenseAccountId": 1,
-          "plAccountId": 1
+          "assetAccountId": "<createdId>",
+          "accumulatedDepreciationAccountId": "<createdId>",
+          "assetExpenseAccountId": "<createdId>",
+          "plAccountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -188,7 +188,7 @@
     },
     "GET__erp-apis_Assets__Id_": {
       "GET": [
-        "/erp-apis/Assets/{Id}",
+        "/erp-apis/Assets/<createdId>",
         {}
       ],
       "summary": "",
@@ -198,7 +198,7 @@
     },
     "DELETE__erp-apis_Assets__Id_": {
       "DELETE": [
-        "/erp-apis/Assets/{Id}",
+        "/erp-apis/Assets/<createdId>",
         {}
       ],
       "summary": "",
@@ -264,13 +264,13 @@
       "PUT": [
         "/erp-apis/AssetsDepreciation",
         {
-          "headerId": "00000000-0000-0000-0000-000000000000",
+          "headerId": "<createdId>",
           "depreciationDate": "2025-11-26T16:29:05.635Z",
           "description": "string",
           "assetLines": [
             {
-              "lineId": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "lineId": "<createdId>",
+              "assetId": "<createdId>",
               "note": "string"
             }
           ]
@@ -300,7 +300,7 @@
     },
     "DELETE__erp-apis_AssetsDepreciation__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsDepreciation/{Id}/DeleteLine",
+        "/erp-apis/AssetsDepreciation/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -310,7 +310,7 @@
     },
     "DELETE__erp-apis_AssetsDepreciation__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsDepreciation/{Id}",
+        "/erp-apis/AssetsDepreciation/<createdId>",
         {}
       ],
       "summary": "",
@@ -320,7 +320,7 @@
     },
     "GET__erp-apis_AssetsDepreciation__AssetsDepreciationId_": {
       "GET": [
-        "/erp-apis/AssetsDepreciation/{AssetsDepreciationId}",
+        "/erp-apis/AssetsDepreciation/<createdId>",
         {}
       ],
       "summary": "",
@@ -330,7 +330,7 @@
     },
     "POST__erp-apis_AssetsDepreciation__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsDepreciation/{Id}/Post",
+        "/erp-apis/AssetsDepreciation/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -424,7 +424,7 @@
   "AssetsLocation": {
     "GET__erp-apis_AssetsLocation__id_": {
       "GET": [
-        "/erp-apis/AssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -434,7 +434,7 @@
     },
     "DELETE__erp-apis_AssetsLocation__id_": {
       "DELETE": [
-        "/erp-apis/AssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -444,7 +444,7 @@
     },
     "GET__erp-apis_AssetsLocation_GetByIdViewAssetsLocation__id_": {
       "GET": [
-        "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/{id}",
+        "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/<createdId>",
         {}
       ],
       "summary": "",
@@ -499,10 +499,10 @@
       "PUT": [
         "/erp-apis/AssetsLocation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
-          "parentId": 1,
-          "costCenterId": 1,
+          "parentId": "<createdId>",
+          "costCenterId": "<createdId>",
           "isDetailed": true
         }
       ],
@@ -551,19 +551,19 @@
       "PUT": [
         "/erp-apis/AssetsOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "assetOpeningBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
-          "accumulatedDepOpeningBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "assetOpeningBalanceJournalEntryLineId": "<createdId>",
+          "accumulatedDepOpeningBalanceJournalEntryLineId": "<createdId>",
           "details": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "purchaseValue": 1,
               "accumulatedDepreciation": 1,
               "purchaseDate": "2025-11-26T16:29:05.635Z",
               "depreciationStartDate": "2025-11-26T16:29:05.635Z",
               "lastDepreciationDate": "2025-11-26T16:29:05.635Z",
-              "locationId": 1
+              "locationId": "<createdId>"
             }
           ]
         }
@@ -573,7 +573,7 @@
     },
     "GET__erp-apis_AssetsOpeningBalance__id_": {
       "GET": [
-        "/erp-apis/AssetsOpeningBalance/{id}",
+        "/erp-apis/AssetsOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -583,7 +583,7 @@
     },
     "DELETE__erp-apis_AssetsOpeningBalance__id_": {
       "DELETE": [
-        "/erp-apis/AssetsOpeningBalance/{id}",
+        "/erp-apis/AssetsOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -593,7 +593,7 @@
     },
     "GET__erp-apis_AssetsOpeningBalance_GetAssetsOpeningBalanceViewById__id_": {
       "GET": [
-        "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/{id}",
+        "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -621,7 +621,7 @@
     },
     "POST__erp-apis_AssetsOpeningBalance__id__Unpost": {
       "POST": [
-        "/erp-apis/AssetsOpeningBalance/{id}/Unpost",
+        "/erp-apis/AssetsOpeningBalance/<createdId>/Unpost",
         {}
       ],
       "summary": "",
@@ -631,7 +631,7 @@
     },
     "POST__erp-apis_AssetsOpeningBalance__id__Post": {
       "POST": [
-        "/erp-apis/AssetsOpeningBalance/{id}/Post",
+        "/erp-apis/AssetsOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -641,7 +641,7 @@
     },
     "DELETE__erp-apis_AssetsOpeningBalance_Line__id_": {
       "DELETE": [
-        "/erp-apis/AssetsOpeningBalance/Line/{id}",
+        "/erp-apis/AssetsOpeningBalance/Line/<createdId>",
         {}
       ],
       "summary": "",
@@ -714,35 +714,35 @@
       "PUT": [
         "/erp-apis/AssetsPurchaseInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:29:05.635Z",
           "description": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorCode": "string",
           "vendorName": "string",
           "vendorNameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyNameAr": "string",
           "currencyRate": 1,
           "reference": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "assetsPurchaseInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "quantity": 1,
               "cost": 1,
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
-              "assetLocationId": 1,
+              "assetLocationId": "<createdId>",
               "assetLocationName": "string",
               "activationDate": "2025-11-26T16:29:05.635Z"
             }
@@ -754,7 +754,7 @@
     },
     "GET__erp-apis_AssetsPurchaseInvoice_GetById__Id_": {
       "GET": [
-        "/erp-apis/AssetsPurchaseInvoice/GetById/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -808,7 +808,7 @@
     },
     "POST__erp-apis_AssetsPurchaseInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsPurchaseInvoice/{Id}/Post",
+        "/erp-apis/AssetsPurchaseInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -818,7 +818,7 @@
     },
     "DELETE__erp-apis_AssetsPurchaseInvoice_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsPurchaseInvoice/DeleteLine/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -828,7 +828,7 @@
     },
     "DELETE__erp-apis_AssetsPurchaseInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -840,7 +840,7 @@
   "AssetsReturnPurchaseInvoice": {
     "GET__erp-apis_AssetsReturnPurchaseInvoice__Id__GetById": {
       "GET": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/GetById",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/GetById",
         {}
       ],
       "summary": "",
@@ -909,25 +909,25 @@
       "PUT": [
         "/erp-apis/AssetsReturnPurchaseInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:29:05.635Z",
           "description": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorCode": "string",
           "vendorName": "string",
           "vendorNameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyNameAr": "string",
           "currencyRate": 1,
           "reference": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "assetsReturnPurchaseInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "remainingQuantity": 1,
               "quantityToReturn": 1,
@@ -935,11 +935,11 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
-              "assetsPurchaseInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
-              "assetsReturnPurchaseInvoiceHeaderId": "00000000-0000-0000-0000-000000000000"
+              "assetsPurchaseInvoiceDetailId": "<createdId>",
+              "assetsReturnPurchaseInvoiceHeaderId": "<createdId>"
             }
           ]
         }
@@ -949,7 +949,7 @@
     },
     "GET__erp-apis_AssetsReturnPurchaseInvoice__Id_": {
       "GET": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -959,7 +959,7 @@
     },
     "DELETE__erp-apis_AssetsReturnPurchaseInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -991,7 +991,7 @@
     },
     "POST__erp-apis_AssetsReturnPurchaseInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/Post",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -1001,7 +1001,7 @@
     },
     "DELETE__erp-apis_AssetsReturnPurchaseInvoice__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/DeleteLine",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -1084,13 +1084,13 @@
     },
     "PUT__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "PUT": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:29:05.635Z",
           "reference": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerCode": "string",
           "customerName": "string",
           "customerNameAr": "string",
@@ -1100,18 +1100,18 @@
           ],
           "assetsReturnSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "assetCode": "string",
               "remainingQuantity": 1,
               "quantityToReturn": 1,
               "price": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
               "vatPercentage": 1,
-              "assetsSalesInvoiceDetailId": "00000000-0000-0000-0000-000000000000"
+              "assetsSalesInvoiceDetailId": "<createdId>"
             }
           ]
         }
@@ -1123,7 +1123,7 @@
     },
     "GET__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -1133,7 +1133,7 @@
     },
     "DELETE__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -1183,7 +1183,7 @@
     },
     "POST__erp-apis_AssetsReturnSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}/Post",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -1250,28 +1250,28 @@
       "PUT": [
         "/erp-apis/AssetsSalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:29:05.635Z",
           "reference": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerCode": "string",
           "customerName": "string",
           "customerNameAr": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermCode": "string",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "applicationSource": "ERP",
           "assetsSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "assetCode": "string",
               "quantity": 1,
               "price": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
               "vatPercentage": 1
@@ -1306,7 +1306,7 @@
     },
     "GET__erp-apis_AssetsSalesInvoice__id__GetById": {
       "GET": [
-        "/erp-apis/AssetsSalesInvoice/{id}/GetById",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/GetById",
         {}
       ],
       "summary": "",
@@ -1327,7 +1327,7 @@
     },
     "DELETE__erp-apis_AssetsSalesInvoice__id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsSalesInvoice/{id}/DeleteLine",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -1337,7 +1337,7 @@
     },
     "DELETE__erp-apis_AssetsSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsSalesInvoice/{Id}",
+        "/erp-apis/AssetsSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -1347,7 +1347,7 @@
     },
     "POST__erp-apis_AssetsSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsSalesInvoice/{Id}/Post",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -1377,7 +1377,7 @@
   "Attachments": {
     "DownloadBase64Attachment": {
       "GET": [
-        "/erp-apis/api/attachments/DownloadBase64Attachment/{attachmentId}",
+        "/erp-apis/api/attachments/DownloadBase64Attachment/<createdId>",
         {}
       ],
       "summary": "",
@@ -1387,7 +1387,7 @@
     },
     "DownloadAttachment": {
       "GET": [
-        "/erp-apis/api/attachments/DownloadAttachment/{attachmentId}",
+        "/erp-apis/api/attachments/DownloadAttachment/<createdId>",
         {}
       ],
       "summary": "",
@@ -1520,7 +1520,7 @@
     },
     "GET__erp-apis_Bank__Id_": {
       "GET": [
-        "/erp-apis/Bank/{Id}",
+        "/erp-apis/Bank/<createdId>",
         {}
       ],
       "summary": "",
@@ -1530,7 +1530,7 @@
     },
     "DELETE__erp-apis_Bank__Id_": {
       "DELETE": [
-        "/erp-apis/Bank/{Id}",
+        "/erp-apis/Bank/<createdId>",
         {}
       ],
       "summary": "",
@@ -1572,7 +1572,7 @@
     },
     "GET__erp-apis_Bank_GetAccountBalance__Id_": {
       "GET": [
-        "/erp-apis/Bank/GetAccountBalance/{Id}",
+        "/erp-apis/Bank/GetAccountBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -1602,7 +1602,7 @@
       "PUT": [
         "/erp-apis/Bank/Edit",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "shortName": "string",
           "contactName": "string",
@@ -1614,11 +1614,11 @@
           "fax": "string",
           "bankAccounts": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "accountNumber": "string",
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "iban": "string",
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "accountOpeningBalance": 1,
               "openingBalance": 1,
               "userPermission": [
@@ -1636,7 +1636,7 @@
     },
     "DELETE__erp-apis_Bank_DeleteAccount__Id_": {
       "DELETE": [
-        "/erp-apis/Bank/DeleteAccount/{Id}",
+        "/erp-apis/Bank/DeleteAccount/<createdId>",
         {}
       ],
       "summary": "",
@@ -1646,7 +1646,7 @@
     },
     "GET__erp-apis_Bank_View__Id_": {
       "GET": [
-        "/erp-apis/Bank/View/{Id}",
+        "/erp-apis/Bank/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -1672,7 +1672,7 @@
   "Branch": {
     "GET__erp-apis_Branch__CompanyId__GetAll": {
       "GET": [
-        "/erp-apis/Branch/{CompanyId}/GetAll",
+        "/erp-apis/Branch/<createdId>/GetAll",
         {}
       ],
       "summary": "",
@@ -1687,7 +1687,7 @@
     },
     "GET__erp-apis_Branch__Id__GetCompanyBranch": {
       "GET": [
-        "/erp-apis/Branch/{Id}/GetCompanyBranch",
+        "/erp-apis/Branch/<createdId>/GetCompanyBranch",
         {}
       ],
       "summary": "",
@@ -1709,7 +1709,7 @@
       "PUT": [
         "/erp-apis/Branch",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "nameEn": "string",
           "nameAr": "string",
           "branchRegion": "string",
@@ -1894,16 +1894,16 @@
       "PUT": [
         "/erp-apis/ChartOfAccounts/EditAccount",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "parentId": 1,
+          "parentId": "<createdId>",
           "natureId": "Debit",
           "costCenterConfig": "Mandatory",
           "hasNoChild": true,
-          "accountTypeId": 1,
-          "accountSectionId": 1,
-          "currencyId": 1,
+          "accountTypeId": "<createdId>",
+          "accountSectionId": "<createdId>",
+          "currencyId": "<createdId>",
           "tags": [
             1
           ],
@@ -1915,9 +1915,9 @@
           "periodicActiveTo": "2025-11-26T16:29:05.635Z",
           "costCenters": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "percentage": 1,
-              "costCenterId": 1
+              "costCenterId": "<createdId>"
             }
           ]
         }
@@ -1929,7 +1929,7 @@
       "PUT": [
         "/erp-apis/ChartOfAccounts/AccountActivation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "accountActivation": "Active",
           "periodicActiveFrom": "2025-11-26T16:29:05.635Z",
           "periodicActiveTo": "2025-11-26T16:29:05.635Z"
@@ -1973,7 +1973,7 @@
   "Company": {
     "GET__erp-apis_Company__Id__GetCompanyAddress": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyAddress",
+        "/erp-apis/Company/<createdId>/GetCompanyAddress",
         {}
       ],
       "summary": "",
@@ -1983,7 +1983,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyContact": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyContact",
+        "/erp-apis/Company/<createdId>/GetCompanyContact",
         {}
       ],
       "summary": "",
@@ -1993,7 +1993,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyLegal": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyLegal",
+        "/erp-apis/Company/<createdId>/GetCompanyLegal",
         {}
       ],
       "summary": "",
@@ -2003,7 +2003,7 @@
     },
     "GET__erp-apis_Company__Id__GetCompanyHierarchy": {
       "GET": [
-        "/erp-apis/Company/{Id}/GetCompanyHierarchy",
+        "/erp-apis/Company/<createdId>/GetCompanyHierarchy",
         {}
       ],
       "summary": "",
@@ -2039,7 +2039,7 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyAddress",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "region": "string",
           "longitude": 1,
           "latitude": 1,
@@ -2047,7 +2047,7 @@
           "city": 1,
           "address": "string",
           "countryCode": "string",
-          "currencyId": 1
+          "currencyId": "<createdId>"
         }
       ],
       "summary": "",
@@ -2057,7 +2057,7 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyContact",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "nameEn": "string",
           "nameAr": "string",
           "companyLogo": "string",
@@ -2079,13 +2079,13 @@
       "PUT": [
         "/erp-apis/Company/EditCompanyLegal",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "companyName": "string",
           "companyEmail": "string",
           "organizationUnit": "string",
           "organization": "string",
-          "taxId": "string",
-          "commercialId": "string",
+          "taxId": "<createdId>",
+          "commercialId": "<createdId>",
           "registeredAddress": "string",
           "businessCategory": "string",
           "streetName": "string",
@@ -2185,10 +2185,10 @@
       "PUT": [
         "/erp-apis/CostCenter/EditCostCenter",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "parentId": 1,
+          "parentId": "<createdId>",
           "isDetail": true,
           "isActive": true
         }
@@ -2200,7 +2200,7 @@
       "PUT": [
         "/erp-apis/CostCenter/CostCenterActivation",
         {
-          "id": 1,
+          "id": "<createdId>",
           "status": true
         }
       ],
@@ -2373,7 +2373,7 @@
       "PUT": [
         "/erp-apis/Currency",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "name": "string",
           "nameAr": "string",
@@ -2398,7 +2398,7 @@
     },
     "GET__erp-apis_Currency__Id_": {
       "GET": [
-        "/erp-apis/Currency/{Id}",
+        "/erp-apis/Currency/<createdId>",
         {}
       ],
       "summary": "",
@@ -2408,7 +2408,7 @@
     },
     "DELETE__erp-apis_Currency__Id_": {
       "DELETE": [
-        "/erp-apis/Currency/{Id}",
+        "/erp-apis/Currency/<createdId>",
         {}
       ],
       "summary": "",
@@ -2467,10 +2467,10 @@
       "PUT": [
         "/erp-apis/CurrencyConversion",
         {
-          "id": 1,
-          "fromCurrencyId": 1,
+          "id": "<createdId>",
+          "fromCurrencyId": "<createdId>",
           "fromCurrencyRate": 1,
-          "toCurrencyId": 1,
+          "toCurrencyId": "<createdId>",
           "note": "string"
         }
       ],
@@ -2497,7 +2497,7 @@
     },
     "GET__erp-apis_CurrencyConversion__Id_": {
       "GET": [
-        "/erp-apis/CurrencyConversion/{Id}",
+        "/erp-apis/CurrencyConversion/<createdId>",
         {}
       ],
       "summary": "",
@@ -2507,7 +2507,7 @@
     },
     "DELETE__erp-apis_CurrencyConversion__Id_": {
       "DELETE": [
-        "/erp-apis/CurrencyConversion/{Id}",
+        "/erp-apis/CurrencyConversion/<createdId>",
         {}
       ],
       "summary": "",
@@ -2705,10 +2705,10 @@
       "PUT": [
         "/erp-apis/Customer",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "categoryId": 1,
+          "categoryId": "<createdId>",
           "marketType": "B2B",
           "birthdate": "2025-11-26T16:29:05.636Z",
           "photo": "string",
@@ -2729,11 +2729,11 @@
             "contactPersonName": "string"
           },
           "financialInfo": {
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "allowCreditLimit": true,
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "legalInfo": {
             "commercialRegistrationNumber": "string",
@@ -2743,22 +2743,22 @@
             "cityName": "string",
             "postalZone": "string",
             "countrySubEntity": "string",
-            "countryId": "string",
+            "countryId": "<createdId>",
             "buildingNumber": "string",
             "additionalStreetName": "string",
             "registrationName": "string",
-            "otherID": "string",
+            "otherID": "<createdId>",
             "nationalNumber": "string"
           },
           "accountingInfo": {
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "customerAddresses": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "longitude": 1,
               "latitude": 1,
               "errorRadius": 1
@@ -2766,10 +2766,10 @@
           ],
           "customerMarketPlaces": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "<createdId>",
+              "salesManId": "<createdId>",
               "address": "string"
             }
           ]
@@ -2812,7 +2812,7 @@
     },
     "GET__erp-apis_Customer_DropDownByAccountId__AccountId_": {
       "GET": [
-        "/erp-apis/Customer/DropDownByAccountId/{AccountId}",
+        "/erp-apis/Customer/DropDownByAccountId/<createdId>",
         {}
       ],
       "summary": "",
@@ -2893,7 +2893,7 @@
     },
     "GET__erp-apis_Customer__Id_": {
       "GET": [
-        "/erp-apis/Customer/{Id}",
+        "/erp-apis/Customer/<createdId>",
         {}
       ],
       "summary": "",
@@ -2903,7 +2903,7 @@
     },
     "DELETE__erp-apis_Customer__Id_": {
       "DELETE": [
-        "/erp-apis/Customer/{Id}",
+        "/erp-apis/Customer/<createdId>",
         {}
       ],
       "summary": "",
@@ -2913,7 +2913,7 @@
     },
     "GET__erp-apis_Customer_GetCustomerView__Id_": {
       "GET": [
-        "/erp-apis/Customer/GetCustomerView/{Id}",
+        "/erp-apis/Customer/GetCustomerView/<createdId>",
         {}
       ],
       "summary": "",
@@ -2961,7 +2961,7 @@
     },
     "DELETE__erp-apis_Customer_DeleteCustomerMarketPlace__Id_": {
       "DELETE": [
-        "/erp-apis/Customer/DeleteCustomerMarketPlace/{Id}",
+        "/erp-apis/Customer/DeleteCustomerMarketPlace/<createdId>",
         {}
       ],
       "summary": "",
@@ -3007,16 +3007,16 @@
       "PUT": [
         "/erp-apis/CustomerCategory",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string",
-          "receivableAccountId": 1,
-          "salesAccountId": 1,
-          "salesReturnAccountId": 1,
-          "discountAccountId": 1,
-          "pricePolicyId": 1,
-          "paymentTermId": 1,
+          "receivableAccountId": "<createdId>",
+          "salesAccountId": "<createdId>",
+          "salesReturnAccountId": "<createdId>",
+          "discountAccountId": "<createdId>",
+          "pricePolicyId": "<createdId>",
+          "paymentTermId": "<createdId>",
           "marketType": "B2B"
         }
       ],
@@ -3057,7 +3057,7 @@
     },
     "GET__erp-apis_CustomerCategory__Id_": {
       "GET": [
-        "/erp-apis/CustomerCategory/{Id}",
+        "/erp-apis/CustomerCategory/<createdId>",
         {}
       ],
       "summary": "",
@@ -3067,7 +3067,7 @@
     },
     "DELETE__erp-apis_CustomerCategory__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerCategory/{Id}",
+        "/erp-apis/CustomerCategory/<createdId>",
         {}
       ],
       "summary": "",
@@ -3125,13 +3125,13 @@
       "PUT": [
         "/erp-apis/CustomerOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "openingBalanceJournalEntryLineId": "<createdId>",
           "amountNature": "Debit",
           "customerOpeningBalanceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "customerId": 1,
+              "id": "<createdId>",
+              "customerId": "<createdId>",
               "balance": 1,
               "balanceType": {},
               "dueDates": [
@@ -3146,7 +3146,7 @@
     },
     "DELETE__erp-apis_CustomerOpeningBalance_DeleteOpeningBalanceHeader__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/{Id}",
+        "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/<createdId>",
         {}
       ],
       "summary": "",
@@ -3156,7 +3156,7 @@
     },
     "DELETE__erp-apis_CustomerOpeningBalance__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerOpeningBalance/{Id}",
+        "/erp-apis/CustomerOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -3166,7 +3166,7 @@
     },
     "GET__erp-apis_CustomerOpeningBalance_GetById__Id_": {
       "GET": [
-        "/erp-apis/CustomerOpeningBalance/GetById/{Id}",
+        "/erp-apis/CustomerOpeningBalance/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -3176,7 +3176,7 @@
     },
     "GET__erp-apis_CustomerOpeningBalance_GetOpeningBalanceView__Id_": {
       "GET": [
-        "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/{Id}",
+        "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/<createdId>",
         {}
       ],
       "summary": "",
@@ -3204,7 +3204,7 @@
     },
     "POST__erp-apis_CustomerOpeningBalance__Id__Post": {
       "POST": [
-        "/erp-apis/CustomerOpeningBalance/{Id}/Post",
+        "/erp-apis/CustomerOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -3214,7 +3214,7 @@
     },
     "POST__erp-apis_CustomerOpeningBalance__Id__UnPost": {
       "POST": [
-        "/erp-apis/CustomerOpeningBalance/{Id}/UnPost",
+        "/erp-apis/CustomerOpeningBalance/<createdId>/UnPost",
         {}
       ],
       "summary": "",
@@ -3812,7 +3812,7 @@
     },
     "GET__erp-apis_Device__Id_": {
       "GET": [
-        "/erp-apis/Device/{Id}",
+        "/erp-apis/Device/<createdId>",
         {}
       ],
       "summary": "",
@@ -3822,7 +3822,7 @@
     },
     "DELETE__erp-apis_Device__Id_": {
       "DELETE": [
-        "/erp-apis/Device/{Id}",
+        "/erp-apis/Device/<createdId>",
         {}
       ],
       "summary": "",
@@ -3869,11 +3869,11 @@
       "PUT": [
         "/erp-apis/Device/EditDevice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "prefix": "string",
-          "salesManId": "00000000-0000-0000-0000-000000000000"
+          "salesManId": "<createdId>"
         }
       ],
       "summary": "",
@@ -3883,7 +3883,7 @@
       "PUT": [
         "/erp-apis/Device/EditDeviceActivation",
         {
-          "deviceId": "00000000-0000-0000-0000-000000000000",
+          "deviceId": "<createdId>",
           "isActive": true
         }
       ],
@@ -4079,7 +4079,7 @@
       "PUT": [
         "/erp-apis/DiscountPolicy",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "discountPercentage": 1,
@@ -4093,7 +4093,7 @@
     },
     "GET__erp-apis_DiscountPolicy__Id_": {
       "GET": [
-        "/erp-apis/DiscountPolicy/{Id}",
+        "/erp-apis/DiscountPolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -4103,7 +4103,7 @@
     },
     "DELETE__erp-apis_DiscountPolicy__Id_": {
       "DELETE": [
-        "/erp-apis/DiscountPolicy/{Id}",
+        "/erp-apis/DiscountPolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -4113,7 +4113,7 @@
     },
     "GET__erp-apis_DiscountPolicy_View__Id_": {
       "GET": [
-        "/erp-apis/DiscountPolicy/View/{Id}",
+        "/erp-apis/DiscountPolicy/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -4123,7 +4123,7 @@
     },
     "DELETE__erp-apis_DiscountPolicy_DeleteUserLine__Id_": {
       "DELETE": [
-        "/erp-apis/DiscountPolicy/DeleteUserLine/{Id}",
+        "/erp-apis/DiscountPolicy/DeleteUserLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -4226,7 +4226,7 @@
       "PUT": [
         "/erp-apis/Employee/EditPersonal",
         {
-          "id": 1,
+          "id": "<createdId>",
           "attendanceCode": 1,
           "employeeName": "string",
           "employeePhoto": "string",
@@ -4302,9 +4302,9 @@
       "PUT": [
         "/erp-apis/FinanceGeneralSettings",
         {
-          "fundTransferContraAccountId": 1,
-          "advancedPaymentTaxId": 1,
-          "taxId": 1,
+          "fundTransferContraAccountId": "<createdId>",
+          "advancedPaymentTaxId": "<createdId>",
+          "taxId": "<createdId>",
           "enableAutoInvoiceReconciliation": true
         }
       ],
@@ -4468,7 +4468,7 @@
       "PUT": [
         "/erp-apis/FinancialYear",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "code": "string"
         }
@@ -4504,7 +4504,7 @@
     },
     "GET__erp-apis_FinancialYear__Id_": {
       "GET": [
-        "/erp-apis/FinancialYear/{Id}",
+        "/erp-apis/FinancialYear/<createdId>",
         {}
       ],
       "summary": "",
@@ -4514,7 +4514,7 @@
     },
     "DELETE__erp-apis_FinancialYear__Id_": {
       "DELETE": [
-        "/erp-apis/FinancialYear/{Id}",
+        "/erp-apis/FinancialYear/<createdId>",
         {}
       ],
       "summary": "",
@@ -4548,7 +4548,7 @@
     },
     "POST__erp-apis_FinancialYear__Id__Open": {
       "POST": [
-        "/erp-apis/FinancialYear/{Id}/Open",
+        "/erp-apis/FinancialYear/<createdId>/Open",
         {}
       ],
       "summary": "",
@@ -4558,7 +4558,7 @@
     },
     "POST__erp-apis_FinancialYear__Id__Close": {
       "POST": [
-        "/erp-apis/FinancialYear/{Id}/Close",
+        "/erp-apis/FinancialYear/<createdId>/Close",
         {}
       ],
       "summary": "",
@@ -4616,7 +4616,7 @@
       "PUT": [
         "/erp-apis/FixedAssetsGeneralSettings",
         {
-          "assetsSalesPLAccountId": 1
+          "assetsSalesPLAccountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -4667,17 +4667,17 @@
       "PUT": [
         "/erp-apis/FixedAssetsGroup",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "isDepreciate": true,
           "depreciationMethod": "StraightLine",
           "depreciationRate": 1,
           "usefulLife": 1,
           "salvageValue": 1,
-          "assetAccountId": 1,
-          "accumulatedDepreciationAccountId": 1,
-          "assetExpenseAccountId": 1,
-          "plAccountId": 1
+          "assetAccountId": "<createdId>",
+          "accumulatedDepreciationAccountId": "<createdId>",
+          "assetExpenseAccountId": "<createdId>",
+          "plAccountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -4685,7 +4685,7 @@
     },
     "GET__erp-apis_FixedAssetsGroup__Id_": {
       "GET": [
-        "/erp-apis/FixedAssetsGroup/{Id}",
+        "/erp-apis/FixedAssetsGroup/<createdId>",
         {}
       ],
       "summary": "",
@@ -4695,7 +4695,7 @@
     },
     "DELETE__erp-apis_FixedAssetsGroup__Id_": {
       "DELETE": [
-        "/erp-apis/FixedAssetsGroup/{Id}",
+        "/erp-apis/FixedAssetsGroup/<createdId>",
         {}
       ],
       "summary": "",
@@ -4798,7 +4798,7 @@
       "PUT": [
         "/erp-apis/FundTransfer",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:29:05.636Z",
           "description": "string",
           "reference": "string",
@@ -4809,10 +4809,10 @@
           "toBankAccount": "string",
           "fundTransferToDetail": {
             "paymentHubId": "Treasury",
-            "paymentHubDetailsId": 1,
-            "bankAccountId": 1,
-            "currencyId": 1,
-            "paymentMethodId": 1,
+            "paymentHubDetailsId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
+            "paymentMethodId": "<createdId>",
             "rate": 1,
             "currentBalance": 1,
             "amount": 1,
@@ -4828,7 +4828,7 @@
     },
     "GET__erp-apis_FundTransfer__Id_": {
       "GET": [
-        "/erp-apis/FundTransfer/{Id}",
+        "/erp-apis/FundTransfer/<createdId>",
         {}
       ],
       "summary": "",
@@ -4838,7 +4838,7 @@
     },
     "DELETE__erp-apis_FundTransfer__Id_": {
       "DELETE": [
-        "/erp-apis/FundTransfer/{Id}",
+        "/erp-apis/FundTransfer/<createdId>",
         {}
       ],
       "summary": "",
@@ -4866,7 +4866,7 @@
     },
     "GET__erp-apis_FundTransfer__Id__View": {
       "GET": [
-        "/erp-apis/FundTransfer/{Id}/View",
+        "/erp-apis/FundTransfer/<createdId>/View",
         {}
       ],
       "summary": "",
@@ -4876,7 +4876,7 @@
     },
     "POST__erp-apis_FundTransfer__Id__Post": {
       "POST": [
-        "/erp-apis/FundTransfer/{Id}/Post",
+        "/erp-apis/FundTransfer/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -5284,40 +5284,40 @@
       "PUT": [
         "/erp-apis/Invoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:29:05.636Z",
           "description": "string",
           "isExternalPurchase": true,
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorName": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "reference": "string",
           "sourceType": "Direct",
-          "sourceId": "00000000-0000-0000-0000-000000000000",
+          "sourceId": "<createdId>",
           "sourceCode": "string",
           "invoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -5326,12 +5326,12 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
-              "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+              "sourceDetailId": "<createdId>",
               "invoiceTracking": {}
             }
           ]
@@ -5342,7 +5342,7 @@
     },
     "GET__erp-apis_Invoice_GetById__Id_": {
       "GET": [
-        "/erp-apis/Invoice/GetById/{Id}",
+        "/erp-apis/Invoice/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -5352,7 +5352,7 @@
     },
     "DELETE__erp-apis_Invoice__Id_": {
       "DELETE": [
-        "/erp-apis/Invoice/{Id}",
+        "/erp-apis/Invoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -5362,7 +5362,7 @@
     },
     "GET__erp-apis_Invoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/Invoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/Invoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -5452,7 +5452,7 @@
     },
     "DELETE__erp-apis_Invoice_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/Invoice/DeleteLine/{Id}",
+        "/erp-apis/Invoice/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -5474,7 +5474,7 @@
     },
     "POST__erp-apis_Invoice__Id__Post": {
       "POST": [
-        "/erp-apis/Invoice/{Id}/Post",
+        "/erp-apis/Invoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -5495,7 +5495,7 @@
     },
     "GET__erp-apis_Invoice__Id__GetInvoiceToReturnById": {
       "GET": [
-        "/erp-apis/Invoice/{Id}/GetInvoiceToReturnById",
+        "/erp-apis/Invoice/<createdId>/GetInvoiceToReturnById",
         {}
       ],
       "summary": "",
@@ -5604,15 +5604,15 @@
       "PUT": [
         "/erp-apis/JournalEntry/Edit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "referenceNumber": "string",
           "journalDate": "2025-11-26T16:29:05.636Z",
           "description": "string",
           "isHeaderDescriptionCopied": true,
           "journalEntryLines": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "accountId": 1,
+              "id": "<createdId>",
+              "accountId": "<createdId>",
               "lineDescription": "string",
               "debitAmount": 1,
               "creditAmount": 1,
@@ -5621,7 +5621,7 @@
               "currencyRate": 1,
               "isVatLine": true,
               "hasVat": true,
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "createdOn": "2025-11-26T16:29:05.636Z",
               "costCenters": [
                 {}
@@ -5630,8 +5630,8 @@
           ],
           "journalEntryAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ]
@@ -5644,7 +5644,7 @@
       "PUT": [
         "/erp-apis/JournalEntry/ChangeStatus",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "status": "Draft"
         }
       ],
@@ -5663,7 +5663,7 @@
     },
     "DELETE__erp-apis_JournalEntry__Id_": {
       "DELETE": [
-        "/erp-apis/JournalEntry/{Id}",
+        "/erp-apis/JournalEntry/<createdId>",
         {}
       ],
       "summary": "",
@@ -5701,7 +5701,7 @@
     },
     "POST__erp-apis_JournalEntry__Id__Reverse": {
       "POST": [
-        "/erp-apis/JournalEntry/{Id}/Reverse",
+        "/erp-apis/JournalEntry/<createdId>/Reverse",
         {}
       ],
       "summary": "",
@@ -5736,7 +5736,7 @@
     },
     "POST__erp-apis_JournalEntry__Id__Unpost": {
       "POST": [
-        "/erp-apis/JournalEntry/{Id}/Unpost",
+        "/erp-apis/JournalEntry/<createdId>/Unpost",
         {}
       ],
       "summary": "",
@@ -5849,7 +5849,7 @@
       "PUT": [
         "/erp-apis/MarketPlace",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "status": "Active",
@@ -5873,7 +5873,7 @@
     },
     "GET__erp-apis_MarketPlace__Id_": {
       "GET": [
-        "/erp-apis/MarketPlace/{Id}",
+        "/erp-apis/MarketPlace/<createdId>",
         {}
       ],
       "summary": "",
@@ -5883,7 +5883,7 @@
     },
     "DELETE__erp-apis_MarketPlace__Id_": {
       "DELETE": [
-        "/erp-apis/MarketPlace/{Id}",
+        "/erp-apis/MarketPlace/<createdId>",
         {}
       ],
       "summary": "",
@@ -5949,7 +5949,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -5959,7 +5959,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesVendorDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesVendorDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesVendorDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -5969,7 +5969,7 @@
     },
     "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesAssetDropDown__JournalId_": {
       "GET": [
-        "/erp-apis/OpeningBalanceJournalEntry/GetLinesAssetDropDown/{JournalId}",
+        "/erp-apis/OpeningBalanceJournalEntry/GetLinesAssetDropDown/<createdId>",
         {}
       ],
       "summary": "",
@@ -6037,21 +6037,21 @@
       "PUT": [
         "/erp-apis/OpeningBalanceJournalEntry/Edit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "referenceNumber": "string",
           "journalDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
           "journalEntryLines": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "accountId": 1,
+              "id": "<createdId>",
+              "accountId": "<createdId>",
               "lineDescription": "string",
               "debitAmount": 1,
               "creditAmount": 1,
               "debitAmountLocal": 1,
               "creditAmountLocal": 1,
               "currencyRate": 1,
-              "currencyId": 1,
+              "currencyId": "<createdId>",
               "costCenters": [
                 {}
               ]
@@ -6066,7 +6066,7 @@
       "PUT": [
         "/erp-apis/OpeningBalanceJournalEntry/ChangeStatus",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "status": "Draft",
           "ignoreWarning": true
         }
@@ -6086,7 +6086,7 @@
     },
     "POST__erp-apis_OpeningBalanceJournalEntry__Id__UnPost": {
       "POST": [
-        "/erp-apis/OpeningBalanceJournalEntry/{Id}/UnPost",
+        "/erp-apis/OpeningBalanceJournalEntry/<createdId>/UnPost",
         {}
       ],
       "summary": "",
@@ -6167,29 +6167,29 @@
       "PUT": [
         "/erp-apis/PaymentIn",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "paymentInDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
-          "paymentHubDetailId": "string",
-          "bankAccountId": 1,
-          "currencyId": 1,
+          "paymentHubDetailId": "<createdId>",
+          "bankAccountId": "<createdId>",
+          "currencyId": "<createdId>",
           "rate": 1,
-          "glAccountId": 1,
-          "taxId": 1,
+          "glAccountId": "<createdId>",
+          "taxId": "<createdId>",
           "isCustomerAdvancedPayment": true,
           "isAmountIncludesVat": true,
           "paymentInDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "amount": 1,
               "rate": 1,
-              "currencyId": 1,
-              "paymentMethodId": 1,
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "<createdId>",
               "paymentInMethodDetail": {},
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "notes": "string",
               "paymentInDetailCostCenters": [
                 {}
@@ -6228,7 +6228,7 @@
     },
     "GET__erp-apis_PaymentIn__Id_": {
       "GET": [
-        "/erp-apis/PaymentIn/{Id}",
+        "/erp-apis/PaymentIn/<createdId>",
         {}
       ],
       "summary": "",
@@ -6238,7 +6238,7 @@
     },
     "DELETE__erp-apis_PaymentIn__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentIn/{Id}",
+        "/erp-apis/PaymentIn/<createdId>",
         {}
       ],
       "summary": "",
@@ -6248,7 +6248,7 @@
     },
     "GET__erp-apis_PaymentIn_GetView__Id_": {
       "GET": [
-        "/erp-apis/PaymentIn/GetView/{Id}",
+        "/erp-apis/PaymentIn/GetView/<createdId>",
         {}
       ],
       "summary": "",
@@ -6275,7 +6275,7 @@
     },
     "DELETE__erp-apis_PaymentIn_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentIn/DeleteLine/{Id}",
+        "/erp-apis/PaymentIn/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -6295,7 +6295,7 @@
     },
     "POST__erp-apis_PaymentIn__Id__Post": {
       "POST": [
-        "/erp-apis/PaymentIn/{Id}/Post",
+        "/erp-apis/PaymentIn/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -6440,20 +6440,20 @@
       "PUT": [
         "/erp-apis/PaymentMethod",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "name": "string",
           "nameAr": "string",
           "paymentPlace": "Treasury",
           "paymentMethodType": "Cash",
           "paymentMethodCommissionData": {
-            "bankId": 1,
-            "bankAccountId": 1,
+            "bankId": "<createdId>",
+            "bankAccountId": "<createdId>",
             "commissionType": "Amount",
             "commissionValue": 1,
-            "commissionAccountId": 1,
+            "commissionAccountId": "<createdId>",
             "allowVAT": true,
-            "taxId": 1,
+            "taxId": "<createdId>",
             "paymentDirections": [
               {}
             ]
@@ -6465,7 +6465,7 @@
     },
     "GET__erp-apis_PaymentMethod_GetAllBankPaymentMethodsDropdown__BankId___BankAccountId_": {
       "GET": [
-        "/erp-apis/PaymentMethod/GetAllBankPaymentMethodsDropdown/{BankId}/{BankAccountId}",
+        "/erp-apis/PaymentMethod/GetAllBankPaymentMethodsDropdown/<createdId>/<createdId>",
         {}
       ],
       "summary": "",
@@ -6510,7 +6510,7 @@
     },
     "GET__erp-apis_PaymentMethod__Id_": {
       "GET": [
-        "/erp-apis/PaymentMethod/{Id}",
+        "/erp-apis/PaymentMethod/<createdId>",
         {}
       ],
       "summary": "",
@@ -6520,7 +6520,7 @@
     },
     "DELETE__erp-apis_PaymentMethod__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentMethod/{Id}",
+        "/erp-apis/PaymentMethod/<createdId>",
         {}
       ],
       "summary": "",
@@ -6595,26 +6595,26 @@
       "PUT": [
         "/erp-apis/PaymentOut",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "paymentOutDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
-          "paymentHubDetailId": "string",
-          "bankAccountId": 1,
-          "currencyId": 1,
+          "paymentHubDetailId": "<createdId>",
+          "bankAccountId": "<createdId>",
+          "currencyId": "<createdId>",
           "rate": 1,
-          "glAccountId": 1,
+          "glAccountId": "<createdId>",
           "paymentOutDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "amount": 1,
               "rate": 1,
-              "currencyId": 1,
-              "paymentMethodId": 1,
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "<createdId>",
               "paymentOutMethodDetail": {},
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "notes": "string",
               "isVatLine": true,
               "hasVat": true,
@@ -6655,7 +6655,7 @@
     },
     "GET__erp-apis_PaymentOut__Id_": {
       "GET": [
-        "/erp-apis/PaymentOut/{Id}",
+        "/erp-apis/PaymentOut/<createdId>",
         {}
       ],
       "summary": "",
@@ -6665,7 +6665,7 @@
     },
     "DELETE__erp-apis_PaymentOut__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentOut/{Id}",
+        "/erp-apis/PaymentOut/<createdId>",
         {}
       ],
       "summary": "",
@@ -6675,7 +6675,7 @@
     },
     "GET__erp-apis_PaymentOut_GetView__Id_": {
       "GET": [
-        "/erp-apis/PaymentOut/GetView/{Id}",
+        "/erp-apis/PaymentOut/GetView/<createdId>",
         {}
       ],
       "summary": "",
@@ -6685,7 +6685,7 @@
     },
     "DELETE__erp-apis_PaymentOut_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentOut/DeleteLine/{Id}",
+        "/erp-apis/PaymentOut/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -6695,7 +6695,7 @@
     },
     "POST__erp-apis_PaymentOut__Id__Post": {
       "POST": [
-        "/erp-apis/PaymentOut/{Id}/Post",
+        "/erp-apis/PaymentOut/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -6809,12 +6809,12 @@
       "PUT": [
         "/erp-apis/PaymentTerms",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "paymentTermLines": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "dueTermValue": 1,
               "afterValue": 1,
               "afterPeriod": {},
@@ -6854,7 +6854,7 @@
     },
     "GET__erp-apis_PaymentTerms__Id_": {
       "GET": [
-        "/erp-apis/PaymentTerms/{Id}",
+        "/erp-apis/PaymentTerms/<createdId>",
         {}
       ],
       "summary": "",
@@ -6864,7 +6864,7 @@
     },
     "DELETE__erp-apis_PaymentTerms__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentTerms/{Id}",
+        "/erp-apis/PaymentTerms/<createdId>",
         {}
       ],
       "summary": "",
@@ -6874,7 +6874,7 @@
     },
     "GET__erp-apis_PaymentTerms_View__Id_": {
       "GET": [
-        "/erp-apis/PaymentTerms/View/{Id}",
+        "/erp-apis/PaymentTerms/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -7080,7 +7080,7 @@
     },
     "GET__erp-apis_POSSession__Id_": {
       "GET": [
-        "/erp-apis/POSSession/{Id}",
+        "/erp-apis/POSSession/<createdId>",
         {}
       ],
       "summary": "",
@@ -7194,20 +7194,20 @@
       "PUT": [
         "/erp-apis/PricePolicy",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "policySource": "Manual",
           "policyItemsList": [
             {
-              "id": 1,
-              "itemId": 1,
-              "itemVariantId": 1,
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
+              "itemId": "<createdId>",
+              "itemVariantId": "<createdId>",
+              "uomId": "<createdId>",
               "isVatApplied": true,
               "isSellingPriceIncludeVat": true,
               "taxRatio": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "price": 1,
               "priceWithVat": 1
             }
@@ -7219,7 +7219,7 @@
     },
     "GET__erp-apis_PricePolicy__Id_": {
       "GET": [
-        "/erp-apis/PricePolicy/{Id}",
+        "/erp-apis/PricePolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -7229,7 +7229,7 @@
     },
     "DELETE__erp-apis_PricePolicy__Id_": {
       "DELETE": [
-        "/erp-apis/PricePolicy/{Id}",
+        "/erp-apis/PricePolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -7247,7 +7247,7 @@
     },
     "GET__erp-apis_PricePolicy_View__Id_": {
       "GET": [
-        "/erp-apis/PricePolicy/View/{Id}",
+        "/erp-apis/PricePolicy/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -7384,34 +7384,34 @@
       "PUT": [
         "/erp-apis/PurchaseOrder",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "orderDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
           "termsAndCondition": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorName": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "purchaseOrderDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -7420,7 +7420,7 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
               "trackingType": {},
               "hasExpiryDate": true
@@ -7428,8 +7428,8 @@
           ],
           "purchaseOrderAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ]
@@ -7440,7 +7440,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id_": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}",
+        "/erp-apis/PurchaseOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -7450,7 +7450,7 @@
     },
     "DELETE__erp-apis_PurchaseOrder__Id_": {
       "DELETE": [
-        "/erp-apis/PurchaseOrder/{Id}",
+        "/erp-apis/PurchaseOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -7460,7 +7460,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id__View": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}/View",
+        "/erp-apis/PurchaseOrder/<createdId>/View",
         {}
       ],
       "summary": "",
@@ -7470,7 +7470,7 @@
     },
     "DELETE__erp-apis_PurchaseOrder__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/PurchaseOrder/{Id}/DeleteLine",
+        "/erp-apis/PurchaseOrder/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -7480,7 +7480,7 @@
     },
     "POST__erp-apis_PurchaseOrder__Id__Post": {
       "POST": [
-        "/erp-apis/PurchaseOrder/{Id}/Post",
+        "/erp-apis/PurchaseOrder/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -7561,7 +7561,7 @@
     },
     "GET__erp-apis_PurchaseOrder__Id__GetPurchaseOrderToInvoice": {
       "GET": [
-        "/erp-apis/PurchaseOrder/{Id}/GetPurchaseOrderToInvoice",
+        "/erp-apis/PurchaseOrder/<createdId>/GetPurchaseOrderToInvoice",
         {}
       ],
       "summary": "",
@@ -7643,12 +7643,12 @@
       "PUT": [
         "/erp-apis/ReturnInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "returnInvoiceDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
           "returnInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "toReturnQuantity": 1
             }
           ]
@@ -7659,7 +7659,7 @@
     },
     "GET__erp-apis_ReturnInvoice__Id_": {
       "GET": [
-        "/erp-apis/ReturnInvoice/{Id}",
+        "/erp-apis/ReturnInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -7669,7 +7669,7 @@
     },
     "DELETE__erp-apis_ReturnInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/ReturnInvoice/{Id}",
+        "/erp-apis/ReturnInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -7679,7 +7679,7 @@
     },
     "GET__erp-apis_ReturnInvoice__Id__GetViewById": {
       "GET": [
-        "/erp-apis/ReturnInvoice/{Id}/GetViewById",
+        "/erp-apis/ReturnInvoice/<createdId>/GetViewById",
         {}
       ],
       "summary": "",
@@ -7689,7 +7689,7 @@
     },
     "POST__erp-apis_ReturnInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/ReturnInvoice/{Id}/Post",
+        "/erp-apis/ReturnInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -7717,7 +7717,7 @@
     },
     "DELETE__erp-apis_ReturnInvoice_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/ReturnInvoice/DeleteLine/{Id}",
+        "/erp-apis/ReturnInvoice/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -7802,14 +7802,14 @@
       "PUT": [
         "/erp-apis/ReturnSalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "returnInvoiceDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
           "returnSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "toReturnQuantity": 1
             }
           ]
@@ -7820,7 +7820,7 @@
     },
     "GET__erp-apis_ReturnSalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/ReturnSalesInvoice/{Id}",
+        "/erp-apis/ReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -7830,7 +7830,7 @@
     },
     "DELETE__erp-apis_ReturnSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/ReturnSalesInvoice/{Id}",
+        "/erp-apis/ReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -7840,7 +7840,7 @@
     },
     "GET__erp-apis_ReturnSalesInvoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -7868,7 +7868,7 @@
     },
     "POST__erp-apis_ReturnSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/ReturnSalesInvoice/{Id}/Post",
+        "/erp-apis/ReturnSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -7896,7 +7896,7 @@
     },
     "DELETE__erp-apis_ReturnSalesInvoice__Id_DeleteSalesInvoiceLine": {
       "DELETE": [
-        "/erp-apis/ReturnSalesInvoice/{Id}DeleteSalesInvoiceLine",
+        "/erp-apis/ReturnSalesInvoice/<createdId>DeleteSalesInvoiceLine",
         {}
       ],
       "summary": "",
@@ -7949,10 +7949,10 @@
       "PUT": [
         "/erp-apis/Role",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "licenseId": 1,
+          "licenseId": "<createdId>",
           "isActive": true,
           "actionIds": [
             1
@@ -7967,7 +7967,7 @@
     },
     "DELETE__erp-apis_Role__Id_": {
       "DELETE": [
-        "/erp-apis/Role/{Id}",
+        "/erp-apis/Role/<createdId>",
         {}
       ],
       "summary": "",
@@ -8070,7 +8070,7 @@
     },
     "GET__erp-apis_SalesArea_GetSalesAreaById__Id_": {
       "GET": [
-        "/erp-apis/SalesArea/GetSalesAreaById/{Id}",
+        "/erp-apis/SalesArea/GetSalesAreaById/<createdId>",
         {}
       ],
       "summary": "",
@@ -8080,7 +8080,7 @@
     },
     "GET__erp-apis_SalesArea_GetSalesAreaViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesArea/GetSalesAreaViewById/{Id}",
+        "/erp-apis/SalesArea/GetSalesAreaViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -8117,7 +8117,7 @@
       "PUT": [
         "/erp-apis/SalesArea/EditSalesArea",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "latitude": 1,
           "longitude": 1,
@@ -8155,7 +8155,7 @@
         {
           "invoiceOverdueBlocked": true,
           "creditLimitRestricted": true,
-          "serviceItemsRevenueAccountId": 1
+          "serviceItemsRevenueAccountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -8295,52 +8295,52 @@
       "PUT": [
         "/erp-apis/SalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:29:05.637Z",
           "invoiceDueDate": "2025-11-26T16:29:05.637Z",
           "description": "string",
-          "warehouseId": 1,
+          "warehouseId": "<createdId>",
           "warehouseName": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerName": "string",
           "customerCreditLimit": 1,
-          "pricePolicyId": 1,
-          "currencyId": 1,
+          "pricePolicyId": "<createdId>",
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyRate": 1,
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "reference": "string",
-          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "salesManId": "<createdId>",
           "salesManName": "string",
           "sourceType": "Direct",
           "applicationSource": "ERP",
           "isLinkedToAdvancedPayment": true,
           "salesInvoiceSources": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
+              "sourceId": "<createdId>",
               "sourceCode": "string"
             }
           ],
           "salesInvoiceDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
               "categoryType": {},
               "description": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
@@ -8351,15 +8351,15 @@
               "discountAmount": 1,
               "isVatIncluded": true,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "notes": "string",
-              "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
-              "pricePolicyDetailId": 1,
+              "itemStockBatchHeaderId": "<createdId>",
+              "pricePolicyDetailId": "<createdId>",
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
-              "sourceDetailId": "00000000-0000-0000-0000-000000000000",
-              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "sourceDetailId": "<createdId>",
+              "sourceId": "<createdId>",
               "isServiceItem": true,
               "salesInvoiceTracking": {},
               "salesDetailDiscounts": [
@@ -8369,7 +8369,7 @@
           ],
           "salesInvoiceBalances": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "dueAmount": 1,
               "dueDate": "2025-11-26T16:29:05.637Z",
               "dueBalance": 1
@@ -8377,12 +8377,12 @@
           ],
           "salesDiscounts": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "discountPolicyId": 1,
+              "id": "<createdId>",
+              "discountPolicyId": "<createdId>",
               "discountPolicyName": "string",
               "discountPercentage": 1,
               "isActive": true,
-              "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+              "salesOrderHeaderId": "<createdId>"
             }
           ]
         }
@@ -8411,7 +8411,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}",
+        "/erp-apis/SalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -8421,7 +8421,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}",
+        "/erp-apis/SalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -8431,7 +8431,7 @@
     },
     "GET__erp-apis_SalesInvoice_GetInvoiceViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesInvoice/GetInvoiceViewById/{Id}",
+        "/erp-apis/SalesInvoice/GetInvoiceViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -8568,7 +8568,7 @@
     },
     "POST__erp-apis_SalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/SalesInvoice/{Id}/Post",
+        "/erp-apis/SalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -8578,7 +8578,7 @@
     },
     "POST__erp-apis_SalesInvoice__Id__UploadToZatca": {
       "POST": [
-        "/erp-apis/SalesInvoice/{Id}/UploadToZatca",
+        "/erp-apis/SalesInvoice/<createdId>/UploadToZatca",
         {}
       ],
       "summary": "",
@@ -8605,7 +8605,7 @@
     },
     "GET__erp-apis_SalesInvoice__SalesInvoiceId__GetSalesInvoicePaymentIntent": {
       "GET": [
-        "/erp-apis/SalesInvoice/{SalesInvoiceId}/GetSalesInvoicePaymentIntent",
+        "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoicePaymentIntent",
         {}
       ],
       "summary": "",
@@ -8627,7 +8627,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id__GetSalesInvoiceToReturnById": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}/GetSalesInvoiceToReturnById",
+        "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoiceToReturnById",
         {}
       ],
       "summary": "",
@@ -8637,7 +8637,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id__DeleteSalesInvoiceLine": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}/DeleteSalesInvoiceLine",
+        "/erp-apis/SalesInvoice/<createdId>/DeleteSalesInvoiceLine",
         {}
       ],
       "summary": "",
@@ -8647,7 +8647,7 @@
     },
     "DELETE__erp-apis_SalesInvoice__Id__Test": {
       "DELETE": [
-        "/erp-apis/SalesInvoice/{Id}/Test",
+        "/erp-apis/SalesInvoice/<createdId>/Test",
         {}
       ],
       "summary": "",
@@ -8676,7 +8676,7 @@
     },
     "GET__erp-apis_SalesInvoice__Id__ZatcaLogs": {
       "GET": [
-        "/erp-apis/SalesInvoice/{Id}/ZatcaLogs",
+        "/erp-apis/SalesInvoice/<createdId>/ZatcaLogs",
         {}
       ],
       "summary": "",
@@ -8723,18 +8723,18 @@
       "PUT": [
         "/erp-apis/SalesMan",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "salesTeamId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "salesTeamId": "<createdId>",
           "salesPhone": "string",
           "name": "string",
           "nameAr": "string",
           "isActive": true,
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "branchesIds": [
             "00000000-0000-0000-0000-000000000000"
           ],
-          "paymentTermId": 1,
-          "treasuryId": 1,
+          "paymentTermId": "<createdId>",
+          "treasuryId": "<createdId>",
           "paymentMethods": [
             1
           ]
@@ -8807,7 +8807,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManPermission",
         {
-          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "salesManId": "<createdId>",
           "canCreateReturnSalesInvoice": true,
           "canCreateVisit": true,
           "showCustomerStatement": true,
@@ -8829,8 +8829,8 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManPricePolicy",
         {
-          "salesManId": "00000000-0000-0000-0000-000000000000",
-          "pricePolicyId": 1
+          "salesManId": "<createdId>",
+          "pricePolicyId": "<createdId>"
         }
       ],
       "summary": "",
@@ -8840,7 +8840,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "creditLimit": 1,
           "isCreditLimitActive": true
         }
@@ -8855,7 +8855,7 @@
           "targetAmount": 1,
           "commissionPercentage": 1,
           "commissionBascis": "NetSales",
-          "salesManId": "00000000-0000-0000-0000-000000000000"
+          "salesManId": "<createdId>"
         }
       ],
       "summary": "",
@@ -8865,8 +8865,8 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManWarehouse",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "warehouseId": 1
+          "id": "<createdId>",
+          "warehouseId": "<createdId>"
         }
       ],
       "summary": "",
@@ -8876,7 +8876,7 @@
       "PUT": [
         "/erp-apis/SalesMan/EditSalesManActivation",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "isActive": true
         }
       ],
@@ -8885,7 +8885,7 @@
     },
     "DELETE__erp-apis_SalesMan__Id_": {
       "DELETE": [
-        "/erp-apis/SalesMan/{Id}",
+        "/erp-apis/SalesMan/<createdId>",
         {}
       ],
       "summary": "",
@@ -8895,7 +8895,7 @@
     },
     "GET__erp-apis_SalesMan__Id_": {
       "GET": [
-        "/erp-apis/SalesMan/{Id}",
+        "/erp-apis/SalesMan/<createdId>",
         {}
       ],
       "summary": "",
@@ -9052,7 +9052,7 @@
     },
     "GET__erp-apis_SalesManVisit__Id_": {
       "GET": [
-        "/erp-apis/SalesManVisit/{Id}",
+        "/erp-apis/SalesManVisit/<createdId>",
         {}
       ],
       "summary": "",
@@ -9062,7 +9062,7 @@
     },
     "DELETE__erp-apis_SalesManVisit__Id_": {
       "DELETE": [
-        "/erp-apis/SalesManVisit/{Id}",
+        "/erp-apis/SalesManVisit/<createdId>",
         {}
       ],
       "summary": "",
@@ -9097,7 +9097,7 @@
       "PUT": [
         "/erp-apis/SalesManVisit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "journeyDate": "2025-11-26T16:29:05.637Z",
           "permission": {
             "canCollectPayments": true,
@@ -9108,9 +9108,9 @@
             "canProcessSalesOrder": true,
             "canProcessCreditNote": true
           },
-          "salesManId": "00000000-0000-0000-0000-000000000000",
-          "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-          "customerId": 1
+          "salesManId": "<createdId>",
+          "marketPlaceId": "<createdId>",
+          "customerId": "<createdId>"
         }
       ],
       "summary": "",
@@ -9257,37 +9257,37 @@
       "PUT": [
         "/erp-apis/SalesOrder",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "orderDate": "2025-11-26T16:29:05.638Z",
           "expiryDate": "2025-11-26T16:29:05.638Z",
           "description": "string",
           "termsAndConditions": "string",
-          "customerId": 1,
-          "currencyId": 1,
+          "customerId": "<createdId>",
+          "currencyId": "<createdId>",
           "currencyRate": 1,
-          "salesmanId": "00000000-0000-0000-0000-000000000000",
-          "paymentTermId": 1,
-          "pricePolicyId": 1,
+          "salesmanId": "<createdId>",
+          "paymentTermId": "<createdId>",
+          "pricePolicyId": "<createdId>",
           "items": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "barCode": "string",
-              "barCodeId": 1,
-              "itemId": 1,
+              "barCodeId": "<createdId>",
+              "itemId": "<createdId>",
               "itemCode": "string",
               "itemName": "string",
-              "itemVariantId": 1,
+              "itemVariantId": "<createdId>",
               "itemVariantCode": "string",
               "itemVariantNameEn": "string",
               "itemVariantNameAr": "string",
-              "categoryId": 1,
+              "categoryId": "<createdId>",
               "itemCategoryNameAr": "string",
               "itemCategoryNameEn": "string",
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomId": "<createdId>",
               "uomCode": "string",
               "uomNameAr": "string",
               "uomNameEn": "string",
-              "taxId": 1,
+              "taxId": "<createdId>",
               "categoryType": {},
               "description": "string",
               "quantity": 1,
@@ -9303,15 +9303,15 @@
           ],
           "salesOrderAttachments": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "attachmentId": "string",
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
               "name": "string"
             }
           ],
           "salesDiscounts": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "discountPolicyId": 1,
+              "id": "<createdId>",
+              "discountPolicyId": "<createdId>",
               "discountPolicyName": "string",
               "discountPercentage": 1,
               "isActive": true
@@ -9324,7 +9324,7 @@
     },
     "GET__erp-apis_SalesOrder__Id_": {
       "GET": [
-        "/erp-apis/SalesOrder/{Id}",
+        "/erp-apis/SalesOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -9334,7 +9334,7 @@
     },
     "DELETE__erp-apis_SalesOrder__Id_": {
       "DELETE": [
-        "/erp-apis/SalesOrder/{Id}",
+        "/erp-apis/SalesOrder/<createdId>",
         {}
       ],
       "summary": "",
@@ -9370,7 +9370,7 @@
     },
     "GET__erp-apis_SalesOrder_GetSalesOrderViewById__Id_": {
       "GET": [
-        "/erp-apis/SalesOrder/GetSalesOrderViewById/{Id}",
+        "/erp-apis/SalesOrder/GetSalesOrderViewById/<createdId>",
         {}
       ],
       "summary": "",
@@ -9430,7 +9430,7 @@
     },
     "GET__erp-apis_SalesOrder__Id__GetSalesOrderToInvoice": {
       "GET": [
-        "/erp-apis/SalesOrder/{Id}/GetSalesOrderToInvoice",
+        "/erp-apis/SalesOrder/<createdId>/GetSalesOrderToInvoice",
         {}
       ],
       "summary": "",
@@ -9440,7 +9440,7 @@
     },
     "POST__erp-apis_SalesOrder__Id__Post": {
       "POST": [
-        "/erp-apis/SalesOrder/{Id}/Post",
+        "/erp-apis/SalesOrder/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -9450,7 +9450,7 @@
     },
     "DELETE__erp-apis_SalesOrder__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/SalesOrder/{Id}/DeleteLine",
+        "/erp-apis/SalesOrder/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -9504,11 +9504,11 @@
       "PUT": [
         "/erp-apis/SalesProject",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "startDate": "2025-11-26T16:29:05.638Z",
           "endDate": "2025-11-26T16:29:05.638Z",
           "contractValue": 1
@@ -9519,7 +9519,7 @@
     },
     "GET__erp-apis_SalesProject__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/{Id}",
+        "/erp-apis/SalesProject/<createdId>",
         {}
       ],
       "summary": "",
@@ -9529,7 +9529,7 @@
     },
     "DELETE__erp-apis_SalesProject__Id_": {
       "DELETE": [
-        "/erp-apis/SalesProject/{Id}",
+        "/erp-apis/SalesProject/<createdId>",
         {}
       ],
       "summary": "",
@@ -9539,7 +9539,7 @@
     },
     "GET__erp-apis_SalesProject_View__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/View/{Id}",
+        "/erp-apis/SalesProject/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -9589,7 +9589,7 @@
     },
     "GET__erp-apis_SalesProject_GetSalesProjectForInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesProject/GetSalesProjectForInvoice/{Id}",
+        "/erp-apis/SalesProject/GetSalesProjectForInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -9649,22 +9649,22 @@
       "PUT": [
         "/erp-apis/SalesProjectInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:29:05.638Z",
           "code": "string",
           "description": "string",
-          "taxId": 1,
+          "taxId": "<createdId>",
           "vatPercentage": 1,
-          "salesProjectId": "00000000-0000-0000-0000-000000000000",
+          "salesProjectId": "<createdId>",
           "actualExecutionValue": 1,
           "taxableTotal": 1,
           "items": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "itemName": "string",
               "itemValue": 1,
               "itemType": {},
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxPercentage": 1,
               "taxAmount": 1,
               "total": 1
@@ -9677,7 +9677,7 @@
     },
     "GET__erp-apis_SalesProjectInvoice_View__Id_": {
       "GET": [
-        "/erp-apis/SalesProjectInvoice/View/{Id}",
+        "/erp-apis/SalesProjectInvoice/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -9709,7 +9709,7 @@
     },
     "GET__erp-apis_SalesProjectInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesProjectInvoice/{Id}",
+        "/erp-apis/SalesProjectInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -9719,7 +9719,7 @@
     },
     "DELETE__erp-apis_SalesProjectInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/SalesProjectInvoice/{Id}",
+        "/erp-apis/SalesProjectInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -9729,7 +9729,7 @@
     },
     "POST__erp-apis_SalesProjectInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/SalesProjectInvoice/{Id}/Post",
+        "/erp-apis/SalesProjectInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -9794,7 +9794,7 @@
     },
     "GET__erp-apis_SalesTeam__Id_": {
       "GET": [
-        "/erp-apis/SalesTeam/{Id}",
+        "/erp-apis/SalesTeam/<createdId>",
         {}
       ],
       "summary": "",
@@ -9804,7 +9804,7 @@
     },
     "DELETE__erp-apis_SalesTeam__Id_": {
       "DELETE": [
-        "/erp-apis/SalesTeam/{Id}",
+        "/erp-apis/SalesTeam/<createdId>",
         {}
       ],
       "summary": "",
@@ -9846,7 +9846,7 @@
       "PUT": [
         "/erp-apis/SalesTeam/EditSalesTeamGeneral",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string"
         }
@@ -9858,7 +9858,7 @@
       "PUT": [
         "/erp-apis/SalesTeam/EditSalesTeamBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "creditLimit": 1,
           "isCreditLimitActive": true
         }
@@ -9870,7 +9870,7 @@
       "PUT": [
         "/erp-apis/SalesTeam/EditSalesTeamPermission",
         {
-          "salesTeamId": "00000000-0000-0000-0000-000000000000",
+          "salesTeamId": "<createdId>",
           "canCreateReturnSalesInvoice": true,
           "canCreateVisit": true,
           "showCustomerStatement": true,
@@ -9891,8 +9891,8 @@
       "PUT": [
         "/erp-apis/SalesTeam/EditSalesTeamPricePolicy",
         {
-          "salesTeamId": "00000000-0000-0000-0000-000000000000",
-          "pricePolicyId": 1
+          "salesTeamId": "<createdId>",
+          "pricePolicyId": "<createdId>"
         }
       ],
       "summary": "",
@@ -9902,7 +9902,7 @@
       "PUT": [
         "/erp-apis/SalesTeam/EditSalesTeamActivation",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "isActive": true
         }
       ],
@@ -10087,12 +10087,12 @@
       "PUT": [
         "/erp-apis/Tag",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string",
           "modulesId": [
-            1
+            "<createdId>"
           ],
           "isActive": true
         }
@@ -10193,8 +10193,8 @@
       "PUT": [
         "/erp-apis/Tax",
         {
-          "id": 1,
-          "accountId": 1
+          "id": "<createdId>",
+          "accountId": "<createdId>"
         }
       ],
       "summary": "",
@@ -10304,7 +10304,7 @@
       "PUT": [
         "/erp-apis/TaxGroup",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string"
@@ -10468,7 +10468,7 @@
     },
     "PUT__erp-apis_TransferRequest_DeclineTransfer__Id_": {
       "PUT": [
-        "/erp-apis/TransferRequest/DeclineTransfer/{Id}",
+        "/erp-apis/TransferRequest/DeclineTransfer/<createdId>",
         {}
       ],
       "summary": "",
@@ -10478,7 +10478,7 @@
     },
     "GET__erp-apis_TransferRequest__Id_": {
       "GET": [
-        "/erp-apis/TransferRequest/{Id}",
+        "/erp-apis/TransferRequest/<createdId>",
         {}
       ],
       "summary": "",
@@ -10556,15 +10556,15 @@
       "PUT": [
         "/erp-apis/Treasury",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "branches": [
             "00000000-0000-0000-0000-000000000000"
           ],
-          "accountId": 1,
-          "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "accountId": "<createdId>",
+          "journalEntryLineId": "<createdId>",
           "accountOpeningBalance": 1,
           "openingBalance": 1
         }
@@ -10602,7 +10602,7 @@
     },
     "GET__erp-apis_Treasury__Id_": {
       "GET": [
-        "/erp-apis/Treasury/{Id}",
+        "/erp-apis/Treasury/<createdId>",
         {}
       ],
       "summary": "",
@@ -10612,7 +10612,7 @@
     },
     "DELETE__erp-apis_Treasury__Id_": {
       "DELETE": [
-        "/erp-apis/Treasury/{Id}",
+        "/erp-apis/Treasury/<createdId>",
         {}
       ],
       "summary": "",
@@ -10622,7 +10622,7 @@
     },
     "GET__erp-apis_Treasury_GetBalance__Id_": {
       "GET": [
-        "/erp-apis/Treasury/GetBalance/{Id}",
+        "/erp-apis/Treasury/GetBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -10632,7 +10632,7 @@
     },
     "GET__erp-apis_Treasury_View__Id_": {
       "GET": [
-        "/erp-apis/Treasury/View/{Id}",
+        "/erp-apis/Treasury/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -10783,7 +10783,7 @@
       "PUT": [
         "/erp-apis/User/UpdateUserProfile",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "name": "string",
           "email": "string",
           "phone": "string",
@@ -10810,7 +10810,7 @@
       "PUT": [
         "/erp-apis/User/UpdateUserActivation",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "isActive": true
         }
       ],
@@ -10837,7 +10837,7 @@
     },
     "GET__erp-apis_UserBranchAccess__UserId_": {
       "GET": [
-        "/erp-apis/UserBranchAccess/{UserId}",
+        "/erp-apis/UserBranchAccess/<createdId>",
         {}
       ],
       "summary": "",
@@ -10849,7 +10849,7 @@
       "PUT": [
         "/erp-apis/UserBranchAccess",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "branchIds": [
             "00000000-0000-0000-0000-000000000000"
           ]
@@ -10876,7 +10876,7 @@
     },
     "GET__erp-apis_UserSettings__UserId_": {
       "GET": [
-        "/erp-apis/UserSettings/{UserId}",
+        "/erp-apis/UserSettings/<createdId>",
         {}
       ],
       "summary": "",
@@ -10888,13 +10888,13 @@
       "PUT": [
         "/erp-apis/UserSettings",
         {
-          "userId": "00000000-0000-0000-0000-000000000000",
+          "userId": "<createdId>",
           "branchIds": [
             "00000000-0000-0000-0000-000000000000"
           ],
-          "treasuryId": 1,
-          "warehouseId": 1,
-          "bankId": 1,
+          "treasuryId": "<createdId>",
+          "warehouseId": "<createdId>",
+          "bankId": "<createdId>",
           "language": "Arabic",
           "canEditSalesPrice": true,
           "minimumPricePercentage": 1,
@@ -10956,7 +10956,7 @@
     },
     "GET__erp-apis_VanSales_GetSalesInvoiceById__Id_": {
       "GET": [
-        "/erp-apis/VanSales/GetSalesInvoiceById/{Id}",
+        "/erp-apis/VanSales/GetSalesInvoiceById/<createdId>",
         {}
       ],
       "summary": "",
@@ -10966,7 +10966,7 @@
     },
     "GET__erp-apis_VanSales_GetSalesInvoiceToReturnById__Id_": {
       "GET": [
-        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/{Id}",
+        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/<createdId>",
         {}
       ],
       "summary": "",
@@ -11050,10 +11050,10 @@
       "PUT": [
         "/erp-apis/VanSales/EditCustomerCategory",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "categoryId": 1,
+          "categoryId": "<createdId>",
           "marketType": "B2B",
           "birthdate": "2025-11-26T16:29:05.638Z",
           "photo": "string",
@@ -11074,11 +11074,11 @@
             "contactPersonName": "string"
           },
           "financialInfo": {
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "allowCreditLimit": true,
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "legalInfo": {
             "commercialRegistrationNumber": "string",
@@ -11088,22 +11088,22 @@
             "cityName": "string",
             "postalZone": "string",
             "countrySubEntity": "string",
-            "countryId": "string",
+            "countryId": "<createdId>",
             "buildingNumber": "string",
             "additionalStreetName": "string",
             "registrationName": "string",
-            "otherID": "string",
+            "otherID": "<createdId>",
             "nationalNumber": "string"
           },
           "accountingInfo": {
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "customerAddresses": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "longitude": 1,
               "latitude": 1,
               "errorRadius": 1
@@ -11111,10 +11111,10 @@
           ],
           "customerMarketPlaces": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "<createdId>",
+              "salesManId": "<createdId>",
               "address": "string"
             }
           ]
@@ -11485,14 +11485,14 @@
       "PUT": [
         "/erp-apis/Vendor",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "photo": "string",
           "birthDate": "2025-11-26T16:29:05.638Z",
-          "vendorCategoryId": 1,
+          "vendorCategoryId": "<createdId>",
           "vendorInformation": {
-            "id": 1,
+            "id": "<createdId>",
             "contactPhone": "string",
             "contactMobileCode": "string",
             "contactMobile": "string",
@@ -11506,33 +11506,33 @@
             "contactPersonEmail": "string"
           },
           "vendorAddress": {
-            "id": 1,
+            "id": "<createdId>",
             "state": "string",
             "street": "string",
             "longitude": 1,
             "latitude": 1,
             "radius": 1,
-            "countryId": "string",
-            "cityId": 1
+            "countryId": "<createdId>",
+            "cityId": "<createdId>"
           },
           "vendorLegal": {
-            "id": 1,
-            "taxId": "string",
-            "commercialId": "string"
+            "id": "<createdId>",
+            "taxId": "<createdId>",
+            "commercialId": "<createdId>"
           },
           "vendorFinancial": {
-            "id": 1,
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "id": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "vendorAccounting": {
-            "id": 1,
-            "payableAccountId": 1,
-            "purchaseAccountId": 1,
-            "purchaseReturnAccountId": 1,
-            "discountAccountId": 1
+            "id": "<createdId>",
+            "payableAccountId": "<createdId>",
+            "purchaseAccountId": "<createdId>",
+            "purchaseReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "vendorTagIds": [
             1
@@ -11561,7 +11561,7 @@
     },
     "GET__erp-apis_Vendor_DropDownByAccountId__AccountId_": {
       "GET": [
-        "/erp-apis/Vendor/DropDownByAccountId/{AccountId}",
+        "/erp-apis/Vendor/DropDownByAccountId/<createdId>",
         {}
       ],
       "summary": "",
@@ -11623,7 +11623,7 @@
     },
     "GET__erp-apis_Vendor__Id_": {
       "GET": [
-        "/erp-apis/Vendor/{Id}",
+        "/erp-apis/Vendor/<createdId>",
         {}
       ],
       "summary": "",
@@ -11633,7 +11633,7 @@
     },
     "DELETE__erp-apis_Vendor__Id_": {
       "DELETE": [
-        "/erp-apis/Vendor/{Id}",
+        "/erp-apis/Vendor/<createdId>",
         {}
       ],
       "summary": "",
@@ -11643,7 +11643,7 @@
     },
     "GET__erp-apis_Vendor_View__Id_": {
       "GET": [
-        "/erp-apis/Vendor/View/{Id}",
+        "/erp-apis/Vendor/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -11689,15 +11689,15 @@
       "PUT": [
         "/erp-apis/VendorCategory",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "payableAccountId": 1,
-          "purchaseAccountId": 1,
-          "purchaseReturnAccountId": 1,
-          "discountAccountId": 1,
-          "pricePolicyId": 1,
-          "paymentTermId": 1,
+          "payableAccountId": "<createdId>",
+          "purchaseAccountId": "<createdId>",
+          "purchaseReturnAccountId": "<createdId>",
+          "discountAccountId": "<createdId>",
+          "pricePolicyId": "<createdId>",
+          "paymentTermId": "<createdId>",
           "marketType": "B2B"
         }
       ],
@@ -11732,7 +11732,7 @@
     },
     "GET__erp-apis_VendorCategory__Id_": {
       "GET": [
-        "/erp-apis/VendorCategory/{Id}",
+        "/erp-apis/VendorCategory/<createdId>",
         {}
       ],
       "summary": "",
@@ -11742,7 +11742,7 @@
     },
     "DELETE__erp-apis_VendorCategory__Id_": {
       "DELETE": [
-        "/erp-apis/VendorCategory/{Id}",
+        "/erp-apis/VendorCategory/<createdId>",
         {}
       ],
       "summary": "",
@@ -11792,13 +11792,13 @@
       "PUT": [
         "/erp-apis/VendorOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "openingBalanceJournalEntryLineId": "<createdId>",
           "amountNature": "Debit",
           "vendorOpeningBalanceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "vendorId": 1,
+              "id": "<createdId>",
+              "vendorId": "<createdId>",
               "balance": 1,
               "balanceType": {},
               "dueDates": [
@@ -11813,7 +11813,7 @@
     },
     "DELETE__erp-apis_VendorOpeningBalance__Id_": {
       "DELETE": [
-        "/erp-apis/VendorOpeningBalance/{Id}",
+        "/erp-apis/VendorOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -11823,7 +11823,7 @@
     },
     "GET__erp-apis_VendorOpeningBalance__Id_": {
       "GET": [
-        "/erp-apis/VendorOpeningBalance/{Id}",
+        "/erp-apis/VendorOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -11851,7 +11851,7 @@
     },
     "GET__erp-apis_VendorOpeningBalance_GetOpeningBalanceView__Id_": {
       "GET": [
-        "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/{Id}",
+        "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/<createdId>",
         {}
       ],
       "summary": "",
@@ -11861,7 +11861,7 @@
     },
     "POST__erp-apis_VendorOpeningBalance__Id__Post": {
       "POST": [
-        "/erp-apis/VendorOpeningBalance/{Id}/Post",
+        "/erp-apis/VendorOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -11871,7 +11871,7 @@
     },
     "POST__erp-apis_VendorOpeningBalance__Id__UnPost": {
       "POST": [
-        "/erp-apis/VendorOpeningBalance/{Id}/UnPost",
+        "/erp-apis/VendorOpeningBalance/<createdId>/UnPost",
         {}
       ],
       "summary": "",
@@ -12020,17 +12020,17 @@
       "PUT": [
         "/erp-apis/WorkflowConfiguration",
         {
-          "id": 1,
-          "moduleId": 1,
-          "serviceId": 1,
+          "id": "<createdId>",
+          "moduleId": "<createdId>",
+          "serviceId": "<createdId>",
           "actions": [
             {
-              "actionId": 1,
+              "actionId": "<createdId>",
               "actionNameAr": "string",
               "actionNameEn": "string"
             }
           ],
-          "workflowTemplateId": 1,
+          "workflowTemplateId": "<createdId>",
           "workflowTemplateNameAr": "string",
           "workflowTemplateNameEn": "string",
           "isActive": true
@@ -12041,7 +12041,7 @@
     },
     "GET__erp-apis_WorkflowConfiguration__Id_": {
       "GET": [
-        "/erp-apis/WorkflowConfiguration/{Id}",
+        "/erp-apis/WorkflowConfiguration/<createdId>",
         {}
       ],
       "summary": "",
@@ -12051,7 +12051,7 @@
     },
     "DELETE__erp-apis_WorkflowConfiguration__Id_": {
       "DELETE": [
-        "/erp-apis/WorkflowConfiguration/{Id}",
+        "/erp-apis/WorkflowConfiguration/<createdId>",
         {}
       ],
       "summary": "",
@@ -12080,7 +12080,7 @@
     },
     "CancelRequest": {
       "POST": [
-        "/erp-apis/api/workflows/CancelRequest/{requestId}",
+        "/erp-apis/api/workflows/CancelRequest/<createdId>",
         {}
       ],
       "summary": "",

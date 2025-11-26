@@ -65,26 +65,26 @@
       "PUT": [
         "/erp-apis/PaymentOut",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "paymentOutDate": "2025-11-26T16:30:10.974Z",
           "description": "string",
-          "paymentHubDetailId": "string",
-          "bankAccountId": 1,
-          "currencyId": 1,
+          "paymentHubDetailId": "<createdId>",
+          "bankAccountId": "<createdId>",
+          "currencyId": "<createdId>",
           "rate": 1,
-          "glAccountId": 1,
+          "glAccountId": "<createdId>",
           "paymentOutDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "amount": 1,
               "rate": 1,
-              "currencyId": 1,
-              "paymentMethodId": 1,
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "<createdId>",
               "paymentOutMethodDetail": {},
-              "glAccountId": 1,
+              "glAccountId": "<createdId>",
               "notes": "string",
               "isVatLine": true,
               "hasVat": true,
@@ -125,7 +125,7 @@
     },
     "GET__erp-apis_PaymentOut__Id_": {
       "GET": [
-        "/erp-apis/PaymentOut/{Id}",
+        "/erp-apis/PaymentOut/<createdId>",
         {}
       ],
       "summary": "",
@@ -135,7 +135,7 @@
     },
     "DELETE__erp-apis_PaymentOut__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentOut/{Id}",
+        "/erp-apis/PaymentOut/<createdId>",
         {}
       ],
       "summary": "",
@@ -145,7 +145,7 @@
     },
     "GET__erp-apis_PaymentOut_GetView__Id_": {
       "GET": [
-        "/erp-apis/PaymentOut/GetView/{Id}",
+        "/erp-apis/PaymentOut/GetView/<createdId>",
         {}
       ],
       "summary": "",
@@ -155,7 +155,7 @@
     },
     "DELETE__erp-apis_PaymentOut_DeleteLine__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentOut/DeleteLine/{Id}",
+        "/erp-apis/PaymentOut/DeleteLine/<createdId>",
         {}
       ],
       "summary": "",
@@ -165,7 +165,7 @@
     },
     "POST__erp-apis_PaymentOut__Id__Post": {
       "POST": [
-        "/erp-apis/PaymentOut/{Id}/Post",
+        "/erp-apis/PaymentOut/<createdId>/Post",
         {}
       ],
       "summary": "",

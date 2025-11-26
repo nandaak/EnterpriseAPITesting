@@ -40,13 +40,13 @@
       "PUT": [
         "/erp-apis/CustomerOpeningBalance",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
-          "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
+          "openingBalanceJournalEntryLineId": "<createdId>",
           "amountNature": "Debit",
           "customerOpeningBalanceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "customerId": 1,
+              "id": "<createdId>",
+              "customerId": "<createdId>",
               "balance": 1,
               "balanceType": {},
               "dueDates": [
@@ -61,7 +61,7 @@
     },
     "DELETE__erp-apis_CustomerOpeningBalance_DeleteOpeningBalanceHeader__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/{Id}",
+        "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/<createdId>",
         {}
       ],
       "summary": "",
@@ -71,7 +71,7 @@
     },
     "DELETE__erp-apis_CustomerOpeningBalance__Id_": {
       "DELETE": [
-        "/erp-apis/CustomerOpeningBalance/{Id}",
+        "/erp-apis/CustomerOpeningBalance/<createdId>",
         {}
       ],
       "summary": "",
@@ -81,7 +81,7 @@
     },
     "GET__erp-apis_CustomerOpeningBalance_GetById__Id_": {
       "GET": [
-        "/erp-apis/CustomerOpeningBalance/GetById/{Id}",
+        "/erp-apis/CustomerOpeningBalance/GetById/<createdId>",
         {}
       ],
       "summary": "",
@@ -91,7 +91,7 @@
     },
     "GET__erp-apis_CustomerOpeningBalance_GetOpeningBalanceView__Id_": {
       "GET": [
-        "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/{Id}",
+        "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/<createdId>",
         {}
       ],
       "summary": "",
@@ -119,7 +119,7 @@
     },
     "POST__erp-apis_CustomerOpeningBalance__Id__Post": {
       "POST": [
-        "/erp-apis/CustomerOpeningBalance/{Id}/Post",
+        "/erp-apis/CustomerOpeningBalance/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -129,7 +129,7 @@
     },
     "POST__erp-apis_CustomerOpeningBalance__Id__UnPost": {
       "POST": [
-        "/erp-apis/CustomerOpeningBalance/{Id}/UnPost",
+        "/erp-apis/CustomerOpeningBalance/<createdId>/UnPost",
         {}
       ],
       "summary": "",

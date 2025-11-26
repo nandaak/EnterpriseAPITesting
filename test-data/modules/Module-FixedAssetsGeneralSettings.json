@@ -14,7 +14,7 @@
       "PUT": [
         "/erp-apis/FixedAssetsGeneralSettings",
         {
-          "assetsSalesPLAccountId": 1
+          "assetsSalesPLAccountId": "<createdId>"
         }
       ],
       "summary": "",

@@ -55,13 +55,13 @@
     },
     "PUT__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "PUT": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:30:10.938Z",
           "reference": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerCode": "string",
           "customerName": "string",
           "customerNameAr": "string",
@@ -71,18 +71,18 @@
           ],
           "assetsReturnSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "assetCode": "string",
               "remainingQuantity": 1,
               "quantityToReturn": 1,
               "price": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
               "vatPercentage": 1,
-              "assetsSalesInvoiceDetailId": "00000000-0000-0000-0000-000000000000"
+              "assetsSalesInvoiceDetailId": "<createdId>"
             }
           ]
         }
@@ -94,7 +94,7 @@
     },
     "GET__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "GET": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -104,7 +104,7 @@
     },
     "DELETE__erp-apis_AssetsReturnSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -154,7 +154,7 @@
     },
     "POST__erp-apis_AssetsReturnSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsReturnSalesInvoice/{Id}/Post",
+        "/erp-apis/AssetsReturnSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",

@@ -33,7 +33,7 @@
       "PUT": [
         "/erp-apis/Currency",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "name": "string",
           "nameAr": "string",
@@ -58,7 +58,7 @@
     },
     "GET__erp-apis_Currency__Id_": {
       "GET": [
-        "/erp-apis/Currency/{Id}",
+        "/erp-apis/Currency/<createdId>",
         {}
       ],
       "summary": "",
@@ -68,7 +68,7 @@
     },
     "DELETE__erp-apis_Currency__Id_": {
       "DELETE": [
-        "/erp-apis/Currency/{Id}",
+        "/erp-apis/Currency/<createdId>",
         {}
       ],
       "summary": "",

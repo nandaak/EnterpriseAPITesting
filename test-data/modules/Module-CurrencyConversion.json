@@ -31,10 +31,10 @@
       "PUT": [
         "/erp-apis/CurrencyConversion",
         {
-          "id": 1,
-          "fromCurrencyId": 1,
+          "id": "<createdId>",
+          "fromCurrencyId": "<createdId>",
           "fromCurrencyRate": 1,
-          "toCurrencyId": 1,
+          "toCurrencyId": "<createdId>",
           "note": "string"
         }
       ],
@@ -61,7 +61,7 @@
     },
     "GET__erp-apis_CurrencyConversion__Id_": {
       "GET": [
-        "/erp-apis/CurrencyConversion/{Id}",
+        "/erp-apis/CurrencyConversion/<createdId>",
         {}
       ],
       "summary": "",
@@ -71,7 +71,7 @@
     },
     "DELETE__erp-apis_CurrencyConversion__Id_": {
       "DELETE": [
-        "/erp-apis/CurrencyConversion/{Id}",
+        "/erp-apis/CurrencyConversion/<createdId>",
         {}
       ],
       "summary": "",

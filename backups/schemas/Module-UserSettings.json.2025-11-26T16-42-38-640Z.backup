@@ -1,0 +1,81 @@
+{
+  "UserSettings": {
+    "GET__erp-apis_UserSettings_GetAll": {
+      "GET": [
+        "/erp-apis/UserSettings/GetAll",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_UserSettings__UserId_": {
+      "GET": [
+        "/erp-apis/UserSettings/{UserId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "UserId"
+      ]
+    },
+    "PUT__erp-apis_UserSettings": {
+      "PUT": [
+        "/erp-apis/UserSettings",
+        {
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "branchIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "treasuryId": 1,
+          "warehouseId": 1,
+          "bankId": 1,
+          "language": "Arabic",
+          "canEditSalesPrice": true,
+          "minimumPricePercentage": 1,
+          "allowSellingBelowPriceLimit": true,
+          "enableMaximumSalesPriceLimit": true,
+          "maximumPricePercentage": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_UserSettings_Export": {
+      "GET": [
+        "/erp-apis/UserSettings/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_UserSettings_Copy": {
+      "POST": [
+        "/erp-apis/UserSettings/Copy",
+        {
+          "sourceUserId": "00000000-0000-0000-0000-000000000000",
+          "targetUserIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

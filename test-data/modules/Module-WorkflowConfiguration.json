@@ -40,17 +40,17 @@
       "PUT": [
         "/erp-apis/WorkflowConfiguration",
         {
-          "id": 1,
-          "moduleId": 1,
-          "serviceId": 1,
+          "id": "<createdId>",
+          "moduleId": "<createdId>",
+          "serviceId": "<createdId>",
           "actions": [
             {
-              "actionId": 1,
+              "actionId": "<createdId>",
               "actionNameAr": "string",
               "actionNameEn": "string"
             }
           ],
-          "workflowTemplateId": 1,
+          "workflowTemplateId": "<createdId>",
           "workflowTemplateNameAr": "string",
           "workflowTemplateNameEn": "string",
           "isActive": true
@@ -61,7 +61,7 @@
     },
     "GET__erp-apis_WorkflowConfiguration__Id_": {
       "GET": [
-        "/erp-apis/WorkflowConfiguration/{Id}",
+        "/erp-apis/WorkflowConfiguration/<createdId>",
         {}
       ],
       "summary": "",
@@ -71,7 +71,7 @@
     },
     "DELETE__erp-apis_WorkflowConfiguration__Id_": {
       "DELETE": [
-        "/erp-apis/WorkflowConfiguration/{Id}",
+        "/erp-apis/WorkflowConfiguration/<createdId>",
         {}
       ],
       "summary": "",

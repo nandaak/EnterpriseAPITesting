@@ -57,28 +57,28 @@
       "PUT": [
         "/erp-apis/AssetsSalesInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:30:10.939Z",
           "reference": "string",
           "description": "string",
-          "customerId": 1,
+          "customerId": "<createdId>",
           "customerCode": "string",
           "customerName": "string",
           "customerNameAr": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermCode": "string",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "applicationSource": "ERP",
           "assetsSalesInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "assetCode": "string",
               "quantity": 1,
               "price": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
               "vatPercentage": 1
@@ -113,7 +113,7 @@
     },
     "GET__erp-apis_AssetsSalesInvoice__id__GetById": {
       "GET": [
-        "/erp-apis/AssetsSalesInvoice/{id}/GetById",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/GetById",
         {}
       ],
       "summary": "",
@@ -134,7 +134,7 @@
     },
     "DELETE__erp-apis_AssetsSalesInvoice__id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsSalesInvoice/{id}/DeleteLine",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
@@ -144,7 +144,7 @@
     },
     "DELETE__erp-apis_AssetsSalesInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsSalesInvoice/{Id}",
+        "/erp-apis/AssetsSalesInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -154,7 +154,7 @@
     },
     "POST__erp-apis_AssetsSalesInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsSalesInvoice/{Id}/Post",
+        "/erp-apis/AssetsSalesInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",

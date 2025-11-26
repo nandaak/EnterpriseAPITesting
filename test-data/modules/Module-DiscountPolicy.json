@@ -33,7 +33,7 @@
       "PUT": [
         "/erp-apis/DiscountPolicy",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "discountPercentage": 1,
@@ -47,7 +47,7 @@
     },
     "GET__erp-apis_DiscountPolicy__Id_": {
       "GET": [
-        "/erp-apis/DiscountPolicy/{Id}",
+        "/erp-apis/DiscountPolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -57,7 +57,7 @@
     },
     "DELETE__erp-apis_DiscountPolicy__Id_": {
       "DELETE": [
-        "/erp-apis/DiscountPolicy/{Id}",
+        "/erp-apis/DiscountPolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -67,7 +67,7 @@
     },
     "GET__erp-apis_DiscountPolicy_View__Id_": {
       "GET": [
-        "/erp-apis/DiscountPolicy/View/{Id}",
+        "/erp-apis/DiscountPolicy/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -77,7 +77,7 @@
     },
     "DELETE__erp-apis_DiscountPolicy_DeleteUserLine__Id_": {
       "DELETE": [
-        "/erp-apis/DiscountPolicy/DeleteUserLine/{Id}",
+        "/erp-apis/DiscountPolicy/DeleteUserLine/<createdId>",
         {}
       ],
       "summary": "",

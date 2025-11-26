@@ -1,0 +1,114 @@
+{
+  "CustomerReports": {
+    "GET__erp-apis_CustomerReports_CustomerStatmentReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/CustomerStatmentReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "FromDate",
+        "ToDate"
+      ]
+    },
+    "GET__erp-apis_CustomerReports_PrintOutCustomerStatementReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/PrintOutCustomerStatementReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "FromDate",
+        "ToDate",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_CustomerReports_CustomerBalanceReport": {
+      "POST": [
+        "/erp-apis/CustomerReports/CustomerBalanceReport",
+        {
+          "customerIds": [
+            1
+          ],
+          "fromDate": "2025-11-26T16:30:10.953Z",
+          "toDate": "2025-11-26T16:30:10.953Z"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_CustomerReports_PrintOutCustomerBalanceReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/PrintOutCustomerBalanceReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerIds",
+        "CustomerNames",
+        "FromDate",
+        "ToDate",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_CustomerReports_CustomerAgingReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/CustomerAgingReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerIds",
+        "ToDate"
+      ]
+    },
+    "GET__erp-apis_CustomerReports_CustomerAgingDetailReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/CustomerAgingDetailReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "ToDate",
+        "Buckets"
+      ]
+    },
+    "GET__erp-apis_CustomerReports_ExportCustomerAgingDetailReport": {
+      "GET": [
+        "/erp-apis/CustomerReports/ExportCustomerAgingDetailReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "ToDate",
+        "Buckets",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

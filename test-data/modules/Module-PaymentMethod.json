@@ -43,20 +43,20 @@
       "PUT": [
         "/erp-apis/PaymentMethod",
         {
-          "id": 1,
+          "id": "<createdId>",
           "code": "string",
           "name": "string",
           "nameAr": "string",
           "paymentPlace": "Treasury",
           "paymentMethodType": "Cash",
           "paymentMethodCommissionData": {
-            "bankId": 1,
-            "bankAccountId": 1,
+            "bankId": "<createdId>",
+            "bankAccountId": "<createdId>",
             "commissionType": "Amount",
             "commissionValue": 1,
-            "commissionAccountId": 1,
+            "commissionAccountId": "<createdId>",
             "allowVAT": true,
-            "taxId": 1,
+            "taxId": "<createdId>",
             "paymentDirections": [
               {}
             ]
@@ -68,7 +68,7 @@
     },
     "GET__erp-apis_PaymentMethod_GetAllBankPaymentMethodsDropdown__BankId___BankAccountId_": {
       "GET": [
-        "/erp-apis/PaymentMethod/GetAllBankPaymentMethodsDropdown/{BankId}/{BankAccountId}",
+        "/erp-apis/PaymentMethod/GetAllBankPaymentMethodsDropdown/<createdId>/<createdId>",
         {}
       ],
       "summary": "",
@@ -113,7 +113,7 @@
     },
     "GET__erp-apis_PaymentMethod__Id_": {
       "GET": [
-        "/erp-apis/PaymentMethod/{Id}",
+        "/erp-apis/PaymentMethod/<createdId>",
         {}
       ],
       "summary": "",
@@ -123,7 +123,7 @@
     },
     "DELETE__erp-apis_PaymentMethod__Id_": {
       "DELETE": [
-        "/erp-apis/PaymentMethod/{Id}",
+        "/erp-apis/PaymentMethod/<createdId>",
         {}
       ],
       "summary": "",

@@ -1,0 +1,43 @@
+{
+  "UserBranchAccess": {
+    "GET__erp-apis_UserBranchAccess_GetAll": {
+      "GET": [
+        "/erp-apis/UserBranchAccess/GetAll",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey",
+        "BranchId",
+        "IsActive",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_UserBranchAccess__UserId_": {
+      "GET": [
+        "/erp-apis/UserBranchAccess/{UserId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "UserId"
+      ]
+    },
+    "PUT__erp-apis_UserBranchAccess": {
+      "PUT": [
+        "/erp-apis/UserBranchAccess",
+        {
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "branchIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

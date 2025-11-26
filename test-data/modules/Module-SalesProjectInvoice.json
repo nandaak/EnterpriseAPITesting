@@ -50,22 +50,22 @@
       "PUT": [
         "/erp-apis/SalesProjectInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "invoiceDate": "2025-11-26T16:30:10.988Z",
           "code": "string",
           "description": "string",
-          "taxId": 1,
+          "taxId": "<createdId>",
           "vatPercentage": 1,
-          "salesProjectId": "00000000-0000-0000-0000-000000000000",
+          "salesProjectId": "<createdId>",
           "actualExecutionValue": 1,
           "taxableTotal": 1,
           "items": [
             {
-              "id": 1,
+              "id": "<createdId>",
               "itemName": "string",
               "itemValue": 1,
               "itemType": {},
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxPercentage": 1,
               "taxAmount": 1,
               "total": 1
@@ -78,7 +78,7 @@
     },
     "GET__erp-apis_SalesProjectInvoice_View__Id_": {
       "GET": [
-        "/erp-apis/SalesProjectInvoice/View/{Id}",
+        "/erp-apis/SalesProjectInvoice/View/<createdId>",
         {}
       ],
       "summary": "",
@@ -110,7 +110,7 @@
     },
     "GET__erp-apis_SalesProjectInvoice__Id_": {
       "GET": [
-        "/erp-apis/SalesProjectInvoice/{Id}",
+        "/erp-apis/SalesProjectInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -120,7 +120,7 @@
     },
     "DELETE__erp-apis_SalesProjectInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/SalesProjectInvoice/{Id}",
+        "/erp-apis/SalesProjectInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -130,7 +130,7 @@
     },
     "POST__erp-apis_SalesProjectInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/SalesProjectInvoice/{Id}/Post",
+        "/erp-apis/SalesProjectInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",

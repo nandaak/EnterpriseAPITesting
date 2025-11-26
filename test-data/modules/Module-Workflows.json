@@ -19,7 +19,7 @@
     },
     "CancelRequest": {
       "POST": [
-        "/erp-apis/api/workflows/CancelRequest/{requestId}",
+        "/erp-apis/api/workflows/CancelRequest/<createdId>",
         {}
       ],
       "summary": "",

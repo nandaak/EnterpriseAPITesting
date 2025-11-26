@@ -28,7 +28,7 @@
     },
     "GET__erp-apis_SalesManVisit__Id_": {
       "GET": [
-        "/erp-apis/SalesManVisit/{Id}",
+        "/erp-apis/SalesManVisit/<createdId>",
         {}
       ],
       "summary": "",
@@ -38,7 +38,7 @@
     },
     "DELETE__erp-apis_SalesManVisit__Id_": {
       "DELETE": [
-        "/erp-apis/SalesManVisit/{Id}",
+        "/erp-apis/SalesManVisit/<createdId>",
         {}
       ],
       "summary": "",
@@ -73,7 +73,7 @@
       "PUT": [
         "/erp-apis/SalesManVisit",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "journeyDate": "2025-11-26T16:30:10.986Z",
           "permission": {
             "canCollectPayments": true,
@@ -84,9 +84,9 @@
             "canProcessSalesOrder": true,
             "canProcessCreditNote": true
           },
-          "salesManId": "00000000-0000-0000-0000-000000000000",
-          "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-          "customerId": 1
+          "salesManId": "<createdId>",
+          "marketPlaceId": "<createdId>",
+          "customerId": "<createdId>"
         }
       ],
       "summary": "",

@@ -1,0 +1,474 @@
+{
+  "VanSales": {
+    "GET__erp-apis_VanSales_GetSalesInvoiceByCustomerId": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceByCustomerId",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceById__Id_": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceToReturnById__Id_": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_VanSales_ExportCustomerById": {
+      "GET": [
+        "/erp-apis/VanSales/ExportCustomerById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetCustomerCreditLimit": {
+      "GET": [
+        "/erp-apis/VanSales/GetCustomerCreditLimit",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesManCreditLimit": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesManCreditLimit",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_VanSales_AddReturnSalesInvoice": {
+      "POST": [
+        "/erp-apis/VanSales/AddReturnSalesInvoice",
+        {
+          "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+          "externalCode": "string",
+          "returnInvoiceDate": "2025-11-26T16:30:10.999Z",
+          "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+          "description": "string",
+          "warehouseId": 1,
+          "warehouseName": "string",
+          "posSessionId": "00000000-0000-0000-0000-000000000000",
+          "returnSalesInvoiceDetails": [
+            {
+              "toReturnQuantity": 1,
+              "salesInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
+              "returnSalesInvoiceDetailIngredients": [
+                {}
+              ]
+            }
+          ],
+          "posReturnInvoicePayments": [
+            {
+              "amount": 1,
+              "paymentMethodType": {},
+              "paymentMethodCode": "string",
+              "paymentMethodId": 1
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_VanSales_EditCustomerCategory": {
+      "PUT": [
+        "/erp-apis/VanSales/EditCustomerCategory",
+        {
+          "id": 1,
+          "name": "string",
+          "nameAr": "string",
+          "categoryId": 1,
+          "marketType": "B2B",
+          "birthdate": "2025-11-26T16:30:10.999Z",
+          "photo": "string",
+          "tagIds": [
+            1
+          ],
+          "contactInfo": {
+            "contactPhone": "string",
+            "contactEmail": "string",
+            "contactMobileCode": "string",
+            "contactMobile": "string",
+            "contactWebsite": "string",
+            "contactFax": "string",
+            "contactPersonPhone": "string",
+            "contactPersonMobileCode": "string",
+            "contactPersonMobile": "string",
+            "contactPersonEmail": "string",
+            "contactPersonName": "string"
+          },
+          "financialInfo": {
+            "paymentTermId": 1,
+            "pricePolicyId": 1,
+            "allowCreditLimit": true,
+            "creditLimit": 1,
+            "currencyId": 1
+          },
+          "legalInfo": {
+            "commercialRegistrationNumber": "string",
+            "taxIdentificationNumber": "string",
+            "street": "string",
+            "citySubdivisionName": "string",
+            "cityName": "string",
+            "postalZone": "string",
+            "countrySubEntity": "string",
+            "countryId": "string",
+            "buildingNumber": "string",
+            "additionalStreetName": "string",
+            "registrationName": "string",
+            "otherID": "string",
+            "nationalNumber": "string"
+          },
+          "accountingInfo": {
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1
+          },
+          "customerAddresses": [
+            {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "longitude": 1,
+              "latitude": 1,
+              "errorRadius": 1
+            }
+          ],
+          "customerMarketPlaces": [
+            {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "address": "string"
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_AddSalesInvoice": {
+      "POST": [
+        "/erp-apis/VanSales/AddSalesInvoice",
+        {
+          "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+          "externalCode": "string",
+          "invoiceDate": "2025-11-26T16:30:10.999Z",
+          "invoiceDueDate": "2025-11-26T16:30:10.999Z",
+          "description": "string",
+          "warehouseId": 1,
+          "warehouseName": "string",
+          "customerId": 1,
+          "customerName": "string",
+          "customerCreditLimit": 1,
+          "pricePolicyId": 1,
+          "currencyId": 1,
+          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "salesManName": "string",
+          "currencyName": "string",
+          "currencyRate": 1,
+          "paymentTermId": 1,
+          "reference": "string",
+          "sourceType": "Direct",
+          "applicationSource": "ERP",
+          "isLinkedToAdvancedPayment": true,
+          "salesInvoiceSources": [
+            {
+              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "sourceCode": "string"
+            }
+          ],
+          "posSessionId": "00000000-0000-0000-0000-000000000000",
+          "salesInvoiceDetails": [
+            {
+              "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+              "barCode": "string",
+              "barCodeId": 1,
+              "itemId": 1,
+              "itemCode": "string",
+              "itemName": "string",
+              "itemVariantId": 1,
+              "itemVariantCode": "string",
+              "itemVariantNameEn": "string",
+              "itemVariantNameAr": "string",
+              "categoryId": 1,
+              "itemCategoryNameAr": "string",
+              "itemCategoryNameEn": "string",
+              "categoryType": {},
+              "description": "string",
+              "uomId": "00000000-0000-0000-0000-000000000000",
+              "uomCode": "string",
+              "uomNameAr": "string",
+              "uomNameEn": "string",
+              "quantity": 1,
+              "price": 1,
+              "cost": 1,
+              "isVatIncluded": true,
+              "vatPercentage": 1,
+              "taxId": 1,
+              "notes": "string",
+              "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
+              "pricePolicyDetailId": 1,
+              "invoiceEntryMode": {},
+              "trackingType": {},
+              "hasExpiryDate": true,
+              "sourceId": "00000000-0000-0000-0000-000000000000",
+              "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+              "isServiceItem": true,
+              "isProductItem": true,
+              "salesInvoiceTracking": {},
+              "salesDetailDiscounts": [
+                {}
+              ],
+              "salesInvoiceDetailIngredients": [
+                {}
+              ]
+            }
+          ],
+          "salesInvoiceBalances": [
+            {
+              "dueAmount": 1,
+              "dueDate": "2025-11-26T16:30:10.999Z",
+              "dueBalance": 1
+            }
+          ],
+          "posInvoicePayments": [
+            {
+              "amount": 1,
+              "paymentMethodType": {},
+              "paymentMethodCode": "string",
+              "paymentMethodId": 1
+            }
+          ],
+          "salesDiscounts": [
+            {
+              "discountPolicyId": 1,
+              "discountPolicyName": "string",
+              "discountPercentage": 1,
+              "isActive": true,
+              "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+            }
+          ],
+          "enableWorkflow": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_AddPaymentIn": {
+      "POST": [
+        "/erp-apis/VanSales/AddPaymentIn",
+        {
+          "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+          "externalCode": "string",
+          "paymentInDate": "2025-11-26T16:30:10.999Z",
+          "description": "string",
+          "paymentHub": "Treasury",
+          "paymentHubDetailId": "string",
+          "bankAccountId": 1,
+          "currencyId": 1,
+          "rate": 1,
+          "glAccountId": 1,
+          "taxId": 1,
+          "isCustomerAdvancedPayment": true,
+          "isAmountIncludesVat": true,
+          "sourceDocumentId": "string",
+          "sourceDocumentType": "FundTransfer",
+          "paymentInDetails": [
+            {
+              "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+              "amount": 1,
+              "rate": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
+              "paymentMethodType": {},
+              "paidBy": {},
+              "paidByDetailsId": "string",
+              "paymentInMethodDetails": {},
+              "glAccountId": 1,
+              "notes": "string",
+              "paymentInDate": "2025-11-26T16:30:10.999Z",
+              "paymentInDetailCostCenters": [
+                {}
+              ]
+            }
+          ],
+          "isFromFundTransfer": true,
+          "saveToContext": true,
+          "enableWorkflow": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_ProcessSyncBack": {
+      "POST": [
+        "/erp-apis/VanSales/ProcessSyncBack",
+        {
+          "operationReference": "00000000-0000-0000-0000-000000000000",
+          "visitsTransactions": [
+            {
+              "actionType": {},
+              "processingMode": {},
+              "visit": {},
+              "processingOrder": 1
+            }
+          ],
+          "salesTransactions": [
+            {
+              "processingMode": {},
+              "salesInvoice": {},
+              "dependsOnVisitId": "00000000-0000-0000-0000-000000000000",
+              "dependsOnExternalVisitId": "00000000-0000-0000-0000-000000000000",
+              "processingOrder": 1
+            }
+          ],
+          "returnSalesTransactions": [
+            {
+              "processingMode": {},
+              "returnSalesInvoice": {},
+              "dependsOnVisitId": "00000000-0000-0000-0000-000000000000",
+              "dependsOnExternalVisitId": "00000000-0000-0000-0000-000000000000",
+              "processingOrder": 1
+            }
+          ],
+          "paymentInTransactions": [
+            {
+              "processingMode": {},
+              "paymentIn": {},
+              "dependsOnVisitId": "00000000-0000-0000-0000-000000000000",
+              "dependsOnExternalVisitId": "00000000-0000-0000-0000-000000000000",
+              "processingOrder": 1
+            }
+          ],
+          "customerTransactions": [
+            {
+              "actionType": {},
+              "processingMode": {},
+              "customer": {},
+              "dependsOnVisitId": "00000000-0000-0000-0000-000000000000",
+              "dependsOnExternalVisitId": "00000000-0000-0000-0000-000000000000",
+              "processingOrder": 1
+            }
+          ],
+          "salesOrderTransactions": [
+            {
+              "processingMode": {},
+              "salesOrder": {},
+              "dependsOnVisitId": "00000000-0000-0000-0000-000000000000",
+              "dependsOnExternalVisitId": "00000000-0000-0000-0000-000000000000",
+              "processingOrder": 1
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_VanSales_GetSyncBackStatus": {
+      "GET": [
+        "/erp-apis/VanSales/GetSyncBackStatus",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "OperationId"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceQRCode": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceQRCode",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_SalesReport": {
+      "POST": [
+        "/erp-apis/VanSales/SalesReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "SalesmanIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "DeviceIds",
+        "VisitIds",
+        "PaymentStatus",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_VanSales_ExportSalesReport": {
+      "POST": [
+        "/erp-apis/VanSales/ExportSalesReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "SalesmanIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "DeviceIds",
+        "VisitIds",
+        "PaymentStatus",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

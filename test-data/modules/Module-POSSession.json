@@ -196,7 +196,7 @@
     },
     "GET__erp-apis_POSSession__Id_": {
       "GET": [
-        "/erp-apis/POSSession/{Id}",
+        "/erp-apis/POSSession/<createdId>",
         {}
       ],
       "summary": "",

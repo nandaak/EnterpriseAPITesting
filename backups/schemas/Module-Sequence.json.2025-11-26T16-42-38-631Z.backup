@@ -1,0 +1,61 @@
+{
+  "Sequence": {
+    "GET__erp-apis_Sequence__Screen_": {
+      "GET": [
+        "/erp-apis/Sequence/{Screen}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Screen"
+      ]
+    },
+    "POST__erp-apis_Sequence": {
+      "POST": [
+        "/erp-apis/Sequence",
+        {
+          "status": true,
+          "companyId": "00000000-0000-0000-0000-000000000000",
+          "branchesIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "module": "Accounting",
+          "screen": "PaymentIn",
+          "type": "Continuous",
+          "sequenceDetails": [
+            {
+              "order": 1,
+              "segment": {},
+              "detailValue": "string",
+              "valueOption": "string"
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Sequence_CanReset": {
+      "GET": [
+        "/erp-apis/Sequence/CanReset",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "screen",
+        "module"
+      ]
+    },
+    "POST__erp-apis_Sequence_Reset": {
+      "POST": [
+        "/erp-apis/Sequence/Reset",
+        {
+          "screen": "PaymentIn",
+          "module": "Accounting"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

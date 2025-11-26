@@ -42,12 +42,12 @@
       "PUT": [
         "/erp-apis/Tag",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "code": "string",
           "modulesId": [
-            1
+            "<createdId>"
           ],
           "isActive": true
         }

@@ -1,0 +1,244 @@
+{
+  "PaymentOut": {
+    "GET__erp-apis_PaymentOut": {
+      "GET": [
+        "/erp-apis/PaymentOut",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "PaymentHub",
+        "PaymentHubDetailId",
+        "BankAccountId",
+        "Status",
+        "CurrencyId",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_PaymentOut": {
+      "POST": [
+        "/erp-apis/PaymentOut",
+        {
+          "paymentOutDate": "2025-11-26T16:30:10.973Z",
+          "description": "string",
+          "paymentHub": "Treasury",
+          "paymentHubDetailId": "string",
+          "bankAccountId": 1,
+          "currencyId": 1,
+          "rate": 1,
+          "glAccountId": 1,
+          "sourceDocumentId": "string",
+          "sourceDocumentType": "FundTransfer",
+          "paymentOutDetails": [
+            {
+              "amount": 1,
+              "rate": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
+              "paymentMethodType": {},
+              "paidBy": {},
+              "paidByDetailsId": "string",
+              "paymentOutMethodDetails": {},
+              "glAccountId": 1,
+              "notes": "string",
+              "isVatLine": true,
+              "hasVat": true,
+              "paymentOutDetailCostCenters": [
+                {}
+              ]
+            }
+          ],
+          "saveToContext": true,
+          "enableWorkflow": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_PaymentOut": {
+      "PUT": [
+        "/erp-apis/PaymentOut",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "paymentOutDate": "2025-11-26T16:30:10.974Z",
+          "description": "string",
+          "paymentHubDetailId": "string",
+          "bankAccountId": 1,
+          "currencyId": 1,
+          "rate": 1,
+          "glAccountId": 1,
+          "paymentOutDetails": [
+            {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "amount": 1,
+              "rate": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
+              "paymentMethodType": {},
+              "paidBy": {},
+              "paidByDetailsId": "string",
+              "paymentOutMethodDetail": {},
+              "glAccountId": 1,
+              "notes": "string",
+              "isVatLine": true,
+              "hasVat": true,
+              "paymentOutDetailCostCenters": [
+                {}
+              ]
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_PaymentOut_Export": {
+      "GET": [
+        "/erp-apis/PaymentOut/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "PaymentHub",
+        "PaymentHubDetailId",
+        "BankAccountId",
+        "Status",
+        "CurrencyId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_PaymentOut__Id_": {
+      "GET": [
+        "/erp-apis/PaymentOut/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_PaymentOut__Id_": {
+      "DELETE": [
+        "/erp-apis/PaymentOut/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_PaymentOut_GetView__Id_": {
+      "GET": [
+        "/erp-apis/PaymentOut/GetView/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_PaymentOut_DeleteLine__Id_": {
+      "DELETE": [
+        "/erp-apis/PaymentOut/DeleteLine/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_PaymentOut__Id__Post": {
+      "POST": [
+        "/erp-apis/PaymentOut/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_PaymentOut_PrintOutPaymentOut": {
+      "GET": [
+        "/erp-apis/PaymentOut/PrintOutPaymentOut",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_PaymentOut_GetCashPaymentReport": {
+      "GET": [
+        "/erp-apis/PaymentOut/GetCashPaymentReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "BankPaymentHubDetailsIds",
+        "TreasuryPaymentHubDetailsIds",
+        "BankAccountIds",
+        "PaymentMethodId",
+        "CustomerIds",
+        "VendorIds",
+        "GLAccountIds",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_PaymentOut_PrintOutCashPaymentReport": {
+      "GET": [
+        "/erp-apis/PaymentOut/PrintOutCashPaymentReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "BankPaymentHubDetailsIds",
+        "TreasuryPaymentHubDetailsIds",
+        "BankAccountId",
+        "PaymentMethodId",
+        "PaymentMethodName",
+        "CustomerIds",
+        "VendorIds",
+        "GlAccountIds",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

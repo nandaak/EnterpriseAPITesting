@@ -95,10 +95,10 @@
       "PUT": [
         "/erp-apis/Customer",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "categoryId": 1,
+          "categoryId": "<createdId>",
           "marketType": "B2B",
           "birthdate": "2025-11-26T16:30:10.951Z",
           "photo": "string",
@@ -119,11 +119,11 @@
             "contactPersonName": "string"
           },
           "financialInfo": {
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "allowCreditLimit": true,
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "legalInfo": {
             "commercialRegistrationNumber": "string",
@@ -133,22 +133,22 @@
             "cityName": "string",
             "postalZone": "string",
             "countrySubEntity": "string",
-            "countryId": "string",
+            "countryId": "<createdId>",
             "buildingNumber": "string",
             "additionalStreetName": "string",
             "registrationName": "string",
-            "otherID": "string",
+            "otherID": "<createdId>",
             "nationalNumber": "string"
           },
           "accountingInfo": {
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "customerAddresses": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "longitude": 1,
               "latitude": 1,
               "errorRadius": 1
@@ -156,10 +156,10 @@
           ],
           "customerMarketPlaces": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "<createdId>",
+              "salesManId": "<createdId>",
               "address": "string"
             }
           ]
@@ -202,7 +202,7 @@
     },
     "GET__erp-apis_Customer_DropDownByAccountId__AccountId_": {
       "GET": [
-        "/erp-apis/Customer/DropDownByAccountId/{AccountId}",
+        "/erp-apis/Customer/DropDownByAccountId/<createdId>",
         {}
       ],
       "summary": "",
@@ -283,7 +283,7 @@
     },
     "GET__erp-apis_Customer__Id_": {
       "GET": [
-        "/erp-apis/Customer/{Id}",
+        "/erp-apis/Customer/<createdId>",
         {}
       ],
       "summary": "",
@@ -293,7 +293,7 @@
     },
     "DELETE__erp-apis_Customer__Id_": {
       "DELETE": [
-        "/erp-apis/Customer/{Id}",
+        "/erp-apis/Customer/<createdId>",
         {}
       ],
       "summary": "",
@@ -303,7 +303,7 @@
     },
     "GET__erp-apis_Customer_GetCustomerView__Id_": {
       "GET": [
-        "/erp-apis/Customer/GetCustomerView/{Id}",
+        "/erp-apis/Customer/GetCustomerView/<createdId>",
         {}
       ],
       "summary": "",
@@ -351,7 +351,7 @@
     },
     "DELETE__erp-apis_Customer_DeleteCustomerMarketPlace__Id_": {
       "DELETE": [
-        "/erp-apis/Customer/DeleteCustomerMarketPlace/{Id}",
+        "/erp-apis/Customer/DeleteCustomerMarketPlace/<createdId>",
         {}
       ],
       "summary": "",

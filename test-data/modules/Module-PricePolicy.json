@@ -43,20 +43,20 @@
       "PUT": [
         "/erp-apis/PricePolicy",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "policySource": "Manual",
           "policyItemsList": [
             {
-              "id": 1,
-              "itemId": 1,
-              "itemVariantId": 1,
-              "uomId": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
+              "itemId": "<createdId>",
+              "itemVariantId": "<createdId>",
+              "uomId": "<createdId>",
               "isVatApplied": true,
               "isSellingPriceIncludeVat": true,
               "taxRatio": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "price": 1,
               "priceWithVat": 1
             }
@@ -68,7 +68,7 @@
     },
     "GET__erp-apis_PricePolicy__Id_": {
       "GET": [
-        "/erp-apis/PricePolicy/{Id}",
+        "/erp-apis/PricePolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -78,7 +78,7 @@
     },
     "DELETE__erp-apis_PricePolicy__Id_": {
       "DELETE": [
-        "/erp-apis/PricePolicy/{Id}",
+        "/erp-apis/PricePolicy/<createdId>",
         {}
       ],
       "summary": "",
@@ -96,7 +96,7 @@
     },
     "GET__erp-apis_PricePolicy_View__Id_": {
       "GET": [
-        "/erp-apis/PricePolicy/View/{Id}",
+        "/erp-apis/PricePolicy/View/<createdId>",
         {}
       ],
       "summary": "",

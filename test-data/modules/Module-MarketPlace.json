@@ -33,7 +33,7 @@
       "PUT": [
         "/erp-apis/MarketPlace",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
           "status": "Active",
@@ -57,7 +57,7 @@
     },
     "GET__erp-apis_MarketPlace__Id_": {
       "GET": [
-        "/erp-apis/MarketPlace/{Id}",
+        "/erp-apis/MarketPlace/<createdId>",
         {}
       ],
       "summary": "",
@@ -67,7 +67,7 @@
     },
     "DELETE__erp-apis_MarketPlace__Id_": {
       "DELETE": [
-        "/erp-apis/MarketPlace/{Id}",
+        "/erp-apis/MarketPlace/<createdId>",
         {}
       ],
       "summary": "",

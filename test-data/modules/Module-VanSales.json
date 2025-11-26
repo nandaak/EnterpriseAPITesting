@@ -17,7 +17,7 @@
     },
     "GET__erp-apis_VanSales_GetSalesInvoiceById__Id_": {
       "GET": [
-        "/erp-apis/VanSales/GetSalesInvoiceById/{Id}",
+        "/erp-apis/VanSales/GetSalesInvoiceById/<createdId>",
         {}
       ],
       "summary": "",
@@ -27,7 +27,7 @@
     },
     "GET__erp-apis_VanSales_GetSalesInvoiceToReturnById__Id_": {
       "GET": [
-        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/{Id}",
+        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/<createdId>",
         {}
       ],
       "summary": "",
@@ -111,10 +111,10 @@
       "PUT": [
         "/erp-apis/VanSales/EditCustomerCategory",
         {
-          "id": 1,
+          "id": "<createdId>",
           "name": "string",
           "nameAr": "string",
-          "categoryId": 1,
+          "categoryId": "<createdId>",
           "marketType": "B2B",
           "birthdate": "2025-11-26T16:30:10.999Z",
           "photo": "string",
@@ -135,11 +135,11 @@
             "contactPersonName": "string"
           },
           "financialInfo": {
-            "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
             "allowCreditLimit": true,
             "creditLimit": 1,
-            "currencyId": 1
+            "currencyId": "<createdId>"
           },
           "legalInfo": {
             "commercialRegistrationNumber": "string",
@@ -149,22 +149,22 @@
             "cityName": "string",
             "postalZone": "string",
             "countrySubEntity": "string",
-            "countryId": "string",
+            "countryId": "<createdId>",
             "buildingNumber": "string",
             "additionalStreetName": "string",
             "registrationName": "string",
-            "otherID": "string",
+            "otherID": "<createdId>",
             "nationalNumber": "string"
           },
           "accountingInfo": {
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>"
           },
           "customerAddresses": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "longitude": 1,
               "latitude": 1,
               "errorRadius": 1
@@ -172,10 +172,10 @@
           ],
           "customerMarketPlaces": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
+              "id": "<createdId>",
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "<createdId>",
+              "salesManId": "<createdId>",
               "address": "string"
             }
           ]

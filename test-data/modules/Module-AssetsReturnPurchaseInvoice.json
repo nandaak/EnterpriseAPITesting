@@ -2,7 +2,7 @@
   "AssetsReturnPurchaseInvoice": {
     "GET__erp-apis_AssetsReturnPurchaseInvoice__Id__GetById": {
       "GET": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/GetById",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/GetById",
         {}
       ],
       "summary": "",
@@ -71,25 +71,25 @@
       "PUT": [
         "/erp-apis/AssetsReturnPurchaseInvoice",
         {
-          "id": "00000000-0000-0000-0000-000000000000",
+          "id": "<createdId>",
           "date": "2025-11-26T16:30:10.937Z",
           "description": "string",
-          "vendorId": 1,
+          "vendorId": "<createdId>",
           "vendorCode": "string",
           "vendorName": "string",
           "vendorNameAr": "string",
-          "currencyId": 1,
+          "currencyId": "<createdId>",
           "currencyName": "string",
           "currencyNameAr": "string",
           "currencyRate": 1,
           "reference": "string",
-          "paymentTermId": 1,
+          "paymentTermId": "<createdId>",
           "paymentTermName": "string",
           "paymentTermNameAr": "string",
           "assetsReturnPurchaseInvoiceDetails": [
             {
-              "id": "00000000-0000-0000-0000-000000000000",
-              "assetId": 1,
+              "id": "<createdId>",
+              "assetId": "<createdId>",
               "assetName": "string",
               "remainingQuantity": 1,
               "quantityToReturn": 1,
@@ -97,11 +97,11 @@
               "discountPercentage": 1,
               "discountAmount": 1,
               "vatPercentage": 1,
-              "taxId": 1,
+              "taxId": "<createdId>",
               "taxName": "string",
               "taxNameAr": "string",
-              "assetsPurchaseInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
-              "assetsReturnPurchaseInvoiceHeaderId": "00000000-0000-0000-0000-000000000000"
+              "assetsPurchaseInvoiceDetailId": "<createdId>",
+              "assetsReturnPurchaseInvoiceHeaderId": "<createdId>"
             }
           ]
         }
@@ -111,7 +111,7 @@
     },
     "GET__erp-apis_AssetsReturnPurchaseInvoice__Id_": {
       "GET": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -121,7 +121,7 @@
     },
     "DELETE__erp-apis_AssetsReturnPurchaseInvoice__Id_": {
       "DELETE": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>",
         {}
       ],
       "summary": "",
@@ -153,7 +153,7 @@
     },
     "POST__erp-apis_AssetsReturnPurchaseInvoice__Id__Post": {
       "POST": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/Post",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/Post",
         {}
       ],
       "summary": "",
@@ -163,7 +163,7 @@
     },
     "DELETE__erp-apis_AssetsReturnPurchaseInvoice__Id__DeleteLine": {
       "DELETE": [
-        "/erp-apis/AssetsReturnPurchaseInvoice/{Id}/DeleteLine",
+        "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/DeleteLine",
         {}
       ],
       "summary": "",
