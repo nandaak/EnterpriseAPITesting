@@ -3,6 +3,7 @@ const fs = require("fs");
 const path = require("path");
 const apiClient = require("./api-client");
 const TestHelpers = require("./test-helpers");
+const IDTypeManager = require("./id-type-manager");
 const Constants = require("../Constants");
 const modulesConfig = require("../config/modules-config");
 const logger = require("./logger");
@@ -13,6 +14,8 @@ class CrudLifecycleHelper {
   constructor(modulePath) {
     this.actualModulePath = modulePath;
     this.createdId = null;
+    this.createdIdType = null; // Track ID type (uuid, numeric, string, etc.)
+    this.createdIdMetadata = null; // Store ID detection metadata
     this.apiClient = apiClient;
     this.testResults = [];
     this.currentTestPhase = "INITIAL";
@@ -94,16 +97,27 @@ class CrudLifecycleHelper {
       }
 
       TestHelpers.debugResponseStructure(response, "CREATE");
-      const extractedId = TestHelpers.extractId(response);
+      
+      // Enhanced ID extraction with type detection
+      const idExtraction = IDTypeManager.extractIDFromResponse(response);
 
-      if (!extractedId) {
+      if (!idExtraction.id) {
         this.moduleSkipFlag = true;
         throw new Error(
           `❌ ID EXTRACTION FAILED: Could not extract resource ID from response`
         );
       }
 
-      this.createdId = String(extractedId);
+      // Store ID with type information
+      this.createdId = String(idExtraction.id);
+      this.createdIdType = idExtraction.type;
+      this.createdIdMetadata = idExtraction.detection;
+
+      // Log ID type information
+      logger.info(`🆔 ID Type Detected: ${this.createdIdType}`);
+      logger.info(`🆔 ID Format: ${idExtraction.format}`);
+      IDTypeManager.logIDInfo(this.createdId, 'CREATE');
+
       const saveSuccess = this.saveCreatedIdToFile(this.createdId);
 
       if (!saveSuccess) {
@@ -125,20 +139,24 @@ class CrudLifecycleHelper {
       }
 
       logger.info(
-        `✅ CREATE SUCCESS - Resource created with ID: ${this.createdId}`
+        `✅ CREATE SUCCESS - Resource created with ID: ${this.createdId} (${this.createdIdType})`
       );
       logger.info(`📊 Original data stored for comparison`);
 
       return {
         createdId: this.createdId,
+        createdIdType: this.createdIdType,
+        createdIdMetadata: this.createdIdMetadata,
         response,
         originalData: this.resourceState.originalData,
         extractionDetails: {
-          source: "enhanced extraction",
-          type: typeof this.createdId,
+          source: "IDTypeManager",
+          type: this.createdIdType,
+          format: idExtraction.format,
           length: this.createdId.length,
           savedToFile: saveSuccess,
           dataVerified: dataExists,
+          metadata: this.createdIdMetadata,
         },
       };
     } catch (error) {
@@ -163,10 +181,14 @@ class CrudLifecycleHelper {
       );
     }
 
-    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
+    // Use ID Type Manager for intelligent placeholder replacement
+    const viewEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
+      currentId
+    );
 
     logger.info(
-      `🔍 VIEW PHASE 1 - Verifying created resource: ${viewEndpoint}`
+      `🔍 VIEW PHASE 1 - Verifying created resource: ${viewEndpoint} (ID type: ${this.createdIdType})`
     );
 
     try {
@@ -178,10 +200,11 @@ class CrudLifecycleHelper {
       // Record view in registry
       this.recordViewInRegistry();
 
-      logger.info(`✅ VIEW PHASE 1 SUCCESS - Resource verified: ${currentId}`);
+      logger.info(`✅ VIEW PHASE 1 SUCCESS - Resource verified: ${currentId} (${this.createdIdType})`);
       return {
         response,
         resourceData: response.data,
+        idType: this.createdIdType,
       };
     } catch (error) {
       this.handleError(error, "INITIAL_VIEW", operationKey);
@@ -203,16 +226,23 @@ class CrudLifecycleHelper {
       );
     }
 
-    const updateEndpoint = operation.endpoint.replace("<createdId>", currentId);
-
-    // Enhanced payload with modifications
-    const updatePayload = this.constructUpdatePayload(
-      operation.payload,
+    // Use ID Type Manager for intelligent placeholder replacement
+    const updateEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
       currentId
     );
 
+    // Enhanced payload with modifications and ID replacement
+    let updatePayload = this.constructUpdatePayload(
+      operation.payload,
+      currentId
+    );
+    
+    // Replace <createdId> in payload with proper type handling
+    updatePayload = IDTypeManager.replaceInPayload(updatePayload, currentId);
+
     logger.info(`✏️ UPDATE PHASE - Modifying resource: ${updateEndpoint}`);
-    logger.info(`📝 Update payload prepared with modifications`);
+    logger.info(`📝 Update payload prepared with modifications (ID type: ${this.createdIdType})`);
 
     try {
       const response = await this.apiClient.put(updateEndpoint, updatePayload);
@@ -227,10 +257,11 @@ class CrudLifecycleHelper {
       // Record update in registry
       this.recordUpdateInRegistry(this.resourceState.updatedData);
 
-      logger.info(`✅ UPDATE SUCCESS - Resource modified: ${currentId}`);
+      logger.info(`✅ UPDATE SUCCESS - Resource modified: ${currentId} (${this.createdIdType})`);
       return {
         response,
         updatedData: this.resourceState.updatedData,
+        idType: this.createdIdType,
       };
     } catch (error) {
       this.handleError(error, "UPDATE", operationKey);
@@ -252,9 +283,13 @@ class CrudLifecycleHelper {
       );
     }
 
-    const viewEndpoint = operation.endpoint.replace("<createdId>", currentId);
+    // Use ID Type Manager for intelligent placeholder replacement
+    const viewEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
+      currentId
+    );
 
-    logger.info(`🔍 VIEW PHASE 2 - Verifying updates: ${viewEndpoint}`);
+    logger.info(`🔍 VIEW PHASE 2 - Verifying updates: ${viewEndpoint} (ID type: ${this.createdIdType})`);
 
     try {
       const response = await this.apiClient.get(viewEndpoint);
@@ -265,11 +300,12 @@ class CrudLifecycleHelper {
       // Record view in registry
       this.recordViewInRegistry();
 
-      logger.info(`✅ VIEW PHASE 2 SUCCESS - Updates verified: ${currentId}`);
+      logger.info(`✅ VIEW PHASE 2 SUCCESS - Updates verified: ${currentId} (${this.createdIdType})`);
       return {
         response,
         currentData: response.data,
         changesVerified: this.verifyChangesApplied(response.data),
+        idType: this.createdIdType,
       };
     } catch (error) {
       this.handleError(error, "POST_UPDATE_VIEW", operationKey);
@@ -282,6 +318,7 @@ class CrudLifecycleHelper {
   async runDeleteTest(operationKey = "DELETE") {
     this.enforcePrerequisite("createdId");
     const currentId = this.getCreatedId();
+    const idType = this.createdIdType;
 
     const operation = this.getOperationFromModuleConfig(operationKey);
 
@@ -291,9 +328,13 @@ class CrudLifecycleHelper {
       );
     }
 
-    const deleteEndpoint = operation.endpoint.replace("<createdId>", currentId);
+    // Use ID Type Manager for intelligent placeholder replacement
+    const deleteEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
+      currentId
+    );
 
-    logger.info(`🗑️ DELETE PHASE - Removing resource: ${deleteEndpoint}`);
+    logger.info(`🗑️ DELETE PHASE - Removing resource: ${deleteEndpoint} (ID type: ${idType})`);
 
     try {
       const response = await this.apiClient.delete(deleteEndpoint);
@@ -311,10 +352,11 @@ class CrudLifecycleHelper {
         this.resourceState.deletionVerified = true;
       }
 
-      logger.info(`✅ DELETE SUCCESS - Resource removed: ${currentId}`);
+      logger.info(`✅ DELETE SUCCESS - Resource removed: ${currentId} (${idType})`);
       return {
         response,
         deletionVerified: this.resourceState.deletionVerified,
+        idType: idType,
       };
     } catch (error) {
       this.handleError(error, "DELETE", operationKey);
@@ -341,7 +383,12 @@ class CrudLifecycleHelper {
 
     // Use the last known ID to attempt viewing deleted resource
     const lastKnownId = this.resourceState.originalData?.id || "unknown";
-    const viewEndpoint = operation.endpoint.replace("<createdId>", lastKnownId);
+    
+    // Use ID Type Manager for intelligent placeholder replacement
+    const viewEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
+      lastKnownId
+    );
 
     logger.info(
       `🚫 NEGATIVE VIEW PHASE - Attempting to view deleted resource: ${viewEndpoint}`
@@ -536,7 +583,11 @@ class CrudLifecycleHelper {
       return true;
     }
 
-    const viewEndpoint = operation.endpoint.replace("<createdId>", resourceId);
+    // Use ID Type Manager for intelligent placeholder replacement
+    const viewEndpoint = IDTypeManager.replacePlaceholder(
+      operation.endpoint,
+      resourceId
+    );
 
     try {
       // Attempt to view the deleted resource - this should fail
@@ -551,7 +602,7 @@ class CrudLifecycleHelper {
         (error.response.status === 404 || error.response.status === 410)
       ) {
         logger.info(
-          `✅ Deletion verified - Resource ${resourceId} no longer exists`
+          `✅ Deletion verified - Resource ${resourceId} (${this.createdIdType}) no longer exists`
         );
         return true;
       } else {
