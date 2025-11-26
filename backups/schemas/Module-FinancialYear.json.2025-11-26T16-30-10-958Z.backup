@@ -1,0 +1,150 @@
+{
+  "FinancialYear": {
+    "GET__erp-apis_FinancialYear": {
+      "GET": [
+        "/erp-apis/FinancialYear",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_FinancialYear": {
+      "POST": [
+        "/erp-apis/FinancialYear",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_FinancialYear": {
+      "PUT": [
+        "/erp-apis/FinancialYear",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FinancialYear_Export": {
+      "GET": [
+        "/erp-apis/FinancialYear/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_FinancialYear_GetLastYearDate": {
+      "GET": [
+        "/erp-apis/FinancialYear/GetLastYearDate",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FinancialYear__Id_": {
+      "GET": [
+        "/erp-apis/FinancialYear/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_FinancialYear__Id_": {
+      "DELETE": [
+        "/erp-apis/FinancialYear/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_FinancialYear_GetOpenFinancialPeriodDate": {
+      "GET": [
+        "/erp-apis/FinancialYear/GetOpenFinancialPeriodDate",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FinancialYear_GetOpenFinancialYearDate": {
+      "GET": [
+        "/erp-apis/FinancialYear/GetOpenFinancialYearDate",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FinancialYear_GetReportYearByDate": {
+      "GET": [
+        "/erp-apis/FinancialYear/GetReportYearByDate",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_FinancialYear__Id__Open": {
+      "POST": [
+        "/erp-apis/FinancialYear/{Id}/Open",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_FinancialYear__Id__Close": {
+      "POST": [
+        "/erp-apis/FinancialYear/{Id}/Close",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_FinancialYear_OpenFinancialPeriod": {
+      "POST": [
+        "/erp-apis/FinancialYear/OpenFinancialPeriod",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_FinancialYear_CloseFinancialPeriod": {
+      "POST": [
+        "/erp-apis/FinancialYear/CloseFinancialPeriod",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_FinancialYear_FinancialYearDropDown": {
+      "GET": [
+        "/erp-apis/FinancialYear/FinancialYearDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    }
+  }
+}

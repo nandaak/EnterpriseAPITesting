@@ -1,0 +1,82 @@
+{
+  "TaxGroup": {
+    "GET__erp-apis_TaxGroup": {
+      "GET": [
+        "/erp-apis/TaxGroup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_TaxGroup": {
+      "POST": [
+        "/erp-apis/TaxGroup",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "DELETE__erp-apis_TaxGroup": {
+      "DELETE": [
+        "/erp-apis/TaxGroup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "PUT__erp-apis_TaxGroup": {
+      "PUT": [
+        "/erp-apis/TaxGroup",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_TaxGroup_Export": {
+      "GET": [
+        "/erp-apis/TaxGroup/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_TaxGroup_GetById": {
+      "GET": [
+        "/erp-apis/TaxGroup/GetById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_TaxGroup_TaxGroupDropDown": {
+      "GET": [
+        "/erp-apis/TaxGroup/TaxGroupDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    }
+  }
+}

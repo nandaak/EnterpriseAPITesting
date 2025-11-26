@@ -1,0 +1,15 @@
+{
+  "Translation": {
+    "GET__erp-apis_Translation_GetTranslations": {
+      "GET": [
+        "/erp-apis/Translation/GetTranslations",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Modules",
+        "Culture"
+      ]
+    }
+  }
+}

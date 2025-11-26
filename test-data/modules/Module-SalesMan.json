@@ -1,0 +1,340 @@
+{
+  "SalesMan": {
+    "GET__erp-apis_SalesMan": {
+      "GET": [
+        "/erp-apis/SalesMan",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_SalesMan": {
+      "POST": [
+        "/erp-apis/SalesMan",
+        {
+          "salesTeamId": "00000000-0000-0000-0000-000000000000",
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "name": "string",
+          "nameAr": "string",
+          "salesPhone": "string",
+          "paymentTermId": 1,
+          "treasuryId": 1,
+          "paymentMethods": [
+            1
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan": {
+      "PUT": [
+        "/erp-apis/SalesMan",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "salesTeamId": "00000000-0000-0000-0000-000000000000",
+          "salesPhone": "string",
+          "name": "string",
+          "nameAr": "string",
+          "isActive": true,
+          "userId": "00000000-0000-0000-0000-000000000000",
+          "branchesIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "paymentTermId": 1,
+          "treasuryId": 1,
+          "paymentMethods": [
+            1
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SalesMan_GetSalesManDropDown": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesTeamId"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesmanlist": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesmanlist",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesManLookup": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesManBalance": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManBalance",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesManPermission": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManPermission",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManId"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesManPricePolicy": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManPricePolicy",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManId"
+      ]
+    },
+    "PUT__erp-apis_SalesMan_EditSalesManPermission": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditSalesManPermission",
+        {
+          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "canCreateReturnSalesInvoice": true,
+          "canCreateVisit": true,
+          "showCustomerStatement": true,
+          "addCustomer": true,
+          "updateCustomerInfo": true,
+          "salesOrder": true,
+          "salesInvoice": true,
+          "creditNote": true,
+          "collectMoney": true,
+          "proofOfVisit": true,
+          "radius": 1,
+          "proofOfVisitType": "GPS"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan_EditSalesManPricePolicy": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditSalesManPricePolicy",
+        {
+          "salesManId": "00000000-0000-0000-0000-000000000000",
+          "pricePolicyId": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan_EditSalesManBalance": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditSalesManBalance",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "creditLimit": 1,
+          "isCreditLimitActive": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan_EditTargetCommissionConfig": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditTargetCommissionConfig",
+        {
+          "targetAmount": 1,
+          "commissionPercentage": 1,
+          "commissionBascis": "NetSales",
+          "salesManId": "00000000-0000-0000-0000-000000000000"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan_EditSalesManWarehouse": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditSalesManWarehouse",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "warehouseId": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesMan_EditSalesManActivation": {
+      "PUT": [
+        "/erp-apis/SalesMan/EditSalesManActivation",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "isActive": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "DELETE__erp-apis_SalesMan__Id_": {
+      "DELETE": [
+        "/erp-apis/SalesMan/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_SalesMan__Id_": {
+      "GET": [
+        "/erp-apis/SalesMan/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetSalesManInfo": {
+      "GET": [
+        "/erp-apis/SalesMan/GetSalesManInfo",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetUsersList": {
+      "GET": [
+        "/erp-apis/SalesMan/GetUsersList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_SalesMan_Export": {
+      "GET": [
+        "/erp-apis/SalesMan/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_SalesMan_TargetCommissionDetailReport": {
+      "GET": [
+        "/erp-apis/SalesMan/TargetCommissionDetailReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManIds",
+        "CustomerIds",
+        "FromDate",
+        "ToDate"
+      ]
+    },
+    "GET__erp-apis_SalesMan_TargetCommissionReport": {
+      "GET": [
+        "/erp-apis/SalesMan/TargetCommissionReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManIds",
+        "FromDate",
+        "ToDate"
+      ]
+    },
+    "GET__erp-apis_SalesMan_ExportTargetCommissionDetailReport": {
+      "GET": [
+        "/erp-apis/SalesMan/ExportTargetCommissionDetailReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManIds",
+        "CustomerIds",
+        "FromDate",
+        "ToDate",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_SalesMan_ExportTargetCommissionReport": {
+      "GET": [
+        "/erp-apis/SalesMan/ExportTargetCommissionReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SalesManIds",
+        "FromDate",
+        "ToDate",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_SalesMan_GetCustomersAccordingToSalesMan": {
+      "GET": [
+        "/erp-apis/SalesMan/GetCustomersAccordingToSalesMan",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SalesManIds",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "Attachments": {
+    "DownloadBase64Attachment": {
+      "GET": [
+        "/erp-apis/api/attachments/DownloadBase64Attachment/{attachmentId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "attachmentId"
+      ]
+    },
+    "DownloadAttachment": {
+      "GET": [
+        "/erp-apis/api/attachments/DownloadAttachment/{attachmentId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "attachmentId"
+      ]
+    },
+    "UploadBase64Attachment": {
+      "POST": [
+        "/erp-apis/api/attachments/UploadBase64Attachment",
+        {
+          "fileName": "string",
+          "fileContent": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

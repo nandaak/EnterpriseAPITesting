@@ -1,0 +1,47 @@
+{
+  "HrGeneralSetting": {
+    "POST__erp-apis_HrGeneralSetting_GetNextSequence": {
+      "POST": [
+        "/erp-apis/HrGeneralSetting/GetNextSequence",
+        {
+          "screen": "PaymentIn",
+          "module": "Accounting",
+          "transactionDate": "2025-11-26",
+          "saveToContext": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_HrGeneralSetting_GetNextSequenceList": {
+      "POST": [
+        "/erp-apis/HrGeneralSetting/GetNextSequenceList",
+        {
+          "screen": "PaymentIn",
+          "module": "Accounting",
+          "transactionDate": "2025-11-26",
+          "count": 1,
+          "saveToContext": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_HrGeneralSetting_GetUserCompany": {
+      "GET": [
+        "/erp-apis/HrGeneralSetting/GetUserCompany",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_HrGeneralSetting_GetUserBranch": {
+      "GET": [
+        "/erp-apis/HrGeneralSetting/GetUserBranch",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

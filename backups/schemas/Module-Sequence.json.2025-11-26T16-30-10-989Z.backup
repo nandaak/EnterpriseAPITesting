@@ -1,0 +1,41 @@
+{
+  "Sequence": {
+    "GET__erp-apis_Sequence__Screen_": {
+      "GET": [
+        "/erp-apis/Sequence/{Screen}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Screen"
+      ]
+    },
+    "POST__erp-apis_Sequence": {
+      "POST": [
+        "/erp-apis/Sequence",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Sequence_CanReset": {
+      "GET": [
+        "/erp-apis/Sequence/CanReset",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "screen",
+        "module"
+      ]
+    },
+    "POST__erp-apis_Sequence_Reset": {
+      "POST": [
+        "/erp-apis/Sequence/Reset",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

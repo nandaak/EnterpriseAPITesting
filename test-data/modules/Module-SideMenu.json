@@ -1,0 +1,30 @@
+{
+  "SideMenu": {
+    "GET__erp-apis_SideMenu": {
+      "GET": [
+        "/erp-apis/SideMenu",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SideMenu_GetUserSubDomainModules": {
+      "GET": [
+        "/erp-apis/SideMenu/GetUserSubDomainModules",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SideMenu_LoadConfig": {
+      "GET": [
+        "/erp-apis/SideMenu/LoadConfig",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "realm"
+      ]
+    }
+  }
+}

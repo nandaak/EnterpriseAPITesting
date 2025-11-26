@@ -1,0 +1,12 @@
+{
+  "AccountSection": {
+    "GET__erp-apis_AccountSection": {
+      "GET": [
+        "/erp-apis/AccountSection",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

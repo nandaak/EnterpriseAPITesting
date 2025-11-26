@@ -23,20 +23,24 @@
         "Post": [
           "/erp-apis/DiscountPolicy",
           {
-            "name": "kkk",
-            "nameAr": "kkk",
-            "discountPercentage": "10",
-            "userIds": []
+            "name": "string",
+            "nameAr": "string",
+            "discountPercentage": 1,
+            "userIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/DiscountPolicy",
           {
-            "id": 15,
-            "name": "mnoo",
-            "nameAr": "mnoo",
-            "discountPercentage": 50,
-            "userIds": []
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "discountPercentage": 1,
+            "userIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ]
           }
         ],
         "DELETE": [
@@ -74,135 +78,16 @@
         "Post": [
           "/erp-apis/FinancialYear",
           {
-            "name": "mon",
-            "code": "12",
-            "fromDate": "2027-01-01",
-            "toDate": "2028-12-31",
-            "noOfExtraPeriods": 0,
-            "range": [
-              "2027-01-01",
-              "2028-12-30T22:00:00.000Z"
-            ],
+            "name": "string",
+            "code": "string",
+            "fromDate": "2025-11-26",
+            "toDate": "2025-11-26",
+            "noOfExtraPeriods": 1,
             "financialYearPeriods": [
               {
-                "periodStart": "2027-01-01",
-                "periodEnd": "2027-01-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-02-01",
-                "periodEnd": "2027-02-28",
-                "status": true
-              },
-              {
-                "periodStart": "2027-03-01",
-                "periodEnd": "2027-03-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-04-01",
-                "periodEnd": "2027-04-30",
-                "status": true
-              },
-              {
-                "periodStart": "2027-05-01",
-                "periodEnd": "2027-05-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-06-01",
-                "periodEnd": "2027-06-30",
-                "status": true
-              },
-              {
-                "periodStart": "2027-07-01",
-                "periodEnd": "2027-07-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-08-01",
-                "periodEnd": "2027-08-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-09-01",
-                "periodEnd": "2027-09-30",
-                "status": true
-              },
-              {
-                "periodStart": "2027-10-01",
-                "periodEnd": "2027-10-31",
-                "status": true
-              },
-              {
-                "periodStart": "2027-11-01",
-                "periodEnd": "2027-11-30",
-                "status": true
-              },
-              {
-                "periodStart": "2027-12-01",
-                "periodEnd": "2027-12-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-01-01",
-                "periodEnd": "2028-01-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-02-01",
-                "periodEnd": "2028-02-29",
-                "status": true
-              },
-              {
-                "periodStart": "2028-03-01",
-                "periodEnd": "2028-03-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-04-01",
-                "periodEnd": "2028-04-30",
-                "status": true
-              },
-              {
-                "periodStart": "2028-05-01",
-                "periodEnd": "2028-05-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-06-01",
-                "periodEnd": "2028-06-30",
-                "status": true
-              },
-              {
-                "periodStart": "2028-07-01",
-                "periodEnd": "2028-07-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-08-01",
-                "periodEnd": "2028-08-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-09-01",
-                "periodEnd": "2028-09-30",
-                "status": true
-              },
-              {
-                "periodStart": "2028-10-01",
-                "periodEnd": "2028-10-31",
-                "status": true
-              },
-              {
-                "periodStart": "2028-11-01",
-                "periodEnd": "2028-11-30",
-                "status": true
-              },
-              {
-                "periodStart": "2028-12-01",
-                "periodEnd": "2028-12-31",
-                "status": true
+                "status": true,
+                "periodStart": "2025-11-26",
+                "periodEnd": "2025-11-26"
               }
             ]
           }
@@ -210,9 +95,9 @@
         "PUT": [
           "/erp-apis/FinancialYear",
           {
-            "id": "35",
-            "name": "monmone",
-            "code": "55"
+            "id": 1,
+            "name": "string",
+            "code": "string"
           }
         ],
         "DELETE": [
@@ -287,19 +172,19 @@
           "/erp-apis/CurrencyConversion",
           {
             "fromCurrencyId": 1,
-            "fromCurrencyRate": "48",
-            "toCurrencyId": 2,
-            "note": ""
+            "fromCurrencyRate": 1,
+            "toCurrencyId": 1,
+            "note": "string"
           }
         ],
         "PUT": [
           "/erp-apis/CurrencyConversion",
           {
+            "id": 1,
             "fromCurrencyId": 1,
-            "fromCurrencyRate": "50",
-            "toCurrencyId": 2,
-            "note": "650",
-            "id": 101
+            "fromCurrencyRate": 1,
+            "toCurrencyId": 1,
+            "note": "string"
           }
         ],
         "DELETE": [
@@ -311,10 +196,9 @@
         "Post": [
           "/erp-apis/Tag",
           {
-            "name": "YTag Add",
-            "nameAr": "YTag AddAdd Arab",
+            "name": "string",
+            "nameAr": "string",
             "moduleIds": [
-              4,
               1
             ]
           }
@@ -322,17 +206,14 @@
         "PUT": [
           "/erp-apis/Tag",
           {
-            "Id": 28,
-            "Code": "tag-27",
-            "Name": "YTag Edit",
-            "nameAr": "YTag AddAdEdit d Arab",
-            "ModulesId": [
-              1,
-              4,
-              3,
-              2
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "code": "string",
+            "modulesId": [
+              1
             ],
-            "IsActive": true
+            "isActive": true
           }
         ],
         "DELETE": [
@@ -482,52 +363,61 @@
         "Post": [
           "/erp-apis/ChartOfAccounts/AddAccount",
           {
-            "name": "jjjjj",
-            "nameAr": "jjjjj",
-            "levelId": 47,
-            "accountCode": "4",
-            "parentId": 1294,
-            "natureId": "2",
-            "hasNoChild": false,
-            "accountTypeId": null,
-            "accountSectionId": 2,
-            "currencyId": 4,
-            "tags": [],
-            "costCenters": [],
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "natureId": "Debit",
+            "costCenterConfig": "Mandatory",
+            "hasNoChild": true,
+            "accountTypeId": 1,
+            "accountSectionId": 1,
+            "currencyId": 1,
+            "tags": [
+              1
+            ],
             "companies": [
-              "ac10d2fe-c3ec-49f7-945f-08ddf360e244"
+              "00000000-0000-0000-0000-000000000000"
             ],
             "accountActivation": "Active",
-            "periodicActiveFrom": null,
-            "periodicActiveTo": null,
-            "costCenterConfig": 2
+            "periodicActiveFrom": "2025-11-26T16:30:10.884Z",
+            "periodicActiveTo": "2025-11-26T16:30:10.884Z",
+            "costCenters": [
+              {
+                "percentage": 1,
+                "costCenterId": 1
+              }
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/ChartOfAccounts/EditAccount",
           {
-            "id": 3133,
-            "name": "lll",
-            "nameAr": "lll",
-            "levelId": 47,
-            "accountCode": "43",
-            "parentAccountCode": 1293,
-            "parentId": 1293,
-            "accountSectionName": "",
-            "natureId": "2",
-            "hasNoChild": false,
-            "accountTypeId": null,
-            "accountSectionId": 2,
-            "currencyId": null,
-            "tags": [],
-            "costCenters": [],
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "natureId": "Debit",
+            "costCenterConfig": "Mandatory",
+            "hasNoChild": true,
+            "accountTypeId": 1,
+            "accountSectionId": 1,
+            "currencyId": 1,
+            "tags": [
+              1
+            ],
             "companies": [
-              "ac10d2fe-c3ec-49f7-945f-08ddf360e244"
+              "00000000-0000-0000-0000-000000000000"
             ],
             "accountActivation": "Active",
-            "periodicActiveFrom": null,
-            "periodicActiveTo": null,
-            "costCenterConfig": null
+            "periodicActiveFrom": "2025-11-26T16:30:10.884Z",
+            "periodicActiveTo": "2025-11-26T16:30:10.884Z",
+            "costCenters": [
+              {
+                "id": 1,
+                "percentage": 1,
+                "costCenterId": 1
+              }
+            ]
           }
         ],
         "DELETE": [
@@ -539,21 +429,21 @@
         "Post": [
           "/erp-apis/CostCenter/AddCostCenter",
           {
-            "name": "kkk",
-            "nameAr": "kkk",
-            "parentId": 23,
-            "isDetail": false,
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "isDetail": true,
             "isActive": true
           }
         ],
         "PUT": [
           "/erp-apis/CostCenter/EditCostCenter",
           {
-            "id": 79,
-            "name": "vvv",
-            "nameAr": "vvv",
-            "parentId": 23,
-            "isDetail": false,
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "isDetail": true,
             "isActive": true
           }
         ],
@@ -568,88 +458,71 @@
         "Post": [
           "/erp-apis/JournalEntry",
           {
-            "refrenceNumber": null,
-            "journalDate": "2025-10-16",
-            "periodId": "Period1",
-            "isHeaderDescriptionCopied": false,
-            "description": "55",
+            "refrenceNumber": "string",
+            "journalDate": "2025-11-26T16:30:10.884Z",
+            "type": "Manual",
+            "description": "string",
+            "periodId": "string",
+            "isHeaderDescriptionCopied": true,
             "journalEntryLines": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "accountId": 1376,
-                "creditAmount": 0,
-                "currencyId": 4,
+                "lineDescription": "string",
+                "debitAmount": 1,
+                "creditAmount": 1,
                 "currencyRate": 1,
-                "debitAmount": "100",
-                "lineDescription": "default Bank Account",
-                "createdOn": "2025-10-16T11:11:35",
-                "isVatLine": false,
-                "hasVat": false,
-                "costCenters": []
+                "currencyId": 1,
+                "accountId": 1,
+                "isVatLine": true,
+                "hasVat": true,
+                "createdOn": "2025-11-26T16:30:10.884Z",
+                "costCenters": [
+                  {}
+                ]
               }
             ],
-            "journalEntryAttachments": []
+            "journalEntryAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/JournalEntry/Edit",
           {
-            "journalCode": "JENT_00188",
-            "referenceNumber": "10",
-            "journalDate": "2025-10-16T00:00:00",
-            "description": "55",
-            "journalPeriod": "10-2025",
-            "isHeaderDescriptionCopied": false,
-            "type": "Manual",
-            "sourceName": "",
-            "sourceCode": null,
-            "reversedJournalCode": null,
-            "status": "Unbalanced",
-            "totalDebitAmount": 100,
-            "totalCreditAmount": 0,
+            "id": "00000000-0000-0000-0000-000000000000",
+            "referenceNumber": "string",
+            "journalDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "isHeaderDescriptionCopied": true,
             "journalEntryLines": [
               {
-                "accountName": "default Bank Account",
-                "lineDescription": "default Bank Account",
-                "debitAmount": 100,
-                "currency": "Saudi Riyal",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "accountId": 1,
+                "lineDescription": "string",
+                "debitAmount": 1,
+                "creditAmount": 1,
+                "debitAmountLocal": 1,
+                "creditAmountLocal": 1,
                 "currencyRate": 1,
-                "debitAmountLocal": 100,
-                "creditAmountLocal": 0,
-                "accountCode": "1101001",
-                "costCenters": [],
-                "selectedFalg": false,
-                "costCenterConfig": "NotAllow",
-                "currencyId": 4,
-                "accountId": 1376,
-                "isVatLine": false,
-                "hasVat": false,
-                "createdOn": "2025-10-16T11:11:35",
-                "creditAmount": 0,
-                "id": "c05fb932-56d0-484c-1747-08de0c2835f4"
-              },
-              {
-                "accountName": "البنك الاهلي",
-                "lineDescription": "البنك الاهلي",
-                "debitAmount": 10,
-                "currency": "US Dollar",
-                "currencyRate": 1,
-                "debitAmountLocal": 10,
-                "creditAmountLocal": 0,
-                "accountCode": "1101002",
-                "costCenters": [],
-                "selectedFalg": true,
-                "costCenterConfig": "NotAllow",
+                "isVatLine": true,
+                "hasVat": true,
                 "currencyId": 1,
-                "accountId": 2592,
-                "isVatLine": false,
-                "hasVat": false,
-                "createdOn": "2025-10-16T11:12:38",
-                "creditAmount": 0
+                "createdOn": "2025-11-26T16:30:10.884Z",
+                "costCenters": [
+                  {}
+                ]
               }
             ],
-            "journalEntryAttachments": [],
-            "id": "a331f1a1-32cb-4aed-40ab-08de0c2835e1"
+            "journalEntryAttachments": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ]
           }
         ],
         "DELETE": [
@@ -749,37 +622,32 @@
         "Post": [
           "/erp-apis/Treasury",
           {
-            "name": "kfkf j",
-            "nameAr": "kfkf j",
-            "currencyId": 4,
+            "name": "string",
+            "nameAr": "string",
+            "currencyId": 1,
             "branches": [
-              "17987a69-16b3-420b-b066-08ddf360e24c",
-              "0101a4c6-dacf-4b12-3a20-08ddf4fe3006"
+              "00000000-0000-0000-0000-000000000000"
             ],
-            "accountId": 1376,
-            "accountOpeningBalance": 200000,
-            "journalEntryLineId": null,
-            "openingBalance": 0,
-            "treasuryCurrentBalance": 0,
-            "id": 35
+            "accountId": 1,
+            "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "accountOpeningBalance": 1,
+            "openingBalance": 1
           }
         ],
         "PUT": [
           "/erp-apis/Treasury",
           {
-            "name": "kfkf j",
-            "nameAr": "kfkf j",
-            "currencyId": 4,
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "currencyId": 1,
             "branches": [
-              "17987a69-16b3-420b-b066-08ddf360e24c",
-              "0101a4c6-dacf-4b12-3a20-08ddf4fe3006"
+              "00000000-0000-0000-0000-000000000000"
             ],
-            "accountId": 1376,
-            "accountOpeningBalance": 200000,
-            "journalEntryLineId": null,
-            "openingBalance": 0,
-            "treasuryCurrentBalance": 0,
-            "id": 35
+            "accountId": 1,
+            "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "accountOpeningBalance": 1,
+            "openingBalance": 1
           }
         ],
         "DELETE": [
@@ -797,34 +665,28 @@
         "Post": [
           "/erp-apis/Bank",
           {
-            "code": "",
-            "shortName": "",
-            "contactName": "",
-            "phone": "",
-            "name": "name5",
-            "nameAr": "name5",
-            "bankAddress": "",
-            "bankEmail": "",
-            "fax": "",
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
             "bankAccounts": [
               {
-                "accountNumber": "6",
-                "glAccountId": 1376,
-                "iban": null,
-                "currencyId": 4,
-                "openingBalance": 0,
-                "accountOpeningBalance": 200000,
-                "currentBalance": 200000,
-                "accountName": "default Bank Account",
-                "currencyName": "Saudi Riyal",
-                "branchName": [
-                  "support"
+                "accountNumber": "string",
+                "glAccountId": 1,
+                "iban": "string",
+                "currencyId": 1,
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
                 ],
-                "displayName": "default Bank Account (1101001)",
-                "userPermission": null,
-                "userPermissionName": "",
                 "branches": [
-                  "17987a69-16b3-420b-b066-08ddf360e24c"
+                  {}
                 ]
               }
             ]
@@ -833,40 +695,33 @@
         "PUT": [
           "/erp-apis/Bank/Edit",
           {
-            "code": "4PKTV",
-            "shortName": "",
-            "contactName": "",
-            "phone": "",
-            "name": "name5 ar",
-            "nameAr": "name5 ar",
-            "bankAddress": "",
-            "bankEmail": "",
-            "fax": "",
+            "id": 1,
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
             "bankAccounts": [
               {
-                "id": 56,
-                "accountNumber": "6",
-                "glAccountId": 2592,
-                "iban": null,
+                "id": 1,
+                "accountNumber": "string",
+                "glAccountId": 1,
+                "iban": "string",
                 "currencyId": 1,
-                "accountOpeningBalance": "0",
-                "openingBalance": 0,
-                "currentBalance": 0,
-                "accountName": "البنك الاهلي",
-                "currencyName": "US Dollar",
-                "branchName": [
-                  "support"
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
                 ],
-                "accountCode": "1101001",
-                "displayName": "البنك الاهلي (1101002)",
-                "userPermission": [],
-                "userPermissionName": [],
                 "branches": [
-                  "17987a69-16b3-420b-b066-08ddf360e24c"
+                  {}
                 ]
               }
-            ],
-            "id": 50
+            ]
           }
         ],
         "DELETE": [
@@ -931,14 +786,14 @@
         "Post": [
           "/erp-apis/PaymentTerms",
           {
-            "name": "drat",
-            "nameAr": "drat",
+            "name": "string",
+            "nameAr": "string",
             "paymentTermLines": [
               {
-                "dueTermValue": "100",
-                "note": "1234",
-                "afterValue": "200",
-                "afterPeriod": "Months"
+                "dueTermValue": 1,
+                "afterValue": 1,
+                "afterPeriod": {},
+                "note": "string"
               }
             ]
           }
@@ -946,16 +801,16 @@
         "PUT": [
           "/erp-apis/PaymentTerms",
           {
-            "id": 33,
-            "name": "drat w",
-            "nameAr": "drat w",
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
             "paymentTermLines": [
               {
-                "id": 43,
-                "dueTermValue": 100,
-                "note": "1234548",
-                "afterValue": "300",
-                "afterPeriod": "Months"
+                "id": 1,
+                "dueTermValue": 1,
+                "afterValue": 1,
+                "afterPeriod": {},
+                "note": "string"
               }
             ]
           }
@@ -1025,118 +880,77 @@
         "save": [
           "/erp-apis/PaymentIn",
           {
-            "description": "",
-            "PaymentInDate": "2025-10-15T13:26:55",
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "paymentInDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
             "paymentHub": "Treasury",
-            "bankAccountId": null,
-            "paymentHubDetailId": "9",
-            "currencyId": 4,
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
+            "currencyId": 1,
             "rate": 1,
-            "glAccountId": null,
+            "glAccountId": 1,
+            "taxId": 1,
+            "isCustomerAdvancedPayment": true,
+            "isAmountIncludesVat": true,
+            "sourceDocumentId": "string",
+            "sourceDocumentType": "FundTransfer",
             "paymentInDetails": [
               {
-                "amount": "100",
-                "paymentMethodId": 20,
-                "paymentMethodType": "Cash",
-                "ratio": null,
-                "paidBy": 2,
-                "paidByDetailsId": "15",
-                "glAccountId": 1376,
-                "notes": "",
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "amount": 1,
                 "rate": 1,
-                "currencyId": 4,
-                "paymentInMethodDetails": {
-                  "paymentMethodId": 20,
-                  "chequeNumber": null,
-                  "chequeDueDate": null,
-                  "bankReference": null,
-                  "VatAmount": null,
-                  "CommissionAmount": null
-                },
-                "paymentInDetailCostCenters": [],
-                "id": 0,
-                "glAccountname": "default Bank Account",
-                "paymentMethodName": "cash",
-                "paidByDetailsName": "ziyad",
-                "paidByDetailsNameAr": "زياد",
-                "accountName": null,
-                "accountNameAr": null,
-                "costCenterConfig": "NotAllow",
-                "currency": ""
+                "currencyId": 1,
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentInMethodDetails": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "paymentInDate": "2025-11-26T16:30:10.884Z",
+                "paymentInDetailCostCenters": [
+                  {}
+                ]
               }
             ],
-            "IsCustomerAdvancedPayment": false,
-            "IsAmountIncludesVat": false,
-            "TaxId": null,
-            "code": "",
-            "currency": "Saudi Riyal",
-            "currentBalance": 0,
-            "totalReceivedAmount": 100,
-            "newBalance": "",
-            "paymentInDetailCostCenters": null
+            "isFromFundTransfer": true,
+            "saveToContext": true,
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/PaymentIn",
           {
-            "id": "f2337325-740c-4b24-7378-08ddf360e24c",
-            "description": "",
-            "paymentInDate": "2025-10-15T10:26:55.000Z",
-            "paymentHub": "Treasury",
-            "bankAccountId": null,
-            "paymentHubDetailId": "9",
-            "currencyId": 4,
+            "id": "00000000-0000-0000-0000-000000000000",
+            "paymentInDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
+            "currencyId": 1,
             "rate": 1,
-            "glAccountId": null,
+            "glAccountId": 1,
+            "taxId": 1,
+            "isCustomerAdvancedPayment": true,
+            "isAmountIncludesVat": true,
             "paymentInDetails": [
               {
-                "id": "f75a8ecf-c6f5-46ef-c92c-08ddf360e24c",
-                "paymentInId": "f2337325-740c-4b24-7378-08ddf360e24c",
-                "amount": 100,
+                "id": "00000000-0000-0000-0000-000000000000",
+                "amount": 1,
                 "rate": 1,
-                "localAmount": 100,
-                "netAmount": 100,
-                "netLocalAmount": 100,
-                "currencyId": 4,
-                "currencyName": "Saudi Riyal",
-                "currencyNameAr": "ريال سعودي",
-                "paymentMethodId": 20,
-                "paymentMethodName": "cash",
-                "paidBy": 2,
-                "paidByDetailsId": "14",
-                "paidByDetailsName": "yosef",
-                "paymentInMethodDetailId": "0f437ee0-7ab4-4182-a16e-08ddf360e24c",
-                "paymentInMethodDetail": {
-                  "paymentMethodId": 20,
-                  "chequeNumber": null,
-                  "chequeDueDate": null,
-                  "bankReference": null,
-                  "VatAmount": 0,
-                  "CommissionAmount": 0
-                },
-                "paymentMethodType": "Cash",
-                "vendorId": null,
-                "vendorName": null,
-                "vendorNameAr": null,
-                "customerId": 15,
-                "customerName": "ziyad",
-                "customerNameAr": "زياد",
-                "glAccountId": 2592,
-                "accountName": "البنك الاهلي",
-                "accountNameAr": "حساب البنك الافتراضى",
-                "notes": "123",
-                "costCenterConfig": "NotAllow",
-                "paymentInDetailCostCenters": []
+                "currencyId": 1,
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentInMethodDetail": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "paymentInDetailCostCenters": [
+                  {}
+                ]
               }
-            ],
-            "IsCustomerAdvancedPayment": false,
-            "IsAmountIncludesVat": false,
-            "TaxId": null,
-            "code": "PIN_00025",
-            "currency": "Saudi Riyal",
-            "currentBalance": 0,
-            "totalReceivedAmount": 100,
-            "newBalance": ""
+            ]
           }
         ],
         "DELETE": [
@@ -1154,112 +968,70 @@
         "Post": [
           "/erp-apis/PaymentOut",
           {
-            "description": "",
-            "paymentOutDate": "2025-10-15T13:48:43",
-            "paymentHub": "Bank",
-            "bankAccountId": 16,
-            "paymentHubDetailId": "14",
+            "paymentOutDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHub": "Treasury",
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
             "currencyId": 1,
             "rate": 1,
-            "glAccountId": null,
-            "glAccountnameAr": "",
+            "glAccountId": 1,
+            "sourceDocumentId": "string",
+            "sourceDocumentType": "FundTransfer",
             "paymentOutDetails": [
               {
-                "amount": "100",
-                "paymentMethodId": 22,
-                "paymentMethodType": "Transfer",
-                "ratio": 0,
-                "paidBy": 2,
-                "paidByDetailsId": "14",
-                "glAccountId": 2592,
-                "glAccountname": "البنك الاهلي",
-                "glAccountnameAr": null,
-                "notes": "",
-                "isVatLine": false,
-                "hasVat": false,
+                "amount": 1,
                 "rate": 1,
                 "currencyId": 1,
-                "paymentOutMethodDetails": {
-                  "paymentMethodId": 22,
-                  "chequeNumber": null,
-                  "chequeDueDate": "2025-10-15",
-                  "bankReference": "1",
-                  "vatAmount": 0,
-                  "commissionAmount": 100
-                },
-                "paymentOutDetailCostCenters": [],
-                "id": null,
-                "rowNumber": 1,
-                "paymentMethodName": "bank",
-                "paidByDetailsName": "yosef",
-                "paidByDetailsNameAr": "yosef",
-                "accountName": null,
-                "accountNameAr": null,
-                "costCenterConfig": "NotAllow",
-                "currency": null
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentOutMethodDetails": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "isVatLine": true,
+                "hasVat": true,
+                "paymentOutDetailCostCenters": [
+                  {}
+                ]
               }
             ],
-            "code": "",
-            "currency": "",
-            "currentBalance": 1000000,
-            "totalPaidAmount": 200,
-            "newBalance": 103725,
-            "paymentOutDetailCostCenters": null
+            "saveToContext": true,
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/PaymentOut",
           {
-            "id": "517399ff-248e-411e-27ce-08de0b743e4c",
-            "description": "",
-            "paymentOutDate": "2025-10-15",
-            "paymentHub": "Bank",
-            "bankAccountId": 16,
-            "paymentHubDetailId": "14",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "paymentOutDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
             "currencyId": 1,
             "rate": 1,
-            "glAccountId": null,
+            "glAccountId": 1,
             "paymentOutDetails": [
               {
-                "amount": "1000",
-                "paymentMethodId": 22,
-                "paymentMethodType": "Transfer",
-                "ratio": null,
-                "paidBy": 2,
-                "paidByDetailsId": "14",
-                "glAccountId": 2592,
-                "glAccountname": null,
-                "notes": "55555",
-                "isVatLine": false,
-                "hasVat": false,
+                "id": "00000000-0000-0000-0000-000000000000",
+                "amount": 1,
                 "rate": 1,
                 "currencyId": 1,
-                "paymentOutMethodDetail": {
-                  "paymentMethodId": 22,
-                  "chequeNumber": null,
-                  "chequeDueDate": "2025-10-15",
-                  "bankReference": "50",
-                  "vatAmount": 0,
-                  "commissionAmount": 100
-                },
-                "paymentOutDetailCostCenters": [],
-                "id": "3c91ee8b-7c7a-4216-ec69-08de0b743e58",
-                "rowNumber": 1,
-                "paymentMethodName": "bank",
-                "paidByDetailsName": "yosef",
-                "paidByDetailsNameAr": "yosef",
-                "accountName": "البنك الاهلي",
-                "accountNameAr": "البنك الاهلي",
-                "costCenterConfig": "NotAllow",
-                "currency": ""
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentOutMethodDetail": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "isVatLine": true,
+                "hasVat": true,
+                "paymentOutDetailCostCenters": [
+                  {}
+                ]
               }
-            ],
-            "code": "POUT_00056",
-            "currency": "US Dollar",
-            "currentBalance": 103925,
-            "totalPaidAmount": 1100,
-            "newBalance": 102825,
-            "paymentOutDetailCostCenters": null
+            ]
           }
         ],
         "DELETE": [
@@ -1277,120 +1049,57 @@
         "Post": [
           "/erp-apis/FundTransfer",
           {
-            "code": null,
-            "date": "2025-10-15T10:55:51.593Z",
-            "description": "111",
-            "reference": "",
-            "commissionAmount": 0,
-            "vatAmount": 0,
-            "amount": "100",
-            "rate": 1,
-            "rateFrom": 1,
-            "fromPaymentHubDetails": "خزنه رئيسيه",
-            "toPaymentHubDetails": "aLahly Bank",
-            "toBankAccount": "101555544",
+            "date": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "reference": "string",
+            "amount": 1,
+            "fromPaymentHubDetails": "string",
+            "fromBankAccount": "string",
+            "toPaymentHubDetails": "string",
+            "toBankAccount": "string",
             "fundTransferToDetail": {
-              "paymentHubId": "Bank",
-              "paymentHubDetailId": 14,
-              "paymentHubDetailName": "aLahly Bank",
-              "paymentHubDetailNameAr": "البنك الاهلي",
-              "bankAccountId": 16,
-              "bankAccountNo": "101555544",
-              "currencyId": 1,
-              "currencyName": "US Dollar",
-              "glAccountId": 2592,
-              "createdOn": "2025-09-15T11:47:18.3056052",
-              "paymentMethodName": "bank",
-              "paymentMethodId": 22,
-              "currentBalance": 103925,
-              "commissionAccountId": 1376,
-              "commissionType": "Amount",
-              "commissionValue": 100,
-              "ratio": 0,
-              "active": true,
-              "paymentHubDetailsId": 14,
-              "rate": 1,
-              "amount": "100",
-              "fundTransferStatus": 2
-            },
-            "fundTransferFromDetail": {
               "paymentHubId": "Treasury",
-              "paymentHubDetailId": 11,
-              "paymentHubDetailName": "خزنه رئيسيه",
-              "paymentHubDetailNameAr": "خزنه رئيسيه",
-              "currencyId": 4,
-              "currencyName": "Saudi Riyal",
-              "glAccountId": 1377,
-              "createdOn": "2025-09-15T11:51:20.006514",
-              "paymentMethodName": "cash",
-              "paymentMethodId": 20,
-              "paymentMethodType": 1,
-              "currentBalance": 19277.74,
-              "isActive": false,
-              "active": true,
-              "amount": "100",
+              "paymentHubDetailsId": 1,
+              "bankAccountId": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
               "rate": 1,
-              "paymentHubDetailsId": 11,
-              "fundTransferStatus": 1
-            }
+              "currentBalance": 1,
+              "amount": 1,
+              "glAccountId": 1,
+              "fundTransferStatus": "From",
+              "commissionValue": 1,
+              "bankReference": "string"
+            },
+            "fundTransferFromDetail": {}
           }
         ],
         "PUT": [
           "/erp-apis/FundTransfer",
           {
-            "id": "7ff98845-ab16-44d0-c423-08de0bd989d2",
-            "code": "FTR_00025",
-            "date": "2025-10-15T07:55:51.593Z",
-            "description": "11122",
-            "reference": "",
-            "amount": "500",
-            "rate": 1,
-            "rateFrom": 1,
-            "fromPaymentHubDetails": "خزنه رئيسيه",
-            "toPaymentHubDetails": "Main Treasury",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "date": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "reference": "string",
+            "amount": 1,
+            "fromPaymentHubDetails": "string",
+            "fromBankAccount": "string",
+            "toPaymentHubDetails": "string",
+            "toBankAccount": "string",
             "fundTransferToDetail": {
               "paymentHubId": "Treasury",
-              "paymentHubDetailId": 9,
-              "paymentHubDetailName": "Main Treasury",
-              "paymentHubDetailNameAr": "الصندوق الرئيسي",
-              "currencyId": 4,
-              "currencyName": "Saudi Riyal",
-              "glAccountId": 1377,
-              "createdOn": "2025-09-14T16:56:54.966652",
-              "paymentMethodName": "cash",
-              "paymentMethodId": 20,
-              "paymentMethodType": 1,
-              "currentBalance": 0,
-              "isActive": false,
-              "active": true,
-              "paymentHubDetailsId": 9,
+              "paymentHubDetailsId": 1,
+              "bankAccountId": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
               "rate": 1,
-              "amount": "500",
-              "fundTransferStatus": 2
+              "currentBalance": 1,
+              "amount": 1,
+              "fundTransferStatus": "From",
+              "commissionAmount": 1,
+              "bankReference": "string"
             },
-            "fundTransferFromDetail": {
-              "paymentHubId": "Treasury",
-              "paymentHubDetailId": 11,
-              "paymentHubDetailName": "خزنه رئيسيه",
-              "paymentHubDetailNameAr": "خزنه رئيسيه",
-              "currencyId": 4,
-              "currencyName": "Saudi Riyal",
-              "glAccountId": 1377,
-              "createdOn": "2025-09-15T11:51:20.006514",
-              "paymentMethodName": "cash",
-              "paymentMethodId": 20,
-              "paymentMethodType": 1,
-              "currentBalance": 19277.74,
-              "isActive": false,
-              "active": true,
-              "amount": "500",
-              "commissionType": "Amount",
-              "commissionValue": 0,
-              "commissionAmount": 0,
-              "rate": 1,
-              "paymentHubDetailsId": 11,
-              "fundTransferStatus": 1
-            }
+            "fundTransferFromDetail": {}
           }
         ],
         "DELETE": [
@@ -1444,32 +1153,31 @@
         "Post": [
           "/erp-apis/CustomerCategory",
           {
-            "name": "ااا",
-            "nameAr": "ااا",
-            "code": null,
-            "receivableAccountId": 2592,
-            "salesAccountId": 2615,
-            "salesReturnAccountId": 2598,
-            "discountAccountId": 2598,
-            "pricePolicyId": 12,
-            "paymentTermId": 23,
-            "marketType": null
+            "name": "string",
+            "nameAr": "string",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
           }
         ],
         "PUT": [
           "/erp-apis/CustomerCategory",
           {
-            "name": "ااا سس",
-            "nameAr": "ااا سس",
-            "code": "CCategory-15",
-            "receivableAccountId": 2615,
-            "salesAccountId": 2615,
-            "salesReturnAccountId": 2598,
-            "discountAccountId": 2598,
-            "pricePolicyId": 27,
-            "paymentTermId": 11,
-            "marketType": null,
-            "id": "32"
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "code": "string",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
           }
         ],
         "DELETE": [
@@ -1485,126 +1193,146 @@
         "Post": [
           "/erp-apis/Customer",
           {
-            "code": null,
-            "photo": null,
-            "name": "mn",
-            "nameAr": "mn",
-            "birthdate": null,
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "name": "string",
+            "nameAr": "string",
             "categoryId": 1,
-            "tagIds": null,
-            "customerAddresses": [
-              {
-                "longitude": null,
-                "latitude": null,
-                "errorRadius": null
-              }
+            "marketType": "B2B",
+            "birthdate": "2025-11-26T16:30:10.884Z",
+            "photo": "string",
+            "tagIds": [
+              1
             ],
             "contactInfo": {
-              "contactMobile": null,
-              "contactMobileCode": null,
-              "contactPhone": null,
-              "contactWebsite": null,
-              "contactFax": null,
-              "contactEmail": null,
-              "contactPersonName": null,
-              "contactPersonMobile": null,
-              "contactPersonPhone": null,
-              "contactPersonMobileCode": null
-            },
-            "customerMarketPlaces": [],
-            "legalInfo": {
-              "countryId": "EG",
-              "street": "1",
-              "additionalStreetName": "1",
-              "buildingNumber": "1",
-              "cityName": "1",
-              "citySubdivisionName": "1",
-              "commercialRegistrationNumber": "1",
-              "countrySubEntity": "1",
-              "nationalNumber": null,
-              "otherID": null,
-              "postalZone": "2",
-              "registrationName": "1",
-              "taxIdentificationNumber": "2"
+              "contactPhone": "string",
+              "contactEmail": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactWebsite": "string",
+              "contactFax": "string",
+              "contactPersonPhone": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonEmail": "string",
+              "contactPersonName": "string"
             },
             "financialInfo": {
               "paymentTermId": 1,
-              "pricePolicyId": 4,
-              "creditLimit": null,
-              "allowCreditLimit": false,
-              "currencyId": 3
+              "pricePolicyId": 1,
+              "allowCreditLimit": true,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "legalInfo": {
+              "commercialRegistrationNumber": "string",
+              "taxIdentificationNumber": "string",
+              "street": "string",
+              "citySubdivisionName": "string",
+              "cityName": "string",
+              "postalZone": "string",
+              "countrySubEntity": "string",
+              "countryId": "string",
+              "buildingNumber": "string",
+              "additionalStreetName": "string",
+              "registrationName": "string",
+              "otherID": "string",
+              "nationalNumber": "string"
             },
             "accountingInfo": {
-              "receivableAccountId": 171,
-              "salesAccountId": 171,
-              "salesReturnAccountId": 86,
-              "discountAccountId": 172
-            }
+              "receivableAccountId": 1,
+              "salesAccountId": 1,
+              "salesReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "customerAddresses": [
+              {
+                "longitude": 1,
+                "latitude": 1,
+                "errorRadius": 1
+              }
+            ],
+            "customerMarketPlaces": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+                "salesManId": "00000000-0000-0000-0000-000000000000",
+                "address": "string"
+              }
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/Customer",
           {
-            "code": "CD20251015_00014",
-            "photo": null,
-            "name": "mn",
-            "nameAr": "mn",
-            "birthdate": "1970-01-01T00:00:00.000Z",
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
             "categoryId": 1,
+            "marketType": "B2B",
+            "birthdate": "2025-11-26T16:30:10.884Z",
+            "photo": "string",
             "tagIds": [
-              6
+              1
             ],
-            "marketType": "B2C",
             "contactInfo": {
-              "contactMobile": null,
-              "contactMobileCode": null,
-              "contactPhone": null,
-              "contactWebsite": null,
-              "contactFax": null,
-              "contactEmail": null,
-              "contactPersonName": null,
-              "contactPersonMobile": null,
-              "contactPersonPhone": null,
-              "contactPersonMobileCode": null
+              "contactPhone": "string",
+              "contactEmail": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactWebsite": "string",
+              "contactFax": "string",
+              "contactPersonPhone": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonEmail": "string",
+              "contactPersonName": "string"
+            },
+            "financialInfo": {
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "allowCreditLimit": true,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "legalInfo": {
+              "commercialRegistrationNumber": "string",
+              "taxIdentificationNumber": "string",
+              "street": "string",
+              "citySubdivisionName": "string",
+              "cityName": "string",
+              "postalZone": "string",
+              "countrySubEntity": "string",
+              "countryId": "string",
+              "buildingNumber": "string",
+              "additionalStreetName": "string",
+              "registrationName": "string",
+              "otherID": "string",
+              "nationalNumber": "string"
+            },
+            "accountingInfo": {
+              "receivableAccountId": 1,
+              "salesAccountId": 1,
+              "salesReturnAccountId": 1,
+              "discountAccountId": 1
             },
             "customerAddresses": [
               {
-                "id": "efa0779a-8b12-423a-e70c-08de0b569172",
-                "longitude": null,
-                "latitude": null,
-                "errorRadius": null
+                "id": "00000000-0000-0000-0000-000000000000",
+                "longitude": 1,
+                "latitude": 1,
+                "errorRadius": 1
               }
             ],
-            "customerMarketPlaces": [],
-            "legalInfo": {
-              "countryId": "EG",
-              "street": "1555555",
-              "additionalStreetName": "1555",
-              "buildingNumber": "1",
-              "cityName": "155555",
-              "citySubdivisionName": "155",
-              "commercialRegistrationNumber": "1",
-              "countrySubEntity": "1555",
-              "nationalNumber": null,
-              "otherID": null,
-              "postalZone": "2",
-              "registrationName": "1",
-              "taxIdentificationNumber": "2"
-            },
-            "financialInfo": {
-              "paymentTermId": 2,
-              "pricePolicyId": 5,
-              "creditLimit": 0,
-              "allowCreditLimit": false,
-              "currencyId": 4
-            },
-            "accountingInfo": {
-              "receivableAccountId": 171,
-              "salesAccountId": 171,
-              "salesReturnAccountId": 86,
-              "discountAccountId": 172
-            },
-            "id": 15
+            "customerMarketPlaces": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+                "salesManId": "00000000-0000-0000-0000-000000000000",
+                "address": "string"
+              }
+            ]
           }
         ],
         "DELETE": [
@@ -1620,16 +1348,16 @@
         "Post": [
           "/erp-apis/SalesTeam",
           {
-            "name": "nos",
-            "nameAr": "nos"
+            "name": "string",
+            "nameAr": "string"
           }
         ],
         "PUT": [
           "/erp-apis/SalesTeam/EditSalesTeamGeneral",
           {
-            "id": "3c78f5f1-a86a-4068-32c2-08de0b58f0ab",
-            "name": "nos mn",
-            "nameAr": "nos mn"
+            "id": "00000000-0000-0000-0000-000000000000",
+            "name": "string",
+            "nameAr": "string"
           }
         ],
         "DELETE": [
@@ -1645,85 +1373,36 @@
         "Post": [
           "/erp-apis/SalesMan",
           {
-            "salesTeamId": "4398784e-deb1-4033-7a87-08ddf5b7a51e",
-            "name": "bo",
-            "nameAr": "bo",
-            "salesPhone": "01012245668",
+            "salesTeamId": "00000000-0000-0000-0000-000000000000",
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "name": "string",
+            "nameAr": "string",
+            "salesPhone": "string",
+            "paymentTermId": 1,
+            "treasuryId": 1,
             "paymentMethods": [
-              1,
-              2,
-              3,
-              4,
-              5,
-              6,
-              7,
-              8,
-              9,
-              10,
-              11,
-              13,
-              14,
-              15,
-              16,
-              17,
-              19,
-              20,
-              22,
-              23,
-              25,
-              26,
-              27,
-              28,
-              30,
-              31,
-              36,
-              37,
-              39,
-              40,
-              41,
-              42,
-              43,
-              45,
-              46,
-              48,
-              49,
-              50,
-              52,
-              53,
-              55,
-              56,
-              58,
-              59,
-              61,
-              62,
-              64,
-              65,
-              67,
-              68,
-              70,
-              71,
-              73,
-              74
-            ],
-            "paymentTermId": 2,
-            "treasuryId": 3
+              1
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/SalesMan",
           {
-            "id": "f0e7e970-effc-4a6c-ad44-08de0beb1255",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "salesTeamId": "00000000-0000-0000-0000-000000000000",
+            "salesPhone": "string",
+            "name": "string",
+            "nameAr": "string",
             "isActive": true,
-            "salesTeamId": "4398784e-deb1-4033-7a87-08ddf5b7a51e",
-            "salesPhone": "01012245668",
-            "branchesIds": [],
-            "paymentMethods": [
-              3,
-              2,
-              1
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "branchesIds": [
+              "00000000-0000-0000-0000-000000000000"
             ],
-            "paymentTermId": 2,
-            "treasuryId": 3
+            "paymentTermId": 1,
+            "treasuryId": 1,
+            "paymentMethods": [
+              1
+            ]
           }
         ],
         "DELETE": [
@@ -1739,21 +1418,20 @@
         "Post": [
           "/erp-apis/PricePolicy",
           {
-            "code": "",
+            "name": "string",
+            "nameAr": "string",
             "policySource": "Manual",
-            "name": "one",
-            "nameAr": "one",
             "policyItemsList": [
               {
-                "price": 50,
-                "priceWithVat": 50,
-                "itemId": 46,
-                "uomId": "a5517213-bee4-4483-a3c3-e5e088cb9b64",
-                "itemVariantId": 55,
+                "itemId": 1,
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "itemVariantId": 1,
+                "price": 1,
                 "isVatApplied": true,
                 "isSellingPriceIncludeVat": true,
                 "taxId": 1,
-                "taxRatio": null
+                "taxRatio": 1,
+                "priceWithVat": 1
               }
             ]
           }
@@ -1761,36 +1439,22 @@
         "PUT": [
           "/erp-apis/PricePolicy",
           {
-            "id": 20,
-            "code": "PP2025101500017",
-            "isDefault": false,
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
             "policySource": "Manual",
-            "name": "one om",
-            "nameAr": "one om",
             "policyItemsList": [
               {
-                "id": 58,
-                "price": 50,
-                "priceWithVat": 43.47826086956522,
-                "itemId": 46,
-                "uomId": "a5517213-bee4-4483-a3c3-e5e088cb9b64",
-                "itemVariantId": 55,
+                "id": 1,
+                "itemId": 1,
+                "itemVariantId": 1,
+                "uomId": "00000000-0000-0000-0000-000000000000",
                 "isVatApplied": true,
                 "isSellingPriceIncludeVat": true,
+                "taxRatio": 1,
                 "taxId": 1,
-                "taxRatio": 15
-              },
-              {
-                "id": 0,
-                "price": 10,
-                "priceWithVat": 10,
-                "itemId": 47,
-                "uomId": "a5517213-bee4-4483-a3c3-e5e088cb9b64",
-                "itemVariantId": 56,
-                "isVatApplied": true,
-                "isSellingPriceIncludeVat": true,
-                "taxId": 1,
-                "taxRatio": null
+                "price": 1,
+                "priceWithVat": 1
               }
             ]
           }
@@ -1808,24 +1472,24 @@
         "Post": [
           "/erp-apis/MarketPlace",
           {
-            "name": "bnm",
-            "nameAr": "bnm",
+            "name": "string",
+            "nameAr": "string",
             "status": "Active",
-            "latitude": 30.0444,
-            "longitude": 31.2357,
-            "errorRadius": 0
+            "latitude": 1,
+            "longitude": 1,
+            "errorRadius": 1
           }
         ],
         "PUT": [
           "/erp-apis/MarketPlace",
           {
-            "id": "fb133b89-8b43-4986-afc7-08de0b8870a2",
-            "name": "bnm vv",
-            "nameAr": "bnm vv",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "name": "string",
+            "nameAr": "string",
             "status": "Active",
-            "latitude": 30.544,
-            "longitude": 31.736,
-            "errorRadius": 2
+            "latitude": 1,
+            "longitude": 1,
+            "errorRadius": 1
           }
         ],
         "DELETE": [
@@ -1841,30 +1505,26 @@
         "Post": [
           "/erp-apis/SalesProject",
           {
-            "code": null,
-            "name": "hjk",
-            "nameAr": "hjk",
-            "description": "456",
-            "customerId": 2,
-            "customerName": "customer report1",
-            "startDate": "2025-10-01",
-            "endDate": "2025-10-31",
-            "contractValue": "58888"
+            "name": "string",
+            "nameAr": "string",
+            "description": "string",
+            "customerId": 1,
+            "startDate": "2025-11-26T16:30:10.885Z",
+            "endDate": "2025-11-26T16:30:10.885Z",
+            "contractValue": 1
           }
         ],
         "PUT": [
           "/erp-apis/SalesProject",
           {
-            "id": "dd432f24-4a3a-402f-0b34-08de0b84d67d",
-            "code": "PI20251001_00018",
-            "name": "hjk kk",
-            "nameAr": "hjk kk",
-            "description": "4566587\\\\7",
-            "customerId": 2,
-            "customerName": "customer report1",
-            "startDate": "2025-10-01T00:00:00",
-            "endDate": "2025-11-06",
-            "contractValue": "50000"
+            "id": "00000000-0000-0000-0000-000000000000",
+            "name": "string",
+            "nameAr": "string",
+            "description": "string",
+            "customerId": 1,
+            "startDate": "2025-11-26T16:30:10.885Z",
+            "endDate": "2025-11-26T16:30:10.885Z",
+            "contractValue": 1
           }
         ],
         "DELETE": [
@@ -1886,29 +1546,17 @@
         "Post": [
           "/erp-apis/CustomerOpeningBalance",
           {
-            "openingBalanceJournalEntryLineId": "1c0b6a19-7963-4696-61e1-08ddf91ed8c8",
-            "amountNature": "Credit",
+            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "amountNature": "Debit",
             "customerOpeningBalanceDetails": [
               {
                 "id": "00000000-0000-0000-0000-000000000000",
-                "customerId": 8,
-                "accountName": "CCC EEEE EE (CD20250922_00007)",
-                "customerCode": "CD20250922_00007",
-                "balance": "8000",
-                "balanceType": 1,
-                "displayName": "CD20250922_00007",
+                "customerId": 1,
+                "balance": 1,
+                "balanceType": {},
                 "dueDates": [
-                  {
-                    "id": "00000000-0000-0000-0000-000000000000",
-                    "dueDate": "2025-09-21",
-                    "credit": 0,
-                    "debit": "8000",
-                    "total": 8000
-                  }
-                ],
-                "date": "2025-09-21",
-                "error": "",
-                "lineTotalBalance": 0
+                  {}
+                ]
               }
             ]
           }
@@ -1916,28 +1564,18 @@
         "PUT": [
           "/erp-apis/CustomerOpeningBalance",
           {
-            "id": "d60c0043-584d-4cb1-2c25-08de0beecb44",
-            "openingBalanceJournalEntryLineId": "1c0b6a19-7963-4696-61e1-08ddf91ed8c8",
-            "amountNature": "Credit",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "amountNature": "Debit",
             "customerOpeningBalanceDetails": [
               {
-                "id": "fbdfb290-87d8-4649-05b8-08de0beecb4c",
-                "customerId": 8,
-                "accountName": "CCC EEEE EE (CD20250922_00007)",
-                "customerCode": "CD20250922_00007",
-                "balance": "90777",
-                "balanceType": 1,
-                "displayName": "CD20250922_00007",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "customerId": 1,
+                "balance": 1,
+                "balanceType": {},
                 "dueDates": [
-                  {
-                    "id": "5a93a10b-c92a-4ddc-4158-08de0beecb52",
-                    "dueDate": "2025-09-21",
-                    "credit": 0,
-                    "debit": "90777"
-                  }
-                ],
-                "lineTotalBalance": 0,
-                "date": "2025-09-20"
+                  {}
+                ]
               }
             ]
           }
@@ -1959,185 +1597,128 @@
         "Post": [
           "/erp-apis/SalesOrder",
           {
-            "id": null,
-            "code": null,
-            "orderDate": "2025-10-15T13:51:53.549Z",
-            "expiryDate": null,
-            "description": null,
-            "termsAndConditions": null,
-            "customerId": 15,
-            "customerName": "ziyad",
-            "currencyId": 3,
-            "currencyName": null,
-            "currencyRate": 0.07774,
-            "salesmanId": "02bc1a79-2f43-4563-d31a-08ddf3757470",
-            "salesManName": "Support",
-            "status": null,
-            "paymentTermId": 11,
-            "paymentTermName": null,
-            "pricePolicyId": 12,
-            "salesOrderAttachments": [],
-            "salesDiscounts": null,
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "expiryDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndConditions": "string",
+            "customerId": 1,
+            "currencyId": 1,
+            "currencyRate": 1,
+            "salesmanId": "00000000-0000-0000-0000-000000000000",
+            "paymentTermId": 1,
+            "pricePolicyId": 1,
             "items": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "itemsUOM": [
-                  {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                    "uomCode": "G8roW",
-                    "uomNameAr": "وحدة القياس الأساسية",
-                    "uomNameEn": "BaseUOM",
-                    "conversionRatio": 1
-                  }
-                ],
-                "barCode": "",
-                "bardCodeId": null,
-                "description": "(2) Phone--",
-                "itemId": 25,
-                "itemCode": "2",
-                "itemVariantId": 101,
-                "discount": 0,
-                "discountAmount": null,
-                "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "taxRatio": 15,
-                "quantity": "1",
-                "price": 110,
-                "originPrice": 0,
-                "subCost": "",
-                "isVatIncluded": false,
-                "pricePolicyDetailId": 448,
-                "notes": "",
-                "hasExpiryDate": false,
-                "stockInEntryMode": "Manual",
-                "trackingType": "NoTracking",
-                "discountPercentage": null,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "itemName": "2-Phone--",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "itemVariantCode": "0000",
-                "itemVariantNameAr": "-",
-                "itemVariantNameEn": "-",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "netCost": 0,
-                "vatAmount": 16.5,
-                "totalAfterDiscount": 110,
-                "grandTotal": 126.5,
-                "subTotal": 110,
-                "isSellingPriceIncludeVat": false,
-                "isVatApplied": true,
-                "invoiceTracking": {
-                  "vendorBatchNo": "",
-                  "expireDate": null,
-                  "systemPatchNo": "",
-                  "serialId": "",
-                  "trackingType": "NoTracking",
-                  "selectedValue": 0,
-                  "hasExpiryDate": false
-                },
-                "maxDiscount": 100,
-                "salesDetailDiscounts": []
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "quantity": 1,
+                "price": 1,
+                "vatPercentage": 1,
+                "isVatIncluded": true,
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "taxId": 1,
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "salesDetailDiscounts": [
+                  {}
+                ]
               }
-            ]
+            ],
+            "salesOrderAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true
+              }
+            ],
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/SalesOrder",
           {
-            "id": "45002048-b761-4ca0-e03a-08de0b5296f5",
-            "code": "2025_0014",
-            "orderDate": "2025-10-15T13:51:53.549",
-            "expiryDate": null,
-            "description": null,
-            "termsAndConditions": null,
-            "customerId": 14,
-            "customerName": "yosef",
-            "currencyId": 3,
-            "currencyName": "Egyptian Pound",
-            "currencyRate": 0.07774,
-            "salesmanId": "02bc1a79-2f43-4563-d31a-08ddf3757470",
-            "salesManName": "Support",
-            "status": "Quotation",
-            "paymentTermId": 10,
-            "paymentTermName": null,
-            "pricePolicyId": 27,
-            "salesOrderAttachments": [],
-            "salesDiscounts": [],
+            "id": "00000000-0000-0000-0000-000000000000",
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "expiryDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndConditions": "string",
+            "customerId": 1,
+            "currencyId": 1,
+            "currencyRate": 1,
+            "salesmanId": "00000000-0000-0000-0000-000000000000",
+            "paymentTermId": 1,
+            "pricePolicyId": 1,
             "items": [
               {
-                "id": "f792e03f-1cb7-4e7a-0e02-08de0b5296f6",
-                "itemsUOM": [
-                  {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                    "uomCode": "G8roW",
-                    "uomNameAr": "وحدة القياس الأساسية",
-                    "uomNameEn": "BaseUOM",
-                    "conversionRatio": 1
-                  }
-                ],
-                "barCode": "",
-                "bardCodeId": null,
-                "description": "(2) Phone--",
-                "itemId": 25,
-                "itemCode": "2",
-                "itemVariantId": 101,
-                "discount": 0,
-                "discountAmount": 0,
-                "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "taxRatio": "",
-                "quantity": "2",
-                "price": "200",
-                "originPrice": 0,
-                "subCost": "",
-                "isVatIncluded": false,
-                "pricePolicyDetailId": 355,
-                "notes": "",
-                "hasExpiryDate": false,
-                "stockInEntryMode": "Manual",
-                "trackingType": "NoTracking",
-                "discountPercentage": null,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "itemName": "2-Phone--",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "itemVariantCode": "0000",
-                "itemVariantNameAr": "-",
-                "itemVariantNameEn": "-",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "netCost": 0,
-                "vatAmount": 60,
-                "totalAfterDiscount": 400,
-                "grandTotal": 460,
-                "subTotal": 400,
-                "isSellingPriceIncludeVat": null,
-                "isVatApplied": null,
-                "invoiceTracking": {
-                  "vendorBatchNo": "",
-                  "expireDate": null,
-                  "systemPatchNo": "",
-                  "serialId": "",
-                  "trackingType": "NoTracking",
-                  "selectedValue": 0,
-                  "hasExpiryDate": false
-                },
-                "maxDiscount": 100,
-                "salesDetailDiscounts": []
+                "id": "00000000-0000-0000-0000-000000000000",
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "taxId": 1,
+                "categoryType": {},
+                "description": "string",
+                "quantity": 1,
+                "price": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "salesDetailDiscounts": [
+                  {}
+                ]
+              }
+            ],
+            "salesOrderAttachments": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true
               }
             ]
           }
@@ -2155,171 +1736,200 @@
         "Post": [
           "/erp-apis/SalesInvoice",
           {
-            "invoiceDate": "2025-10-15T16:56:26",
-            "invoiceDueDate": "2025-10-30T13:56:26.520Z",
-            "description": "",
-            "warehouseId": 16,
-            "warehouseName": "مخزن رئيسي 1",
-            "customerId": 15,
-            "customerName": "ziyad",
-            "customerCreditLimit": 1000,
-            "pricePolicyId": 12,
-            "currencyId": 3,
-            "salesManId": "02bc1a79-2f43-4563-d31a-08ddf3757470",
-            "salesManName": "Support",
-            "currencyName": "Egyptian Pound",
-            "currencyRate": 0.07774,
-            "paymentTermId": 11,
-            "isLinkedToAdvancedPayment": false,
-            "sourceId": [],
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "invoiceDueDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "customerId": 1,
+            "customerName": "string",
+            "customerCreditLimit": 1,
+            "pricePolicyId": 1,
+            "currencyId": 1,
+            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "salesManName": "string",
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "reference": "string",
             "sourceType": "Direct",
-            "sourceCode": null,
-            "salesInvoiceSources": null,
-            "reference": null,
+            "applicationSource": "ERP",
+            "isLinkedToAdvancedPayment": true,
+            "salesInvoiceSources": [
+              {
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceCode": "string"
+              }
+            ],
+            "posSessionId": "00000000-0000-0000-0000-000000000000",
             "salesInvoiceDetails": [
               {
-                "barCode": "",
-                "barCodeId": null,
-                "isServiceItem": false,
-                "itemId": 25,
-                "itemCode": "2",
-                "itemName": "Phone",
-                "itemVariantId": 101,
-                "itemVariantCode": "0000",
-                "itemVariantNameEn": "Default category",
-                "itemVariantNameAr": "-",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "description": "(2) Phone--",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "quantity": "10",
-                "price": "200",
-                "cost": 20000,
-                "grandTotal": 2300,
-                "maxDiscount": 100,
-                "sourceDetailId": null,
-                "sourceId": null,
-                "discountPercentage": 0,
-                "discountAmount": 0,
-                "isVatIncluded": false,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "notes": "",
-                "itemStockBatchHeaderId": null,
-                "pricePolicyDetailId": 448,
-                "trackingType": "NoTracking",
-                "hasExpiryDate": false,
-                "invoiceEntryMode": "Manual",
-                "salesInvoiceTracking": {
-                  "batchNo": "",
-                  "hasExpiryDate": false,
-                  "expireDate": null,
-                  "serialId": null,
-                  "trackingType": "NoTracking"
-                },
-                "salesDetailDiscounts": []
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "price": 1,
+                "cost": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
+                "pricePolicyDetailId": 1,
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "isServiceItem": true,
+                "isProductItem": true,
+                "salesInvoiceTracking": {},
+                "salesDetailDiscounts": [
+                  {}
+                ],
+                "salesInvoiceDetailIngredients": [
+                  {}
+                ]
               }
             ],
             "salesInvoiceBalances": [
               {
-                "dueAmount": 2300,
-                "dueDate": "2025-10-30",
-                "dueBalance": 2300,
-                "salesInvoiceReconciliations": []
+                "dueAmount": 1,
+                "dueDate": "2025-11-26T16:30:10.885Z",
+                "dueBalance": 1
               }
             ],
-            "salesDiscounts": []
+            "posInvoicePayments": [
+              {
+                "amount": 1,
+                "paymentMethodType": {},
+                "paymentMethodCode": "string",
+                "paymentMethodId": 1
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true,
+                "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+              }
+            ],
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/SalesInvoice",
           {
-            "id": "71910b4a-fb6e-4004-8368-08de0b52563c",
-            "invoiceDate": "2025-10-15T16:56:26",
-            "invoiceDueDate": "2025-10-30T13:56:26.52",
-            "description": "5455",
-            "warehouseId": 16,
-            "warehouseName": "مخزن رئيسي 1",
-            "customerId": 15,
-            "customerName": "ziyad",
-            "customerCreditLimit": 1000,
-            "pricePolicyId": 12,
-            "currencyId": 3,
-            "salesManId": "02bc1a79-2f43-4563-d31a-08ddf3757470",
-            "salesManName": "Support",
-            "currencyName": "Egyptian Pound",
-            "currencyRate": "10",
-            "paymentTermId": 11,
-            "isLinkedToAdvancedPayment": false,
-            "sourceId": null,
+            "id": "00000000-0000-0000-0000-000000000000",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "invoiceDueDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "customerId": 1,
+            "customerName": "string",
+            "customerCreditLimit": 1,
+            "pricePolicyId": 1,
+            "currencyId": 1,
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "reference": "string",
+            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "salesManName": "string",
             "sourceType": "Direct",
-            "sourceCode": null,
-            "salesInvoiceSources": [],
-            "reference": null,
+            "applicationSource": "ERP",
+            "isLinkedToAdvancedPayment": true,
+            "salesInvoiceSources": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceCode": "string"
+              }
+            ],
             "salesInvoiceDetails": [
               {
-                "id": "a23fd865-d8d5-4c6c-74e0-08de0b52563d",
-                "barCode": "",
-                "barCodeId": null,
-                "itemId": 25,
-                "itemCode": "2",
-                "isServiceItem": false,
-                "itemName": "Phone",
-                "itemVariantId": 101,
-                "itemVariantCode": "0000",
-                "itemVariantNameEn": "Default category",
-                "itemVariantNameAr": "-",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "description": "(2) Phone--",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "quantity": "11",
-                "price": "500",
-                "grandTotal": 6325,
-                "cost": 20000,
-                "maxDiscount": 100,
-                "sourceDetailId": null,
-                "sourceId": null,
-                "discountPercentage": 0,
-                "discountAmount": 0,
-                "isVatIncluded": false,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "notes": "",
-                "itemStockBatchHeaderId": null,
-                "pricePolicyDetailId": 448,
-                "trackingType": "NoTracking",
-                "hasExpiryDate": false,
-                "invoiceEntryMode": "Manual",
-                "salesInvoiceTracking": {
-                  "batchNo": "",
-                  "hasExpiryDate": false,
-                  "expireDate": null,
-                  "serialId": "",
-                  "trackingType": "NoTracking"
-                },
-                "salesDetailDiscounts": []
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "id": "00000000-0000-0000-0000-000000000000",
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "price": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
+                "pricePolicyDetailId": 1,
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "isServiceItem": true,
+                "salesInvoiceTracking": {},
+                "salesDetailDiscounts": [
+                  {}
+                ]
               }
             ],
             "salesInvoiceBalances": [
               {
-                "id": "a70d4872-36d0-4ef1-b103-08de0b52563c",
-                "dueAmount": 6325,
-                "dueDate": "2025-10-30",
-                "dueBalance": 6325
+                "id": "00000000-0000-0000-0000-000000000000",
+                "dueAmount": 1,
+                "dueDate": "2025-11-26T16:30:10.885Z",
+                "dueBalance": 1
               }
             ],
-            "salesDiscounts": []
+            "salesDiscounts": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true,
+                "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+              }
+            ]
           }
         ],
         "DELETE": [
@@ -2335,15 +1945,29 @@
         "Post": [
           "/erp-apis/ReturnSalesInvoice",
           {
-            "returnInvoiceDate": "2025-10-15T17:00:37",
-            "description": "",
-            "warehouseId": 16,
-            "warehouseName": "مخزن رئيسي 1",
-            "salesInvoiceHeaderId": "79f2d84d-fb3b-4bc9-953c-08ddfa7bf7b3",
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "returnInvoiceDate": "2025-11-26T16:30:10.885Z",
+            "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "posSessionId": "00000000-0000-0000-0000-000000000000",
             "returnSalesInvoiceDetails": [
               {
-                "toReturnQuantity": 2,
-                "salesInvoiceDetailId": "c592c7b5-f716-4e7f-c240-08ddfa7bf7b5"
+                "toReturnQuantity": 1,
+                "salesInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
+                "returnSalesInvoiceDetailIngredients": [
+                  {}
+                ]
+              }
+            ],
+            "posReturnInvoicePayments": [
+              {
+                "amount": 1,
+                "paymentMethodType": {},
+                "paymentMethodCode": "string",
+                "paymentMethodId": 1
               }
             ]
           }
@@ -2351,15 +1975,15 @@
         "PUT": [
           "/erp-apis/ReturnSalesInvoice",
           {
-            "id": "fec52941-da1c-4c92-1454-08de0b53bf60",
-            "returnInvoiceDate": "2025-10-15T17:00:37",
-            "description": "879992",
-            "warehouseId": 16,
-            "warehouseName": "مخزن رئيسي 1",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "returnInvoiceDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
             "returnSalesInvoiceDetails": [
               {
-                "id": "002a280e-0829-4801-37a4-08de0b53bf72",
-                "toReturnQuantity": "1"
+                "id": "00000000-0000-0000-0000-000000000000",
+                "toReturnQuantity": 1
               }
             ]
           }
@@ -2377,30 +2001,51 @@
         "Post": [
           "/erp-apis/SalesProjectInvoice",
           {
-            "invoiceDate": "2025-10-15",
-            "code": "0",
-            "description": "88888",
-            "taxId": 137,
-            "vatPercentage": 15,
-            "salesProjectId": "843f3e51-f580-46d1-ea0d-08ddf4f74487",
-            "actualExecutionValue": 1000000,
-            "taxableTotal": 1000000,
-            "items": []
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "code": "string",
+            "description": "string",
+            "taxId": 1,
+            "vatPercentage": 1,
+            "salesProjectId": "00000000-0000-0000-0000-000000000000",
+            "actualExecutionValue": 1,
+            "taxableTotal": 1,
+            "items": [
+              {
+                "itemName": "string",
+                "itemValue": 1,
+                "itemType": {},
+                "taxId": 1,
+                "taxPercentage": 1,
+                "taxAmount": 1,
+                "total": 1
+              }
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/SalesProjectInvoice",
           {
-            "id": "fe2df806-652d-4c80-be0f-08de0bf3da68",
-            "invoiceDate": "2025-10-14T21:00:00.000Z",
-            "code": "PINV_00003",
-            "description": "88888548465",
-            "taxId": 137,
-            "vatPercentage": 15,
-            "salesProjectId": "843f3e51-f580-46d1-ea0d-08ddf4f74487",
-            "actualExecutionValue": 500000,
-            "taxableTotal": 500000,
-            "items": []
+            "id": "00000000-0000-0000-0000-000000000000",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "code": "string",
+            "description": "string",
+            "taxId": 1,
+            "vatPercentage": 1,
+            "salesProjectId": "00000000-0000-0000-0000-000000000000",
+            "actualExecutionValue": 1,
+            "taxableTotal": 1,
+            "items": [
+              {
+                "id": 1,
+                "itemName": "string",
+                "itemValue": 1,
+                "itemType": {},
+                "taxId": 1,
+                "taxPercentage": 1,
+                "taxAmount": 1,
+                "total": 1
+              }
+            ]
           }
         ],
         "DELETE": [
@@ -2504,32 +2149,30 @@
         "Post": [
           "/erp-apis/VendorCategory",
           {
-            "name": "mnso",
-            "nameAr": "mnso",
-            "code": null,
-            "payableAccountId": 2598,
-            "purchaseAccountId": 2598,
-            "purchaseReturnAccountId": 2615,
-            "discountAccountId": 2592,
-            "pricePolicyId": 12,
-            "paymentTermId": 11,
-            "marketType": "B2C"
+            "name": "string",
+            "nameAr": "string",
+            "payableAccountId": 1,
+            "purchaseAccountId": 1,
+            "purchaseReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
           }
         ],
         "PUT": [
           "/erp-apis/VendorCategory",
           {
-            "name": "mnso m",
-            "nameAr": "mnso m",
-            "code": "vendorCategory-12",
-            "payableAccountId": 2598,
-            "purchaseAccountId": 2615,
-            "purchaseReturnAccountId": 2615,
-            "discountAccountId": 2592,
-            "pricePolicyId": 12,
-            "paymentTermId": 10,
-            "marketType": "B2B",
-            "id": "24"
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "payableAccountId": 1,
+            "purchaseAccountId": 1,
+            "purchaseReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
           }
         ],
         "DELETE": [
@@ -2545,107 +2188,109 @@
         "Post": [
           "/erp-apis/Vendor",
           {
-            "code": null,
-            "photo": null,
-            "name": "nkm",
-            "nameAr": "nkm",
-            "birthDate": null,
-            "vendorCategoryId": 11,
-            "VendorTagIds": null,
+            "name": "string",
+            "nameAr": "string",
+            "photo": "string",
+            "birthDate": "2025-11-26T16:30:10.885Z",
+            "vendorCategoryId": 1,
             "vendorInformation": {
-              "contactPhone": null,
-              "ContactMobileCode": null,
-              "contactMobile": null,
-              "contactFax": null,
-              "contactEmail": null,
-              "contactWebsite": null,
-              "contactPersonName": null,
-              "contactPersonMobile": null,
-              "ContactPersonMobileCode": null,
-              "contactPersonPhone": null,
-              "contactPersonEmail": null
+              "contactPhone": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactFax": "string",
+              "contactEmail": "string",
+              "contactWebsite": "string",
+              "contactPersonName": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonPhone": "string",
+              "contactPersonEmail": "string"
             },
             "vendorAddress": {
-              "state": null,
-              "street": null,
-              "longitude": null,
-              "latitude": null,
-              "radius": null,
-              "countryId": null,
-              "cityId": null
+              "state": "string",
+              "street": "string",
+              "longitude": 1,
+              "latitude": 1,
+              "radius": 1,
+              "countryId": "string",
+              "cityId": 1
             },
             "vendorLegal": {
-              "taxId": null,
-              "commercialId": null
+              "taxId": "string",
+              "commercialId": "string"
             },
             "vendorFinancial": {
-              "paymentTermId": 10,
-              "pricePolicyId": 12,
-              "creditLimit": null,
-              "currencyId": 4
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "creditLimit": 1,
+              "currencyId": 1
             },
             "vendorAccounting": {
-              "payableAccountId": 2598,
-              "purchaseAccountId": 2615,
-              "purchaseReturnAccountId": 1376,
-              "discountAccountId": 2592
-            }
+              "payableAccountId": 1,
+              "purchaseAccountId": 1,
+              "purchaseReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "vendorTagIds": [
+              1
+            ]
           }
         ],
         "PUT": [
           "/erp-apis/Vendor",
           {
-            "code": "VDEF_00005",
-            "photo": null,
-            "name": "mnnnk",
-            "nameAr": "mnnnk",
-            "birthDate": null,
-            "vendorCategoryId": 11,
-            "VendorTagIds": [],
+            "id": 1,
+            "name": "string",
+            "nameAr": "string",
+            "photo": "string",
+            "birthDate": "2025-11-26T16:30:10.885Z",
+            "vendorCategoryId": 1,
             "vendorInformation": {
-              "contactPhone": null,
-              "ContactMobileCode": null,
-              "contactMobile": null,
-              "contactFax": null,
-              "contactEmail": null,
-              "contactWebsite": null,
-              "contactPersonName": null,
-              "contactPersonMobile": null,
-              "ContactPersonMobileCode": null,
-              "contactPersonPhone": null,
-              "contactPersonEmail": null,
-              "id": 32
+              "id": 1,
+              "contactPhone": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactFax": "string",
+              "contactEmail": "string",
+              "contactWebsite": "string",
+              "contactPersonName": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonPhone": "string",
+              "contactPersonEmail": "string"
             },
             "vendorAddress": {
-              "state": null,
-              "street": null,
-              "longitude": null,
-              "latitude": null,
-              "radius": null,
-              "countryId": null,
-              "cityId": null,
-              "id": 32
+              "id": 1,
+              "state": "string",
+              "street": "string",
+              "longitude": 1,
+              "latitude": 1,
+              "radius": 1,
+              "countryId": "string",
+              "cityId": 1
             },
             "vendorLegal": {
-              "taxId": null,
-              "commercialId": null,
-              "id": 32
+              "id": 1,
+              "taxId": "string",
+              "commercialId": "string"
             },
             "vendorFinancial": {
-              "paymentTermId": 10,
-              "pricePolicyId": 12,
-              "creditLimit": null,
-              "currencyId": 4,
-              "id": 32
+              "id": 1,
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "creditLimit": 1,
+              "currencyId": 1
             },
             "vendorAccounting": {
-              "payableAccountId": 1376,
-              "purchaseAccountId": 2615,
-              "purchaseReturnAccountId": 1376,
-              "discountAccountId": 2592,
-              "id": 32
+              "id": 1,
+              "payableAccountId": 1,
+              "purchaseAccountId": 1,
+              "purchaseReturnAccountId": 1,
+              "discountAccountId": 1
             },
-            "id": "81"
+            "vendorTagIds": [
+              1
+            ]
           }
         ],
         "DELETE": [
@@ -2685,167 +2330,105 @@
         "Post": [
           "/erp-apis/PurchaseOrder",
           {
-            "id": null,
-            "code": null,
-            "status": "",
-            "orderDate": "2025-10-16T08:59:15.949Z",
-            "description": "2",
-            "termsAndCondition": null,
-            "vendorId": 79,
-            "vendorName": "no",
-            "currencyId": 3,
-            "currencyName": "Egyptian Pound",
-            "currencyRate": 0.07774,
-            "paymentTermId": 10,
-            "purchaseOrderAttachments": [],
-            "vendorCode": "VDEF_00004",
-            "paymentTermName": "cash",
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndCondition": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
             "purchaseOrderDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "itemsUOM": [
-                  {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                    "uomCode": "G8roW",
-                    "uomNameAr": "وحدة القياس الأساسية",
-                    "uomNameEn": "BaseUOM",
-                    "conversionRatio": 1
-                  }
-                ],
-                "barCode": "",
-                "bardCodeId": null,
-                "description": "(2) Phone--",
-                "itemId": 25,
-                "itemCode": "2",
-                "itemVariantId": 101,
-                "discount": 0,
-                "discountAmount": 0,
-                "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "taxRatio": 15,
-                "quantity": "1",
-                "remainingQuantity": null,
-                "cost": "20",
-                "subCost": "",
-                "notes": "",
-                "hasExpiryDate": false,
-                "stockInEntryMode": "Manual",
-                "trackingType": "NoTracking",
-                "discountPercentage": 0,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "itemName": "Phone",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "itemVariantCode": "0000",
-                "itemVariantNameAr": "-",
-                "itemVariantNameEn": "-",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "netCost": "20",
-                "vatAmount": 3,
-                "totalAfterDiscount": 20,
-                "grandTotal": 23,
-                "subTotal": 20,
-                "isServiceItem": false,
-                "invoiceTracking": {
-                  "vendorBatchNo": "",
-                  "expireDate": null,
-                  "systemPatchNo": "",
-                  "serialId": "",
-                  "trackingType": "NoTracking",
-                  "selectedValue": 0,
-                  "hasExpiryDate": false
-                }
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "trackingType": {},
+                "hasExpiryDate": true
               }
-            ]
+            ],
+            "purchaseOrderAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "enableWorkflow": true
           }
         ],
         "PUT": [
           "/erp-apis/PurchaseOrder",
           {
-            "id": "d1d39a83-87ed-4780-6f81-08de0c927b1a",
-            "code": "PORD_00016",
-            "status": "Draft",
-            "orderDate": "2025-10-16T08:59:15.949",
-            "description": "2585",
-            "termsAndCondition": null,
-            "vendorId": 15,
-            "vendorName": "sayed",
-            "currencyId": 4,
-            "currencyName": "Saudi Riyal",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndCondition": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
             "currencyRate": 1,
-            "paymentTermId": 11,
-            "purchaseOrderAttachments": [],
-            "vendorCode": "VDEF_00001",
-            "paymentTermName": "15 days",
+            "paymentTermId": 1,
             "purchaseOrderDetails": [
               {
-                "id": "13c50f75-f7fe-4521-565e-08de0c927b28",
-                "itemsUOM": [
-                  {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                    "uomCode": "G8roW",
-                    "uomNameAr": "وحدة القياس الأساسية",
-                    "uomNameEn": "BaseUOM",
-                    "conversionRatio": 1
-                  }
-                ],
-                "barCode": "",
-                "bardCodeId": null,
-                "description": "(2) Phone--",
-                "itemId": 25,
-                "itemCode": "2",
-                "itemVariantId": 101,
-                "discount": 0,
-                "discountAmount": 0,
-                "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "taxRatio": "",
-                "quantity": "10",
-                "remainingQuantity": 1,
-                "cost": "300",
-                "subCost": 20,
-                "notes": "",
-                "hasExpiryDate": false,
-                "stockInEntryMode": "Manual",
-                "trackingType": "NoTracking",
-                "discountPercentage": 0,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "itemName": "Phone",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "itemVariantCode": "0000",
-                "itemVariantNameAr": "-",
-                "itemVariantNameEn": "-",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "netCost": "300",
-                "vatAmount": 450,
-                "totalAfterDiscount": 3000,
-                "grandTotal": 3450,
-                "subTotal": 3000,
-                "isServiceItem": false,
-                "invoiceTracking": {
-                  "vendorBatchNo": "",
-                  "expireDate": null,
-                  "systemPatchNo": "",
-                  "serialId": "",
-                  "trackingType": "NoTracking",
-                  "selectedValue": 0,
-                  "hasExpiryDate": false
-                }
+                "id": "00000000-0000-0000-0000-000000000000",
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "trackingType": {},
+                "hasExpiryDate": true
+              }
+            ],
+            "purchaseOrderAttachments": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "attachmentId": "string",
+                "name": "string"
               }
             ]
           }
@@ -2863,83 +2446,56 @@
         "Post": [
           "/erp-apis/Invoice",
           {
-            "id": "00000000-0000-0000-0000-000000000000",
-            "invoiceDate": "2025-10-16T12:04:10",
-            "description": "456",
-            "warehouseId": 16,
-            "warehouseName": "مخزن رئيسي 1",
-            "vendorId": 15,
-            "vendorName": "sayed",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "isExternalPurchase": true,
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
             "currencyRate": 1,
-            "paymentTermId": 11,
-            "reference": "",
-            "currencyId": 4,
-            "currencyName": "Saudi Riyal",
+            "paymentTermId": 1,
+            "reference": "string",
+            "sourceType": "Direct",
+            "sourceId": "00000000-0000-0000-0000-000000000000",
+            "sourceCode": "string",
             "invoiceDetails": [
               {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "itemsUOM": [
-                  {
-                    "itemUOMId": 57,
-                    "itemId": 25,
-                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                    "uomCode": "G8roW",
-                    "uomNameAr": "وحدة القياس الأساسية",
-                    "uomNameEn": "BaseUOM",
-                    "conversionRatio": 1
-                  }
-                ],
-                "barCode": "",
-                "bardCodeId": null,
-                "description": "(2) Phone--",
-                "itemId": 25,
-                "itemCode": "2",
-                "itemVariantId": 101,
-                "discount": 0,
-                "discountAmount": 0,
-                "uomName": "BaseUOM",
-                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
-                "taxRatio": 15,
-                "quantity": "5",
-                "cost": "600",
-                "subCost": "",
-                "notes": "",
-                "hasExpiryDate": false,
-                "stockInEntryMode": "Manual",
-                "trackingType": "NoTracking",
-                "trackingTypeAr": "لا يوجد تتبع",
-                "discountPercentage": 0,
-                "vatPercentage": 15,
-                "taxId": 137,
-                "itemName": "2-Phone--",
-                "categoryId": 38,
-                "itemCategoryNameAr": "الفئة الإفتراضية",
-                "itemCategoryNameEn": "Default category",
-                "categoryType": "Storable",
-                "itemVariantCode": "0000",
-                "itemVariantNameAr": "-",
-                "itemVariantNameEn": "-",
-                "uomCode": "G8roW",
-                "uomNameAr": "وحدة القياس الأساسية",
-                "uomNameEn": "BaseUOM",
-                "netCost": "600",
-                "vatAmount": 450,
-                "totalAfterDiscount": 3000,
-                "grandTotal": 3450,
-                "subTotal": 3000,
-                "isServiceItem": false,
-                "invoiceTracking": {
-                  "id": "00000000-0000-0000-0000-000000000000",
-                  "vendorBatchNo": "",
-                  "expireDate": null,
-                  "systemPatchNo": "",
-                  "serialId": "",
-                  "trackingType": "NoTracking",
-                  "selectedValue": 0,
-                  "hasExpiryDate": false
-                }
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "invoiceTracking": {}
               }
-            ]
+            ],
+            "enableWorkflow": true
           }
         ],
         "PUT": [
@@ -3041,13 +2597,14 @@
         "Post": [
           "/erp-apis/ReturnInvoice",
           {
-            "returnInvoiceDate": "2025-10-16T12:12:59",
-            "invoiceHeaderId": "7aca9369-c0ed-48c5-3940-08ddf5c35956",
-            "description": "898",
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "returnInvoiceDate": "2025-11-26T16:30:10.886Z",
+            "invoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+            "description": "string",
             "returnInvoiceDetails": [
               {
-                "toReturnQuantity": "5",
-                "invoiceDetailId": "15a0ca2e-48c4-467e-6ac8-08ddf5c35956"
+                "toReturnQuantity": 1,
+                "invoiceDetailId": "00000000-0000-0000-0000-000000000000"
               }
             ]
           }
@@ -3055,13 +2612,13 @@
         "PUT": [
           "/erp-apis/ReturnInvoice",
           {
-            "returnInvoiceDate": "2025-10-16T09:12:59.000Z",
-            "id": "71aebbc5-af57-41d6-9b9d-08de0c28d8f3",
-            "description": "998",
+            "id": "00000000-0000-0000-0000-000000000000",
+            "returnInvoiceDate": "2025-11-26T16:30:10.886Z",
+            "description": "string",
             "returnInvoiceDetails": [
               {
-                "toReturnQuantity": "6",
-                "id": "34bb4740-ad64-4092-4595-08de0c28d902"
+                "id": "00000000-0000-0000-0000-000000000000",
+                "toReturnQuantity": 1
               }
             ]
           }
@@ -3800,11 +3357,11 @@
         "Post": [
           "/erp-apis/Device",
           {
-            "name": "mno",
-            "nameAr": "mno",
-            "prefix": "1",
-            "deviceLicenseId": "a937ea9a-3337-4e44-1d9d-08ddf38c9d9a",
-            "salesManId": "02bc1a79-2f43-4563-d31a-08ddf3757470"
+            "name": "string",
+            "nameAr": "string",
+            "prefix": "string",
+            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "deviceLicenseId": "00000000-0000-0000-0000-000000000000"
           }
         ],
         "PUT": [

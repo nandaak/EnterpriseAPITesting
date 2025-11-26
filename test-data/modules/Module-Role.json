@@ -1,0 +1,140 @@
+{
+  "Role": {
+    "GET__erp-apis_Role_GetAllRoles": {
+      "GET": [
+        "/erp-apis/Role/GetAllRoles",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Role_GetRoleById": {
+      "GET": [
+        "/erp-apis/Role/GetRoleById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_Role": {
+      "POST": [
+        "/erp-apis/Role",
+        {
+          "name": "string",
+          "nameAr": "string",
+          "licenseId": 1,
+          "isActive": true,
+          "actionIds": [
+            1
+          ],
+          "userIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_Role": {
+      "PUT": [
+        "/erp-apis/Role",
+        {
+          "id": 1,
+          "name": "string",
+          "nameAr": "string",
+          "licenseId": 1,
+          "isActive": true,
+          "actionIds": [
+            1
+          ],
+          "userIds": [
+            "00000000-0000-0000-0000-000000000000"
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "DELETE__erp-apis_Role__Id_": {
+      "DELETE": [
+        "/erp-apis/Role/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Role_GetAllModules": {
+      "GET": [
+        "/erp-apis/Role/GetAllModules",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "RoleId"
+      ]
+    },
+    "GET__erp-apis_Role_GetServicesByModule": {
+      "GET": [
+        "/erp-apis/Role/GetServicesByModule",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "ModuleId",
+        "RoleId",
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Role_GetActionsByService": {
+      "GET": [
+        "/erp-apis/Role/GetActionsByService",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "ServiceId",
+        "RoleId"
+      ]
+    },
+    "GET__erp-apis_Role_GetWorkflowActionsByService": {
+      "GET": [
+        "/erp-apis/Role/GetWorkflowActionsByService",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "ServiceId",
+        "RoleId"
+      ]
+    },
+    "GET__erp-apis_Role_GetAllUsers": {
+      "GET": [
+        "/erp-apis/Role/GetAllUsers",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "RoleId",
+        "LicenseId"
+      ]
+    },
+    "GET__erp-apis_Role_CurrentUserPriceRoleDto": {
+      "GET": [
+        "/erp-apis/Role/CurrentUserPriceRoleDto",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

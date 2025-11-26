@@ -1,0 +1,55 @@
+{
+  "Branch": {
+    "GET__erp-apis_Branch__CompanyId__GetAll": {
+      "GET": [
+        "/erp-apis/Branch/{CompanyId}/GetAll",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SortColumn",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "CompanyId"
+      ]
+    },
+    "GET__erp-apis_Branch__Id__GetCompanyBranch": {
+      "GET": [
+        "/erp-apis/Branch/{Id}/GetCompanyBranch",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Branch_BranchDropdown": {
+      "GET": [
+        "/erp-apis/Branch/BranchDropdown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "UserId"
+      ]
+    },
+    "PUT__erp-apis_Branch": {
+      "PUT": [
+        "/erp-apis/Branch",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Branch": {
+      "POST": [
+        "/erp-apis/Branch",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

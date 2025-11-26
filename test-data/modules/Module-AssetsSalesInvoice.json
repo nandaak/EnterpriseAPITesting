@@ -1,0 +1,184 @@
+{
+  "AssetsSalesInvoice": {
+    "GET__erp-apis_AssetsSalesInvoice": {
+      "GET": [
+        "/erp-apis/AssetsSalesInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "Statuses",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_AssetsSalesInvoice": {
+      "POST": [
+        "/erp-apis/AssetsSalesInvoice",
+        {
+          "date": "2025-11-26T16:30:10.939Z",
+          "reference": "string",
+          "description": "string",
+          "customerId": 1,
+          "customerCode": "string",
+          "customerName": "string",
+          "customerNameAr": "string",
+          "paymentTermId": 1,
+          "paymentTermCode": "string",
+          "paymentTermName": "string",
+          "paymentTermNameAr": "string",
+          "applicationSource": "ERP",
+          "assetsSalesInvoiceDetails": [
+            {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "assetId": 1,
+              "assetName": "string",
+              "assetCode": "string",
+              "quantity": 1,
+              "price": 1,
+              "taxId": 1,
+              "taxName": "string",
+              "taxNameAr": "string",
+              "vatPercentage": 1
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_AssetsSalesInvoice": {
+      "PUT": [
+        "/erp-apis/AssetsSalesInvoice",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "date": "2025-11-26T16:30:10.939Z",
+          "reference": "string",
+          "description": "string",
+          "customerId": 1,
+          "customerCode": "string",
+          "customerName": "string",
+          "customerNameAr": "string",
+          "paymentTermId": 1,
+          "paymentTermCode": "string",
+          "paymentTermName": "string",
+          "paymentTermNameAr": "string",
+          "applicationSource": "ERP",
+          "assetsSalesInvoiceDetails": [
+            {
+              "id": "00000000-0000-0000-0000-000000000000",
+              "assetId": 1,
+              "assetName": "string",
+              "assetCode": "string",
+              "quantity": 1,
+              "price": 1,
+              "taxId": 1,
+              "taxName": "string",
+              "taxNameAr": "string",
+              "vatPercentage": 1
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsSalesInvoice_Export": {
+      "GET": [
+        "/erp-apis/AssetsSalesInvoice/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "Statuses",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_AssetsSalesInvoice__id__GetById": {
+      "GET": [
+        "/erp-apis/AssetsSalesInvoice/{id}/GetById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsSalesInvoice_GetAllAssetsSalesInvoiceByCustomerId": {
+      "GET": [
+        "/erp-apis/AssetsSalesInvoice/GetAllAssetsSalesInvoiceByCustomerId",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId"
+      ]
+    },
+    "DELETE__erp-apis_AssetsSalesInvoice__id__DeleteLine": {
+      "DELETE": [
+        "/erp-apis/AssetsSalesInvoice/{id}/DeleteLine",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsSalesInvoice__Id_": {
+      "DELETE": [
+        "/erp-apis/AssetsSalesInvoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_AssetsSalesInvoice__Id__Post": {
+      "POST": [
+        "/erp-apis/AssetsSalesInvoice/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsSalesInvoice_PrintOut": {
+      "GET": [
+        "/erp-apis/AssetsSalesInvoice/PrintOut",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

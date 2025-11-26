@@ -1,0 +1,64 @@
+{
+  "MarketPlace": {
+    "POST__erp-apis_MarketPlace": {
+      "POST": [
+        "/erp-apis/MarketPlace",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_MarketPlace": {
+      "GET": [
+        "/erp-apis/MarketPlace",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "PUT__erp-apis_MarketPlace": {
+      "PUT": [
+        "/erp-apis/MarketPlace",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_MarketPlace_MarketPlaceDropDown": {
+      "GET": [
+        "/erp-apis/MarketPlace/MarketPlaceDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_MarketPlace__Id_": {
+      "GET": [
+        "/erp-apis/MarketPlace/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_MarketPlace__Id_": {
+      "DELETE": [
+        "/erp-apis/MarketPlace/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

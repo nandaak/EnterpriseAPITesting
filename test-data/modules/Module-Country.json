@@ -1,0 +1,35 @@
+{
+  "Country": {
+    "GET__erp-apis_Country": {
+      "GET": [
+        "/erp-apis/Country",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey"
+      ]
+    },
+    "GET__erp-apis_Country_GetCities": {
+      "GET": [
+        "/erp-apis/Country/GetCities",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CountryCode",
+        "SearchKey"
+      ]
+    },
+    "GET__erp-apis_Country_GetNationality": {
+      "GET": [
+        "/erp-apis/Country/GetNationality",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey"
+      ]
+    }
+  }
+}

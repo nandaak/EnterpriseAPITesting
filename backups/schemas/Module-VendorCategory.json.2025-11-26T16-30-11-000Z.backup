@@ -1,0 +1,80 @@
+{
+  "VendorCategory": {
+    "GET__erp-apis_VendorCategory": {
+      "GET": [
+        "/erp-apis/VendorCategory",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_VendorCategory": {
+      "POST": [
+        "/erp-apis/VendorCategory",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_VendorCategory": {
+      "PUT": [
+        "/erp-apis/VendorCategory",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_VendorCategory_Export": {
+      "GET": [
+        "/erp-apis/VendorCategory/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_VendorCategory_VendorCategoryDropdown": {
+      "GET": [
+        "/erp-apis/VendorCategory/VendorCategoryDropdown",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_VendorCategory__Id_": {
+      "GET": [
+        "/erp-apis/VendorCategory/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_VendorCategory__Id_": {
+      "DELETE": [
+        "/erp-apis/VendorCategory/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

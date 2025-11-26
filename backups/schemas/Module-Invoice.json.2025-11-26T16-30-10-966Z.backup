@@ -1,0 +1,203 @@
+{
+  "Invoice": {
+    "GET__erp-apis_Invoice": {
+      "GET": [
+        "/erp-apis/Invoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "VendorsId",
+        "CurrenciesId",
+        "WarehousesId",
+        "Statuses",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_Invoice": {
+      "POST": [
+        "/erp-apis/Invoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_Invoice": {
+      "PUT": [
+        "/erp-apis/Invoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Invoice_GetById__Id_": {
+      "GET": [
+        "/erp-apis/Invoice/GetById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_Invoice__Id_": {
+      "DELETE": [
+        "/erp-apis/Invoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Invoice_GetInvoiceViewById__Id_": {
+      "GET": [
+        "/erp-apis/Invoice/GetInvoiceViewById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Invoice_PrintOutPurchaseInvoice": {
+      "GET": [
+        "/erp-apis/Invoice/PrintOutPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Invoice_PurchaseInvoiceReport": {
+      "GET": [
+        "/erp-apis/Invoice/PurchaseInvoiceReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "VendorIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "HasDiscount",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Invoice_Export": {
+      "GET": [
+        "/erp-apis/Invoice/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Invoice_ExportPurchaseInvoice": {
+      "GET": [
+        "/erp-apis/Invoice/ExportPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "VendorIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "HasDiscount",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "DELETE__erp-apis_Invoice_DeleteLine__Id_": {
+      "DELETE": [
+        "/erp-apis/Invoice/DeleteLine/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Invoice_InvoiceLookup": {
+      "GET": [
+        "/erp-apis/Invoice/InvoiceLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "VendorId",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_Invoice__Id__Post": {
+      "POST": [
+        "/erp-apis/Invoice/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Invoice_GetItemByBarcode": {
+      "GET": [
+        "/erp-apis/Invoice/GetItemByBarcode",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Barcode",
+        "IncludeService"
+      ]
+    },
+    "GET__erp-apis_Invoice__Id__GetInvoiceToReturnById": {
+      "GET": [
+        "/erp-apis/Invoice/{Id}/GetInvoiceToReturnById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

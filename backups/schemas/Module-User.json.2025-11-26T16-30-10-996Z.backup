@@ -1,0 +1,56 @@
+{
+  "User": {
+    "POST__erp-apis_User": {
+      "POST": [
+        "/erp-apis/User",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_User_UsersDropdownQuery": {
+      "GET": [
+        "/erp-apis/User/UsersDropdownQuery",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_User_GetUserNameById": {
+      "GET": [
+        "/erp-apis/User/GetUserNameById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "PUT__erp-apis_User_UpdateUserProfile": {
+      "PUT": [
+        "/erp-apis/User/UpdateUserProfile",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_User_ChangePassword": {
+      "PUT": [
+        "/erp-apis/User/ChangePassword",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_User_UpdateUserActivation": {
+      "PUT": [
+        "/erp-apis/User/UpdateUserActivation",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

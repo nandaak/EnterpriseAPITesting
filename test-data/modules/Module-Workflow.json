@@ -1,0 +1,32 @@
+{
+  "Workflow": {
+    "POST__erp-apis_Workflow_StartWorkflow": {
+      "POST": [
+        "/erp-apis/Workflow/StartWorkflow",
+        {
+          "moduleId": 1,
+          "serviceId": 1,
+          "actionId": 1,
+          "transactionId": "string",
+          "transactionCode": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Workflow_WorkflowAllowed": {
+      "POST": [
+        "/erp-apis/Workflow/WorkflowAllowed",
+        {
+          "moduleId": 1,
+          "serviceId": 1,
+          "actionId": 1,
+          "transactionId": "string",
+          "publishEvent": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

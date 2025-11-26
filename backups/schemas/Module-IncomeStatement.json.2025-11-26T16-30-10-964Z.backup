@@ -1,0 +1,22 @@
+{
+  "IncomeStatement": {
+    "POST__erp-apis_IncomeStatement": {
+      "POST": [
+        "/erp-apis/IncomeStatement",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_IncomeStatement_PrintOutIncomeStatementReport": {
+      "POST": [
+        "/erp-apis/IncomeStatement/PrintOutIncomeStatementReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "isRtl"
+      ]
+    }
+  }
+}

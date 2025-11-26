@@ -1,0 +1,60 @@
+{
+  "Tenant": {
+    "POST__erp-apis_Tenant_MigrateSubDomain": {
+      "POST": [
+        "/erp-apis/Tenant/MigrateSubDomain",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Tenant_MigrateSubDomains": {
+      "POST": [
+        "/erp-apis/Tenant/MigrateSubDomains",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Tenant_SeedBusinessInitialData": {
+      "POST": [
+        "/erp-apis/Tenant/SeedBusinessInitialData",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "subdomainName",
+        "subdomainId",
+        "tenantId"
+      ]
+    },
+    "POST__erp-apis_Tenant_AddSubdomain": {
+      "POST": [
+        "/erp-apis/Tenant/AddSubdomain",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Tenant_Decrypt": {
+      "POST": [
+        "/erp-apis/Tenant/Decrypt",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "key"
+      ]
+    },
+    "POST__erp-apis_Tenant_Encrypt": {
+      "POST": [
+        "/erp-apis/Tenant/Encrypt",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "key"
+      ]
+    }
+  }
+}

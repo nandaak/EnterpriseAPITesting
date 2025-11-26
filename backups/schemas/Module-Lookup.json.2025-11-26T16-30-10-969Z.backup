@@ -1,0 +1,14 @@
+{
+  "Lookup": {
+    "GET__erp-apis_Lookup": {
+      "GET": [
+        "/erp-apis/Lookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "lookups"
+      ]
+    }
+  }
+}

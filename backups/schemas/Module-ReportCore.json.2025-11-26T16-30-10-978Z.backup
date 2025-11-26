@@ -1,0 +1,12 @@
+{
+  "ReportCore": {
+    "GET__erp-apis_ReportCore": {
+      "GET": [
+        "/erp-apis/ReportCore",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

@@ -1,0 +1,69 @@
+{
+  "GeneralSettingReport": {
+    "GET__erp-apis_GeneralSettingReport_VatReport": {
+      "GET": [
+        "/erp-apis/GeneralSettingReport/VatReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "BranchId"
+      ]
+    },
+    "GET__erp-apis_GeneralSettingReport_VatSummaryReport": {
+      "GET": [
+        "/erp-apis/GeneralSettingReport/VatSummaryReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "BranchId"
+      ]
+    },
+    "GET__erp-apis_GeneralSettingReport_PrintOutVatSummaryReport": {
+      "GET": [
+        "/erp-apis/GeneralSettingReport/PrintOutVatSummaryReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "BranchId",
+        "BranchName",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_GeneralSettingReport_PrintOutVatReport": {
+      "GET": [
+        "/erp-apis/GeneralSettingReport/PrintOutVatReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "BranchId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

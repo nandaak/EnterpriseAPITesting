@@ -1,0 +1,111 @@
+{
+  "SalesManVisit": {
+    "GET__erp-apis_SalesManVisit_GetVisitList": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetVisitList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Date",
+        "SalesManId",
+        "MarketPlaceId"
+      ]
+    },
+    "GET__erp-apis_SalesManVisit_GetVisitsCalendar": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetVisitsCalendar",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "From",
+        "To",
+        "SalesManId",
+        "SalesAreaId",
+        "SalesTeamId"
+      ]
+    },
+    "GET__erp-apis_SalesManVisit__Id_": {
+      "GET": [
+        "/erp-apis/SalesManVisit/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_SalesManVisit__Id_": {
+      "DELETE": [
+        "/erp-apis/SalesManVisit/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_SalesManVisit": {
+      "POST": [
+        "/erp-apis/SalesManVisit",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_SalesManVisit": {
+      "PUT": [
+        "/erp-apis/SalesManVisit",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SalesManVisit_GetCustomerList": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetCustomerList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SalesManId"
+      ]
+    },
+    "GET__erp-apis_SalesManVisit_GetSalesManList": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetSalesManList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId",
+        "SalesTeamId"
+      ]
+    },
+    "GET__erp-apis_SalesManVisit_GetMarketPlaceListFilters": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetMarketPlaceListFilters",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId",
+        "SalesManId"
+      ]
+    },
+    "GET__erp-apis_SalesManVisit_GetVisitDropDown": {
+      "GET": [
+        "/erp-apis/SalesManVisit/GetVisitDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    }
+  }
+}
