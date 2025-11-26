@@ -4,6 +4,7 @@ const path = require("path");
 const apiClient = require("./api-client");
 const TestHelpers = require("./test-helpers");
 const IDTypeManager = require("./id-type-manager");
+const IDRegistryEnhanced = require("./id-registry-enhanced");
 const Constants = require("../Constants");
 const modulesConfig = require("../config/modules-config");
 const logger = require("./logger");
@@ -25,6 +26,8 @@ class CrudLifecycleHelper {
       updatedData: null,
       deletionVerified: false,
     };
+    // Enhanced ID Registry
+    this.idRegistry = new IDRegistryEnhanced();
   }
 
   async initialize() {
@@ -118,14 +121,29 @@ class CrudLifecycleHelper {
       logger.info(`🆔 ID Format: ${idExtraction.format}`);
       IDTypeManager.logIDInfo(this.createdId, 'CREATE');
 
-      const saveSuccess = this.saveCreatedIdToFile(this.createdId);
+      // Save to enhanced registry (includes legacy files)
+      const registryResult = this.idRegistry.addID({
+        id: this.createdId,
+        modulePath: this.actualModulePath,
+        responseData: response.data,
+        testPhase: 'CREATE',
+        additionalMetadata: {
+          endpoint: operation.endpoint,
+          responseStatus: response.status,
+          idType: this.createdIdType,
+          idFormat: idExtraction.format,
+          idMetadata: this.createdIdMetadata
+        }
+      });
 
-      if (!saveSuccess) {
+      if (!registryResult.success) {
         this.moduleSkipFlag = true;
         throw new Error(
-          `❌ ID PERSISTENCE FAILED: Could not save ID to file system`
+          `❌ ID PERSISTENCE FAILED: Could not save ID to registry`
         );
       }
+
+      logger.info(`📝 ID saved to enhanced registry (Total IDs: ${registryResult.registryStats.totalIds})`);
 
       // Store original data for later comparison
       this.resourceState.originalData = response.data;
@@ -142,6 +160,7 @@ class CrudLifecycleHelper {
         `✅ CREATE SUCCESS - Resource created with ID: ${this.createdId} (${this.createdIdType})`
       );
       logger.info(`📊 Original data stored for comparison`);
+      logger.info(`📊 Registry Stats - Module: ${registryResult.registryStats.moduleIdCount} IDs, Total: ${registryResult.registryStats.totalIds} IDs`);
 
       return {
         createdId: this.createdId,
@@ -197,8 +216,8 @@ class CrudLifecycleHelper {
       // Enhanced validation for initial view
       this.validateInitialViewResponse(response, currentId);
 
-      // Record view in registry
-      this.recordViewInRegistry();
+      // Record view in enhanced registry
+      this.idRegistry.recordView(currentId, this.actualModulePath);
 
       logger.info(`✅ VIEW PHASE 1 SUCCESS - Resource verified: ${currentId} (${this.createdIdType})`);
       return {
@@ -254,8 +273,11 @@ class CrudLifecycleHelper {
       // Store updated data for comparison
       this.resourceState.updatedData = response.data;
 
-      // Record update in registry
-      this.recordUpdateInRegistry(this.resourceState.updatedData);
+      // Record update in enhanced registry
+      this.idRegistry.updateIDLifecycle(currentId, this.actualModulePath, {
+        updatedData: this.sanitizeDataForStorage(response.data),
+        timestamp: new Date().toISOString()
+      });
 
       logger.info(`✅ UPDATE SUCCESS - Resource modified: ${currentId} (${this.createdIdType})`);
       return {
@@ -297,8 +319,8 @@ class CrudLifecycleHelper {
       // Validate that updates are persisted
       this.validatePostUpdateResponse(response, currentId);
 
-      // Record view in registry
-      this.recordViewInRegistry();
+      // Record view in enhanced registry
+      this.idRegistry.recordView(currentId, this.actualModulePath);
 
       logger.info(`✅ VIEW PHASE 2 SUCCESS - Updates verified: ${currentId} (${this.createdIdType})`);
       return {
@@ -345,6 +367,9 @@ class CrudLifecycleHelper {
 
       // Verify deletion was successful
       await this.verifyDeletion(currentId);
+
+      // Mark as deleted in enhanced registry
+      this.idRegistry.markIDAsDeleted(currentId, this.actualModulePath);
 
       // Clear ID upon successful deletion
       if (response.status >= 200 && response.status < 300) {

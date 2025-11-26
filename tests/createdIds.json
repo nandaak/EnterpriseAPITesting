@@ -1,9 +1,0 @@
-{
-  "modules": {},
-  "metadata": {
-    "created": "2025-11-24T00:00:00.000Z",
-    "lastUpdated": "2025-11-24T00:00:00.000Z",
-    "totalModules": 0,
-    "description": "Centralized storage for all created resource IDs across all tested modules"
-  }
-}

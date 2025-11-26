@@ -38,7 +38,13 @@
     "verify:setup": "node -e \"console.log('✅ Setup verified - Run npm run test:report');\"",
     "schema:update": "node scripts/update-all-schemas.js",
     "schema:convert-urls": "node scripts/update-schemas-to-extensions.js",
-    "schema:fix-non-urls": "node scripts/fix-schema-non-urls.js"
+    "schema:fix-non-urls": "node scripts/fix-schema-non-urls.js",
+    "registry:stats": "node scripts/query-id-registry.js stats",
+    "registry:list": "node scripts/query-id-registry.js list",
+    "registry:report": "node scripts/query-id-registry.js report",
+    "registry:export": "node scripts/query-id-registry.js export",
+    "registry:active": "node scripts/query-id-registry.js active",
+    "registry:recent": "node scripts/query-id-registry.js recent"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
