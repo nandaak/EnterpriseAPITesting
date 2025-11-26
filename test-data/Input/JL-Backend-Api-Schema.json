@@ -3,7 +3,7 @@
     "Transaction": {
       "Journal_Entry": {
         "Post": [
-          "https://microtecsaudi.com:2032/erp-apis/JournalEntry",
+          "/erp-apis/JournalEntry",
           {
             "refrenceNumber": null,
             "journalDate": "2025-11-05",
@@ -29,7 +29,7 @@
           }
         ],
         "PUT": [
-          "https://microtecsaudi.com:2032/erp-apis/JournalEntry/Edit",
+          "/erp-apis/JournalEntry/Edit",
           {
             "journalCode": "jl20080828_0939",
             "referenceNumber": null,
@@ -90,11 +90,11 @@
           }
         ],
         "DELETE": [
-          "https://microtecsaudi.com:2032/erp-apis/JournalEntry/<createdId>",
+          "/erp-apis/JournalEntry/<createdId>",
           {}
         ],
         "View": [
-          "https://microtecsaudi.com:2032/erp-apis/JournalEntry/View?Id=<createdId>",
+          "/erp-apis/JournalEntry/View?Id=<createdId>",
           {}
         ]
       }

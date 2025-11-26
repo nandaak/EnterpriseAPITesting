@@ -245,26 +245,42 @@ class ApiClient {
     }
   }
 
-  // Update the get method to use normalized URLs
-  async get(url, config = {}) {
-    const normalizedUrl = this.normalizeUrl(url);
-    return this.request({ method: "GET", url: normalizedUrl, ...config });
+  /**
+   * Construct full URL from endpoint extension
+   * If the URL is already complete (starts with http), return as is
+   * Otherwise, prepend the base URL from environment
+   */
+  constructFullUrl(urlOrExtension) {
+    if (!urlOrExtension) return urlOrExtension;
+    
+    // If it's already a full URL, return as is
+    if (urlOrExtension.startsWith('http://') || urlOrExtension.startsWith('https://')) {
+      return urlOrExtension;
+    }
+    
+    // If it's a relative path, construct full URL
+    // The baseURL from axios config will be automatically prepended
+    return urlOrExtension;
   }
 
-  // async get(url, config = {}) {
-  //   return this.request({ method: "GET", url, ...config });
-  // }
+  async get(url, config = {}) {
+    const fullUrl = this.constructFullUrl(url);
+    return this.request({ method: "GET", url: fullUrl, ...config });
+  }
 
   async post(url, data, config = {}) {
-    return this.request({ method: "POST", url, data, ...config });
+    const fullUrl = this.constructFullUrl(url);
+    return this.request({ method: "POST", url: fullUrl, data, ...config });
   }
 
   async put(url, data, config = {}) {
-    return this.request({ method: "PUT", url, data, ...config });
+    const fullUrl = this.constructFullUrl(url);
+    return this.request({ method: "PUT", url: fullUrl, data, ...config });
   }
 
   async delete(url, config = {}) {
-    return this.request({ method: "DELETE", url, ...config });
+    const fullUrl = this.constructFullUrl(url);
+    return this.request({ method: "DELETE", url: fullUrl, ...config });
   }
 
   // Enhanced token testing with detailed diagnostics

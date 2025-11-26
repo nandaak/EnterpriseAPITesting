@@ -35,7 +35,10 @@
     "test:html": "jest --runInBand --config=jest.config.js",
     "test:report": "npm run test:html",
     "test:ci": "npm run test:html",
-    "verify:setup": "node -e \"console.log('✅ Setup verified - Run npm run test:report');\""
+    "verify:setup": "node -e \"console.log('✅ Setup verified - Run npm run test:report');\"",
+    "schema:update": "node scripts/update-all-schemas.js",
+    "schema:convert-urls": "node scripts/update-schemas-to-extensions.js",
+    "schema:fix-non-urls": "node scripts/fix-schema-non-urls.js"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",
