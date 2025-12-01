@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: FinancialYear
- * Generated: 2025-12-01T13:40:51.234Z
+ * Generated: 2025-12-01T15:06:00.419Z
  * 
  * Operations available:
  * - POST: Yes

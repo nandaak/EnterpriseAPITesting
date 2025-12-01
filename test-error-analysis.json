@@ -1,0 +1,17 @@
+{
+  "timestamp": "2025-12-01T15:53:08.816Z",
+  "summary": {
+    "loggerSuccess": 0,
+    "status400": 0,
+    "status404": 0,
+    "status500": 0,
+    "total": 0
+  },
+  "details": {
+    "loggerSuccess": [],
+    "status400": [],
+    "status404": [],
+    "status500": [],
+    "other": []
+  }
+}

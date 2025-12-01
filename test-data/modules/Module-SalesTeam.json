@@ -18,8 +18,8 @@
       "POST": [
         "/erp-apis/SalesTeam",
         {
-          "name": "string",
-          "nameAr": "string"
+          "name": "Test name 969",
+          "nameAr": "اختبار 3012"
         }
       ],
       "summary": "",
@@ -90,8 +90,8 @@
         "/erp-apis/SalesTeam/EditSalesTeamGeneral",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string"
+          "name": "Test name 53",
+          "nameAr": "اختبار 9578"
         }
       ],
       "summary": "",

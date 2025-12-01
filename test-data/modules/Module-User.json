@@ -5,13 +5,13 @@
         "/erp-apis/User",
         {
           "id": "00000000-0000-0000-0000-000000000000",
-          "name": "string",
-          "email": "string",
-          "subdomain": "string",
+          "name": "Test name 720",
+          "email": "test1764601450008@example.com",
+          "subdomain": "Test subdomain 718",
           "tenantId": "00000000-0000-0000-0000-000000000000",
-          "identityId": "string",
-          "phone": "string",
-          "countryCode": "string"
+          "identityId": "TestidentityId8514",
+          "phone": "+966501234567",
+          "countryCode": "CODE247"
         }
       ],
       "summary": "",
@@ -42,12 +42,12 @@
         "/erp-apis/User/UpdateUserProfile",
         {
           "userId": "<createdId>",
-          "name": "string",
-          "email": "string",
-          "phone": "string",
-          "countryCode": "string",
-          "phoneCode": "string",
-          "photo": "string"
+          "name": "Test name 95",
+          "email": "test1764601450008@example.com",
+          "phone": "+966501234567",
+          "countryCode": "CODE5596",
+          "phoneCode": "+966501234567",
+          "photo": "Test photo 193"
         }
       ],
       "summary": "",
@@ -57,8 +57,8 @@
       "PUT": [
         "/erp-apis/User/ChangePassword",
         {
-          "currentPassword": "string",
-          "newPassword": "string"
+          "currentPassword": "Test currentPassword 21",
+          "newPassword": "Test newPassword 943"
         }
       ],
       "summary": "",

@@ -25,28 +25,28 @@
       "POST": [
         "/erp-apis/PaymentOut",
         {
-          "paymentOutDate": "2025-12-01T13:29:57.535Z",
-          "description": "string",
+          "paymentOutDate": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 319",
           "paymentHub": "Treasury",
-          "paymentHubDetailId": "string",
+          "paymentHubDetailId": "TestpaymentHubDetailId5729",
           "bankAccountId": 1,
           "currencyId": 1,
-          "rate": 1,
+          "rate": 15,
           "glAccountId": 1,
-          "sourceDocumentId": "string",
+          "sourceDocumentId": "TestsourceDocumentId5040",
           "sourceDocumentType": "FundTransfer",
           "paymentOutDetails": [
             {
-              "amount": 1,
-              "rate": 1,
+              "amount": 1000,
+              "rate": 15,
               "currencyId": 1,
               "paymentMethodId": 1,
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "TestpaidByDetailsId4837",
               "paymentOutMethodDetails": {},
               "glAccountId": 1,
-              "notes": "string",
+              "notes": "Test description 188",
               "isVatLine": true,
               "hasVat": true,
               "paymentOutDetailCostCenters": [
@@ -66,18 +66,18 @@
         "/erp-apis/PaymentOut",
         {
           "id": "<createdId>",
-          "paymentOutDate": "2025-12-01T13:29:57.535Z",
-          "description": "string",
+          "paymentOutDate": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 322",
           "paymentHubDetailId": "<createdId>",
           "bankAccountId": "<createdId>",
           "currencyId": "<createdId>",
-          "rate": 1,
+          "rate": 15,
           "glAccountId": "<createdId>",
           "paymentOutDetails": [
             {
               "id": "<createdId>",
-              "amount": 1,
-              "rate": 1,
+              "amount": 1000,
+              "rate": 15,
               "currencyId": "<createdId>",
               "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
@@ -85,7 +85,7 @@
               "paidByDetailsId": "<createdId>",
               "paymentOutMethodDetail": {},
               "glAccountId": "<createdId>",
-              "notes": "string",
+              "notes": "Test description 423",
               "isVatLine": true,
               "hasVat": true,
               "paymentOutDetailCostCenters": [
@@ -166,7 +166,39 @@
     "POST__erp-apis_PaymentOut__Id__Post": {
       "POST": [
         "/erp-apis/PaymentOut/<createdId>/Post",
-        {}
+        {
+          "paymentOutDate": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 839",
+          "paymentHub": "Treasury",
+          "paymentHubDetailId": "TestpaymentHubDetailId4510",
+          "bankAccountId": 1,
+          "currencyId": 1,
+          "rate": 15,
+          "glAccountId": 1,
+          "sourceDocumentId": "TestsourceDocumentId4727",
+          "sourceDocumentType": "FundTransfer",
+          "paymentOutDetails": [
+            {
+              "amount": 1000,
+              "rate": 15,
+              "currencyId": 1,
+              "paymentMethodId": 1,
+              "paymentMethodType": {},
+              "paidBy": {},
+              "paidByDetailsId": "TestpaidByDetailsId9900",
+              "paymentOutMethodDetails": {},
+              "glAccountId": 1,
+              "notes": "Test description 602",
+              "isVatLine": true,
+              "hasVat": true,
+              "paymentOutDetailCostCenters": [
+                {}
+              ]
+            }
+          ],
+          "saveToContext": true,
+          "enableWorkflow": true
+        }
       ],
       "summary": "",
       "parameters": [

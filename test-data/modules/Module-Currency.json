@@ -18,11 +18,11 @@
       "POST": [
         "/erp-apis/Currency",
         {
-          "name": "string",
-          "nameAr": "string",
-          "symbol": "string",
-          "subUnit": "string",
-          "countryCode": "string",
+          "name": "Test name 530",
+          "nameAr": "اختبار 527",
+          "symbol": "Test symbol 512",
+          "subUnit": "Test subUnit 623",
+          "countryCode": "CODE1077",
           "differenceAccount": 1
         }
       ],
@@ -34,12 +34,12 @@
         "/erp-apis/Currency",
         {
           "id": "<createdId>",
-          "code": "string",
-          "name": "string",
-          "nameAr": "string",
-          "symbol": "string",
-          "subUnit": "string",
-          "countryCode": "string",
+          "code": "CODE9832",
+          "name": "Test name 117",
+          "nameAr": "اختبار 509",
+          "symbol": "Test symbol 472",
+          "subUnit": "Test subUnit 333",
+          "countryCode": "CODE5042",
           "differenceAccount": 1
         }
       ],

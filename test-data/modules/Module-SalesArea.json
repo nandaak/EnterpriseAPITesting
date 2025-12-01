@@ -60,7 +60,7 @@
       "POST": [
         "/erp-apis/SalesArea/AddSalesArea",
         {
-          "name": "string",
+          "name": "Test name 1579",
           "latitude": 1,
           "longitude": 1,
           "radius": 1
@@ -74,7 +74,7 @@
         "/erp-apis/SalesArea/EditSalesArea",
         {
           "id": "<createdId>",
-          "name": "string",
+          "name": "Test name 4425",
           "latitude": 1,
           "longitude": 1,
           "radius": 1

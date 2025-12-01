@@ -23,12 +23,12 @@
         "/erp-apis/AssetsReturnSalesInvoice",
         {
           "date": "2025-12-01T13:29:57.503Z",
-          "reference": "string",
-          "description": "string",
+          "reference": "Test reference 397",
+          "description": "Test description 326",
           "customerId": 1,
-          "customerCode": "string",
-          "customerName": "string",
-          "customerNameAr": "string",
+          "customerCode": "CODE8021",
+          "customerName": "Test customerName 558",
+          "customerNameAr": "اختبار 434",
           "applicationSource": "ERP",
           "assetsSalesInvoiceHeaderIds": [
             "00000000-0000-0000-0000-000000000000"
@@ -36,15 +36,15 @@
           "assetsReturnSalesInvoiceDetails": [
             {
               "assetId": 1,
-              "assetName": "string",
-              "assetCode": "string",
-              "remainingQuantity": 1,
-              "quantityToReturn": 1,
-              "price": 1,
-              "taxId": 1,
-              "taxName": "string",
-              "taxNameAr": "string",
-              "vatPercentage": 1,
+              "assetName": "Test assetName 2250",
+              "assetCode": "CODE60910",
+              "remainingQuantity": 10,
+              "quantityToReturn": 10,
+              "price": 1000,
+              "taxId": 15,
+              "taxName": "Test taxName 7860",
+              "taxNameAr": "اختبار 1811",
+              "vatPercentage": 15,
               "assetsSalesInvoiceDetailId": "00000000-0000-0000-0000-000000000000"
             }
           ]
@@ -59,12 +59,12 @@
         {
           "id": "<createdId>",
           "date": "2025-12-01T13:29:57.503Z",
-          "reference": "string",
-          "description": "string",
+          "reference": "Test reference 721",
+          "description": "Test description 978",
           "customerId": "<createdId>",
-          "customerCode": "string",
-          "customerName": "string",
-          "customerNameAr": "string",
+          "customerCode": "CODE3545",
+          "customerName": "Test customerName 892",
+          "customerNameAr": "اختبار 751",
           "applicationSource": "ERP",
           "assetsSalesInvoiceHeaderIds": [
             "00000000-0000-0000-0000-000000000000"
@@ -73,15 +73,15 @@
             {
               "id": "<createdId>",
               "assetId": "<createdId>",
-              "assetName": "string",
-              "assetCode": "string",
-              "remainingQuantity": 1,
-              "quantityToReturn": 1,
-              "price": 1,
+              "assetName": "Test assetName 3865",
+              "assetCode": "CODE51779",
+              "remainingQuantity": 10,
+              "quantityToReturn": 10,
+              "price": 1000,
               "taxId": "<createdId>",
-              "taxName": "string",
-              "taxNameAr": "string",
-              "vatPercentage": 1,
+              "taxName": "Test taxName 4353",
+              "taxNameAr": "اختبار 2492",
+              "vatPercentage": 15,
               "assetsSalesInvoiceDetailId": "<createdId>"
             }
           ]

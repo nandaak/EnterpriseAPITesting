@@ -32,9 +32,9 @@
         "/erp-apis/DeviceVerification/VerifyDevice",
         {
           "deviceId": "00000000-0000-0000-0000-000000000000",
-          "verificationCode": "string",
-          "phoneNumber": "string",
-          "email": "string"
+          "verificationCode": "CODE352",
+          "phoneNumber": "+966688236972",
+          "email": "test9977@example.com"
         }
       ],
       "summary": "",

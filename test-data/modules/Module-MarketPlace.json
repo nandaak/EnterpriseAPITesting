@@ -4,8 +4,8 @@
       "POST": [
         "/erp-apis/MarketPlace",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 6",
+          "nameAr": "اختبار 313",
           "status": "Active",
           "latitude": 1,
           "longitude": 1,
@@ -34,8 +34,8 @@
         "/erp-apis/MarketPlace",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 775",
+          "nameAr": "اختبار 190",
           "status": "Active",
           "latitude": 1,
           "longitude": 1,

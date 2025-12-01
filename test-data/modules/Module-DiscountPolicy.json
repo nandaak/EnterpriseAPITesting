@@ -18,9 +18,9 @@
       "POST": [
         "/erp-apis/DiscountPolicy",
         {
-          "name": "string",
-          "nameAr": "string",
-          "discountPercentage": 1,
+          "name": "Test name 9109",
+          "nameAr": "اختبار 777",
+          "discountPercentage": 15,
           "userIds": [
             "00000000-0000-0000-0000-000000000000"
           ]
@@ -34,9 +34,9 @@
         "/erp-apis/DiscountPolicy",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "discountPercentage": 1,
+          "name": "Test name 3033",
+          "nameAr": "اختبار 3989",
+          "discountPercentage": 15,
           "userIds": [
             "00000000-0000-0000-0000-000000000000"
           ]

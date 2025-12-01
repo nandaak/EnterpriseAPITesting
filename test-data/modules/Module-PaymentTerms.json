@@ -18,14 +18,14 @@
       "POST": [
         "/erp-apis/PaymentTerms",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 3644",
+          "nameAr": "اختبار 7490",
           "paymentTermLines": [
             {
               "dueTermValue": 1,
               "afterValue": 1,
               "afterPeriod": {},
-              "note": "string"
+              "note": "Test description 927"
             }
           ]
         }
@@ -38,15 +38,15 @@
         "/erp-apis/PaymentTerms",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 9350",
+          "nameAr": "اختبار 1001",
           "paymentTermLines": [
             {
               "id": "<createdId>",
               "dueTermValue": 1,
               "afterValue": 1,
               "afterPeriod": {},
-              "note": "string"
+              "note": "Test description 996"
             }
           ]
         }

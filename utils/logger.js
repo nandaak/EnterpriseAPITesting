@@ -22,6 +22,15 @@ class Logger {
   }
 
   /**
+   * Logs successful operation messages.
+   * @param {string} message
+   */
+  static success(message) {
+    const formattedMessage = Logger._formatMessage("SUCCESS", `✅ ${message}`);
+    console.log(formattedMessage);
+  }
+
+  /**
    * Logs detailed, internal information, typically for troubleshooting.
    * @param {string} message
    */

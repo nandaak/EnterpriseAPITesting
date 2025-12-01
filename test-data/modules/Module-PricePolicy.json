@@ -18,20 +18,20 @@
       "POST": [
         "/erp-apis/PricePolicy",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 5331",
+          "nameAr": "اختبار 98",
           "policySource": "Manual",
           "policyItemsList": [
             {
               "itemId": 1,
               "uomId": "00000000-0000-0000-0000-000000000000",
               "itemVariantId": 1,
-              "price": 1,
+              "price": 1000,
               "isVatApplied": true,
               "isSellingPriceIncludeVat": true,
-              "taxId": 1,
-              "taxRatio": 1,
-              "priceWithVat": 1
+              "taxId": 15,
+              "taxRatio": 15,
+              "priceWithVat": 1000
             }
           ]
         }
@@ -44,8 +44,8 @@
         "/erp-apis/PricePolicy",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 4435",
+          "nameAr": "اختبار 5131",
           "policySource": "Manual",
           "policyItemsList": [
             {
@@ -55,10 +55,10 @@
               "uomId": "<createdId>",
               "isVatApplied": true,
               "isSellingPriceIncludeVat": true,
-              "taxRatio": 1,
+              "taxRatio": 15,
               "taxId": "<createdId>",
-              "price": 1,
-              "priceWithVat": 1
+              "price": 1000,
+              "priceWithVat": 1000
             }
           ]
         }
@@ -128,10 +128,10 @@
         {
           "policyItemsList": [
             {
-              "itemCode": "string",
-              "uomCode": "string",
-              "itemVariantCode": "string",
-              "price": 1
+              "itemCode": "CODE5854",
+              "uomCode": "CODE67194",
+              "itemVariantCode": "CODE65086",
+              "price": 1000
             }
           ]
         }

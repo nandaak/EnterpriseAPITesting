@@ -23,23 +23,23 @@
       "POST": [
         "/erp-apis/JournalEntry",
         {
-          "refrenceNumber": "string",
-          "journalDate": "2025-12-01T13:29:57.529Z",
+          "refrenceNumber": "REF55048",
+          "journalDate": "2025-12-01T13:29:57.452Z",
           "type": "Manual",
-          "description": "string",
-          "periodId": "string",
+          "description": "Test description 247",
+          "periodId": "TestperiodId7395",
           "isHeaderDescriptionCopied": true,
           "journalEntryLines": [
             {
-              "lineDescription": "string",
-              "debitAmount": 1,
-              "creditAmount": 1,
-              "currencyRate": 1,
+              "lineDescription": "Test description 960",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
               "currencyId": 1,
               "accountId": 1,
               "isVatLine": true,
               "hasVat": true,
-              "createdOn": "2025-12-01T13:29:57.529Z",
+              "createdOn": "2025-12-01T13:29:57.452Z",
               "costCenters": [
                 {}
               ]
@@ -47,8 +47,8 @@
           ],
           "journalEntryAttachments": [
             {
-              "attachmentId": "string",
-              "name": "string"
+              "attachmentId": "TestattachmentId9182",
+              "name": "Test name 2676"
             }
           ],
           "enableWorkflow": true
@@ -100,24 +100,24 @@
         "/erp-apis/JournalEntry/Edit",
         {
           "id": "<createdId>",
-          "referenceNumber": "string",
-          "journalDate": "2025-12-01T13:29:57.529Z",
-          "description": "string",
+          "referenceNumber": "REF88951",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "description": "Test description 965",
           "isHeaderDescriptionCopied": true,
           "journalEntryLines": [
             {
               "id": "<createdId>",
               "accountId": "<createdId>",
-              "lineDescription": "string",
-              "debitAmount": 1,
-              "creditAmount": 1,
-              "debitAmountLocal": 1,
-              "creditAmountLocal": 1,
-              "currencyRate": 1,
+              "lineDescription": "Test description 659",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "debitAmountLocal": 1000,
+              "creditAmountLocal": 1000,
+              "currencyRate": 15,
               "isVatLine": true,
               "hasVat": true,
               "currencyId": "<createdId>",
-              "createdOn": "2025-12-01T13:29:57.529Z",
+              "createdOn": "2025-12-01T13:29:57.452Z",
               "costCenters": [
                 {}
               ]
@@ -127,7 +127,7 @@
             {
               "id": "<createdId>",
               "attachmentId": "<createdId>",
-              "name": "string"
+              "name": "Test name 5534"
             }
           ]
         }
@@ -140,7 +140,36 @@
         "/erp-apis/JournalEntry/ChangeStatus",
         {
           "id": "<createdId>",
-          "status": "Draft"
+          "referenceNumber": "REF24684",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "description": "Test description 853",
+          "isHeaderDescriptionCopied": true,
+          "journalEntryLines": [
+            {
+              "id": "<createdId>",
+              "accountId": "<createdId>",
+              "lineDescription": "Test description 675",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "debitAmountLocal": 1000,
+              "creditAmountLocal": 1000,
+              "currencyRate": 15,
+              "isVatLine": true,
+              "hasVat": true,
+              "currencyId": "<createdId>",
+              "createdOn": "2025-12-01T13:29:57.452Z",
+              "costCenters": [
+                {}
+              ]
+            }
+          ],
+          "journalEntryAttachments": [
+            {
+              "id": "<createdId>",
+              "attachmentId": "<createdId>",
+              "name": "Test name 1407"
+            }
+          ]
         }
       ],
       "summary": "",
@@ -197,7 +226,37 @@
     "POST__erp-apis_JournalEntry__Id__Reverse": {
       "POST": [
         "/erp-apis/JournalEntry/<createdId>/Reverse",
-        {}
+        {
+          "refrenceNumber": "REF87714",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "type": "Manual",
+          "description": "Test description 535",
+          "periodId": "TestperiodId3475",
+          "isHeaderDescriptionCopied": true,
+          "journalEntryLines": [
+            {
+              "lineDescription": "Test description 452",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
+              "currencyId": 1,
+              "accountId": 1,
+              "isVatLine": true,
+              "hasVat": true,
+              "createdOn": "2025-12-01T13:29:57.452Z",
+              "costCenters": [
+                {}
+              ]
+            }
+          ],
+          "journalEntryAttachments": [
+            {
+              "attachmentId": "TestattachmentId1174",
+              "name": "Test name 8259"
+            }
+          ],
+          "enableWorkflow": true
+        }
       ],
       "summary": "",
       "parameters": [
@@ -208,9 +267,35 @@
       "POST": [
         "/erp-apis/JournalEntry/ReverseList",
         {
-          "journals": [
-            "00000000-0000-0000-0000-000000000000"
-          ]
+          "refrenceNumber": "REF94303",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "type": "Manual",
+          "description": "Test description 265",
+          "periodId": "TestperiodId2438",
+          "isHeaderDescriptionCopied": true,
+          "journalEntryLines": [
+            {
+              "lineDescription": "Test description 785",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
+              "currencyId": 1,
+              "accountId": 1,
+              "isVatLine": true,
+              "hasVat": true,
+              "createdOn": "2025-12-01T13:29:57.452Z",
+              "costCenters": [
+                {}
+              ]
+            }
+          ],
+          "journalEntryAttachments": [
+            {
+              "attachmentId": "TestattachmentId9315",
+              "name": "Test name 6606"
+            }
+          ],
+          "enableWorkflow": true
         }
       ],
       "summary": "",
@@ -220,10 +305,35 @@
       "POST": [
         "/erp-apis/JournalEntry/Action",
         {
-          "journals": [
-            "00000000-0000-0000-0000-000000000000"
+          "refrenceNumber": "REF71942",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "type": "Manual",
+          "description": "Test description 34",
+          "periodId": "TestperiodId7593",
+          "isHeaderDescriptionCopied": true,
+          "journalEntryLines": [
+            {
+              "lineDescription": "Test description 947",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
+              "currencyId": 1,
+              "accountId": 1,
+              "isVatLine": true,
+              "hasVat": true,
+              "createdOn": "2025-12-01T13:29:57.452Z",
+              "costCenters": [
+                {}
+              ]
+            }
           ],
-          "action": "Save"
+          "journalEntryAttachments": [
+            {
+              "attachmentId": "TestattachmentId7070",
+              "name": "Test name 915"
+            }
+          ],
+          "enableWorkflow": true
         }
       ],
       "summary": "",
@@ -232,7 +342,37 @@
     "POST__erp-apis_JournalEntry__Id__Unpost": {
       "POST": [
         "/erp-apis/JournalEntry/<createdId>/Unpost",
-        {}
+        {
+          "refrenceNumber": "REF6266",
+          "journalDate": "2025-12-01T13:29:57.452Z",
+          "type": "Manual",
+          "description": "Test description 71",
+          "periodId": "TestperiodId202",
+          "isHeaderDescriptionCopied": true,
+          "journalEntryLines": [
+            {
+              "lineDescription": "Test description 436",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
+              "currencyId": 1,
+              "accountId": 1,
+              "isVatLine": true,
+              "hasVat": true,
+              "createdOn": "2025-12-01T13:29:57.452Z",
+              "costCenters": [
+                {}
+              ]
+            }
+          ],
+          "journalEntryAttachments": [
+            {
+              "attachmentId": "TestattachmentId3573",
+              "name": "Test name 3832"
+            }
+          ],
+          "enableWorkflow": true
+        }
       ],
       "summary": "",
       "parameters": [

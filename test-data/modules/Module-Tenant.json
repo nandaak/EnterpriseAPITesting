@@ -4,7 +4,7 @@
       "POST": [
         "/erp-apis/Tenant/MigrateSubDomain",
         {
-          "connectionString": "string"
+          "connectionString": "TestconnectionString656"
         }
       ],
       "summary": "",
@@ -40,8 +40,8 @@
         {
           "subdomainId": "00000000-0000-0000-0000-000000000000",
           "tenantId": "00000000-0000-0000-0000-000000000000",
-          "connectionString": "string",
-          "subDomainName": "string"
+          "connectionString": "TestconnectionString1232",
+          "subDomainName": "Test subDomainName 3235"
         }
       ],
       "summary": "",

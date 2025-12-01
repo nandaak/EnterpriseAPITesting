@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: SalesProjectInvoice
- * Generated: 2025-12-01T13:40:51.242Z
+ * Generated: 2025-12-01T15:06:00.426Z
  * 
  * Operations available:
  * - POST: Yes

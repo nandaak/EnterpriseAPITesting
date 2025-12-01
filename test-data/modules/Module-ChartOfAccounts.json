@@ -117,8 +117,8 @@
       "POST": [
         "/erp-apis/ChartOfAccounts/AddAccount",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 3927",
+          "nameAr": "اختبار 9465",
           "parentId": 1,
           "natureId": "Debit",
           "costCenterConfig": "Mandatory",
@@ -133,12 +133,12 @@
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
-          "periodicActiveTo": "2025-12-01T13:29:57.508Z",
+          "periodicActiveFrom": "2025-12-01T13:29:57.452Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.452Z",
           "costCenters": [
             {
-              "percentage": 1,
-              "costCenterId": 1
+              "percentage": 15,
+              "costCenterId": 1000
             }
           ]
         }
@@ -151,8 +151,8 @@
         "/erp-apis/ChartOfAccounts/EditAccount",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 6216",
+          "nameAr": "اختبار 8",
           "parentId": "<createdId>",
           "natureId": "Debit",
           "costCenterConfig": "Mandatory",
@@ -167,12 +167,12 @@
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
-          "periodicActiveTo": "2025-12-01T13:29:57.508Z",
+          "periodicActiveFrom": "2025-12-01T13:29:57.452Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.452Z",
           "costCenters": [
             {
               "id": "<createdId>",
-              "percentage": 1,
+              "percentage": 15,
               "costCenterId": "<createdId>"
             }
           ]
@@ -186,9 +186,31 @@
         "/erp-apis/ChartOfAccounts/AccountActivation",
         {
           "id": "<createdId>",
+          "name": "Test name 2274",
+          "nameAr": "اختبار 3690",
+          "parentId": "<createdId>",
+          "natureId": "Debit",
+          "costCenterConfig": "Mandatory",
+          "hasNoChild": true,
+          "accountTypeId": "<createdId>",
+          "accountSectionId": "<createdId>",
+          "currencyId": "<createdId>",
+          "tags": [
+            1
+          ],
+          "companies": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
-          "periodicActiveTo": "2025-12-01T13:29:57.508Z"
+          "periodicActiveFrom": "2025-12-01T13:29:57.452Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.452Z",
+          "costCenters": [
+            {
+              "id": "<createdId>",
+              "percentage": 15,
+              "costCenterId": "<createdId>"
+            }
+          ]
         }
       ],
       "summary": "",
@@ -217,7 +239,32 @@
     "POST__erp-apis_ChartOfAccounts_ImportExcel": {
       "POST": [
         "/erp-apis/ChartOfAccounts/ImportExcel",
-        {}
+        {
+          "name": "Test name 5298",
+          "nameAr": "اختبار 554",
+          "parentId": 1,
+          "natureId": "Debit",
+          "costCenterConfig": "Mandatory",
+          "hasNoChild": true,
+          "accountTypeId": 1,
+          "accountSectionId": 1,
+          "currencyId": 1,
+          "tags": [
+            1
+          ],
+          "companies": [
+            "00000000-0000-0000-0000-000000000000"
+          ],
+          "accountActivation": "Active",
+          "periodicActiveFrom": "2025-12-01T13:29:57.452Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.452Z",
+          "costCenters": [
+            {
+              "percentage": 15,
+              "costCenterId": 1000
+            }
+          ]
+        }
       ],
       "summary": "",
       "parameters": [

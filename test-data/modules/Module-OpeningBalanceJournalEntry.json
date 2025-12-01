@@ -18,16 +18,16 @@
       "POST": [
         "/erp-apis/OpeningBalanceJournalEntry",
         {
-          "refrenceNumber": "string",
+          "refrenceNumber": "Test refrenceNumber 568",
           "journalDate": "2025-12-01T13:29:57.533Z",
           "type": "Manual",
-          "description": "string",
+          "description": "Test description 806",
           "openingBalanceJournalEntryLines": [
             {
-              "lineDescription": "string",
-              "debitAmount": 1,
-              "creditAmount": 1,
-              "currencyRate": 1,
+              "lineDescription": "Test description 143",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "currencyRate": 15,
               "currencyId": 1,
               "accountId": 1,
               "costCenters": [
@@ -37,8 +37,8 @@
           ],
           "openingBalanceJournalEntryAttachments": [
             {
-              "attachmentId": "string",
-              "name": "string"
+              "attachmentId": "TestattachmentId3333",
+              "name": "Test name 5377"
             }
           ]
         }
@@ -145,19 +145,19 @@
         "/erp-apis/OpeningBalanceJournalEntry/Edit",
         {
           "id": "<createdId>",
-          "referenceNumber": "string",
+          "referenceNumber": "Test referenceNumber 51",
           "journalDate": "2025-12-01T13:29:57.533Z",
-          "description": "string",
+          "description": "Test description 506",
           "journalEntryLines": [
             {
               "id": "<createdId>",
               "accountId": "<createdId>",
-              "lineDescription": "string",
-              "debitAmount": 1,
-              "creditAmount": 1,
-              "debitAmountLocal": 1,
-              "creditAmountLocal": 1,
-              "currencyRate": 1,
+              "lineDescription": "Test description 145",
+              "debitAmount": 1000,
+              "creditAmount": 1000,
+              "debitAmountLocal": 1000,
+              "creditAmountLocal": 1000,
+              "currencyRate": 15,
               "currencyId": "<createdId>",
               "costCenters": [
                 {}

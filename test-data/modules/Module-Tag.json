@@ -28,8 +28,8 @@
       "POST": [
         "/erp-apis/Tag",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 3540",
+          "nameAr": "اختبار 9421",
           "moduleIds": [
             1
           ]
@@ -43,9 +43,9 @@
         "/erp-apis/Tag",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "code": "string",
+          "name": "Test name 3613",
+          "nameAr": "اختبار 2324",
+          "code": "CODE77378",
           "modulesId": [
             "<createdId>"
           ],
@@ -96,7 +96,16 @@
     "PUT__erp-apis_Tag_Activate": {
       "PUT": [
         "/erp-apis/Tag/Activate",
-        {}
+        {
+          "id": "<createdId>",
+          "name": "Test name 4686",
+          "nameAr": "اختبار 346",
+          "code": "CODE58202",
+          "modulesId": [
+            "<createdId>"
+          ],
+          "isActive": true
+        }
       ],
       "summary": "",
       "parameters": [
@@ -106,7 +115,16 @@
     "PUT__erp-apis_Tag_Deactivate": {
       "PUT": [
         "/erp-apis/Tag/Deactivate",
-        {}
+        {
+          "id": "<createdId>",
+          "name": "Test name 7393",
+          "nameAr": "اختبار 9602",
+          "code": "CODE91420",
+          "modulesId": [
+            "<createdId>"
+          ],
+          "isActive": true
+        }
       ],
       "summary": "",
       "parameters": [

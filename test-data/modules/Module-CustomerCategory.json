@@ -4,13 +4,13 @@
       "POST": [
         "/erp-apis/CustomerCategory",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 7348",
+          "nameAr": "اختبار 9888",
           "receivableAccountId": 1,
           "salesAccountId": 1,
           "salesReturnAccountId": 1,
-          "discountAccountId": 1,
-          "pricePolicyId": 1,
+          "discountAccountId": 5,
+          "pricePolicyId": 1000,
           "paymentTermId": 1,
           "marketType": "B2B"
         }
@@ -37,9 +37,9 @@
         "/erp-apis/CustomerCategory",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "code": "string",
+          "name": "Test name 5539",
+          "nameAr": "اختبار 9986",
+          "code": "CODE12118",
           "receivableAccountId": "<createdId>",
           "salesAccountId": "<createdId>",
           "salesReturnAccountId": "<createdId>",

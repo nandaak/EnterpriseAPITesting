@@ -8,7 +8,7 @@ const fs = require('fs');
 const path = require('path');
 
 class EnhancedSchemaAdapter {
-  constructor(schemaPath = 'test-data/Input/Enhanced-ERP-Api-Schema-With-Payloads.json') {
+  constructor(schemaPath = 'test-data/Input/Enhanced-ERP-Api-Schema-Advanced-Fixed.json') {
     this.schemaPath = schemaPath;
     this.schema = this.loadSchema();
     this.idRegistry = new Map();

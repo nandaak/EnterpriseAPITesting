@@ -18,12 +18,12 @@
       "POST": [
         "/erp-apis/Tax",
         {
-          "name": "string",
-          "nameAr": "string",
-          "code": "string",
+          "name": "Test name 790",
+          "nameAr": "اختبار 869",
+          "code": "CODE4833",
           "ratio": 1,
           "accountId": 1,
-          "taxGroupId": 1
+          "taxGroupId": 15
         }
       ],
       "summary": "",

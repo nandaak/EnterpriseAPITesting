@@ -24,8 +24,8 @@
       "POST": [
         "/erp-apis/api/attachments/UploadBase64Attachment",
         {
-          "fileName": "string",
-          "fileContent": "string"
+          "fileName": "Test fileName 950",
+          "fileContent": "Test fileContent 563"
         }
       ],
       "summary": "",

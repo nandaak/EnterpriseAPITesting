@@ -37,10 +37,10 @@
           "bankId": "<createdId>",
           "language": "Arabic",
           "canEditSalesPrice": true,
-          "minimumPricePercentage": 1,
+          "minimumPricePercentage": 15,
           "allowSellingBelowPriceLimit": true,
           "enableMaximumSalesPriceLimit": true,
-          "maximumPricePercentage": 1
+          "maximumPricePercentage": 15
         }
       ],
       "summary": "",

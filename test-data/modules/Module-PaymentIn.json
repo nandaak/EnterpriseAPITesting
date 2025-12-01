@@ -26,33 +26,33 @@
         "/erp-apis/PaymentIn",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE73030",
           "paymentInDate": "2025-12-01T13:29:57.534Z",
-          "description": "string",
+          "description": "Test description 464",
           "paymentHub": "Treasury",
-          "paymentHubDetailId": "string",
+          "paymentHubDetailId": "TestpaymentHubDetailId1206",
           "bankAccountId": 1,
           "currencyId": 1,
-          "rate": 1,
+          "rate": 15,
           "glAccountId": 1,
-          "taxId": 1,
+          "taxId": 15,
           "isCustomerAdvancedPayment": true,
           "isAmountIncludesVat": true,
-          "sourceDocumentId": "string",
+          "sourceDocumentId": "TestsourceDocumentId4037",
           "sourceDocumentType": "FundTransfer",
           "paymentInDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "amount": 1,
-              "rate": 1,
+              "amount": 1000,
+              "rate": 15,
               "currencyId": 1,
               "paymentMethodId": 1,
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "TestpaidByDetailsId632",
               "paymentInMethodDetails": {},
               "glAccountId": 1,
-              "notes": "string",
+              "notes": "Test description 793",
               "paymentInDate": "2025-12-01T13:29:57.534Z",
               "paymentInDetailCostCenters": [
                 {}
@@ -72,12 +72,12 @@
         "/erp-apis/PaymentIn",
         {
           "id": "<createdId>",
-          "paymentInDate": "2025-12-01T13:29:57.534Z",
-          "description": "string",
+          "paymentInDate": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 979",
           "paymentHubDetailId": "<createdId>",
           "bankAccountId": "<createdId>",
           "currencyId": "<createdId>",
-          "rate": 1,
+          "rate": 15,
           "glAccountId": "<createdId>",
           "taxId": "<createdId>",
           "isCustomerAdvancedPayment": true,
@@ -85,8 +85,8 @@
           "paymentInDetails": [
             {
               "id": "<createdId>",
-              "amount": 1,
-              "rate": 1,
+              "amount": 1000,
+              "rate": 15,
               "currencyId": "<createdId>",
               "paymentMethodId": "<createdId>",
               "paymentMethodType": {},
@@ -94,7 +94,7 @@
               "paidByDetailsId": "<createdId>",
               "paymentInMethodDetail": {},
               "glAccountId": "<createdId>",
-              "notes": "string",
+              "notes": "Test description 400",
               "paymentInDetailCostCenters": [
                 {}
               ]
@@ -165,12 +165,12 @@
         "/erp-apis/PaymentIn/SaveAndPostInvoicePaymentIn",
         {
           "salesInvoiceId": "00000000-0000-0000-0000-000000000000",
-          "amountToPay": 1,
+          "amountToPay": 1000,
           "paymentMethodId": 1,
           "paymentHubDetailId": 1,
           "bankAccountId": 1,
-          "referenceNumber": "string",
-          "chequeNumber": "string",
+          "referenceNumber": "REF20951",
+          "chequeNumber": "TestchequeNumber6021",
           "chequeDueDate": "2025-12-01T13:29:57.534Z"
         }
       ],

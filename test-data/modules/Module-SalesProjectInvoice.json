@@ -23,21 +23,21 @@
         "/erp-apis/SalesProjectInvoice",
         {
           "invoiceDate": "2025-12-01T13:29:57.547Z",
-          "code": "string",
-          "description": "string",
-          "taxId": 1,
-          "vatPercentage": 1,
+          "code": "CODE9350",
+          "description": "Test description 936",
+          "taxId": 15,
+          "vatPercentage": 15,
           "salesProjectId": "00000000-0000-0000-0000-000000000000",
           "actualExecutionValue": 1,
-          "taxableTotal": 1,
+          "taxableTotal": 15,
           "items": [
             {
-              "itemName": "string",
+              "itemName": "Test itemName 158",
               "itemValue": 1,
               "itemType": {},
-              "taxId": 1,
-              "taxPercentage": 1,
-              "taxAmount": 1,
+              "taxId": 15,
+              "taxPercentage": 15,
+              "taxAmount": 1000,
               "total": 1
             }
           ]
@@ -52,22 +52,22 @@
         {
           "id": "<createdId>",
           "invoiceDate": "2025-12-01T13:29:57.547Z",
-          "code": "string",
-          "description": "string",
+          "code": "CODE3429",
+          "description": "Test description 439",
           "taxId": "<createdId>",
-          "vatPercentage": 1,
+          "vatPercentage": 15,
           "salesProjectId": "<createdId>",
           "actualExecutionValue": 1,
-          "taxableTotal": 1,
+          "taxableTotal": 15,
           "items": [
             {
               "id": "<createdId>",
-              "itemName": "string",
+              "itemName": "Test itemName 8790",
               "itemValue": 1,
               "itemType": {},
               "taxId": "<createdId>",
-              "taxPercentage": 1,
-              "taxAmount": 1,
+              "taxPercentage": 15,
+              "taxAmount": 1000,
               "total": 1
             }
           ]

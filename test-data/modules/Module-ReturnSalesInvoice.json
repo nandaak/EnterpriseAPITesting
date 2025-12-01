@@ -24,16 +24,16 @@
         "/erp-apis/ReturnSalesInvoice",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE3387",
           "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
           "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
-          "description": "string",
+          "description": "Test description 823",
           "warehouseId": 1,
-          "warehouseName": "string",
+          "warehouseName": "اختبار 160",
           "posSessionId": "00000000-0000-0000-0000-000000000000",
           "returnSalesInvoiceDetails": [
             {
-              "toReturnQuantity": 1,
+              "toReturnQuantity": 10,
               "salesInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
               "returnSalesInvoiceDetailIngredients": [
                 {}
@@ -42,9 +42,9 @@
           ],
           "posReturnInvoicePayments": [
             {
-              "amount": 1,
+              "amount": 1000,
               "paymentMethodType": {},
-              "paymentMethodCode": "string",
+              "paymentMethodCode": "CODE72326",
               "paymentMethodId": 1
             }
           ]
@@ -59,13 +59,13 @@
         {
           "id": "<createdId>",
           "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
-          "description": "string",
+          "description": "Test description 161",
           "warehouseId": "<createdId>",
-          "warehouseName": "string",
+          "warehouseName": "اختبار 427",
           "returnSalesInvoiceDetails": [
             {
               "id": "<createdId>",
-              "toReturnQuantity": 1
+              "toReturnQuantity": 10
             }
           ]
         }

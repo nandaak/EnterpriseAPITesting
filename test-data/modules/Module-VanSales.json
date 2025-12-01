@@ -78,16 +78,16 @@
         "/erp-apis/VanSales/AddReturnSalesInvoice",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE9442",
           "returnInvoiceDate": "2025-12-01T13:29:57.558Z",
           "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
-          "description": "string",
+          "description": "Test description 126",
           "warehouseId": 1,
-          "warehouseName": "string",
+          "warehouseName": "اختبار 819",
           "posSessionId": "00000000-0000-0000-0000-000000000000",
           "returnSalesInvoiceDetails": [
             {
-              "toReturnQuantity": 1,
+              "toReturnQuantity": 10,
               "salesInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
               "returnSalesInvoiceDetailIngredients": [
                 {}
@@ -96,9 +96,9 @@
           ],
           "posReturnInvoicePayments": [
             {
-              "amount": 1,
+              "amount": 1000,
               "paymentMethodType": {},
-              "paymentMethodCode": "string",
+              "paymentMethodCode": "CODE47515",
               "paymentMethodId": 1
             }
           ]
@@ -112,27 +112,27 @@
         "/erp-apis/VanSales/EditCustomerCategory",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 859",
+          "nameAr": "اختبار 811",
           "categoryId": "<createdId>",
           "marketType": "B2B",
           "birthdate": "2025-12-01T13:29:57.558Z",
-          "photo": "string",
+          "photo": "Test photo 387",
           "tagIds": [
             1
           ],
           "contactInfo": {
-            "contactPhone": "string",
-            "contactEmail": "string",
-            "contactMobileCode": "string",
-            "contactMobile": "string",
-            "contactWebsite": "string",
-            "contactFax": "string",
-            "contactPersonPhone": "string",
-            "contactPersonMobileCode": "string",
-            "contactPersonMobile": "string",
-            "contactPersonEmail": "string",
-            "contactPersonName": "string"
+            "contactPhone": "+966501234567",
+            "contactEmail": "test1764601450009@example.com",
+            "contactMobileCode": "CODE5295",
+            "contactMobile": "Test contactMobile 668",
+            "contactWebsite": "Test contactWebsite 835",
+            "contactFax": "Test contactFax 538",
+            "contactPersonPhone": "+966501234567",
+            "contactPersonMobileCode": "CODE1596",
+            "contactPersonMobile": "Test contactPersonMobile 658",
+            "contactPersonEmail": "test1764601450009@example.com",
+            "contactPersonName": "Test contactPersonName 754"
           },
           "financialInfo": {
             "paymentTermId": "<createdId>",
@@ -142,19 +142,19 @@
             "currencyId": "<createdId>"
           },
           "legalInfo": {
-            "commercialRegistrationNumber": "string",
-            "taxIdentificationNumber": "string",
-            "street": "string",
-            "citySubdivisionName": "string",
-            "cityName": "string",
-            "postalZone": "string",
-            "countrySubEntity": "string",
+            "commercialRegistrationNumber": "Test commercialRegistrationNumber 494",
+            "taxIdentificationNumber": "TesttaxIdentificationNumber4828",
+            "street": "Test street 467",
+            "citySubdivisionName": "Test citySubdivisionName 29",
+            "cityName": "Test cityName 595",
+            "postalZone": "Test postalZone 902",
+            "countrySubEntity": "Test countrySubEntity 547",
             "countryId": "<createdId>",
-            "buildingNumber": "string",
-            "additionalStreetName": "string",
-            "registrationName": "string",
+            "buildingNumber": "Test buildingNumber 927",
+            "additionalStreetName": "Test additionalStreetName 357",
+            "registrationName": "Test registrationName 276",
             "otherID": "<createdId>",
-            "nationalNumber": "string"
+            "nationalNumber": "Test nationalNumber 355"
           },
           "accountingInfo": {
             "receivableAccountId": "<createdId>",
@@ -176,7 +176,7 @@
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
               "marketPlaceId": "<createdId>",
               "salesManId": "<createdId>",
-              "address": "string"
+              "address": "Test Address 577, Riyadh, Saudi Arabia"
             }
           ]
         }
@@ -189,63 +189,63 @@
         "/erp-apis/VanSales/AddSalesInvoice",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE8423",
           "invoiceDate": "2025-12-01T13:29:57.558Z",
           "invoiceDueDate": "2025-12-01T13:29:57.558Z",
-          "description": "string",
+          "description": "Test description 61",
           "warehouseId": 1,
-          "warehouseName": "string",
+          "warehouseName": "اختبار 698",
           "customerId": 1,
-          "customerName": "string",
+          "customerName": "Test customerName 21",
           "customerCreditLimit": 1,
-          "pricePolicyId": 1,
+          "pricePolicyId": 1000,
           "currencyId": 1,
           "salesManId": "00000000-0000-0000-0000-000000000000",
-          "salesManName": "string",
-          "currencyName": "string",
-          "currencyRate": 1,
+          "salesManName": "Test salesManName 247",
+          "currencyName": "Test currencyName 861",
+          "currencyRate": 15,
           "paymentTermId": 1,
-          "reference": "string",
+          "reference": "Test reference 46",
           "sourceType": "Direct",
           "applicationSource": "ERP",
           "isLinkedToAdvancedPayment": true,
           "salesInvoiceSources": [
             {
               "sourceId": "00000000-0000-0000-0000-000000000000",
-              "sourceCode": "string"
+              "sourceCode": "CODE44913"
             }
           ],
           "posSessionId": "00000000-0000-0000-0000-000000000000",
           "salesInvoiceDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "barCode": "string",
+              "barCode": "CODE68508",
               "barCodeId": 1,
               "itemId": 1,
-              "itemCode": "string",
-              "itemName": "string",
+              "itemCode": "CODE82811",
+              "itemName": "Test itemName 1226",
               "itemVariantId": 1,
-              "itemVariantCode": "string",
-              "itemVariantNameEn": "string",
-              "itemVariantNameAr": "string",
+              "itemVariantCode": "CODE85941",
+              "itemVariantNameEn": "اختبار 9358",
+              "itemVariantNameAr": "اختبار 9074",
               "categoryId": 1,
-              "itemCategoryNameAr": "string",
-              "itemCategoryNameEn": "string",
+              "itemCategoryNameAr": "اختبار 5443",
+              "itemCategoryNameEn": "Test itemCategoryNameEn 786",
               "categoryType": {},
-              "description": "string",
+              "description": "Test description 144",
               "uomId": "00000000-0000-0000-0000-000000000000",
-              "uomCode": "string",
-              "uomNameAr": "string",
-              "uomNameEn": "string",
-              "quantity": 1,
-              "price": 1,
-              "cost": 1,
+              "uomCode": "CODE49449",
+              "uomNameAr": "اختبار 5194",
+              "uomNameEn": "Test uomNameEn 7950",
+              "quantity": 10,
+              "price": 1000,
+              "cost": 1000,
               "isVatIncluded": true,
-              "vatPercentage": 1,
-              "taxId": 1,
-              "notes": "string",
+              "vatPercentage": 15,
+              "taxId": 15,
+              "notes": "Test description 492",
               "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
-              "pricePolicyDetailId": 1,
+              "pricePolicyDetailId": 1000,
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
@@ -264,24 +264,24 @@
           ],
           "salesInvoiceBalances": [
             {
-              "dueAmount": 1,
+              "dueAmount": 1000,
               "dueDate": "2025-12-01T13:29:57.558Z",
-              "dueBalance": 1
+              "dueBalance": 1000
             }
           ],
           "posInvoicePayments": [
             {
-              "amount": 1,
+              "amount": 1000,
               "paymentMethodType": {},
-              "paymentMethodCode": "string",
+              "paymentMethodCode": "CODE30819",
               "paymentMethodId": 1
             }
           ],
           "salesDiscounts": [
             {
-              "discountPolicyId": 1,
-              "discountPolicyName": "string",
-              "discountPercentage": 1,
+              "discountPolicyId": 5,
+              "discountPolicyName": "Test discountPolicyName 3397",
+              "discountPercentage": 15,
               "isActive": true,
               "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
             }
@@ -297,33 +297,33 @@
         "/erp-apis/VanSales/AddPaymentIn",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE7818",
           "paymentInDate": "2025-12-01T13:29:57.558Z",
-          "description": "string",
+          "description": "Test description 322",
           "paymentHub": "Treasury",
-          "paymentHubDetailId": "string",
+          "paymentHubDetailId": "TestpaymentHubDetailId8187",
           "bankAccountId": 1,
           "currencyId": 1,
-          "rate": 1,
+          "rate": 15,
           "glAccountId": 1,
-          "taxId": 1,
+          "taxId": 15,
           "isCustomerAdvancedPayment": true,
           "isAmountIncludesVat": true,
-          "sourceDocumentId": "string",
+          "sourceDocumentId": "TestsourceDocumentId7622",
           "sourceDocumentType": "FundTransfer",
           "paymentInDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "amount": 1,
-              "rate": 1,
+              "amount": 1000,
+              "rate": 15,
               "currencyId": 1,
               "paymentMethodId": 1,
               "paymentMethodType": {},
               "paidBy": {},
-              "paidByDetailsId": "string",
+              "paidByDetailsId": "TestpaidByDetailsId2524",
               "paymentInMethodDetails": {},
               "glAccountId": 1,
-              "notes": "string",
+              "notes": "Test description 723",
               "paymentInDate": "2025-12-01T13:29:57.558Z",
               "paymentInDetailCostCenters": [
                 {}

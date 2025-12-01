@@ -26,10 +26,10 @@
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
           "invoiceHeaderId": "00000000-0000-0000-0000-000000000000",
-          "description": "string",
+          "description": "Test description 84",
           "returnInvoiceDetails": [
             {
-              "toReturnQuantity": 1,
+              "toReturnQuantity": 10,
               "invoiceDetailId": "00000000-0000-0000-0000-000000000000"
             }
           ]
@@ -44,11 +44,11 @@
         {
           "id": "<createdId>",
           "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
-          "description": "string",
+          "description": "Test description 819",
           "returnInvoiceDetails": [
             {
               "id": "<createdId>",
-              "toReturnQuantity": 1
+              "toReturnQuantity": 10
             }
           ]
         }

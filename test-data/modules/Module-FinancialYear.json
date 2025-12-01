@@ -18,8 +18,8 @@
       "POST": [
         "/erp-apis/FinancialYear",
         {
-          "name": "string",
-          "code": "string",
+          "name": "Test name 7557",
+          "code": "CODE93815",
           "fromDate": "2025-12-01",
           "toDate": "2025-12-01",
           "noOfExtraPeriods": 1,
@@ -40,8 +40,8 @@
         "/erp-apis/FinancialYear",
         {
           "id": "<createdId>",
-          "name": "string",
-          "code": "string"
+          "name": "Test name 1219",
+          "code": "CODE95883"
         }
       ],
       "summary": "",
@@ -120,7 +120,20 @@
     "POST__erp-apis_FinancialYear__Id__Open": {
       "POST": [
         "/erp-apis/FinancialYear/<createdId>/Open",
-        {}
+        {
+          "name": "Test name 2798",
+          "code": "CODE29028",
+          "fromDate": "2025-12-01",
+          "toDate": "2025-12-01",
+          "noOfExtraPeriods": 1,
+          "financialYearPeriods": [
+            {
+              "status": true,
+              "periodStart": "2025-12-01",
+              "periodEnd": "2025-12-01"
+            }
+          ]
+        }
       ],
       "summary": "",
       "parameters": [
@@ -130,7 +143,20 @@
     "POST__erp-apis_FinancialYear__Id__Close": {
       "POST": [
         "/erp-apis/FinancialYear/<createdId>/Close",
-        {}
+        {
+          "name": "Test name 3083",
+          "code": "CODE51333",
+          "fromDate": "2025-12-01",
+          "toDate": "2025-12-01",
+          "noOfExtraPeriods": 1,
+          "financialYearPeriods": [
+            {
+              "status": true,
+              "periodStart": "2025-12-01",
+              "periodEnd": "2025-12-01"
+            }
+          ]
+        }
       ],
       "summary": "",
       "parameters": [
@@ -141,8 +167,17 @@
       "POST": [
         "/erp-apis/FinancialYear/OpenFinancialPeriod",
         {
-          "periods": [
-            1
+          "name": "Test name 6783",
+          "code": "CODE51070",
+          "fromDate": "2025-12-01",
+          "toDate": "2025-12-01",
+          "noOfExtraPeriods": 1,
+          "financialYearPeriods": [
+            {
+              "status": true,
+              "periodStart": "2025-12-01",
+              "periodEnd": "2025-12-01"
+            }
           ]
         }
       ],
@@ -153,8 +188,17 @@
       "POST": [
         "/erp-apis/FinancialYear/CloseFinancialPeriod",
         {
-          "periods": [
-            1
+          "name": "Test name 8777",
+          "code": "CODE55578",
+          "fromDate": "2025-12-01",
+          "toDate": "2025-12-01",
+          "noOfExtraPeriods": 1,
+          "financialYearPeriods": [
+            {
+              "status": true,
+              "periodStart": "2025-12-01",
+              "periodEnd": "2025-12-01"
+            }
           ]
         }
       ],

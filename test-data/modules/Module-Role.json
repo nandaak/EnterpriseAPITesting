@@ -24,8 +24,8 @@
       "POST": [
         "/erp-apis/Role",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 359",
+          "nameAr": "اختبار 863",
           "licenseId": 1,
           "isActive": true,
           "actionIds": [
@@ -44,8 +44,8 @@
         "/erp-apis/Role",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 39",
+          "nameAr": "اختبار 534",
           "licenseId": "<createdId>",
           "isActive": true,
           "actionIds": [

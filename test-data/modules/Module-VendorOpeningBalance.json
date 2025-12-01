@@ -10,7 +10,7 @@
             {
               "id": "00000000-0000-0000-0000-000000000000",
               "vendorId": 1,
-              "balance": 1,
+              "balance": 1000,
               "balanceType": {},
               "dueDates": [
                 {}
@@ -47,7 +47,7 @@
             {
               "id": "<createdId>",
               "vendorId": "<createdId>",
-              "balance": 1,
+              "balance": 1000,
               "balanceType": {},
               "dueDates": [
                 {}

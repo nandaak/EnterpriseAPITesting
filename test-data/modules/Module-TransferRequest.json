@@ -5,19 +5,19 @@
         "/erp-apis/TransferRequest",
         {
           "receiptDate": "2025-12-01T13:29:57.553Z",
-          "notes": "string",
-          "externalCode": "string",
+          "notes": "Test notes 223",
+          "externalCode": "CODE8583",
           "transferRequestDetails": [
             {
-              "barCode": "string",
+              "barCode": "CODE148",
               "itemBarcodeId": 1,
               "itemId": 1,
               "itemVariantId": 1,
               "uomId": "00000000-0000-0000-0000-000000000000",
-              "description": "string",
-              "quantity": 1,
-              "remainingQuantity": 1,
-              "notes": "string"
+              "description": "Test description 150",
+              "quantity": 10,
+              "remainingQuantity": 10,
+              "notes": "Test description 437"
             }
           ]
         }

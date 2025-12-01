@@ -27,7 +27,7 @@
         "/erp-apis/BalanceSheet/PrintOutBalanceSheetReport",
         {
           "sortBy": "Descending",
-          "sortColumn": "string",
+          "sortColumn": "TestsortColumn5619",
           "isRtl": true,
           "isBackground": true,
           "screens": "PaymentIn",
@@ -35,7 +35,7 @@
           "exportType": "Pdf",
           "totalValues": {},
           "groupSubTotals": {},
-          "groupByPropertyName": "string",
+          "groupByPropertyName": "Test groupByPropertyName 4363",
           "includedColumns": [
             "string"
           ],

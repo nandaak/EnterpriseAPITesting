@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: ZatcaDevice
- * Generated: 2025-12-01T13:40:51.247Z
+ * Generated: 2025-12-01T15:06:00.431Z
  * 
  * Operations available:
  * - POST: Yes

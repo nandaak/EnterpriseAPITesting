@@ -24,10 +24,10 @@
       "POST": [
         "/erp-apis/FixedAssetsGroup",
         {
-          "name": "string",
+          "name": "Test name 662",
           "isDepreciate": true,
           "depreciationMethod": "StraightLine",
-          "depreciationRate": 1,
+          "depreciationRate": 15,
           "usefulLife": 1,
           "salvageValue": 1,
           "assetAccountId": 1,
@@ -44,10 +44,10 @@
         "/erp-apis/FixedAssetsGroup",
         {
           "id": "<createdId>",
-          "name": "string",
+          "name": "Test name 955",
           "isDepreciate": true,
           "depreciationMethod": "StraightLine",
-          "depreciationRate": 1,
+          "depreciationRate": 15,
           "usefulLife": 1,
           "salvageValue": 1,
           "assetAccountId": "<createdId>",

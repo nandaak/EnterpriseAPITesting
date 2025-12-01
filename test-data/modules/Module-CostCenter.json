@@ -68,8 +68,8 @@
       "POST": [
         "/erp-apis/CostCenter/AddCostCenter",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 8700",
+          "nameAr": "اختبار 8379",
           "parentId": 1,
           "isDetail": true,
           "isActive": true
@@ -83,8 +83,8 @@
         "/erp-apis/CostCenter/EditCostCenter",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 3127",
+          "nameAr": "اختبار 8675",
           "parentId": "<createdId>",
           "isDetail": true,
           "isActive": true
@@ -98,7 +98,11 @@
         "/erp-apis/CostCenter/CostCenterActivation",
         {
           "id": "<createdId>",
-          "status": true
+          "name": "Test name 8510",
+          "nameAr": "اختبار 3152",
+          "parentId": "<createdId>",
+          "isDetail": true,
+          "isActive": true
         }
       ],
       "summary": "",

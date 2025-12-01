@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: Assets
- * Generated: 2025-12-01T13:40:51.227Z
+ * Generated: 2025-12-01T15:06:00.405Z
  * 
  * Operations available:
  * - POST: Yes

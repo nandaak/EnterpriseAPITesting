@@ -5,56 +5,56 @@
         "/erp-apis/Customer",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
-          "name": "string",
-          "nameAr": "string",
+          "externalCode": "CODE80696",
+          "name": "Test name 9893",
+          "nameAr": "اختبار 5166",
           "categoryId": 1,
           "marketType": "B2B",
-          "birthdate": "2025-12-01T13:29:57.514Z",
-          "photo": "string",
+          "birthdate": "2025-12-01T13:29:57.453Z",
+          "photo": "Testphoto6261",
           "tagIds": [
             1
           ],
           "contactInfo": {
-            "contactPhone": "string",
-            "contactEmail": "string",
-            "contactMobileCode": "string",
-            "contactMobile": "string",
-            "contactWebsite": "string",
-            "contactFax": "string",
-            "contactPersonPhone": "string",
-            "contactPersonMobileCode": "string",
-            "contactPersonMobile": "string",
-            "contactPersonEmail": "string",
-            "contactPersonName": "string"
+            "contactPhone": "+966900683374",
+            "contactEmail": "test6688@example.com",
+            "contactMobileCode": "+966514100647",
+            "contactMobile": "+966946471077",
+            "contactWebsite": "TestcontactWebsite3277",
+            "contactFax": "+966130437016",
+            "contactPersonPhone": "+96641888703",
+            "contactPersonMobileCode": "+966790420041",
+            "contactPersonMobile": "+966261151374",
+            "contactPersonEmail": "test6516@example.com",
+            "contactPersonName": "Test contactPersonName 7844"
           },
           "financialInfo": {
             "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "pricePolicyId": 1000,
             "allowCreditLimit": true,
             "creditLimit": 1,
             "currencyId": 1
           },
           "legalInfo": {
-            "commercialRegistrationNumber": "string",
-            "taxIdentificationNumber": "string",
-            "street": "string",
-            "citySubdivisionName": "string",
-            "cityName": "string",
-            "postalZone": "string",
-            "countrySubEntity": "string",
-            "countryId": "string",
-            "buildingNumber": "string",
-            "additionalStreetName": "string",
-            "registrationName": "string",
-            "otherID": "string",
-            "nationalNumber": "string"
+            "commercialRegistrationNumber": "TestcommercialRegistrationNumber1840",
+            "taxIdentificationNumber": "TesttaxIdentificationNumber1787",
+            "street": "Teststreet8640",
+            "citySubdivisionName": "Test citySubdivisionName 4080",
+            "cityName": "Test cityName 7390",
+            "postalZone": "TestpostalZone3557",
+            "countrySubEntity": "TestcountrySubEntity9733",
+            "countryId": "TestcountryId9045",
+            "buildingNumber": "TestbuildingNumber2863",
+            "additionalStreetName": "Test additionalStreetName 5349",
+            "registrationName": "Test registrationName 7783",
+            "otherID": "TestotherID8861",
+            "nationalNumber": "TestnationalNumber6818"
           },
           "accountingInfo": {
             "receivableAccountId": 1,
             "salesAccountId": 1,
             "salesReturnAccountId": 1,
-            "discountAccountId": 1
+            "discountAccountId": 5
           },
           "customerAddresses": [
             {
@@ -68,7 +68,7 @@
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
               "marketPlaceId": "00000000-0000-0000-0000-000000000000",
               "salesManId": "00000000-0000-0000-0000-000000000000",
-              "address": "string"
+              "address": "Test Address 641, Riyadh, Saudi Arabia"
             }
           ]
         }
@@ -96,27 +96,27 @@
         "/erp-apis/Customer",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 5552",
+          "nameAr": "اختبار 1282",
           "categoryId": "<createdId>",
           "marketType": "B2B",
-          "birthdate": "2025-12-01T13:29:57.514Z",
-          "photo": "string",
+          "birthdate": "2025-12-01T13:29:57.453Z",
+          "photo": "Testphoto2916",
           "tagIds": [
             1
           ],
           "contactInfo": {
-            "contactPhone": "string",
-            "contactEmail": "string",
-            "contactMobileCode": "string",
-            "contactMobile": "string",
-            "contactWebsite": "string",
-            "contactFax": "string",
-            "contactPersonPhone": "string",
-            "contactPersonMobileCode": "string",
-            "contactPersonMobile": "string",
-            "contactPersonEmail": "string",
-            "contactPersonName": "string"
+            "contactPhone": "+966284405128",
+            "contactEmail": "test8135@example.com",
+            "contactMobileCode": "+966597712636",
+            "contactMobile": "+966927172618",
+            "contactWebsite": "TestcontactWebsite3429",
+            "contactFax": "+966268376111",
+            "contactPersonPhone": "+966193916575",
+            "contactPersonMobileCode": "+966927094768",
+            "contactPersonMobile": "+966847210051",
+            "contactPersonEmail": "test9691@example.com",
+            "contactPersonName": "Test contactPersonName 8912"
           },
           "financialInfo": {
             "paymentTermId": "<createdId>",
@@ -126,19 +126,19 @@
             "currencyId": "<createdId>"
           },
           "legalInfo": {
-            "commercialRegistrationNumber": "string",
-            "taxIdentificationNumber": "string",
-            "street": "string",
-            "citySubdivisionName": "string",
-            "cityName": "string",
-            "postalZone": "string",
-            "countrySubEntity": "string",
+            "commercialRegistrationNumber": "TestcommercialRegistrationNumber9028",
+            "taxIdentificationNumber": "TesttaxIdentificationNumber8343",
+            "street": "Teststreet25",
+            "citySubdivisionName": "Test citySubdivisionName 8740",
+            "cityName": "Test cityName 4875",
+            "postalZone": "TestpostalZone1857",
+            "countrySubEntity": "TestcountrySubEntity380",
             "countryId": "<createdId>",
-            "buildingNumber": "string",
-            "additionalStreetName": "string",
-            "registrationName": "string",
+            "buildingNumber": "TestbuildingNumber6027",
+            "additionalStreetName": "Test additionalStreetName 767",
+            "registrationName": "Test registrationName 2638",
             "otherID": "<createdId>",
-            "nationalNumber": "string"
+            "nationalNumber": "TestnationalNumber4639"
           },
           "accountingInfo": {
             "receivableAccountId": "<createdId>",
@@ -160,7 +160,7 @@
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
               "marketPlaceId": "<createdId>",
               "salesManId": "<createdId>",
-              "address": "string"
+              "address": "Test Address 774, Riyadh, Saudi Arabia"
             }
           ]
         }
@@ -172,13 +172,72 @@
       "POST": [
         "/erp-apis/Customer/Search",
         {
-          "sortBy": "Descending",
-          "sortColumn": "string",
-          "pageNumber": 1,
-          "pageSize": 1,
-          "searchKey": "string",
-          "includedIds": [
+          "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+          "externalCode": "CODE24016",
+          "name": "Test name 5147",
+          "nameAr": "اختبار 5907",
+          "categoryId": 1,
+          "marketType": "B2B",
+          "birthdate": "2025-12-01T13:29:57.453Z",
+          "photo": "Testphoto1639",
+          "tagIds": [
             1
+          ],
+          "contactInfo": {
+            "contactPhone": "+966255113601",
+            "contactEmail": "test5025@example.com",
+            "contactMobileCode": "+966907279868",
+            "contactMobile": "+966274306915",
+            "contactWebsite": "TestcontactWebsite3310",
+            "contactFax": "+966288548869",
+            "contactPersonPhone": "+966945807091",
+            "contactPersonMobileCode": "+966223698676",
+            "contactPersonMobile": "+966316592765",
+            "contactPersonEmail": "test2344@example.com",
+            "contactPersonName": "Test contactPersonName 5474"
+          },
+          "financialInfo": {
+            "paymentTermId": 1,
+            "pricePolicyId": 1000,
+            "allowCreditLimit": true,
+            "creditLimit": 1,
+            "currencyId": 1
+          },
+          "legalInfo": {
+            "commercialRegistrationNumber": "TestcommercialRegistrationNumber6057",
+            "taxIdentificationNumber": "TesttaxIdentificationNumber3800",
+            "street": "Teststreet7339",
+            "citySubdivisionName": "Test citySubdivisionName 4330",
+            "cityName": "Test cityName 6982",
+            "postalZone": "TestpostalZone1382",
+            "countrySubEntity": "TestcountrySubEntity7571",
+            "countryId": "TestcountryId420",
+            "buildingNumber": "TestbuildingNumber9231",
+            "additionalStreetName": "Test additionalStreetName 8242",
+            "registrationName": "Test registrationName 3521",
+            "otherID": "TestotherID1127",
+            "nationalNumber": "TestnationalNumber2928"
+          },
+          "accountingInfo": {
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 5
+          },
+          "customerAddresses": [
+            {
+              "longitude": 1,
+              "latitude": 1,
+              "errorRadius": 1
+            }
+          ],
+          "customerMarketPlaces": [
+            {
+              "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+              "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+              "salesManId": "00000000-0000-0000-0000-000000000000",
+              "address": "Test Address 671, Riyadh, Saudi Arabia"
+            }
           ]
         }
       ],

@@ -20,9 +20,9 @@
         {
           "salesTeamId": "00000000-0000-0000-0000-000000000000",
           "userId": "00000000-0000-0000-0000-000000000000",
-          "name": "string",
-          "nameAr": "string",
-          "salesPhone": "string",
+          "name": "Test name 791",
+          "nameAr": "اختبار 312",
+          "salesPhone": "+966501234567",
           "paymentTermId": 1,
           "treasuryId": 1,
           "paymentMethods": [
@@ -39,9 +39,9 @@
         {
           "id": "<createdId>",
           "salesTeamId": "<createdId>",
-          "salesPhone": "string",
-          "name": "string",
-          "nameAr": "string",
+          "salesPhone": "+966501234567",
+          "name": "Test name 946",
+          "nameAr": "اختبار 614",
           "isActive": true,
           "userId": "<createdId>",
           "branchesIds": [
@@ -166,8 +166,8 @@
       "PUT": [
         "/erp-apis/SalesMan/EditTargetCommissionConfig",
         {
-          "targetAmount": 1,
-          "commissionPercentage": 1,
+          "targetAmount": 1000,
+          "commissionPercentage": 15,
           "commissionBascis": "NetSales",
           "salesManId": "<createdId>"
         }

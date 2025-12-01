@@ -18,9 +18,9 @@
       "POST": [
         "/erp-apis/Device",
         {
-          "name": "string",
-          "nameAr": "string",
-          "prefix": "string",
+          "name": "Test name 31",
+          "nameAr": "اختبار 525",
+          "prefix": "Test prefix 243",
           "salesManId": "00000000-0000-0000-0000-000000000000",
           "deviceLicenseId": "00000000-0000-0000-0000-000000000000"
         }
@@ -73,11 +73,11 @@
         "/erp-apis/Device/ReportDeviceInfo",
         {
           "id": "00000000-0000-0000-0000-000000000000",
-          "currentVersion": "string",
-          "latestVersion": "string",
-          "operatingSystem": "string",
-          "modelId": "string",
-          "serialIdentification": "string"
+          "currentVersion": "Test currentVersion 506",
+          "latestVersion": "Test latestVersion 61",
+          "operatingSystem": "Test operatingSystem 121",
+          "modelId": "TestmodelId7848",
+          "serialIdentification": "TestserialIdentification6099"
         }
       ],
       "summary": "",
@@ -88,9 +88,9 @@
         "/erp-apis/Device/EditDevice",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "prefix": "string",
+          "name": "Test name 197",
+          "nameAr": "اختبار 994",
+          "prefix": "Test prefix 901",
           "salesManId": "<createdId>"
         }
       ],

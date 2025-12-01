@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: UserSettings
- * Generated: 2025-12-01T13:40:51.244Z
+ * Generated: 2025-12-01T15:06:00.428Z
  * 
  * Operations available:
  * - POST: Yes

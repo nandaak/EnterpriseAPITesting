@@ -5,21 +5,21 @@
         "/erp-apis/SIPaymentReconciliation",
         {
           "customerId": 1,
-          "customerCode": "string",
-          "customerName": "string",
+          "customerCode": "CODE85679",
+          "customerName": "Test customerName 2610",
           "paymentInId": "00000000-0000-0000-0000-000000000000",
-          "paymentInCode": "string",
+          "paymentInCode": "CODE17761",
           "paymentInDate": "2025-12-01T13:29:57.550Z",
-          "paymentInTotalAmount": 1,
+          "paymentInTotalAmount": 1000,
           "siPaymentReconciliations": [
             {
               "salesInvoiceBalanceId": "00000000-0000-0000-0000-000000000000",
               "salesInvoiceId": "00000000-0000-0000-0000-000000000000",
               "salesInvoiceDate": "2025-12-01T13:29:57.550Z",
-              "salesInvoiceCode": "string",
-              "totalAmount": 1,
-              "reconciledAmount": 1,
-              "amountToReconcile": 1
+              "salesInvoiceCode": "CODE14675",
+              "totalAmount": 1000,
+              "reconciledAmount": 1000,
+              "amountToReconcile": 1000
             }
           ]
         }

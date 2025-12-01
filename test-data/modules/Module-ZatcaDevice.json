@@ -5,7 +5,7 @@
         "/erp-apis/ZatcaDevice/Activate",
         {
           "environment": "Production",
-          "activationCode": "string"
+          "activationCode": "CODE2814"
         }
       ],
       "summary": "",
@@ -15,8 +15,8 @@
       "POST": [
         "/erp-apis/ZatcaDevice/UpdateDeviceConfiguration",
         {
-          "clientId": "string",
-          "clientSecret": "string"
+          "clientId": "TestclientId5522",
+          "clientSecret": "Test clientSecret 226"
         }
       ],
       "summary": "",

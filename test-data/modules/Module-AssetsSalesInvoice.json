@@ -23,29 +23,29 @@
         "/erp-apis/AssetsSalesInvoice",
         {
           "date": "2025-12-01T13:29:57.504Z",
-          "reference": "string",
-          "description": "string",
+          "reference": "Test reference 217",
+          "description": "Test description 166",
           "customerId": 1,
-          "customerCode": "string",
-          "customerName": "string",
-          "customerNameAr": "string",
+          "customerCode": "CODE4954",
+          "customerName": "Test customerName 452",
+          "customerNameAr": "اختبار 899",
           "paymentTermId": 1,
-          "paymentTermCode": "string",
-          "paymentTermName": "string",
-          "paymentTermNameAr": "string",
+          "paymentTermCode": "CODE2277",
+          "paymentTermName": "Test paymentTermName 486",
+          "paymentTermNameAr": "اختبار 405",
           "applicationSource": "ERP",
           "assetsSalesInvoiceDetails": [
             {
               "id": "00000000-0000-0000-0000-000000000000",
               "assetId": 1,
-              "assetName": "string",
-              "assetCode": "string",
-              "quantity": 1,
-              "price": 1,
-              "taxId": 1,
-              "taxName": "string",
-              "taxNameAr": "string",
-              "vatPercentage": 1
+              "assetName": "Test assetName 6125",
+              "assetCode": "CODE6485",
+              "quantity": 10,
+              "price": 1000,
+              "taxId": 15,
+              "taxName": "Test taxName 6552",
+              "taxNameAr": "اختبار 3578",
+              "vatPercentage": 15
             }
           ]
         }
@@ -59,29 +59,29 @@
         {
           "id": "<createdId>",
           "date": "2025-12-01T13:29:57.504Z",
-          "reference": "string",
-          "description": "string",
+          "reference": "Test reference 218",
+          "description": "Test description 728",
           "customerId": "<createdId>",
-          "customerCode": "string",
-          "customerName": "string",
-          "customerNameAr": "string",
+          "customerCode": "CODE6167",
+          "customerName": "Test customerName 401",
+          "customerNameAr": "اختبار 268",
           "paymentTermId": "<createdId>",
-          "paymentTermCode": "string",
-          "paymentTermName": "string",
-          "paymentTermNameAr": "string",
+          "paymentTermCode": "CODE2624",
+          "paymentTermName": "Test paymentTermName 905",
+          "paymentTermNameAr": "اختبار 857",
           "applicationSource": "ERP",
           "assetsSalesInvoiceDetails": [
             {
               "id": "<createdId>",
               "assetId": "<createdId>",
-              "assetName": "string",
-              "assetCode": "string",
-              "quantity": 1,
-              "price": 1,
+              "assetName": "Test assetName 9619",
+              "assetCode": "CODE47727",
+              "quantity": 10,
+              "price": 1000,
               "taxId": "<createdId>",
-              "taxName": "string",
-              "taxNameAr": "string",
-              "vatPercentage": 1
+              "taxName": "Test taxName 335",
+              "taxNameAr": "اختبار 5294",
+              "vatPercentage": 15
             }
           ]
         }

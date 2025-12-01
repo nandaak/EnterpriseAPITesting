@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: CostCenterReports
- * Generated: 2025-12-01T13:40:51.231Z
+ * Generated: 2025-12-01T15:06:00.410Z
  * 
  * Operations available:
  * - POST: Yes

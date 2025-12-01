@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: Currency
- * Generated: 2025-12-01T13:40:51.232Z
+ * Generated: 2025-12-01T15:06:00.411Z
  * 
  * Operations available:
  * - POST: Yes

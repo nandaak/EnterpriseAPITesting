@@ -25,63 +25,63 @@
         "/erp-apis/SalesInvoice",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "externalCode": "string",
+          "externalCode": "CODE2599",
           "invoiceDate": "2025-12-01T13:29:57.543Z",
           "invoiceDueDate": "2025-12-01T13:29:57.543Z",
-          "description": "string",
+          "description": "Test description 570",
           "warehouseId": 1,
-          "warehouseName": "string",
+          "warehouseName": "اختبار 919",
           "customerId": 1,
-          "customerName": "string",
+          "customerName": "Test customerName 795",
           "customerCreditLimit": 1,
-          "pricePolicyId": 1,
+          "pricePolicyId": 1000,
           "currencyId": 1,
           "salesManId": "00000000-0000-0000-0000-000000000000",
-          "salesManName": "string",
-          "currencyName": "string",
-          "currencyRate": 1,
+          "salesManName": "Test salesManName 574",
+          "currencyName": "Test currencyName 255",
+          "currencyRate": 15,
           "paymentTermId": 1,
-          "reference": "string",
+          "reference": "Test reference 725",
           "sourceType": "Direct",
           "applicationSource": "ERP",
           "isLinkedToAdvancedPayment": true,
           "salesInvoiceSources": [
             {
               "sourceId": "00000000-0000-0000-0000-000000000000",
-              "sourceCode": "string"
+              "sourceCode": "CODE3821"
             }
           ],
           "posSessionId": "00000000-0000-0000-0000-000000000000",
           "salesInvoiceDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-              "barCode": "string",
+              "barCode": "CODE78885",
               "barCodeId": 1,
               "itemId": 1,
-              "itemCode": "string",
-              "itemName": "string",
+              "itemCode": "CODE20094",
+              "itemName": "Test itemName 8699",
               "itemVariantId": 1,
-              "itemVariantCode": "string",
-              "itemVariantNameEn": "string",
-              "itemVariantNameAr": "string",
+              "itemVariantCode": "CODE86910",
+              "itemVariantNameEn": "اختبار 8725",
+              "itemVariantNameAr": "اختبار 7059",
               "categoryId": 1,
-              "itemCategoryNameAr": "string",
-              "itemCategoryNameEn": "string",
+              "itemCategoryNameAr": "اختبار 4561",
+              "itemCategoryNameEn": "Test itemCategoryNameEn 431",
               "categoryType": {},
-              "description": "string",
+              "description": "Test description 568",
               "uomId": "00000000-0000-0000-0000-000000000000",
-              "uomCode": "string",
-              "uomNameAr": "string",
-              "uomNameEn": "string",
-              "quantity": 1,
-              "price": 1,
-              "cost": 1,
+              "uomCode": "CODE53994",
+              "uomNameAr": "اختبار 7425",
+              "uomNameEn": "Test uomNameEn 6556",
+              "quantity": 10,
+              "price": 1000,
+              "cost": 1000,
               "isVatIncluded": true,
-              "vatPercentage": 1,
-              "taxId": 1,
-              "notes": "string",
+              "vatPercentage": 15,
+              "taxId": 15,
+              "notes": "Test description 487",
               "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
-              "pricePolicyDetailId": 1,
+              "pricePolicyDetailId": 1000,
               "invoiceEntryMode": {},
               "trackingType": {},
               "hasExpiryDate": true,
@@ -100,24 +100,24 @@
           ],
           "salesInvoiceBalances": [
             {
-              "dueAmount": 1,
+              "dueAmount": 1000,
               "dueDate": "2025-12-01T13:29:57.543Z",
-              "dueBalance": 1
+              "dueBalance": 1000
             }
           ],
           "posInvoicePayments": [
             {
-              "amount": 1,
+              "amount": 1000,
               "paymentMethodType": {},
-              "paymentMethodCode": "string",
+              "paymentMethodCode": "CODE10018",
               "paymentMethodId": 1
             }
           ],
           "salesDiscounts": [
             {
-              "discountPolicyId": 1,
-              "discountPolicyName": "string",
-              "discountPercentage": 1,
+              "discountPolicyId": 5,
+              "discountPolicyName": "Test discountPolicyName 6223",
+              "discountPercentage": 15,
               "isActive": true,
               "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
             }
@@ -135,20 +135,20 @@
           "id": "<createdId>",
           "invoiceDate": "2025-12-01T13:29:57.543Z",
           "invoiceDueDate": "2025-12-01T13:29:57.543Z",
-          "description": "string",
+          "description": "Test description 783",
           "warehouseId": "<createdId>",
-          "warehouseName": "string",
+          "warehouseName": "اختبار 650",
           "customerId": "<createdId>",
-          "customerName": "string",
+          "customerName": "Test customerName 137",
           "customerCreditLimit": 1,
           "pricePolicyId": "<createdId>",
           "currencyId": "<createdId>",
-          "currencyName": "string",
-          "currencyRate": 1,
+          "currencyName": "Test currencyName 587",
+          "currencyRate": 15,
           "paymentTermId": "<createdId>",
-          "reference": "string",
+          "reference": "Test reference 796",
           "salesManId": "<createdId>",
-          "salesManName": "string",
+          "salesManName": "Test salesManName 676",
           "sourceType": "Direct",
           "applicationSource": "ERP",
           "isLinkedToAdvancedPayment": true,
@@ -156,40 +156,40 @@
             {
               "id": "<createdId>",
               "sourceId": "<createdId>",
-              "sourceCode": "string"
+              "sourceCode": "CODE31382"
             }
           ],
           "salesInvoiceDetails": [
             {
               "externalIdentifier": "00000000-0000-0000-0000-000000000000",
               "id": "<createdId>",
-              "barCode": "string",
+              "barCode": "CODE86201",
               "barCodeId": "<createdId>",
               "itemId": "<createdId>",
-              "itemCode": "string",
-              "itemName": "string",
+              "itemCode": "CODE97080",
+              "itemName": "Test itemName 127",
               "itemVariantId": "<createdId>",
-              "itemVariantCode": "string",
-              "itemVariantNameEn": "string",
-              "itemVariantNameAr": "string",
+              "itemVariantCode": "CODE46965",
+              "itemVariantNameEn": "اختبار 264",
+              "itemVariantNameAr": "اختبار 8481",
               "categoryId": "<createdId>",
-              "itemCategoryNameAr": "string",
-              "itemCategoryNameEn": "string",
+              "itemCategoryNameAr": "اختبار 6950",
+              "itemCategoryNameEn": "Test itemCategoryNameEn 782",
               "categoryType": {},
-              "description": "string",
+              "description": "Test description 342",
               "uomId": "<createdId>",
-              "uomCode": "string",
-              "uomNameAr": "string",
-              "uomNameEn": "string",
-              "quantity": 1,
-              "price": 1,
-              "cost": 1,
-              "discountPercentage": 1,
-              "discountAmount": 1,
+              "uomCode": "CODE47059",
+              "uomNameAr": "اختبار 76",
+              "uomNameEn": "Test uomNameEn 9999",
+              "quantity": 10,
+              "price": 1000,
+              "cost": 1000,
+              "discountPercentage": 15,
+              "discountAmount": 1000,
               "isVatIncluded": true,
-              "vatPercentage": 1,
+              "vatPercentage": 15,
               "taxId": "<createdId>",
-              "notes": "string",
+              "notes": "Test description 137",
               "itemStockBatchHeaderId": "<createdId>",
               "pricePolicyDetailId": "<createdId>",
               "invoiceEntryMode": {},
@@ -207,17 +207,17 @@
           "salesInvoiceBalances": [
             {
               "id": "<createdId>",
-              "dueAmount": 1,
+              "dueAmount": 1000,
               "dueDate": "2025-12-01T13:29:57.543Z",
-              "dueBalance": 1
+              "dueBalance": 1000
             }
           ],
           "salesDiscounts": [
             {
               "id": "<createdId>",
               "discountPolicyId": "<createdId>",
-              "discountPolicyName": "string",
-              "discountPercentage": 1,
+              "discountPolicyName": "Test discountPolicyName 3977",
+              "discountPercentage": 15,
               "isActive": true,
               "salesOrderHeaderId": "<createdId>"
             }
@@ -428,12 +428,12 @@
         "/erp-apis/SalesInvoice/SaveSalesInvoicePaymentIntent",
         {
           "salesInvoiceId": "00000000-0000-0000-0000-000000000000",
-          "amountToPay": 1,
+          "amountToPay": 1000,
           "paymentMethodId": 1,
           "paymentHubDetailId": 1,
           "bankAccountId": 1,
-          "referenceNumber": "string",
-          "chequeNumber": "string",
+          "referenceNumber": "Test referenceNumber 836",
+          "chequeNumber": "Test chequeNumber 270",
           "chequeDueDate": "2025-12-01T13:29:57.543Z"
         }
       ],
@@ -500,10 +500,10 @@
           "salesInvoiceReconciliations": [
             {
               "paymentInDetailId": "00000000-0000-0000-0000-000000000000",
-              "paymentCode": "string",
-              "amount": 1,
+              "paymentCode": "CODE88518",
+              "amount": 1000,
               "paymentInDate": "2025-12-01T13:29:57.543Z",
-              "paymentInTotalAmount": 1
+              "paymentInTotalAmount": 1000
             }
           ]
         }

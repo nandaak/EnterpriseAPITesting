@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: ReturnSalesInvoice
- * Generated: 2025-12-01T13:40:51.240Z
+ * Generated: 2025-12-01T15:06:00.425Z
  * 
  * Operations available:
  * - POST: Yes

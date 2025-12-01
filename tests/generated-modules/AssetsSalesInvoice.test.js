@@ -1,6 +1,6 @@
 /**
  * Auto-generated test for module: AssetsSalesInvoice
- * Generated: 2025-12-01T13:40:51.229Z
+ * Generated: 2025-12-01T15:06:00.409Z
  * 
  * Operations available:
  * - POST: Yes

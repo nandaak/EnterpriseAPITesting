@@ -18,13 +18,13 @@
       "POST": [
         "/erp-apis/VendorCategory",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 794",
+          "nameAr": "اختبار 656",
           "payableAccountId": 1,
           "purchaseAccountId": 1,
           "purchaseReturnAccountId": 1,
-          "discountAccountId": 1,
-          "pricePolicyId": 1,
+          "discountAccountId": 5,
+          "pricePolicyId": 1000,
           "paymentTermId": 1,
           "marketType": "B2B"
         }
@@ -37,8 +37,8 @@
         "/erp-apis/VendorCategory",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 26",
+          "nameAr": "اختبار 456",
           "payableAccountId": "<createdId>",
           "purchaseAccountId": "<createdId>",
           "purchaseReturnAccountId": "<createdId>",

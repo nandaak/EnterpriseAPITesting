@@ -14,6 +14,8 @@ const EnhancedSchemaAdapter = require('../utils/enhanced-schema-adapter');
 const apiClient = require('../utils/api-client');
 const TokenManager = require('../utils/token-manager');
 const logger = require('../utils/logger');
+const { validateAndEnhancePayload } = require('../utils/payload-validator');
+const { handleTestError } = require('../utils/error-handler');
 const fs = require('fs');
 const path = require('path');
 
@@ -170,11 +172,14 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
           try {
             const [url, payload] = crudOps.POST.data;
             
+            // Validate and enhance payload
+            const enhancedPayload = validateAndEnhancePayload(moduleName, payload, 'POST');
+            
             logger.info(`Testing CREATE for ${moduleName}`);
             logger.debug(`URL: ${url}`);
-            logger.debug(`Payload: ${JSON.stringify(payload, null, 2)}`);
+            logger.debug(`Payload: ${JSON.stringify(enhancedPayload, null, 2)}`);
 
-            const response = await apiClient.post(url, payload);
+            const response = await apiClient.post(url, enhancedPayload);
 
             expect(response.status).toBe(200);
             expect(response.data).toBeDefined();
@@ -204,7 +209,16 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             }
 
           } catch (error) {
-            logger.error(`CREATE failed for ${moduleName}: ${error.message}`);
+            const errorInfo = handleTestError(error, {
+              moduleName,
+              operation: 'CREATE',
+              url: crudOps.POST.data[0],
+              payload: crudOps.POST.data[1]
+            });
+            
+            logger.error(`CREATE failed for ${moduleName}: ${errorInfo.message}`);
+            logger.debug(`Error category: ${errorInfo.category} - ${errorInfo.suggestion}`);
+            
             moduleStats.create = 'FAILED';
             testResults.failed++;
             throw error;
@@ -275,11 +289,14 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
 
             const [url, payload] = prepared;
             
+            // Validate and enhance payload
+            const enhancedPayload = validateAndEnhancePayload(moduleName, payload, 'PUT');
+            
             logger.info(`Testing UPDATE for ${moduleName} with ID: ${createdId}`);
             logger.debug(`URL: ${url}`);
-            logger.debug(`Payload: ${JSON.stringify(payload, null, 2)}`);
+            logger.debug(`Payload: ${JSON.stringify(enhancedPayload, null, 2)}`);
 
-            const response = await apiClient.put(url, payload);
+            const response = await apiClient.put(url, enhancedPayload);
 
             expect(response.status).toBe(200);
 

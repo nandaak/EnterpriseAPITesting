@@ -40,15 +40,15 @@
         "/erp-apis/Branch",
         {
           "id": "<createdId>",
-          "nameEn": "string",
-          "nameAr": "string",
-          "branchRegion": "string",
+          "nameEn": "Test nameEn 59",
+          "nameAr": "اختبار 282",
+          "branchRegion": "Test branchRegion 34",
           "branchCity": 1,
-          "branchAddress": "string",
-          "mobileNumberCode": "string",
-          "mobileNumber": "string",
-          "branchEmail": "string",
-          "countryCode": "string"
+          "branchAddress": "Test branchAddress 591",
+          "mobileNumberCode": "CODE8429",
+          "mobileNumber": "Test mobileNumber 500",
+          "branchEmail": "test1764601449987@example.com",
+          "countryCode": "CODE334"
         }
       ],
       "summary": "",
@@ -58,15 +58,15 @@
       "POST": [
         "/erp-apis/Branch",
         {
-          "nameEn": "string",
-          "nameAr": "string",
-          "branchRegion": "string",
+          "nameEn": "Test nameEn 967",
+          "nameAr": "اختبار 645",
+          "branchRegion": "Test branchRegion 922",
           "branchCity": 1,
-          "branchAddress": "string",
-          "mobileNumberCode": "string",
-          "mobileNumber": "string",
-          "branchEmail": "string",
-          "countryCode": "string"
+          "branchAddress": "Test branchAddress 169",
+          "mobileNumberCode": "CODE7109",
+          "mobileNumber": "Test mobileNumber 335",
+          "branchEmail": "test1764601449987@example.com",
+          "countryCode": "CODE4761"
         }
       ],
       "summary": "",

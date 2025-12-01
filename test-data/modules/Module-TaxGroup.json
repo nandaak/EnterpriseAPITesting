@@ -18,11 +18,11 @@
       "POST": [
         "/erp-apis/TaxGroup",
         {
-          "name": "string",
-          "nameAr": "string",
-          "code": "string",
-          "companyId": "string",
-          "branchId": "string"
+          "name": "Test name 564",
+          "nameAr": "اختبار 378",
+          "code": "CODE9147",
+          "companyId": "TestcompanyId9695",
+          "branchId": "TestbranchId548"
         }
       ],
       "summary": "",
@@ -43,9 +43,9 @@
         "/erp-apis/TaxGroup",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "code": "string"
+          "name": "Test name 502",
+          "nameAr": "اختبار 134",
+          "code": "CODE518"
         }
       ],
       "summary": "",

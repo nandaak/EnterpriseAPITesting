@@ -83,7 +83,12 @@
     "test:complete:suite": "npm run test:generate:modules && npm run test:generated",
     "test:auth": "jest tests/auth-validation.test.js --runInBand --verbose",
     "test:auth:quick": "jest tests/auth-validation.test.js --runInBand",
-    "test:with:auth": "npm run test:auth && npm run test:enhanced"
+    "test:with:auth": "npm run test:auth && npm run test:enhanced",
+    "fix:comprehensive": "node scripts/comprehensive-error-fixer.js",
+    "fix:payloads:advanced": "node scripts/advanced-payload-fixer.js",
+    "analyze:tests": "node scripts/final-test-analyzer.js",
+    "analyze:errors": "node scripts/test-error-analyzer.js",
+    "fix:all": "npm run fix:comprehensive && npm run fix:payloads:advanced && npm run analyze:tests"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",

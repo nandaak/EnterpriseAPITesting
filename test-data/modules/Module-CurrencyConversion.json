@@ -19,9 +19,9 @@
         "/erp-apis/CurrencyConversion",
         {
           "fromCurrencyId": 1,
-          "fromCurrencyRate": 1,
+          "fromCurrencyRate": 15,
           "toCurrencyId": 1,
-          "note": "string"
+          "note": "Test description 488"
         }
       ],
       "summary": "",
@@ -33,9 +33,9 @@
         {
           "id": "<createdId>",
           "fromCurrencyId": "<createdId>",
-          "fromCurrencyRate": 1,
+          "fromCurrencyRate": 15,
           "toCurrencyId": "<createdId>",
-          "note": "string"
+          "note": "Test description 165"
         }
       ],
       "summary": "",

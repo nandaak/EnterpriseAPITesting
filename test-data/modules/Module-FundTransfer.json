@@ -25,27 +25,27 @@
       "POST": [
         "/erp-apis/FundTransfer",
         {
-          "date": "2025-12-01T13:29:57.524Z",
-          "description": "string",
-          "reference": "string",
-          "amount": 1,
-          "fromPaymentHubDetails": "string",
-          "fromBankAccount": "string",
-          "toPaymentHubDetails": "string",
-          "toBankAccount": "string",
+          "date": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 334",
+          "reference": "REF98137",
+          "amount": 1000,
+          "fromPaymentHubDetails": "TestfromPaymentHubDetails5189",
+          "fromBankAccount": "TestfromBankAccount1333",
+          "toPaymentHubDetails": "TesttoPaymentHubDetails168",
+          "toBankAccount": "TesttoBankAccount1791",
           "fundTransferToDetail": {
             "paymentHubId": "Treasury",
             "paymentHubDetailsId": 1,
             "bankAccountId": 1,
             "currencyId": 1,
             "paymentMethodId": 1,
-            "rate": 1,
-            "currentBalance": 1,
-            "amount": 1,
+            "rate": 15,
+            "currentBalance": 1000,
+            "amount": 1000,
             "glAccountId": 1,
             "fundTransferStatus": "From",
             "commissionValue": 1,
-            "bankReference": "string"
+            "bankReference": "REF6608"
           },
           "fundTransferFromDetail": {}
         }
@@ -58,26 +58,26 @@
         "/erp-apis/FundTransfer",
         {
           "id": "<createdId>",
-          "date": "2025-12-01T13:29:57.524Z",
-          "description": "string",
-          "reference": "string",
-          "amount": 1,
-          "fromPaymentHubDetails": "string",
-          "fromBankAccount": "string",
-          "toPaymentHubDetails": "string",
-          "toBankAccount": "string",
+          "date": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 924",
+          "reference": "REF25590",
+          "amount": 1000,
+          "fromPaymentHubDetails": "TestfromPaymentHubDetails3933",
+          "fromBankAccount": "TestfromBankAccount2927",
+          "toPaymentHubDetails": "TesttoPaymentHubDetails7456",
+          "toBankAccount": "TesttoBankAccount4871",
           "fundTransferToDetail": {
             "paymentHubId": "Treasury",
             "paymentHubDetailsId": "<createdId>",
             "bankAccountId": "<createdId>",
             "currencyId": "<createdId>",
             "paymentMethodId": "<createdId>",
-            "rate": 1,
-            "currentBalance": 1,
-            "amount": 1,
+            "rate": 15,
+            "currentBalance": 1000,
+            "amount": 1000,
             "fundTransferStatus": "From",
-            "commissionAmount": 1,
-            "bankReference": "string"
+            "commissionAmount": 1000,
+            "bankReference": "REF73829"
           },
           "fundTransferFromDetail": {}
         }
@@ -136,7 +136,31 @@
     "POST__erp-apis_FundTransfer__Id__Post": {
       "POST": [
         "/erp-apis/FundTransfer/<createdId>/Post",
-        {}
+        {
+          "date": "2025-12-01T13:29:57.453Z",
+          "description": "Test description 335",
+          "reference": "REF74117",
+          "amount": 1000,
+          "fromPaymentHubDetails": "TestfromPaymentHubDetails6460",
+          "fromBankAccount": "TestfromBankAccount6451",
+          "toPaymentHubDetails": "TesttoPaymentHubDetails5974",
+          "toBankAccount": "TesttoBankAccount797",
+          "fundTransferToDetail": {
+            "paymentHubId": "Treasury",
+            "paymentHubDetailsId": 1,
+            "bankAccountId": 1,
+            "currencyId": 1,
+            "paymentMethodId": 1,
+            "rate": 15,
+            "currentBalance": 1000,
+            "amount": 1000,
+            "glAccountId": 1,
+            "fundTransferStatus": "From",
+            "commissionValue": 1,
+            "bankReference": "REF63339"
+          },
+          "fundTransferFromDetail": {}
+        }
       ],
       "summary": "",
       "parameters": [

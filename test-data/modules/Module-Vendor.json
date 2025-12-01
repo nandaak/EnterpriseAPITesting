@@ -19,40 +19,40 @@
       "POST": [
         "/erp-apis/Vendor",
         {
-          "name": "string",
-          "nameAr": "string",
-          "photo": "string",
+          "name": "Test name 39",
+          "nameAr": "اختبار 110",
+          "photo": "Test photo 989",
           "birthDate": "2025-12-01T13:29:57.558Z",
           "vendorCategoryId": 1,
           "vendorInformation": {
-            "contactPhone": "string",
-            "contactMobileCode": "string",
-            "contactMobile": "string",
-            "contactFax": "string",
-            "contactEmail": "string",
-            "contactWebsite": "string",
-            "contactPersonName": "string",
-            "contactPersonMobileCode": "string",
-            "contactPersonMobile": "string",
-            "contactPersonPhone": "string",
-            "contactPersonEmail": "string"
+            "contactPhone": "+966501234567",
+            "contactMobileCode": "CODE1013",
+            "contactMobile": "Test contactMobile 960",
+            "contactFax": "Test contactFax 656",
+            "contactEmail": "test1764601450010@example.com",
+            "contactWebsite": "Test contactWebsite 943",
+            "contactPersonName": "Test contactPersonName 625",
+            "contactPersonMobileCode": "CODE5690",
+            "contactPersonMobile": "Test contactPersonMobile 342",
+            "contactPersonPhone": "+966501234567",
+            "contactPersonEmail": "test1764601450010@example.com"
           },
           "vendorAddress": {
-            "state": "string",
-            "street": "string",
+            "state": "Test state 115",
+            "street": "Test street 464",
             "longitude": 1,
             "latitude": 1,
             "radius": 1,
-            "countryId": "string",
+            "countryId": "TestcountryId3780",
             "cityId": 1
           },
           "vendorLegal": {
-            "taxId": "string",
-            "commercialId": "string"
+            "taxId": "TesttaxId6441",
+            "commercialId": "TestcommercialId5932"
           },
           "vendorFinancial": {
             "paymentTermId": 1,
-            "pricePolicyId": 1,
+            "pricePolicyId": 1000,
             "creditLimit": 1,
             "currencyId": 1
           },
@@ -60,7 +60,7 @@
             "payableAccountId": 1,
             "purchaseAccountId": 1,
             "purchaseReturnAccountId": 1,
-            "discountAccountId": 1
+            "discountAccountId": 5
           },
           "vendorTagIds": [
             1
@@ -75,29 +75,29 @@
         "/erp-apis/Vendor",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
-          "photo": "string",
+          "name": "Test name 680",
+          "nameAr": "اختبار 639",
+          "photo": "Test photo 66",
           "birthDate": "2025-12-01T13:29:57.558Z",
           "vendorCategoryId": "<createdId>",
           "vendorInformation": {
             "id": "<createdId>",
-            "contactPhone": "string",
-            "contactMobileCode": "string",
-            "contactMobile": "string",
-            "contactFax": "string",
-            "contactEmail": "string",
-            "contactWebsite": "string",
-            "contactPersonName": "string",
-            "contactPersonMobileCode": "string",
-            "contactPersonMobile": "string",
-            "contactPersonPhone": "string",
-            "contactPersonEmail": "string"
+            "contactPhone": "+966501234567",
+            "contactMobileCode": "CODE1924",
+            "contactMobile": "Test contactMobile 788",
+            "contactFax": "Test contactFax 509",
+            "contactEmail": "test1764601450010@example.com",
+            "contactWebsite": "Test contactWebsite 979",
+            "contactPersonName": "Test contactPersonName 780",
+            "contactPersonMobileCode": "CODE3769",
+            "contactPersonMobile": "Test contactPersonMobile 554",
+            "contactPersonPhone": "+966501234567",
+            "contactPersonEmail": "test1764601450010@example.com"
           },
           "vendorAddress": {
             "id": "<createdId>",
-            "state": "string",
-            "street": "string",
+            "state": "Test state 903",
+            "street": "Test street 85",
             "longitude": 1,
             "latitude": 1,
             "radius": 1,
@@ -136,10 +136,10 @@
         "/erp-apis/Vendor/Search",
         {
           "sortBy": "Descending",
-          "sortColumn": "string",
+          "sortColumn": "Test sortColumn 533",
           "pageNumber": 1,
           "pageSize": 1,
-          "searchTerm": "string",
+          "searchTerm": "اختبار 946",
           "includedIds": [
             1
           ]

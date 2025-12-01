@@ -18,8 +18,8 @@
       "POST": [
         "/erp-apis/PaymentMethod",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 605",
+          "nameAr": "اختبار 693",
           "paymentPlace": "Treasury",
           "paymentMethodType": "Cash",
           "paymentMethodCommissionData": {
@@ -29,7 +29,7 @@
             "commissionValue": 1,
             "commissionAccountId": 1,
             "allowVAT": true,
-            "taxId": 1,
+            "taxId": 15,
             "paymentDirections": [
               {}
             ]
@@ -44,9 +44,9 @@
         "/erp-apis/PaymentMethod",
         {
           "id": "<createdId>",
-          "code": "string",
-          "name": "string",
-          "nameAr": "string",
+          "code": "CODE7952",
+          "name": "Test name 729",
+          "nameAr": "اختبار 786",
           "paymentPlace": "Treasury",
           "paymentMethodType": "Cash",
           "paymentMethodCommissionData": {

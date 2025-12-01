@@ -18,16 +18,16 @@
       "POST": [
         "/erp-apis/Treasury",
         {
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 1494",
+          "nameAr": "اختبار 4605",
           "currencyId": 1,
           "branches": [
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountId": 1,
           "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
-          "accountOpeningBalance": 1,
-          "openingBalance": 1
+          "accountOpeningBalance": 1000,
+          "openingBalance": 1000
         }
       ],
       "summary": "",
@@ -38,16 +38,16 @@
         "/erp-apis/Treasury",
         {
           "id": "<createdId>",
-          "name": "string",
-          "nameAr": "string",
+          "name": "Test name 2651",
+          "nameAr": "اختبار 7180",
           "currencyId": "<createdId>",
           "branches": [
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountId": "<createdId>",
           "journalEntryLineId": "<createdId>",
-          "accountOpeningBalance": 1,
-          "openingBalance": 1
+          "accountOpeningBalance": 1000,
+          "openingBalance": 1000
         }
       ],
       "summary": "",

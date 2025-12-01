@@ -4,12 +4,12 @@
       "POST": [
         "/erp-apis/api/workflows/ExecuteAction",
         {
-          "requestTracking": "string",
+          "requestTracking": "Test requestTracking 570",
           "actionId": 1,
           "controlValues": [
             {
               "actionControlId": 1,
-              "value": "string"
+              "value": "Testvalue7316"
             }
           ]
         }
@@ -32,10 +32,10 @@
         "/erp-apis/api/workflows/GetAllRequests",
         {
           "sortBy": "Descending",
-          "sortColumn": "string",
+          "sortColumn": "Test sortColumn 596",
           "pageNumber": 1,
           "pageSize": 1,
-          "searchTerm": "string",
+          "searchTerm": "اختبار 470",
           "createdAt": "2025-12-01T13:29:57.562Z",
           "updatedCurrentStepAt": "2025-12-01T13:29:57.562Z",
           "requestStatus": "InProgress",
