@@ -1,0 +1,91 @@
+{
+  "AssetsLocation": {
+    "GET__erp-apis_AssetsLocation__id_": {
+      "GET": [
+        "/erp-apis/AssetsLocation/{id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsLocation__id_": {
+      "DELETE": [
+        "/erp-apis/AssetsLocation/{id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsLocation_GetByIdViewAssetsLocation__id_": {
+      "GET": [
+        "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/{id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsLocation_GetAssetsLocationTree": {
+      "GET": [
+        "/erp-apis/AssetsLocation/GetAssetsLocationTree",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    },
+    "GET__erp-apis_AssetsLocation_GetAssetsLocationParentDropDown": {
+      "GET": [
+        "/erp-apis/AssetsLocation/GetAssetsLocationParentDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    },
+    "GET__erp-apis_AssetsLocation_GetAssetsLocationDetailedDropDown": {
+      "GET": [
+        "/erp-apis/AssetsLocation/GetAssetsLocationDetailedDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    },
+    "POST__erp-apis_AssetsLocation": {
+      "POST": [
+        "/erp-apis/AssetsLocation",
+        {
+          "name": "string",
+          "parentId": 1,
+          "costCenterId": 1,
+          "isDetailed": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_AssetsLocation": {
+      "PUT": [
+        "/erp-apis/AssetsLocation",
+        {
+          "id": 1,
+          "name": "string",
+          "parentId": 1,
+          "costCenterId": 1,
+          "isDetailed": true
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

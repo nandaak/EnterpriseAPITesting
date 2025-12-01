@@ -1,0 +1,152 @@
+{
+  "AssetsDepreciation": {
+    "POST__erp-apis_AssetsDepreciation": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_AssetsDepreciation": {
+      "PUT": [
+        "/erp-apis/AssetsDepreciation",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsDepreciation": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "FinancialPeriodIds",
+        "status",
+        "BranchId",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "DELETE__erp-apis_AssetsDepreciation__Id__DeleteLine": {
+      "DELETE": [
+        "/erp-apis/AssetsDepreciation/{Id}/DeleteLine",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsDepreciation__Id_": {
+      "DELETE": [
+        "/erp-apis/AssetsDepreciation/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation__AssetsDepreciationId_": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/{AssetsDepreciationId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "AssetsDepreciationId"
+      ]
+    },
+    "POST__erp-apis_AssetsDepreciation__Id__Post": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_AssetsDepreciation_Save": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation/Save",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsDepreciation_GetAllPeriods": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/GetAllPeriods",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "PeriodIds"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_Export": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "FinancialPeriodIds",
+        "status",
+        "BranchId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_AssetsDepreciationReport": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/AssetsDepreciationReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "AssetGroupIds"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_ExportAssetsDepreciationReport": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/ExportAssetsDepreciationReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "AssetGroupIds",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

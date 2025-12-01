@@ -79,7 +79,7 @@
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "returnInvoiceDate": "2025-11-26T16:30:10.999Z",
+          "returnInvoiceDate": "2025-12-01T13:29:57.558Z",
           "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
           "description": "string",
           "warehouseId": 1,
@@ -116,7 +116,7 @@
           "nameAr": "string",
           "categoryId": "<createdId>",
           "marketType": "B2B",
-          "birthdate": "2025-11-26T16:30:10.999Z",
+          "birthdate": "2025-12-01T13:29:57.558Z",
           "photo": "string",
           "tagIds": [
             1
@@ -190,8 +190,8 @@
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "invoiceDate": "2025-11-26T16:30:10.999Z",
-          "invoiceDueDate": "2025-11-26T16:30:10.999Z",
+          "invoiceDate": "2025-12-01T13:29:57.558Z",
+          "invoiceDueDate": "2025-12-01T13:29:57.558Z",
           "description": "string",
           "warehouseId": 1,
           "warehouseName": "string",
@@ -265,7 +265,7 @@
           "salesInvoiceBalances": [
             {
               "dueAmount": 1,
-              "dueDate": "2025-11-26T16:30:10.999Z",
+              "dueDate": "2025-12-01T13:29:57.558Z",
               "dueBalance": 1
             }
           ],
@@ -298,7 +298,7 @@
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "paymentInDate": "2025-11-26T16:30:10.999Z",
+          "paymentInDate": "2025-12-01T13:29:57.558Z",
           "description": "string",
           "paymentHub": "Treasury",
           "paymentHubDetailId": "string",
@@ -324,7 +324,7 @@
               "paymentInMethodDetails": {},
               "glAccountId": 1,
               "notes": "string",
-              "paymentInDate": "2025-11-26T16:30:10.999Z",
+              "paymentInDate": "2025-12-01T13:29:57.558Z",
               "paymentInDetailCostCenters": [
                 {}
               ]

@@ -1,0 +1,59 @@
+{
+  "AccountingReports": {
+    "POST__erp-apis_AccountingReports_AccountStatmentReport": {
+      "POST": [
+        "/erp-apis/AccountingReports/AccountStatmentReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AccountingReports_PrintOutAccountStatement": {
+      "GET": [
+        "/erp-apis/AccountingReports/PrintOutAccountStatement",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "Posted",
+        "UnPosted",
+        "Accounts",
+        "CostCenters",
+        "Branches",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_AccountingReports_ExportAccountStatement": {
+      "GET": [
+        "/erp-apis/AccountingReports/ExportAccountStatement",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "DateFrom",
+        "DateTo",
+        "Posted",
+        "UnPosted",
+        "Accounts",
+        "CostCenters",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

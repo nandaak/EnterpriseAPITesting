@@ -1,0 +1,123 @@
+{
+  "AssetsPurchaseInvoice": {
+    "GET__erp-apis_AssetsPurchaseInvoice": {
+      "GET": [
+        "/erp-apis/AssetsPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "VendorIds",
+        "CurrencyIds",
+        "Statuses",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_AssetsPurchaseInvoice": {
+      "POST": [
+        "/erp-apis/AssetsPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_AssetsPurchaseInvoice": {
+      "PUT": [
+        "/erp-apis/AssetsPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsPurchaseInvoice_GetById__Id_": {
+      "GET": [
+        "/erp-apis/AssetsPurchaseInvoice/GetById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsPurchaseInvoice_GetViewById": {
+      "GET": [
+        "/erp-apis/AssetsPurchaseInvoice/GetViewById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsPurchaseInvoice_GetAllAssetsPurchaseInvoiceByVendorId": {
+      "GET": [
+        "/erp-apis/AssetsPurchaseInvoice/GetAllAssetsPurchaseInvoiceByVendorId",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "VendorId"
+      ]
+    },
+    "GET__erp-apis_AssetsPurchaseInvoice_Export": {
+      "GET": [
+        "/erp-apis/AssetsPurchaseInvoice/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "VendorIds",
+        "CurrencyIds",
+        "Statuses",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_AssetsPurchaseInvoice__Id__Post": {
+      "POST": [
+        "/erp-apis/AssetsPurchaseInvoice/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsPurchaseInvoice_DeleteLine__Id_": {
+      "DELETE": [
+        "/erp-apis/AssetsPurchaseInvoice/DeleteLine/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsPurchaseInvoice__Id_": {
+      "DELETE": [
+        "/erp-apis/AssetsPurchaseInvoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

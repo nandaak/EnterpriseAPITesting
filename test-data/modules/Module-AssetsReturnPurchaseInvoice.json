@@ -32,7 +32,7 @@
       "POST": [
         "/erp-apis/AssetsReturnPurchaseInvoice",
         {
-          "date": "2025-11-26T16:30:10.937Z",
+          "date": "2025-12-01T13:29:57.502Z",
           "description": "string",
           "vendorId": 1,
           "vendorCode": "string",
@@ -72,7 +72,7 @@
         "/erp-apis/AssetsReturnPurchaseInvoice",
         {
           "id": "<createdId>",
-          "date": "2025-11-26T16:30:10.937Z",
+          "date": "2025-12-01T13:29:57.502Z",
           "description": "string",
           "vendorId": "<createdId>",
           "vendorCode": "string",

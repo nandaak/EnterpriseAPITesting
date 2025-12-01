@@ -1,0 +1,48 @@
+{
+  "Inventory": {
+    "GET__erp-apis_Inventory_SharedWarehousesLookup": {
+      "GET": [
+        "/erp-apis/Inventory/SharedWarehousesLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Inventory_GetAllItemsLookup": {
+      "GET": [
+        "/erp-apis/Inventory/GetAllItemsLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "HasExpiryDate",
+        "IsService",
+        "IsStorable",
+        "HasBatch",
+        "HasSerial",
+        "NoTracking",
+        "WarehouseId",
+        "HasAvailableQuantity",
+        "CategoryId",
+        "IncludeService",
+        "SortColumn",
+        "PageSize",
+        "PageNumber",
+        "SortBy"
+      ]
+    },
+    "GET__erp-apis_Inventory_GetChildItemCategoriesList": {
+      "GET": [
+        "/erp-apis/Inventory/GetChildItemCategoriesList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    }
+  }
+}

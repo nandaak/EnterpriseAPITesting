@@ -1,0 +1,125 @@
+{
+  "ReturnInvoice": {
+    "GET__erp-apis_ReturnInvoice": {
+      "GET": [
+        "/erp-apis/ReturnInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "VendorsId",
+        "WarehousesId",
+        "Statuses",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_ReturnInvoice": {
+      "POST": [
+        "/erp-apis/ReturnInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_ReturnInvoice": {
+      "PUT": [
+        "/erp-apis/ReturnInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_ReturnInvoice__Id_": {
+      "GET": [
+        "/erp-apis/ReturnInvoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_ReturnInvoice__Id_": {
+      "DELETE": [
+        "/erp-apis/ReturnInvoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_ReturnInvoice__Id__GetViewById": {
+      "GET": [
+        "/erp-apis/ReturnInvoice/{Id}/GetViewById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_ReturnInvoice__Id__Post": {
+      "POST": [
+        "/erp-apis/ReturnInvoice/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_ReturnInvoice_Export": {
+      "GET": [
+        "/erp-apis/ReturnInvoice/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "DELETE__erp-apis_ReturnInvoice_DeleteLine__Id_": {
+      "DELETE": [
+        "/erp-apis/ReturnInvoice/DeleteLine/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_ReturnInvoice_PrintOutReturnPurchaseInvoice": {
+      "GET": [
+        "/erp-apis/ReturnInvoice/PrintOutReturnPurchaseInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

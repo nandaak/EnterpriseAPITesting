@@ -1,0 +1,177 @@
+{
+  "AssetsDepreciation": {
+    "POST__erp-apis_AssetsDepreciation": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation",
+        {
+          "depreciationDate": "2025-12-01T13:29:57.499Z",
+          "assetIds": [
+            1
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_AssetsDepreciation": {
+      "PUT": [
+        "/erp-apis/AssetsDepreciation",
+        {
+          "headerId": "00000000-0000-0000-0000-000000000000",
+          "depreciationDate": "2025-12-01T13:29:57.499Z",
+          "description": "string",
+          "assetLines": [
+            {
+              "lineId": "00000000-0000-0000-0000-000000000000",
+              "assetId": 1,
+              "note": "string"
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsDepreciation": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "FinancialPeriodIds",
+        "status",
+        "BranchId",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "DELETE__erp-apis_AssetsDepreciation__Id__DeleteLine": {
+      "DELETE": [
+        "/erp-apis/AssetsDepreciation/{Id}/DeleteLine",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_AssetsDepreciation__Id_": {
+      "DELETE": [
+        "/erp-apis/AssetsDepreciation/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation__AssetsDepreciationId_": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/{AssetsDepreciationId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "AssetsDepreciationId"
+      ]
+    },
+    "POST__erp-apis_AssetsDepreciation__Id__Post": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation/{Id}/Post",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_AssetsDepreciation_Save": {
+      "POST": [
+        "/erp-apis/AssetsDepreciation/Save",
+        {
+          "depreciationDate": "2025-12-01T13:29:57.499Z",
+          "description": "string",
+          "linesNotes": [
+            {
+              "assetId": 1,
+              "note": "string"
+            }
+          ]
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_AssetsDepreciation_GetAllPeriods": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/GetAllPeriods",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "PeriodIds"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_Export": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "FromDate",
+        "ToDate",
+        "FinancialPeriodIds",
+        "status",
+        "BranchId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_AssetsDepreciationReport": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/AssetsDepreciationReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "AssetGroupIds"
+      ]
+    },
+    "GET__erp-apis_AssetsDepreciation_ExportAssetsDepreciationReport": {
+      "GET": [
+        "/erp-apis/AssetsDepreciation/ExportAssetsDepreciationReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "AssetGroupIds",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

@@ -1,0 +1,78 @@
+{
+  "Workflows": {
+    "ExecuteAction": {
+      "POST": [
+        "/erp-apis/api/workflows/ExecuteAction",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "CancelRequest": {
+      "POST": [
+        "/erp-apis/api/workflows/CancelRequest/{requestId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "requestId"
+      ]
+    },
+    "GetAllRequests": {
+      "POST": [
+        "/erp-apis/api/workflows/GetAllRequests",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GetRequestHistory": {
+      "GET": [
+        "/erp-apis/api/workflows/GetRequestHistory/{RequestTracking}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "RequestTracking"
+      ]
+    },
+    "GetRequestUserAction": {
+      "GET": [
+        "/erp-apis/api/workflows/GetRequestUserAction/{requestTracking}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "requestTracking"
+      ]
+    },
+    "GetRequestsCount": {
+      "GET": [
+        "/erp-apis/api/workflows/GetRequestsCount",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GetAllProcessesDropDown": {
+      "GET": [
+        "/erp-apis/api/workflows/GetAllProcessesLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "isActive"
+      ]
+    },
+    "GetUsersDropDown": {
+      "GET": [
+        "/erp-apis/api/workflows/GetUsersDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    }
+  }
+}

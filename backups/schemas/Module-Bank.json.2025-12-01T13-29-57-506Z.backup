@@ -1,0 +1,148 @@
+{
+  "Bank": {
+    "GET__erp-apis_Bank": {
+      "GET": [
+        "/erp-apis/Bank",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_Bank": {
+      "POST": [
+        "/erp-apis/Bank",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Bank__Id_": {
+      "GET": [
+        "/erp-apis/Bank/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_Bank__Id_": {
+      "DELETE": [
+        "/erp-apis/Bank/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Bank_BankAccountDropDown": {
+      "GET": [
+        "/erp-apis/Bank/BankAccountDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "BankId",
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Bank_MultiBankAccountDropDown": {
+      "GET": [
+        "/erp-apis/Bank/MultiBankAccountDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "BankIds",
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Bank_BankDropDown": {
+      "GET": [
+        "/erp-apis/Bank/BankDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Bank_GetAccountBalance__Id_": {
+      "GET": [
+        "/erp-apis/Bank/GetAccountBalance/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Bank_Export": {
+      "GET": [
+        "/erp-apis/Bank/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "PUT__erp-apis_Bank_Edit": {
+      "PUT": [
+        "/erp-apis/Bank/Edit",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "DELETE__erp-apis_Bank_DeleteAccount__Id_": {
+      "DELETE": [
+        "/erp-apis/Bank/DeleteAccount/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Bank_View__Id_": {
+      "GET": [
+        "/erp-apis/Bank/View/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Bank_GetAllBankAdvancedSearch": {
+      "GET": [
+        "/erp-apis/Bank/GetAllBankAdvancedSearch",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

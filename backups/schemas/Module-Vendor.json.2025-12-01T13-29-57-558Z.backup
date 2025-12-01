@@ -1,0 +1,135 @@
+{
+  "Vendor": {
+    "GET__erp-apis_Vendor": {
+      "GET": [
+        "/erp-apis/Vendor",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IncludedIds",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_Vendor": {
+      "POST": [
+        "/erp-apis/Vendor",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_Vendor": {
+      "PUT": [
+        "/erp-apis/Vendor",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_Vendor_Search": {
+      "POST": [
+        "/erp-apis/Vendor/Search",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Vendor_DropDownByAccountId__AccountId_": {
+      "GET": [
+        "/erp-apis/Vendor/DropDownByAccountId/{AccountId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "AccountId"
+      ]
+    },
+    "GET__erp-apis_Vendor_GetAllVendorsDropdown": {
+      "GET": [
+        "/erp-apis/Vendor/GetAllVendorsDropdown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Vendor_VendorWithCurrencyLookup": {
+      "GET": [
+        "/erp-apis/Vendor/VendorWithCurrencyLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SortColumn",
+        "PageNumber",
+        "PageSize",
+        "SortBy"
+      ]
+    },
+    "GET__erp-apis_Vendor_LatestVendorWithCurrencyLookup": {
+      "GET": [
+        "/erp-apis/Vendor/LatestVendorWithCurrencyLookup",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_Vendor_Export": {
+      "GET": [
+        "/erp-apis/Vendor/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Vendor__Id_": {
+      "GET": [
+        "/erp-apis/Vendor/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_Vendor__Id_": {
+      "DELETE": [
+        "/erp-apis/Vendor/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Vendor_View__Id_": {
+      "GET": [
+        "/erp-apis/Vendor/View/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

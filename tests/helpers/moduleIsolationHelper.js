@@ -1,4 +1,4 @@
-// test/helpers/moduleIsolationHelper.js
+// tests/helpers/moduleIsolationHelper.js
 const apiClient = require("../../utils/api-client");
 const logger = require("../../utils/logger");
 const TokenManager = require("../../utils/token-manager");

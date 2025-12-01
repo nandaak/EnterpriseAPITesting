@@ -27,7 +27,7 @@
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "paymentInDate": "2025-11-26T16:30:10.972Z",
+          "paymentInDate": "2025-12-01T13:29:57.534Z",
           "description": "string",
           "paymentHub": "Treasury",
           "paymentHubDetailId": "string",
@@ -53,7 +53,7 @@
               "paymentInMethodDetails": {},
               "glAccountId": 1,
               "notes": "string",
-              "paymentInDate": "2025-11-26T16:30:10.972Z",
+              "paymentInDate": "2025-12-01T13:29:57.534Z",
               "paymentInDetailCostCenters": [
                 {}
               ]
@@ -72,7 +72,7 @@
         "/erp-apis/PaymentIn",
         {
           "id": "<createdId>",
-          "paymentInDate": "2025-11-26T16:30:10.972Z",
+          "paymentInDate": "2025-12-01T13:29:57.534Z",
           "description": "string",
           "paymentHubDetailId": "<createdId>",
           "bankAccountId": "<createdId>",
@@ -171,7 +171,7 @@
           "bankAccountId": 1,
           "referenceNumber": "string",
           "chequeNumber": "string",
-          "chequeDueDate": "2025-11-26T16:30:10.972Z"
+          "chequeDueDate": "2025-12-01T13:29:57.534Z"
         }
       ],
       "summary": "",

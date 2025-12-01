@@ -25,9 +25,9 @@
               "assetId": 1,
               "purchaseValue": 1,
               "accumulatedDepreciation": 1,
-              "purchaseDate": "2025-11-26T16:30:10.935Z",
-              "depreciationStartDate": "2025-11-26T16:30:10.935Z",
-              "lastDepreciationDate": "2025-11-26T16:30:10.935Z",
+              "purchaseDate": "2025-12-01T13:29:57.501Z",
+              "depreciationStartDate": "2025-12-01T13:29:57.501Z",
+              "lastDepreciationDate": "2025-12-01T13:29:57.501Z",
               "locationId": 1
             }
           ]
@@ -49,9 +49,9 @@
               "assetId": "<createdId>",
               "purchaseValue": 1,
               "accumulatedDepreciation": 1,
-              "purchaseDate": "2025-11-26T16:30:10.935Z",
-              "depreciationStartDate": "2025-11-26T16:30:10.935Z",
-              "lastDepreciationDate": "2025-11-26T16:30:10.935Z",
+              "purchaseDate": "2025-12-01T13:29:57.501Z",
+              "depreciationStartDate": "2025-12-01T13:29:57.501Z",
+              "lastDepreciationDate": "2025-12-01T13:29:57.501Z",
               "locationId": "<createdId>"
             }
           ]

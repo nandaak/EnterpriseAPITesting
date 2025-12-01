@@ -23,7 +23,7 @@
       "POST": [
         "/erp-apis/PurchaseOrder",
         {
-          "orderDate": "2025-11-26T16:30:10.977Z",
+          "orderDate": "2025-12-01T13:29:57.538Z",
           "description": "string",
           "termsAndCondition": "string",
           "vendorId": 1,
@@ -80,7 +80,7 @@
         "/erp-apis/PurchaseOrder",
         {
           "id": "<createdId>",
-          "orderDate": "2025-11-26T16:30:10.977Z",
+          "orderDate": "2025-12-01T13:29:57.538Z",
           "description": "string",
           "termsAndCondition": "string",
           "vendorId": "<createdId>",

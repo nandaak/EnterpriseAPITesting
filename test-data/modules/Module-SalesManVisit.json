@@ -51,7 +51,7 @@
         "/erp-apis/SalesManVisit",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "journeyDate": "2025-11-26T16:30:10.986Z",
+          "journeyDate": "2025-12-01T13:29:57.545Z",
           "salesManId": "00000000-0000-0000-0000-000000000000",
           "marketPlaceId": "00000000-0000-0000-0000-000000000000",
           "customerId": 1,
@@ -74,7 +74,7 @@
         "/erp-apis/SalesManVisit",
         {
           "id": "<createdId>",
-          "journeyDate": "2025-11-26T16:30:10.986Z",
+          "journeyDate": "2025-12-01T13:29:57.545Z",
           "permission": {
             "canCollectPayments": true,
             "canUpdateCustomerInfo": true,

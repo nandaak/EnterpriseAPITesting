@@ -1,0 +1,3536 @@
+{
+  "General_Settings": {
+    "Master_Data": {
+      "Company_Definition": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/Company/GetFirstCompany",
+          {}
+        ]
+      },
+      "Discount_Policy": {
+        "Post": [
+          "/erp-apis/DiscountPolicy",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "discountPercentage": 1,
+            "userIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/DiscountPolicy",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "discountPercentage": 1,
+            "userIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/DiscountPolicy/<createdId>",
+          {}
+        ],
+        "View": [
+          "/erp-apis/DiscountPolicy/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/DiscountPolicy/<createdId>",
+          {}
+        ]
+      },
+      "Requests": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/api/workflows/GetAllProcessesLookup",
+          {}
+        ]
+      },
+      "Financial_Calendar": {
+        "Post": [
+          "/erp-apis/FinancialYear",
+          {
+            "name": "string",
+            "code": "string",
+            "fromDate": "2025-11-26",
+            "toDate": "2025-11-26",
+            "noOfExtraPeriods": 1,
+            "financialYearPeriods": [
+              {
+                "status": true,
+                "periodStart": "2025-11-26",
+                "periodEnd": "2025-11-26"
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/FinancialYear",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "code": "string"
+          }
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/FinancialYear/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/FinancialYear/GetLastYearDate",
+          {}
+        ]
+      },
+      "Tax_Group": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/TaxGroup",
+          {}
+        ]
+      },
+      "Tax_Definition": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Tax",
+          {}
+        ]
+      },
+      "Currency_Definition": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Currency",
+          {}
+        ]
+      },
+      "Currency_Conversion": {
+        "Post": [
+          "/erp-apis/CurrencyConversion",
+          {
+            "fromCurrencyId": 1,
+            "fromCurrencyRate": 1,
+            "toCurrencyId": 1,
+            "note": "string"
+          }
+        ],
+        "PUT": [
+          "/erp-apis/CurrencyConversion",
+          {
+            "id": "<createdId>",
+            "fromCurrencyId": "<createdId>",
+            "fromCurrencyRate": 1,
+            "toCurrencyId": "<createdId>",
+            "note": "string"
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/CurrencyConversion/<createdId>",
+          {}
+        ]
+      },
+      "Tags_Definition": {
+        "Post": [
+          "/erp-apis/Tag",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "moduleIds": [
+              1
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Tag",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "code": "string",
+            "modulesId": [
+              "<createdId>"
+            ],
+            "isActive": true
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/Tag?Id=28",
+          {
+            "Id": 28
+          }
+        ],
+        "LookUP": [
+          "/erp-apis/Tag",
+          {}
+        ]
+      },
+      "Workflow_Configuration": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/api/workflows/GetAllProcessesLookup?isActive=true",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "VAT_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/GeneralSettingReport/VatReport?DateFrom=2025-10-01&DateTo=2025-10-14",
+          {}
+        ]
+      },
+      "Vat_Management": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/SalesInvoice/ZatcaInvoices",
+          {}
+        ]
+      }
+    },
+    "Administration": {
+      "Users_Management": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Lookup?lookups=License",
+          {}
+        ]
+      },
+      "Generate_App_Token": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/CurrentUserInfo/GetAppToken",
+          {}
+        ]
+      },
+      "Electronic_Integration": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/ZatcaDevice/CurrentInfo",
+          {}
+        ]
+      },
+      "User_Management": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/UserBranchAccess/GetAll",
+          {}
+        ]
+      }
+    }
+  },
+  "Accounting": {
+    "Master_Data": {
+      "Accounting_General_Settings": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Chart_of_Accounts": {
+        "Post": [
+          "/erp-apis/ChartOfAccounts/AddAccount",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "natureId": "Debit",
+            "costCenterConfig": "Mandatory",
+            "hasNoChild": true,
+            "accountTypeId": 1,
+            "accountSectionId": 1,
+            "currencyId": 1,
+            "tags": [
+              1
+            ],
+            "companies": [
+              "00000000-0000-0000-0000-000000000000"
+            ],
+            "accountActivation": "Active",
+            "periodicActiveFrom": "2025-11-26T16:30:10.884Z",
+            "periodicActiveTo": "2025-11-26T16:30:10.884Z",
+            "costCenters": [
+              {
+                "percentage": 1,
+                "costCenterId": 1
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/ChartOfAccounts/EditAccount",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "parentId": "<createdId>",
+            "natureId": "Debit",
+            "costCenterConfig": "Mandatory",
+            "hasNoChild": true,
+            "accountTypeId": "<createdId>",
+            "accountSectionId": "<createdId>",
+            "currencyId": "<createdId>",
+            "tags": [
+              1
+            ],
+            "companies": [
+              "00000000-0000-0000-0000-000000000000"
+            ],
+            "accountActivation": "Active",
+            "periodicActiveFrom": "2025-11-26T16:30:10.884Z",
+            "periodicActiveTo": "2025-11-26T16:30:10.884Z",
+            "costCenters": [
+              {
+                "id": "<createdId>",
+                "percentage": 1,
+                "costCenterId": "<createdId>"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/ChartOfAccounts/GetAccountDetails?id=1293",
+          {}
+        ]
+      },
+      "Cost_Center_Definition": {
+        "Post": [
+          "/erp-apis/CostCenter/AddCostCenter",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "parentId": 1,
+            "isDetail": true,
+            "isActive": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/CostCenter/EditCostCenter",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "parentId": "<createdId>",
+            "isDetail": true,
+            "isActive": true
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/CostCenter/Delete?Id=79",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Journal_Entry": {
+        "Post": [
+          "/erp-apis/JournalEntry",
+          {
+            "refrenceNumber": "string",
+            "journalDate": "2025-11-26T16:30:10.884Z",
+            "type": "Manual",
+            "description": "string",
+            "periodId": "string",
+            "isHeaderDescriptionCopied": true,
+            "journalEntryLines": [
+              {
+                "lineDescription": "string",
+                "debitAmount": 1,
+                "creditAmount": 1,
+                "currencyRate": 1,
+                "currencyId": 1,
+                "accountId": 1,
+                "isVatLine": true,
+                "hasVat": true,
+                "createdOn": "2025-11-26T16:30:10.884Z",
+                "costCenters": [
+                  {}
+                ]
+              }
+            ],
+            "journalEntryAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/JournalEntry/Edit",
+          {
+            "id": "<createdId>",
+            "referenceNumber": "string",
+            "journalDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "isHeaderDescriptionCopied": true,
+            "journalEntryLines": [
+              {
+                "id": "<createdId>",
+                "accountId": "<createdId>",
+                "lineDescription": "string",
+                "debitAmount": 1,
+                "creditAmount": 1,
+                "debitAmountLocal": 1,
+                "creditAmountLocal": 1,
+                "currencyRate": 1,
+                "isVatLine": true,
+                "hasVat": true,
+                "currencyId": "<createdId>",
+                "createdOn": "2025-11-26T16:30:10.884Z",
+                "costCenters": [
+                  {}
+                ]
+              }
+            ],
+            "journalEntryAttachments": [
+              {
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
+                "name": "string"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/JournalEntry/a331f1a1-32cb-4aed-40ab-08de0c2835e1",
+          {}
+        ],
+        "View": [
+          "/erp-apis/JournalEntry/View?Id=5acc117a-e6d7-4a0e-ccfa-08ddf3a0811c",
+          {}
+        ]
+      },
+      "Accounts_Opening_Balance": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/OpeningBalanceJournalEntry/",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "Account_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/ChartOfAccounts/ChildrenAccountsDropDown?",
+          {}
+        ]
+      },
+      "Cost_Center_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/CostCenter/CostCenterDropDown?",
+          {}
+        ]
+      },
+      "Trial_Balance": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Income_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/FinancialYear/FinancialYearDropDown",
+          {}
+        ]
+      },
+      "Financial_Position": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      }
+    }
+  },
+  "Finance": {
+    "Master_Data": {
+      "Finance_General_Settings": {
+        "Post": [
+          "/erp-apis/FinanceGeneralSettings",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/FinanceGeneralSettings",
+          {}
+        ]
+      },
+      "Treasury_Definition": {
+        "Post": [
+          "/erp-apis/Treasury",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "currencyId": 1,
+            "branches": [
+              "00000000-0000-0000-0000-000000000000"
+            ],
+            "accountId": 1,
+            "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "accountOpeningBalance": 1,
+            "openingBalance": 1
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Treasury",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "currencyId": "<createdId>",
+            "branches": [
+              "00000000-0000-0000-0000-000000000000"
+            ],
+            "accountId": "<createdId>",
+            "journalEntryLineId": "<createdId>",
+            "accountOpeningBalance": 1,
+            "openingBalance": 1
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/Treasury/<createdId>",
+          {
+            "Id": 35
+          }
+        ],
+        "LookUP": [
+          "/erp-apis/Treasury",
+          {}
+        ]
+      },
+      "Bank_Definition": {
+        "Post": [
+          "/erp-apis/Bank",
+          {
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
+            "bankAccounts": [
+              {
+                "accountNumber": "string",
+                "glAccountId": 1,
+                "iban": "string",
+                "currencyId": 1,
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
+                ],
+                "branches": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Bank/Edit",
+          {
+            "id": "<createdId>",
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
+            "bankAccounts": [
+              {
+                "id": "<createdId>",
+                "accountNumber": "string",
+                "glAccountId": "<createdId>",
+                "iban": "string",
+                "currencyId": "<createdId>",
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
+                ],
+                "branches": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/Bank/<createdId>",
+          {
+            "Id": 50
+          }
+        ],
+        "View": [
+          "/erp-apis/Bank/View/<createdId>",
+          {
+            "id": 89,
+            "code": "3XOI2",
+            "shortName": "LhVtY",
+            "contactName": "qcNmTJt",
+            "phone": "NTJyJVs",
+            "name": "BankoAR hSAYAD",
+            "nameAr": "BankoEN_nlVIhu",
+            "bankAddress": "hNZPfxl",
+            "bankEmail": "JLbDeYMC@test.com",
+            "fax": "NoSawSV",
+            "bankAccounts": [
+              {
+                "id": 164,
+                "accountNumber": "444401024375387",
+                "bankId": 89,
+                "glAccountCode": "1201001",
+                "glAccountName": "Vehicle Asset Account",
+                "iban": "001027764029",
+                "currencyName": "Saudi Riyal",
+                "accountOpeningBalance": 1000000,
+                "currentBalance": 786,
+                "openingBalance": 796,
+                "userPermission": [],
+                "branches": [
+                  "happytesting"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      "Payment_Methods": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/PaymentMethod/<createdId>",
+          {}
+        ]
+      },
+      "Payment_Terms": {
+        "Post": [
+          "/erp-apis/PaymentTerms",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "paymentTermLines": [
+              {
+                "dueTermValue": 1,
+                "afterValue": 1,
+                "afterPeriod": {},
+                "note": "string"
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/PaymentTerms",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "paymentTermLines": [
+              {
+                "id": "<createdId>",
+                "dueTermValue": 1,
+                "afterValue": 1,
+                "afterPeriod": {},
+                "note": "string"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/PaymentTerms/<createdId>",
+          {
+            "Id": 33
+          }
+        ],
+        "View": [
+          "/erp-apis/PaymentTerms/View/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/PaymentTerms/<createdId>",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "Treasury_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Bank_Account_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Payment_Reconciliation_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Customer/GetAllCustomerAdvancedSearch?PageNumber=1&PageSize=25&SortBy=1",
+          {}
+        ]
+      },
+      "Payment_Out_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/ChartOfAccounts/GetHasNoChildrenList",
+          {}
+        ]
+      },
+      "Payment_In_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/PaymentIn/GetCashReceiptReport?ToDate=2025-10-14&FromDate=2025-10-14&PageSize=25&PageNumber=1",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Payment_IN": {
+        "save": [
+          "/erp-apis/PaymentIn",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "paymentInDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHub": "Treasury",
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
+            "currencyId": 1,
+            "rate": 1,
+            "glAccountId": 1,
+            "taxId": 1,
+            "isCustomerAdvancedPayment": true,
+            "isAmountIncludesVat": true,
+            "sourceDocumentId": "string",
+            "sourceDocumentType": "FundTransfer",
+            "paymentInDetails": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "amount": 1,
+                "rate": 1,
+                "currencyId": 1,
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentInMethodDetails": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "paymentInDate": "2025-11-26T16:30:10.884Z",
+                "paymentInDetailCostCenters": [
+                  {}
+                ]
+              }
+            ],
+            "isFromFundTransfer": true,
+            "saveToContext": true,
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/PaymentIn",
+          {
+            "id": "<createdId>",
+            "paymentInDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHubDetailId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
+            "rate": 1,
+            "glAccountId": "<createdId>",
+            "taxId": "<createdId>",
+            "isCustomerAdvancedPayment": true,
+            "isAmountIncludesVat": true,
+            "paymentInDetails": [
+              {
+                "id": "<createdId>",
+                "amount": 1,
+                "rate": 1,
+                "currencyId": "<createdId>",
+                "paymentMethodId": "<createdId>",
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "<createdId>",
+                "paymentInMethodDetail": {},
+                "glAccountId": "<createdId>",
+                "notes": "string",
+                "paymentInDetailCostCenters": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/PaymentIn/f2337325-740c-4b24-7378-08ddf360e24c",
+          {
+            "Id": "f2337325-740c-4b24-7378-08ddf360e24c"
+          }
+        ],
+        "View": [
+          "/erp-apis/PaymentIn/GetView/77966f84-9638-47b5-6153-08de09b5d890",
+          {}
+        ]
+      },
+      "Payment_OUT": {
+        "Post": [
+          "/erp-apis/PaymentOut",
+          {
+            "paymentOutDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHub": "Treasury",
+            "paymentHubDetailId": "string",
+            "bankAccountId": 1,
+            "currencyId": 1,
+            "rate": 1,
+            "glAccountId": 1,
+            "sourceDocumentId": "string",
+            "sourceDocumentType": "FundTransfer",
+            "paymentOutDetails": [
+              {
+                "amount": 1,
+                "rate": 1,
+                "currencyId": 1,
+                "paymentMethodId": 1,
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "string",
+                "paymentOutMethodDetails": {},
+                "glAccountId": 1,
+                "notes": "string",
+                "isVatLine": true,
+                "hasVat": true,
+                "paymentOutDetailCostCenters": [
+                  {}
+                ]
+              }
+            ],
+            "saveToContext": true,
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/PaymentOut",
+          {
+            "id": "<createdId>",
+            "paymentOutDate": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "paymentHubDetailId": "<createdId>",
+            "bankAccountId": "<createdId>",
+            "currencyId": "<createdId>",
+            "rate": 1,
+            "glAccountId": "<createdId>",
+            "paymentOutDetails": [
+              {
+                "id": "<createdId>",
+                "amount": 1,
+                "rate": 1,
+                "currencyId": "<createdId>",
+                "paymentMethodId": "<createdId>",
+                "paymentMethodType": {},
+                "paidBy": {},
+                "paidByDetailsId": "<createdId>",
+                "paymentOutMethodDetail": {},
+                "glAccountId": "<createdId>",
+                "notes": "string",
+                "isVatLine": true,
+                "hasVat": true,
+                "paymentOutDetailCostCenters": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/PaymentOut/517399ff-248e-411e-27ce-08de0b743e4c",
+          {
+            "Id": "517399ff-248e-411e-27ce-08de0b743e4c"
+          }
+        ],
+        "View": [
+          "/erp-apis/PaymentOut/GetView/60040464-a2f7-45de-45f7-08de09de88e0",
+          {}
+        ]
+      },
+      "Fund_Transfer": {
+        "Post": [
+          "/erp-apis/FundTransfer",
+          {
+            "date": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "reference": "string",
+            "amount": 1,
+            "fromPaymentHubDetails": "string",
+            "fromBankAccount": "string",
+            "toPaymentHubDetails": "string",
+            "toBankAccount": "string",
+            "fundTransferToDetail": {
+              "paymentHubId": "Treasury",
+              "paymentHubDetailsId": 1,
+              "bankAccountId": 1,
+              "currencyId": 1,
+              "paymentMethodId": 1,
+              "rate": 1,
+              "currentBalance": 1,
+              "amount": 1,
+              "glAccountId": 1,
+              "fundTransferStatus": "From",
+              "commissionValue": 1,
+              "bankReference": "string"
+            },
+            "fundTransferFromDetail": {}
+          }
+        ],
+        "PUT": [
+          "/erp-apis/FundTransfer",
+          {
+            "id": "<createdId>",
+            "date": "2025-11-26T16:30:10.884Z",
+            "description": "string",
+            "reference": "string",
+            "amount": 1,
+            "fromPaymentHubDetails": "string",
+            "fromBankAccount": "string",
+            "toPaymentHubDetails": "string",
+            "toBankAccount": "string",
+            "fundTransferToDetail": {
+              "paymentHubId": "Treasury",
+              "paymentHubDetailsId": "<createdId>",
+              "bankAccountId": "<createdId>",
+              "currencyId": "<createdId>",
+              "paymentMethodId": "<createdId>",
+              "rate": 1,
+              "currentBalance": 1,
+              "amount": 1,
+              "fundTransferStatus": "From",
+              "commissionAmount": 1,
+              "bankReference": "string"
+            },
+            "fundTransferFromDetail": {}
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/FundTransfer/7ff98845-ab16-44d0-c423-08de0bd989d2",
+          {
+            "Id": "7ff98845-ab16-44d0-c423-08de0bd989d2"
+          }
+        ],
+        "View": [
+          "/erp-apis/FundTransfer/0f989fc1-1d71-4496-2c17-08de0366777a/view",
+          {}
+        ]
+      },
+      "Payment_Reconciliations": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ]
+      }
+    }
+  },
+  "Sales": {
+    "Master_Data": {
+      "Sales_General_Settings": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/SalesGeneralSettings",
+          {}
+        ]
+      },
+      "Customer_Category": {
+        "Post": [
+          "/erp-apis/CustomerCategory",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
+          }
+        ],
+        "PUT": [
+          "/erp-apis/CustomerCategory",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "code": "string",
+            "receivableAccountId": "<createdId>",
+            "salesAccountId": "<createdId>",
+            "salesReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>",
+            "pricePolicyId": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "marketType": "B2B"
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/CustomerCategory/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/CustomerCategory/<createdId>",
+          {}
+        ]
+      },
+      "Customer_Definition": {
+        "Post": [
+          "/erp-apis/Customer",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "name": "string",
+            "nameAr": "string",
+            "categoryId": 1,
+            "marketType": "B2B",
+            "birthdate": "2025-11-26T16:30:10.884Z",
+            "photo": "string",
+            "tagIds": [
+              1
+            ],
+            "contactInfo": {
+              "contactPhone": "string",
+              "contactEmail": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactWebsite": "string",
+              "contactFax": "string",
+              "contactPersonPhone": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonEmail": "string",
+              "contactPersonName": "string"
+            },
+            "financialInfo": {
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "allowCreditLimit": true,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "legalInfo": {
+              "commercialRegistrationNumber": "string",
+              "taxIdentificationNumber": "string",
+              "street": "string",
+              "citySubdivisionName": "string",
+              "cityName": "string",
+              "postalZone": "string",
+              "countrySubEntity": "string",
+              "countryId": "string",
+              "buildingNumber": "string",
+              "additionalStreetName": "string",
+              "registrationName": "string",
+              "otherID": "string",
+              "nationalNumber": "string"
+            },
+            "accountingInfo": {
+              "receivableAccountId": 1,
+              "salesAccountId": 1,
+              "salesReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "customerAddresses": [
+              {
+                "longitude": 1,
+                "latitude": 1,
+                "errorRadius": 1
+              }
+            ],
+            "customerMarketPlaces": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+                "salesManId": "00000000-0000-0000-0000-000000000000",
+                "address": "string"
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Customer",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "categoryId": "<createdId>",
+            "marketType": "B2B",
+            "birthdate": "2025-11-26T16:30:10.884Z",
+            "photo": "string",
+            "tagIds": [
+              1
+            ],
+            "contactInfo": {
+              "contactPhone": "string",
+              "contactEmail": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactWebsite": "string",
+              "contactFax": "string",
+              "contactPersonPhone": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonEmail": "string",
+              "contactPersonName": "string"
+            },
+            "financialInfo": {
+              "paymentTermId": "<createdId>",
+              "pricePolicyId": "<createdId>",
+              "allowCreditLimit": true,
+              "creditLimit": 1,
+              "currencyId": "<createdId>"
+            },
+            "legalInfo": {
+              "commercialRegistrationNumber": "string",
+              "taxIdentificationNumber": "string",
+              "street": "string",
+              "citySubdivisionName": "string",
+              "cityName": "string",
+              "postalZone": "string",
+              "countrySubEntity": "string",
+              "countryId": "<createdId>",
+              "buildingNumber": "string",
+              "additionalStreetName": "string",
+              "registrationName": "string",
+              "otherID": "<createdId>",
+              "nationalNumber": "string"
+            },
+            "accountingInfo": {
+              "receivableAccountId": "<createdId>",
+              "salesAccountId": "<createdId>",
+              "salesReturnAccountId": "<createdId>",
+              "discountAccountId": "<createdId>"
+            },
+            "customerAddresses": [
+              {
+                "id": "<createdId>",
+                "longitude": 1,
+                "latitude": 1,
+                "errorRadius": 1
+              }
+            ],
+            "customerMarketPlaces": [
+              {
+                "id": "<createdId>",
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "<createdId>",
+                "salesManId": "<createdId>",
+                "address": "string"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/Customer/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/Customer/<createdId>",
+          {}
+        ]
+      },
+      "Sales_Team": {
+        "Post": [
+          "/erp-apis/SalesTeam",
+          {
+            "name": "string",
+            "nameAr": "string"
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesTeam/EditSalesTeamGeneral",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string"
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesTeam/3c78f5f1-a86a-4068-32c2-08de0b58f0ab",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesTeam/4398784e-deb1-4033-7a87-08ddf5b7a51e",
+          {}
+        ]
+      },
+      "Salesman_Definition": {
+        "Post": [
+          "/erp-apis/SalesMan",
+          {
+            "salesTeamId": "00000000-0000-0000-0000-000000000000",
+            "userId": "00000000-0000-0000-0000-000000000000",
+            "name": "string",
+            "nameAr": "string",
+            "salesPhone": "string",
+            "paymentTermId": 1,
+            "treasuryId": 1,
+            "paymentMethods": [
+              1
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesMan",
+          {
+            "id": "<createdId>",
+            "salesTeamId": "<createdId>",
+            "salesPhone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "isActive": true,
+            "userId": "<createdId>",
+            "branchesIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ],
+            "paymentTermId": "<createdId>",
+            "treasuryId": "<createdId>",
+            "paymentMethods": [
+              1
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesMan/f0e7e970-effc-4a6c-ad44-08de0beb1255",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesMan/96b7c675-12b0-438d-6150-08ddfb78e9cc",
+          {}
+        ]
+      },
+      "Price_Policy": {
+        "Post": [
+          "/erp-apis/PricePolicy",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "policySource": "Manual",
+            "policyItemsList": [
+              {
+                "itemId": 1,
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "itemVariantId": 1,
+                "price": 1,
+                "isVatApplied": true,
+                "isSellingPriceIncludeVat": true,
+                "taxId": 1,
+                "taxRatio": 1,
+                "priceWithVat": 1
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/PricePolicy",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "policySource": "Manual",
+            "policyItemsList": [
+              {
+                "id": "<createdId>",
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
+                "isVatApplied": true,
+                "isSellingPriceIncludeVat": true,
+                "taxRatio": 1,
+                "taxId": "<createdId>",
+                "price": 1,
+                "priceWithVat": 1
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/PricePolicy/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Inventory/GetAllItemsLookup?IncludeService=true",
+          {}
+        ]
+      },
+      "Market_Place": {
+        "Post": [
+          "/erp-apis/MarketPlace",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "status": "Active",
+            "latitude": 1,
+            "longitude": 1,
+            "errorRadius": 1
+          }
+        ],
+        "PUT": [
+          "/erp-apis/MarketPlace",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "status": "Active",
+            "latitude": 1,
+            "longitude": 1,
+            "errorRadius": 1
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/MarketPlace/fb133b89-8b43-4986-afc7-08de0b8870a2",
+          {}
+        ],
+        "View": [
+          "/erp-apis/MarketPlace/2f51050b-e9c8-4b7e-19cf-08de093c8d6c",
+          {}
+        ]
+      },
+      "Project_Definition": {
+        "Post": [
+          "/erp-apis/SalesProject",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "description": "string",
+            "customerId": 1,
+            "startDate": "2025-11-26T16:30:10.885Z",
+            "endDate": "2025-11-26T16:30:10.885Z",
+            "contractValue": 1
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesProject",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "description": "string",
+            "customerId": "<createdId>",
+            "startDate": "2025-11-26T16:30:10.885Z",
+            "endDate": "2025-11-26T16:30:10.885Z",
+            "contractValue": 1
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesProject/dd432f24-4a3a-402f-0b34-08de0b84d67d",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesProject/View/56f62dfa-521f-4cbe-547f-08ddf5c905cc",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/SalesProject/56f62dfa-521f-4cbe-547f-08ddf5c905cc",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Customer_Opening_Balance": {
+        "Post": [
+          "/erp-apis/CustomerOpeningBalance",
+          {
+            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "amountNature": "Debit",
+            "customerOpeningBalanceDetails": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "customerId": 1,
+                "balance": 1,
+                "balanceType": {},
+                "dueDates": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/CustomerOpeningBalance",
+          {
+            "id": "<createdId>",
+            "openingBalanceJournalEntryLineId": "<createdId>",
+            "amountNature": "Debit",
+            "customerOpeningBalanceDetails": [
+              {
+                "id": "<createdId>",
+                "customerId": "<createdId>",
+                "balance": 1,
+                "balanceType": {},
+                "dueDates": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/d60c0043-584d-4cb1-2c25-08de0beecb44",
+          {}
+        ],
+        "View": [
+          "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/839838e6-e868-45d9-cc18-08ddfab82b16",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/CustomerOpeningBalance/GetById/839838e6-e868-45d9-cc18-08ddfab82b16",
+          {}
+        ]
+      },
+      "Sales_Order": {
+        "Post": [
+          "/erp-apis/SalesOrder",
+          {
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "expiryDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndConditions": "string",
+            "customerId": 1,
+            "currencyId": 1,
+            "currencyRate": 1,
+            "salesmanId": "00000000-0000-0000-0000-000000000000",
+            "paymentTermId": 1,
+            "pricePolicyId": 1,
+            "items": [
+              {
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "quantity": 1,
+                "price": 1,
+                "vatPercentage": 1,
+                "isVatIncluded": true,
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "taxId": 1,
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "salesDetailDiscounts": [
+                  {}
+                ]
+              }
+            ],
+            "salesOrderAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true
+              }
+            ],
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesOrder",
+          {
+            "id": "<createdId>",
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "expiryDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndConditions": "string",
+            "customerId": "<createdId>",
+            "currencyId": "<createdId>",
+            "currencyRate": 1,
+            "salesmanId": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "pricePolicyId": "<createdId>",
+            "items": [
+              {
+                "id": "<createdId>",
+                "barCode": "string",
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": "<createdId>",
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": "<createdId>",
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "uomId": "<createdId>",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "taxId": "<createdId>",
+                "categoryType": {},
+                "description": "string",
+                "quantity": 1,
+                "price": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "salesDetailDiscounts": [
+                  {}
+                ]
+              }
+            ],
+            "salesOrderAttachments": [
+              {
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
+                "name": "string"
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "id": "<createdId>",
+                "discountPolicyId": "<createdId>",
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesOrder/45002048-b761-4ca0-e03a-08de0b5296f5",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesOrder/GetSalesOrderViewById/64a39178-fa3f-43d2-7c27-08ddf4e4e933",
+          {}
+        ]
+      },
+      "Sales_Invoice": {
+        "Post": [
+          "/erp-apis/SalesInvoice",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "invoiceDueDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "customerId": 1,
+            "customerName": "string",
+            "customerCreditLimit": 1,
+            "pricePolicyId": 1,
+            "currencyId": 1,
+            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "salesManName": "string",
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "reference": "string",
+            "sourceType": "Direct",
+            "applicationSource": "ERP",
+            "isLinkedToAdvancedPayment": true,
+            "salesInvoiceSources": [
+              {
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceCode": "string"
+              }
+            ],
+            "posSessionId": "00000000-0000-0000-0000-000000000000",
+            "salesInvoiceDetails": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "price": 1,
+                "cost": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "itemStockBatchHeaderId": "00000000-0000-0000-0000-000000000000",
+                "pricePolicyDetailId": 1,
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceId": "00000000-0000-0000-0000-000000000000",
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "isServiceItem": true,
+                "isProductItem": true,
+                "salesInvoiceTracking": {},
+                "salesDetailDiscounts": [
+                  {}
+                ],
+                "salesInvoiceDetailIngredients": [
+                  {}
+                ]
+              }
+            ],
+            "salesInvoiceBalances": [
+              {
+                "dueAmount": 1,
+                "dueDate": "2025-11-26T16:30:10.885Z",
+                "dueBalance": 1
+              }
+            ],
+            "posInvoicePayments": [
+              {
+                "amount": 1,
+                "paymentMethodType": {},
+                "paymentMethodCode": "string",
+                "paymentMethodId": 1
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "discountPolicyId": 1,
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true,
+                "salesOrderHeaderId": "00000000-0000-0000-0000-000000000000"
+              }
+            ],
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesInvoice",
+          {
+            "id": "<createdId>",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "invoiceDueDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": "<createdId>",
+            "warehouseName": "string",
+            "customerId": "<createdId>",
+            "customerName": "string",
+            "customerCreditLimit": 1,
+            "pricePolicyId": "<createdId>",
+            "currencyId": "<createdId>",
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": "<createdId>",
+            "reference": "string",
+            "salesManId": "<createdId>",
+            "salesManName": "string",
+            "sourceType": "Direct",
+            "applicationSource": "ERP",
+            "isLinkedToAdvancedPayment": true,
+            "salesInvoiceSources": [
+              {
+                "id": "<createdId>",
+                "sourceId": "<createdId>",
+                "sourceCode": "string"
+              }
+            ],
+            "salesInvoiceDetails": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "id": "<createdId>",
+                "barCode": "string",
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": "<createdId>",
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": "<createdId>",
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "<createdId>",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "price": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "isVatIncluded": true,
+                "vatPercentage": 1,
+                "taxId": "<createdId>",
+                "notes": "string",
+                "itemStockBatchHeaderId": "<createdId>",
+                "pricePolicyDetailId": "<createdId>",
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceDetailId": "<createdId>",
+                "sourceId": "<createdId>",
+                "isServiceItem": true,
+                "salesInvoiceTracking": {},
+                "salesDetailDiscounts": [
+                  {}
+                ]
+              }
+            ],
+            "salesInvoiceBalances": [
+              {
+                "id": "<createdId>",
+                "dueAmount": 1,
+                "dueDate": "2025-11-26T16:30:10.885Z",
+                "dueBalance": 1
+              }
+            ],
+            "salesDiscounts": [
+              {
+                "id": "<createdId>",
+                "discountPolicyId": "<createdId>",
+                "discountPolicyName": "string",
+                "discountPercentage": 1,
+                "isActive": true,
+                "salesOrderHeaderId": "<createdId>"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesInvoice/71910b4a-fb6e-4004-8368-08de0b52563c",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesInvoice/GetInvoiceViewById/c37f7375-238b-4713-5948-08de022af952",
+          {}
+        ]
+      },
+      "Return_Sales_Invoice": {
+        "Post": [
+          "/erp-apis/ReturnSalesInvoice",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "returnInvoiceDate": "2025-11-26T16:30:10.885Z",
+            "salesInvoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+            "description": "string",
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "posSessionId": "00000000-0000-0000-0000-000000000000",
+            "returnSalesInvoiceDetails": [
+              {
+                "toReturnQuantity": 1,
+                "salesInvoiceDetailId": "00000000-0000-0000-0000-000000000000",
+                "returnSalesInvoiceDetailIngredients": [
+                  {}
+                ]
+              }
+            ],
+            "posReturnInvoicePayments": [
+              {
+                "amount": 1,
+                "paymentMethodType": {},
+                "paymentMethodCode": "string",
+                "paymentMethodId": 1
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/ReturnSalesInvoice",
+          {
+            "id": "<createdId>",
+            "returnInvoiceDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "warehouseId": "<createdId>",
+            "warehouseName": "string",
+            "returnSalesInvoiceDetails": [
+              {
+                "id": "<createdId>",
+                "toReturnQuantity": 1
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/ReturnSalesInvoice/fec52941-da1c-4c92-1454-08de0b53bf60",
+          {}
+        ],
+        "View": [
+          "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/8019eec8-68a4-42e1-dd97-08ddf6f641b4",
+          {}
+        ]
+      },
+      "Project_Invoice": {
+        "Post": [
+          "/erp-apis/SalesProjectInvoice",
+          {
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "code": "string",
+            "description": "string",
+            "taxId": 1,
+            "vatPercentage": 1,
+            "salesProjectId": "00000000-0000-0000-0000-000000000000",
+            "actualExecutionValue": 1,
+            "taxableTotal": 1,
+            "items": [
+              {
+                "itemName": "string",
+                "itemValue": 1,
+                "itemType": {},
+                "taxId": 1,
+                "taxPercentage": 1,
+                "taxAmount": 1,
+                "total": 1
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/SalesProjectInvoice",
+          {
+            "id": "<createdId>",
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "code": "string",
+            "description": "string",
+            "taxId": "<createdId>",
+            "vatPercentage": 1,
+            "salesProjectId": "<createdId>",
+            "actualExecutionValue": 1,
+            "taxableTotal": 1,
+            "items": [
+              {
+                "id": "<createdId>",
+                "itemName": "string",
+                "itemValue": 1,
+                "itemType": {},
+                "taxId": "<createdId>",
+                "taxPercentage": 1,
+                "taxAmount": 1,
+                "total": 1
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/SalesProjectInvoice/fe2df806-652d-4c80-be0f-08de0bf3da68",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/SalesProjectInvoice",
+          {}
+        ]
+      },
+      "Sessions": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/POSSession",
+          {}
+        ]
+      },
+      "POS_Sales_Invoice": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/POSSession/GetAllPOSInvoicesList",
+          {}
+        ]
+      },
+      "POS_Return_Sales_Invoice": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/POSSession/GetAllPOSReturnInvoicesList",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "Customer_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Customer_Balance_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Customer_Aging_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Sales_Invoice_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Lookup?lookups=PaymentInStatus&lookups=SalesInvoiceStatus",
+          {}
+        ]
+      }
+    }
+  },
+  "Purchase": {
+    "Master_Data": {
+      "Vendor_Category": {
+        "Post": [
+          "/erp-apis/VendorCategory",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "payableAccountId": 1,
+            "purchaseAccountId": 1,
+            "purchaseReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
+          }
+        ],
+        "PUT": [
+          "/erp-apis/VendorCategory",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "payableAccountId": "<createdId>",
+            "purchaseAccountId": "<createdId>",
+            "purchaseReturnAccountId": "<createdId>",
+            "discountAccountId": "<createdId>",
+            "pricePolicyId": "<createdId>",
+            "paymentTermId": "<createdId>",
+            "marketType": "B2B"
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/VendorCategory/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/VendorCategory/<createdId>",
+          {}
+        ]
+      },
+      "Vendor_Definition": {
+        "Post": [
+          "/erp-apis/Vendor",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "photo": "string",
+            "birthDate": "2025-11-26T16:30:10.885Z",
+            "vendorCategoryId": 1,
+            "vendorInformation": {
+              "contactPhone": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactFax": "string",
+              "contactEmail": "string",
+              "contactWebsite": "string",
+              "contactPersonName": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonPhone": "string",
+              "contactPersonEmail": "string"
+            },
+            "vendorAddress": {
+              "state": "string",
+              "street": "string",
+              "longitude": 1,
+              "latitude": 1,
+              "radius": 1,
+              "countryId": "string",
+              "cityId": 1
+            },
+            "vendorLegal": {
+              "taxId": "string",
+              "commercialId": "string"
+            },
+            "vendorFinancial": {
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "vendorAccounting": {
+              "payableAccountId": 1,
+              "purchaseAccountId": 1,
+              "purchaseReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "vendorTagIds": [
+              1
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Vendor",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string",
+            "photo": "string",
+            "birthDate": "2025-11-26T16:30:10.885Z",
+            "vendorCategoryId": "<createdId>",
+            "vendorInformation": {
+              "id": "<createdId>",
+              "contactPhone": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactFax": "string",
+              "contactEmail": "string",
+              "contactWebsite": "string",
+              "contactPersonName": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonPhone": "string",
+              "contactPersonEmail": "string"
+            },
+            "vendorAddress": {
+              "id": "<createdId>",
+              "state": "string",
+              "street": "string",
+              "longitude": 1,
+              "latitude": 1,
+              "radius": 1,
+              "countryId": "<createdId>",
+              "cityId": "<createdId>"
+            },
+            "vendorLegal": {
+              "id": "<createdId>",
+              "taxId": "<createdId>",
+              "commercialId": "<createdId>"
+            },
+            "vendorFinancial": {
+              "id": "<createdId>",
+              "paymentTermId": "<createdId>",
+              "pricePolicyId": "<createdId>",
+              "creditLimit": 1,
+              "currencyId": "<createdId>"
+            },
+            "vendorAccounting": {
+              "id": "<createdId>",
+              "payableAccountId": "<createdId>",
+              "purchaseAccountId": "<createdId>",
+              "purchaseReturnAccountId": "<createdId>",
+              "discountAccountId": "<createdId>"
+            },
+            "vendorTagIds": [
+              1
+            ]
+          }
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/Vendor/View/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/Vendor/<createdId>",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Vendor_Opening_Balance": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/38ab27ae-12d0-4a9c-4e17-08ddf922b609",
+          {}
+        ]
+      },
+      "Purchase_Order": {
+        "Post": [
+          "/erp-apis/PurchaseOrder",
+          {
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndCondition": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "purchaseOrderDetails": [
+              {
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "trackingType": {},
+                "hasExpiryDate": true
+              }
+            ],
+            "purchaseOrderAttachments": [
+              {
+                "attachmentId": "string",
+                "name": "string"
+              }
+            ],
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/PurchaseOrder",
+          {
+            "id": "<createdId>",
+            "orderDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "termsAndCondition": "string",
+            "vendorId": "<createdId>",
+            "vendorName": "string",
+            "currencyId": "<createdId>",
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": "<createdId>",
+            "purchaseOrderDetails": [
+              {
+                "id": "<createdId>",
+                "barCode": "string",
+                "barCodeId": "<createdId>",
+                "itemId": "<createdId>",
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": "<createdId>",
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": "<createdId>",
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "<createdId>",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": "<createdId>",
+                "notes": "string",
+                "trackingType": {},
+                "hasExpiryDate": true
+              }
+            ],
+            "purchaseOrderAttachments": [
+              {
+                "id": "<createdId>",
+                "attachmentId": "<createdId>",
+                "name": "string"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/PurchaseOrder/d1d39a83-87ed-4780-6f81-08de0c927b1a",
+          {}
+        ],
+        "View": [
+          "/erp-apis/PurchaseOrder/9424e365-375f-4ce4-02df-08de04d79603/View",
+          {}
+        ]
+      },
+      "Purchase_Invoice": {
+        "Post": [
+          "/erp-apis/Invoice",
+          {
+            "invoiceDate": "2025-11-26T16:30:10.885Z",
+            "description": "string",
+            "isExternalPurchase": true,
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "reference": "string",
+            "sourceType": "Direct",
+            "sourceId": "00000000-0000-0000-0000-000000000000",
+            "sourceCode": "string",
+            "invoiceDetails": [
+              {
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "invoiceTracking": {}
+              }
+            ],
+            "enableWorkflow": true
+          }
+        ],
+        "PUT": [
+          "/erp-apis/Invoice/GetInvoiceViewById/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
+          {
+            "id": "<createdId>",
+            "invoiceDate": "2025-10-16T12:04:10",
+            "description": "456654",
+            "warehouseId": "<createdId>",
+            "warehouseName": "مخزن رئيسي 1",
+            "vendorId": "<createdId>",
+            "vendorName": "sayed",
+            "currencyRate": 1,
+            "paymentTermId": "<createdId>",
+            "reference": "58",
+            "currencyId": "<createdId>",
+            "currencyName": "Saudi Riyal",
+            "invoiceDetails": [
+              {
+                "id": "<createdId>",
+                "itemsUOM": [
+                  {
+                    "itemUOMId": "<createdId>",
+                    "itemId": "<createdId>",
+                    "uomId": "<createdId>",
+                    "uomCode": "G8roW",
+                    "uomNameAr": "وحدة القياس الأساسية",
+                    "uomNameEn": "BaseUOM",
+                    "conversionRatio": 1
+                  }
+                ],
+                "barCode": "",
+                "bardCodeId": null,
+                "description": "(2) Phone--",
+                "itemId": "<createdId>",
+                "itemCode": "2",
+                "itemVariantId": "<createdId>",
+                "discount": 0,
+                "discountAmount": 0,
+                "uomName": "BaseUOM",
+                "uomId": "<createdId>",
+                "taxRatio": "",
+                "quantity": "10",
+                "cost": "10000",
+                "subCost": 3000,
+                "notes": "",
+                "hasExpiryDate": false,
+                "stockInEntryMode": "Manual",
+                "trackingType": "NoTracking",
+                "trackingTypeAr": "",
+                "discountPercentage": 0,
+                "vatPercentage": 15,
+                "taxId": "<createdId>",
+                "itemName": "2-Phone--",
+                "categoryId": "<createdId>",
+                "itemCategoryNameAr": "الفئة الإفتراضية",
+                "itemCategoryNameEn": "Default category",
+                "categoryType": "Storable",
+                "itemVariantCode": "0000",
+                "itemVariantNameAr": "-",
+                "itemVariantNameEn": "-",
+                "uomCode": "G8roW",
+                "uomNameAr": "وحدة القياس الأساسية",
+                "uomNameEn": "BaseUOM",
+                "netCost": "10000",
+                "vatAmount": 15000,
+                "totalAfterDiscount": 100000,
+                "grandTotal": 115000,
+                "subTotal": 100000,
+                "isServiceItem": false,
+                "invoiceTracking": {
+                  "id": "<createdId>",
+                  "vendorBatchNo": "",
+                  "expireDate": null,
+                  "systemPatchNo": "",
+                  "serialId": "<createdId>",
+                  "trackingType": "NoTracking",
+                  "selectedValue": "",
+                  "hasExpiryDate": false
+                }
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/Invoice/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
+          {}
+        ],
+        "View": [
+          "/erp-apis/Invoice/GetInvoiceViewById/116f3b7f-2ff1-4e59-c25d-08de04d48c6a",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/Invoice/GetById/116f3b7f-2ff1-4e59-c25d-08de04d48c6a",
+          {}
+        ]
+      },
+      "Return_Purchase_Invoice": {
+        "Post": [
+          "/erp-apis/ReturnInvoice",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "returnInvoiceDate": "2025-11-26T16:30:10.886Z",
+            "invoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+            "description": "string",
+            "returnInvoiceDetails": [
+              {
+                "toReturnQuantity": 1,
+                "invoiceDetailId": "00000000-0000-0000-0000-000000000000"
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/erp-apis/ReturnInvoice",
+          {
+            "id": "<createdId>",
+            "returnInvoiceDate": "2025-11-26T16:30:10.886Z",
+            "description": "string",
+            "returnInvoiceDetails": [
+              {
+                "id": "<createdId>",
+                "toReturnQuantity": 1
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/erp-apis/ReturnInvoice/71aebbc5-af57-41d6-9b9d-08de0c28d8f3",
+          {}
+        ],
+        "View": [
+          "/erp-apis/ReturnInvoice/88c55678-aad7-411e-669c-08ddf6ab1a39/GetViewById",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "Vendor_Statement": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Vendor_Balance_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Purchase_Invoice_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Lookup?lookups=PurchaseInvoiceStatus",
+          {}
+        ]
+      }
+    }
+  },
+  "Inventory": {
+    "Master_Data": {
+      "Inventory_General_Settings": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/InventoryGeneralSetting",
+          {}
+        ]
+      },
+      "Item_Category": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/ItemCategory/GetTree",
+          {}
+        ]
+      },
+      "Re_order_Rules": {
+        "Post": [
+          "/inventory-apis/ReOrderRules",
+          {
+            "id": 0,
+            "itemVariantId": 101,
+            "itemsDisplaylabel": null,
+            "warehouseId": 16,
+            "warehouseDisplaylabel": null,
+            "balance": 3651,
+            "minQty": "1",
+            "maxQty": "10"
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/ReOrderRules",
+          {
+            "id": "<createdId>",
+            "itemVariantId": "<createdId>",
+            "itemsDisplaylabel": "-",
+            "warehouseId": "<createdId>",
+            "warehouseDisplaylabel": "مخزن رئيسي 1",
+            "balance": 3651,
+            "minQty": "10",
+            "maxQty": "30"
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/ReOrderRules?id=9",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/ReOrderRules",
+          {}
+        ]
+      },
+      "Item_Definition": {
+        "Post": [
+          "/inventory-apis/Item",
+          {
+            "name": "mno",
+            "nameAr": "mno",
+            "itemType": "1",
+            "categoryId": 38,
+            "uomCategoryId": 14
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/Item/EditGeneralData",
+          {
+            "id": "<createdId>",
+            "code": "its_00017",
+            "name": "non",
+            "nameAr": "non",
+            "photo": null,
+            "categoryId": "<createdId>",
+            "tags": [],
+            "countryId": null,
+            "taxId": null,
+            "shortName": null,
+            "warranty": null,
+            "isVatApplied": true,
+            "specialCare": null,
+            "lifeTime": null,
+            "color": null,
+            "itemType": "Storable",
+            "itemTypeAr": "مخزنى",
+            "maxDiscount": 100
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/Item/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/Item/GetGeneralData/<createdId>",
+          {}
+        ]
+      },
+      "UOM": {
+        "Post": [
+          "/inventory-apis/UOMCategories",
+          {
+            "nameAr": "non",
+            "nameEn": "non",
+            "unitOfMeasures": [
+              {
+                "code": "",
+                "nameAr": "سنتيمتر (سم)",
+                "nameEn": "Centimeter (cm)",
+                "shortName": "",
+                "isBaseUnit": true,
+                "factor": 1,
+                "BaseCalculation": 1,
+                "calculation": "1",
+                "reversal": "1",
+                "BaseReversal": 1,
+                "uomCategoryId": 0,
+                "systemUnitOfMeasureId": 3,
+                "fromUnitOfMeasureId": ""
+              },
+              {
+                "code": "",
+                "nameAr": "متر (م)",
+                "nameEn": "Meter (m)",
+                "shortName": "",
+                "factor": 1,
+                "calculation": "1 * 1 (1)",
+                "BaseCalculation": 1,
+                "calculationShow": "1 * 1 (1)",
+                "BaseReversal": 1,
+                "BaseReversalShow": "1 / 1 (1)",
+                "reversal": "1 / 1 (1)",
+                "isBaseUnit": false,
+                "uomCategoryId": 0,
+                "systemUnitOfMeasureName": "Meter (m)",
+                "systemUnitOfMeasureId": 1,
+                "fromUnitOfMeasureId": "Centimeter (cm)",
+                "systemUnitOfMeasureCategoryId": ""
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/UOMCategories/Edit",
+          {
+            "id": "<createdId>",
+            "nameAr": "nonnnn",
+            "nameEn": "nonnnn",
+            "unitOfMeasures": [
+              {
+                "id": "<createdId>",
+                "code": "",
+                "nameAr": "سنتيمتر (سم)",
+                "nameEn": "Centimeter (cm)",
+                "shortName": "",
+                "isBaseUnit": true,
+                "factor": 1,
+                "BaseCalculation": 1,
+                "calculation": "1",
+                "reversal": "1",
+                "BaseReversal": 1,
+                "uomCategoryId": "<createdId>",
+                "systemUnitOfMeasureId": "<createdId>",
+                "fromUnitOfMeasureId": "<createdId>"
+              },
+              {
+                "id": "<createdId>",
+                "code": "odeGa",
+                "nameAr": "متر (م)",
+                "nameEn": "Meter (m)",
+                "shortName": "",
+                "factor": 1,
+                "calculation": "1 * 1 (1)",
+                "BaseCalculation": 1,
+                "calculationShow": "1 * 1 (1)",
+                "BaseReversal": 1,
+                "reversalShow": "1 / 1 (1)",
+                "reversal": "1 / 1 (1)",
+                "BaseReversalShow": "1 / 1 (1)",
+                "systemUnitOfMeasureCategoryId": "<createdId>",
+                "isBaseUnit": false,
+                "uomCategoryId": "<createdId>",
+                "systemUnitOfMeasureName": "Meter (m)",
+                "systemUnitOfMeasureId": "<createdId>",
+                "fromUnitOfMeasureId": "<createdId>",
+                "fromUnitOfMeasureName": "Centimeter (cm)"
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/UOM/8ba4b86a-8a37-417a-a1f5-e06861184988",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/UOMCategories/GetUOMCategoryWithUomsById/<createdId>",
+          {}
+        ],
+        "EDIT": [
+          "/inventory-apis/UOMCategories/Edit",
+          {}
+        ]
+      },
+      "Attributes_definitions": {
+        "Post": [
+          "/inventory-apis/AttributeGroup/AddAttributeGroupWithAttributeValues",
+          [
+            {
+              "nameAr": "100",
+              "nameEn": "5",
+              "isActive": true
+            }
+          ]
+        ],
+        "PUT": [
+          "/inventory-apis/AttributeGroup/EditAttributeGroupWithAttributeValues",
+          {
+            "id": "<createdId>",
+            "nameAr": "mon",
+            "nameEn": "mon",
+            "ItemAttributes": [
+              {
+                "id": "<createdId>",
+                "nameAr": "1000",
+                "nameEn": "50",
+                "isActive": true
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/AttributeGroup/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/AttributeGroup/GetAllWithValues",
+          {}
+        ]
+      },
+      "Warehouse_definitions": {
+        "Post": [
+          "/inventory-apis/WareHouse/QuickAdd",
+          {
+            "name": "war9",
+            "nameAr": "war9",
+            "branchWarehouses": [
+              "17987a69-16b3-420b-b066-08ddf360e24c",
+              "6ac9b711-ce24-4790-447c-08ddf38f2dd6",
+              "b09981d8-29ef-4f1b-bf59-08ddf4494443",
+              "f7ea8813-c55b-4759-bf5a-08ddf4494443"
+            ],
+            "warehouseType": 1
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/WareHouse/EditWareHouse",
+          {
+            "id": "43",
+            "code": "000043",
+            "name": "war999",
+            "nameAr": "war999",
+            "warehouseType": 1,
+            "branchWarehouses": [
+              "17987a69-16b3-420b-b066-08ddf360e24c",
+              "6ac9b711-ce24-4790-447c-08ddf38f2dd6"
+            ],
+            "addressWarehouse": null,
+            "warehouseAccount": {
+              "glAccountId": "<createdId>",
+              "glAccountName": "1101001-default Bank Account",
+              "cashSalesAccountId": null,
+              "creditSalesAccountId": null,
+              "salesReturnAccountId": null,
+              "salesCostAccountId": null,
+              "discountAccountId": null,
+              "purchaseAccountId": null,
+              "evaluationAccountId": null,
+              "goodsInTransitAccountId": null
+            }
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/WareHouse/DeleteWareHouse/<createdId>",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/WareHouse/GetItems?warehouseId=175&PageNumber=1&PageSize=25&SortBy=1",
+          {}
+        ],
+        "EDIT": [
+          "/inventory-apis/WareHouse/<createdId>",
+          {}
+        ]
+      },
+      "Operational_Tag": {
+        "Post": [
+          "/inventory-apis/OperationalTag",
+          {
+            "code": "",
+            "name": "ics",
+            "nameAr": "ics",
+            "operationType": "StockIn",
+            "warehouseId": 16,
+            "glAccountId": 1376
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/OperationalTag",
+          {
+            "id": "<createdId>",
+            "code": "00004",
+            "name": "icskla",
+            "nameAr": "icskla",
+            "operationType": "StockOut ",
+            "warehouseId": "<createdId>",
+            "glAccountId": "<createdId>"
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/OperationalTag/3f9fddd3-b235-4841-2cbd-08de0c98240f",
+          {}
+        ],
+        "EDIT": [
+          "/inventory-apis/OperationalTag/acbf950d-4157-49f3-4fc8-08de0946eeac",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Inventory_Opening_Balance": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/InvOpeningBalance/GetInvOpeningBalanceViewById/596d4b41-8c29-473d-1f32-08de054afc30",
+          {}
+        ]
+      },
+      "Inventory_Count": {
+        "Post": [
+          "/inventory-apis/Count",
+          {
+            "transactionDate": "2025-10-16T09:55:40.265Z",
+            "warehouseId": 16,
+            "reconcileType": "Inventory"
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
+          {
+            "id": "<createdId>",
+            "description": "588885",
+            "editInventoryCountItems": [
+              {
+                "id": "<createdId>",
+                "inventoryCountId": "<createdId>",
+                "itemStockBatchHeaderId": null,
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "itemVariantCode": "0000",
+                "itemCode": "2",
+                "description": "Phone - -",
+                "unitOfMeasureId": "<createdId>",
+                "unitOfMeasureName": "BaseUOM",
+                "trackingNo": null,
+                "trackingType": "NoTracking",
+                "expiryDate": null,
+                "systemCount": 3651,
+                "physicalCount": "3651"
+              }
+            ],
+            "countAttachments": []
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/Count/68eb09fd-bfd8-466b-7741-08de00fd3346",
+          {}
+        ]
+      },
+      "Stock_IN": {
+        "Post": [
+          "/inventory-apis/StockIn",
+          {
+            "id": "",
+            "code": "",
+            "receiptDate": "2025-10-16T09:58:08.293Z",
+            "sourceDocumentType": 0,
+            "sourceDocumentId": "6634f094-f287-40fa-44b2-08ddf5f93b14",
+            "warehouseId": 18,
+            "warehouseName": "مخزن رئيسي 3",
+            "notes": "",
+            "stockInStatus": "",
+            "stockInDetails": [
+              {
+                "uomOptions": [
+                  {
+                    "itemUOMId": 57,
+                    "itemId": 25,
+                    "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                    "uomCode": "G8roW",
+                    "uomNameAr": "وحدة القياس الأساسية",
+                    "uomNameEn": "BaseUOM",
+                    "conversionRatio": 1
+                  }
+                ],
+                "description": "(2) Phone--",
+                "itemId": 25,
+                "itemCodeName": "2",
+                "itemVariantId": 101,
+                "uomName": "BaseUOM",
+                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "quantity": "1",
+                "cost": "200",
+                "subTotal": 200,
+                "hasExpiryDate": false,
+                "stockInEntryMode": "Manual",
+                "trackingType": "NoTracking",
+                "stockInTracking": {
+                  "trackingType": "NoTracking"
+                }
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/StockIn",
+          {
+            "id": "<createdId>",
+            "code": "STIN_00037",
+            "receiptDate": "2025-10-16T09:58:08.293",
+            "sourceDocumentType": null,
+            "sourceDocumentId": "<createdId>",
+            "warehouseId": "<createdId>",
+            "warehouseName": "مخزن رئيسي 3",
+            "notes": "555",
+            "stockInStatus": "",
+            "stockInDetails": [
+              {
+                "itemNumber": "",
+                "id": "<createdId>",
+                "barCode": null,
+                "itemCode": "2",
+                "itemName": "2-Phone--",
+                "bardCodeId": null,
+                "description": "(2) Phone--",
+                "itemId": "<createdId>",
+                "itemCodeName": "2",
+                "itemVariantId": "<createdId>",
+                "itemVariantCode": "0000",
+                "itemVariantNameAr": "-",
+                "itemVariantNameEn": "-",
+                "uomName": "BaseUOM",
+                "uomNameAr": "وحدة القياس الأساسية",
+                "uomNameEn": "BaseUOM",
+                "uomId": "<createdId>",
+                "quantity": "100",
+                "cost": "30000",
+                "subTotal": 200,
+                "notes": null,
+                "hasExpiryDate": false,
+                "stockInEntryMode": "Manual",
+                "trackingType": "NoTracking",
+                "uomOptions": [
+                  {
+                    "itemUOMId": "<createdId>",
+                    "itemId": "<createdId>",
+                    "uomId": "<createdId>",
+                    "uomCode": "G8roW",
+                    "uomNameAr": "وحدة القياس الأساسية",
+                    "uomNameEn": "BaseUOM",
+                    "conversionRatio": 1
+                  }
+                ],
+                "stockInTracking": {
+                  "id": "<createdId>",
+                  "vendorBatchNo": null,
+                  "expireDate": null,
+                  "systemPatchNo": null,
+                  "serialId": null,
+                  "trackingType": "NoTracking",
+                  "selectedValue": 1
+                }
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/StockIn/7f24c4f2-f91f-483c-aaec-08de0c9a993f",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/StockIn/GetStockInViewById/e8db4f21-6469-4064-5b78-08de0501484c",
+          {}
+        ]
+      },
+      "Stock_OUT": {
+        "Post": [
+          "/inventory-apis/StockOut",
+          {
+            "receiptDate": "2025-10-16T10:00:42.865Z",
+            "sourceDocumentType": "0",
+            "sourceDocumentId": "16759204-eaa1-43ad-2103-08ddf8ee0372",
+            "warehouseId": 16,
+            "notes": "",
+            "stockOutDetails": [
+              {
+                "barCode": null,
+                "bardCodeId": null,
+                "itemId": 25,
+                "itemVariantId": 101,
+                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "description": "Phone--",
+                "quantity": 6,
+                "cost": 20000,
+                "hasExpiryDate": false,
+                "stockOutEntryMode": "Manual",
+                "trackingType": "NoTracking",
+                "stockOutTracking": {
+                  "trackingNo": "",
+                  "hasExpiryDate": false,
+                  "expireDate": null,
+                  "trackingType": "NoTracking"
+                }
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/StockOut",
+          {
+            "id": "<createdId>",
+            "receiptDate": "2025-10-16",
+            "sourceDocumentType": "OperationalTag",
+            "sourceDocumentId": "<createdId>",
+            "warehouseId": "<createdId>",
+            "notes": "6668",
+            "stockOutStatus": "Saved",
+            "stockOutDetails": [
+              {
+                "id": "<createdId>",
+                "barCode": null,
+                "bardCodeId": null,
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
+                "description": "-",
+                "quantity": 80,
+                "cost": 20000,
+                "notes": null,
+                "hasExpiryDate": false,
+                "stockOutEntryMode": "Manual",
+                "trackingType": "NoTracking",
+                "stockOutTracking": {
+                  "id": "<createdId>",
+                  "quantity": 80,
+                  "trackingNo": null,
+                  "hasExpiryDate": false,
+                  "expireDate": null,
+                  "trackingType": "NoTracking"
+                }
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/StockOut/94d1fca9-dab1-455f-c139-08de0c9af5c3",
+          {}
+        ]
+      },
+      "Stock_Transfer": {
+        "Post": [
+          "/inventory-apis/StockTransfer",
+          {
+            "receiptDate": "2025-10-16T10:03:17.407Z",
+            "sourceType": "Direct",
+            "sourceId": null,
+            "issuedWarehouseId": 16,
+            "targetWarehouseId": 17,
+            "transferRequestId": null,
+            "notes": "9999",
+            "stockTransferDetails": [
+              {
+                "sourceDetailId": null,
+                "bardCodeId": null,
+                "itemId": 25,
+                "itemVariantId": 101,
+                "uomId": "837d8a88-1527-499d-9f10-0202a6466ade",
+                "description": "Phone--",
+                "quantity": 20,
+                "hasExpiryDate": false,
+                "trackingType": "NoTracking",
+                "stockTransferTracking": {
+                  "trackingNo": "",
+                  "hasExpiryDate": false,
+                  "expireDate": null,
+                  "trackingType": "NoTracking"
+                }
+              }
+            ]
+          }
+        ],
+        "PUT": [
+          "/inventory-apis/StockTransfer",
+          {
+            "id": "<createdId>",
+            "receiptDate": "2025-10-16",
+            "sourceType": "Direct",
+            "sourceId": null,
+            "issuedWarehouseId": "<createdId>",
+            "targetWarehouseId": "<createdId>",
+            "transferRequestId": null,
+            "notes": "9999",
+            "stockTransferDetails": [
+              {
+                "id": "<createdId>",
+                "barCode": null,
+                "bardCodeId": null,
+                "itemId": "<createdId>",
+                "itemVariantId": "<createdId>",
+                "uomId": "<createdId>",
+                "description": "Phone--",
+                "quantity": 200,
+                "notes": null,
+                "hasExpiryDate": false,
+                "trackingType": "NoTracking",
+                "stockTransferTracking": {
+                  "id": "<createdId>",
+                  "trackingNo": "",
+                  "hasExpiryDate": false,
+                  "expireDate": null,
+                  "trackingType": "NoTracking"
+                }
+              }
+            ]
+          }
+        ],
+        "DELETE": [
+          "/inventory-apis/StockTransfer/d7536d43-c458-421d-4312-08de0c9b584c",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/StockTransfer/GetStockTransferViewById/dab3dfa4-b9d9-465d-882a-08ddf5c2920f",
+          {}
+        ]
+      }
+    },
+    "Reports": {
+      "Item_Card_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      },
+      "Inventory_balance_Report": {
+        "GET": [
+          "URL_HERE",
+          {}
+        ]
+      }
+    }
+  },
+  "Distribution": {
+    "Master_Data": {
+      "Device_Management": {
+        "Post": [
+          "/erp-apis/Device",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "prefix": "string",
+            "salesManId": "00000000-0000-0000-0000-000000000000",
+            "deviceLicenseId": "00000000-0000-0000-0000-000000000000"
+          }
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Device",
+          {}
+        ]
+      },
+      "Journey_Plan": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/SalesManVisit/GetSalesManList",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Transfer_Request": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/TransferRequest?SortColumn=createdOn&PageSize=25",
+          {}
+        ]
+      }
+    },
+    "Reports": {}
+  },
+  "Human_Resources": {
+    "Master_Data": {
+      "Employee": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Employee",
+          {}
+        ]
+      }
+    },
+    "Transaction": {},
+    "Reports": {}
+  },
+  "Fixed_Assets": {
+    "Master_Data": {
+      "Fixed_Assets_Groups": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/FixedAssetsGroup/GetByIdViewFixedAssetsGroup?id=3",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/FixedAssetsGroup/<createdId>",
+          {}
+        ]
+      },
+      "Assets": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/Assets/GetByIdViewAssets?id=4",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/Assets/<createdId>",
+          {}
+        ]
+      },
+      "Assets_Locations": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/AssetsLocation/GetAssetsLocationTree",
+          {}
+        ]
+      }
+    },
+    "Transaction": {
+      "Assets_Opening_Balances": {
+        "Post": [
+          "URL_HERE",
+          {}
+        ],
+        "PUT": [
+          "URL_HERE",
+          {}
+        ],
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "View": [
+          "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/f08ba421-41de-475b-0c63-08ddfb5c9c5b",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/AssetsOpeningBalance/f08ba421-41de-475b-0c63-08ddfb5c9c5b",
+          {}
+        ]
+      }
+    },
+    "Reports": {}
+  }
+}

@@ -1,0 +1,94 @@
+{
+  "CurrencyConversion": {
+    "GET__erp-apis_CurrencyConversion": {
+      "GET": [
+        "/erp-apis/CurrencyConversion",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_CurrencyConversion": {
+      "POST": [
+        "/erp-apis/CurrencyConversion",
+        {
+          "fromCurrencyId": 1,
+          "fromCurrencyRate": 1,
+          "toCurrencyId": 1,
+          "note": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_CurrencyConversion": {
+      "PUT": [
+        "/erp-apis/CurrencyConversion",
+        {
+          "id": 1,
+          "fromCurrencyId": 1,
+          "fromCurrencyRate": 1,
+          "toCurrencyId": 1,
+          "note": "string"
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_CurrencyConversion_Export": {
+      "GET": [
+        "/erp-apis/CurrencyConversion/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_CurrencyConversion__Id_": {
+      "GET": [
+        "/erp-apis/CurrencyConversion/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_CurrencyConversion__Id_": {
+      "DELETE": [
+        "/erp-apis/CurrencyConversion/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_CurrencyConversion_rate": {
+      "GET": [
+        "/erp-apis/CurrencyConversion/rate",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromCurrencyId",
+        "ToCurrencyId"
+      ]
+    }
+  }
+}

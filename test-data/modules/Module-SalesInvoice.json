@@ -26,8 +26,8 @@
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "invoiceDate": "2025-11-26T16:30:10.984Z",
-          "invoiceDueDate": "2025-11-26T16:30:10.984Z",
+          "invoiceDate": "2025-12-01T13:29:57.543Z",
+          "invoiceDueDate": "2025-12-01T13:29:57.543Z",
           "description": "string",
           "warehouseId": 1,
           "warehouseName": "string",
@@ -101,7 +101,7 @@
           "salesInvoiceBalances": [
             {
               "dueAmount": 1,
-              "dueDate": "2025-11-26T16:30:10.984Z",
+              "dueDate": "2025-12-01T13:29:57.543Z",
               "dueBalance": 1
             }
           ],
@@ -133,8 +133,8 @@
         "/erp-apis/SalesInvoice",
         {
           "id": "<createdId>",
-          "invoiceDate": "2025-11-26T16:30:10.984Z",
-          "invoiceDueDate": "2025-11-26T16:30:10.984Z",
+          "invoiceDate": "2025-12-01T13:29:57.543Z",
+          "invoiceDueDate": "2025-12-01T13:29:57.543Z",
           "description": "string",
           "warehouseId": "<createdId>",
           "warehouseName": "string",
@@ -208,7 +208,7 @@
             {
               "id": "<createdId>",
               "dueAmount": 1,
-              "dueDate": "2025-11-26T16:30:10.984Z",
+              "dueDate": "2025-12-01T13:29:57.543Z",
               "dueBalance": 1
             }
           ],
@@ -434,7 +434,7 @@
           "bankAccountId": 1,
           "referenceNumber": "string",
           "chequeNumber": "string",
-          "chequeDueDate": "2025-11-26T16:30:10.984Z"
+          "chequeDueDate": "2025-12-01T13:29:57.543Z"
         }
       ],
       "summary": "",
@@ -502,7 +502,7 @@
               "paymentInDetailId": "00000000-0000-0000-0000-000000000000",
               "paymentCode": "string",
               "amount": 1,
-              "paymentInDate": "2025-11-26T16:30:10.984Z",
+              "paymentInDate": "2025-12-01T13:29:57.543Z",
               "paymentInTotalAmount": 1
             }
           ]

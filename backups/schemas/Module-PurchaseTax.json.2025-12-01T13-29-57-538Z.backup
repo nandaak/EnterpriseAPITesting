@@ -1,0 +1,12 @@
+{
+  "PurchaseTax": {
+    "GET__erp-apis_PurchaseTax_GetTaxDropDown": {
+      "GET": [
+        "/erp-apis/PurchaseTax/GetTaxDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

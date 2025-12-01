@@ -22,7 +22,7 @@
           "name": "string",
           "nameAr": "string",
           "photo": "string",
-          "birthDate": "2025-11-26T16:30:11.000Z",
+          "birthDate": "2025-12-01T13:29:57.558Z",
           "vendorCategoryId": 1,
           "vendorInformation": {
             "contactPhone": "string",
@@ -78,7 +78,7 @@
           "name": "string",
           "nameAr": "string",
           "photo": "string",
-          "birthDate": "2025-11-26T16:30:11.000Z",
+          "birthDate": "2025-12-01T13:29:57.558Z",
           "vendorCategoryId": "<createdId>",
           "vendorInformation": {
             "id": "<createdId>",

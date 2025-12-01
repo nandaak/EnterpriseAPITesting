@@ -1,0 +1,86 @@
+{
+  "Employee": {
+    "GET__erp-apis_Employee": {
+      "GET": [
+        "/erp-apis/Employee",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_Employee_Export": {
+      "GET": [
+        "/erp-apis/Employee/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_Employee_AddPersonal": {
+      "POST": [
+        "/erp-apis/Employee/AddPersonal",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_Employee_EditPersonal": {
+      "PUT": [
+        "/erp-apis/Employee/EditPersonal",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_Employee_GetById": {
+      "GET": [
+        "/erp-apis/Employee/GetById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_Employee_View": {
+      "GET": [
+        "/erp-apis/Employee/View",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_Employee_SoftDelete": {
+      "DELETE": [
+        "/erp-apis/Employee/SoftDelete",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_Employee_Delete": {
+      "DELETE": [
+        "/erp-apis/Employee/Delete",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

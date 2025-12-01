@@ -1,0 +1,62 @@
+{
+  "UserSettings": {
+    "GET__erp-apis_UserSettings_GetAll": {
+      "GET": [
+        "/erp-apis/UserSettings/GetAll",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_UserSettings__UserId_": {
+      "GET": [
+        "/erp-apis/UserSettings/{UserId}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "UserId"
+      ]
+    },
+    "PUT__erp-apis_UserSettings": {
+      "PUT": [
+        "/erp-apis/UserSettings",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_UserSettings_Export": {
+      "GET": [
+        "/erp-apis/UserSettings/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_UserSettings_Copy": {
+      "POST": [
+        "/erp-apis/UserSettings/Copy",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

@@ -1,0 +1,576 @@
+{
+  "total": 249,
+  "passed": 0,
+  "failed": 71,
+  "skipped": 178,
+  "modules": {
+    "AccountingReports": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:38.256Z"
+    },
+    "Assets": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:38.402Z"
+    },
+    "AssetsDepreciation": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:38.548Z"
+    },
+    "AssetsLocation": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:38.716Z"
+    },
+    "AssetsOpeningBalance": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:38.877Z"
+    },
+    "AssetsPurchaseInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.044Z"
+    },
+    "AssetsReturnPurchaseInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.205Z"
+    },
+    "AssetsReturnSalesInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.371Z"
+    },
+    "AssetsSalesInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.548Z"
+    },
+    "Attachments": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.702Z"
+    },
+    "Bank": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:39.860Z"
+    },
+    "Branch": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.024Z"
+    },
+    "ChartOfAccounts": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.196Z"
+    },
+    "CostCenter": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.363Z"
+    },
+    "CostCenterReports": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.499Z"
+    },
+    "Currency": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.664Z"
+    },
+    "CurrencyConversion": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.830Z"
+    },
+    "CurrentUserInfo": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:40.981Z"
+    },
+    "Customer": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.161Z"
+    },
+    "CustomerCategory": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.304Z"
+    },
+    "CustomerOpeningBalance": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.453Z"
+    },
+    "CustomerReports": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.614Z"
+    },
+    "Device": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.756Z"
+    },
+    "DiscountPolicy": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:41.921Z"
+    },
+    "Employee": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.070Z"
+    },
+    "FinanceReports": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.215Z"
+    },
+    "FinancialYear": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.375Z"
+    },
+    "FixedAssetsGroup": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.519Z"
+    },
+    "FundTransfer": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.684Z"
+    },
+    "HrGeneralSetting": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.827Z"
+    },
+    "Import": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:42.967Z"
+    },
+    "Invoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.127Z"
+    },
+    "JournalEntry": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.271Z"
+    },
+    "Levels": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.419Z"
+    },
+    "MarketPlace": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.580Z"
+    },
+    "OpeningBalanceJournalEntry": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.749Z"
+    },
+    "PaymentIn": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:43.903Z"
+    },
+    "PaymentMethod": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.047Z"
+    },
+    "PaymentOut": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.205Z"
+    },
+    "PaymentTerms": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.357Z"
+    },
+    "POSSession": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.498Z"
+    },
+    "PricePolicy": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.660Z"
+    },
+    "PurchaseOrder": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:44.839Z"
+    },
+    "ReturnInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.009Z"
+    },
+    "ReturnSalesInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.183Z"
+    },
+    "Role": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.359Z"
+    },
+    "SalesArea": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.552Z"
+    },
+    "SalesInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.716Z"
+    },
+    "SalesMan": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:45.890Z"
+    },
+    "SalesManVisit": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.035Z"
+    },
+    "SalesOrder": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.190Z"
+    },
+    "SalesProject": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.342Z"
+    },
+    "SalesProjectInvoice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.502Z"
+    },
+    "SalesTeam": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.664Z"
+    },
+    "Sequence": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.819Z"
+    },
+    "Tag": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:46.986Z"
+    },
+    "Tax": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.169Z"
+    },
+    "TaxGroup": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.341Z"
+    },
+    "TransferRequest": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.500Z"
+    },
+    "Treasury": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.653Z"
+    },
+    "TrialBalance": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.800Z"
+    },
+    "User": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:47.949Z"
+    },
+    "UserSettings": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.111Z"
+    },
+    "VanSales": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.268Z"
+    },
+    "Vendor": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.427Z"
+    },
+    "VendorCategory": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.578Z"
+    },
+    "VendorOpeningBalance": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.717Z"
+    },
+    "VendorReports": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:48.865Z"
+    },
+    "WorkflowConfiguration": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": "SKIPPED",
+      "delete": "SKIPPED",
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:49.034Z"
+    },
+    "Workflows": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:49.210Z"
+    },
+    "ZatcaDevice": {
+      "create": "FAILED",
+      "read": "SKIPPED",
+      "update": null,
+      "delete": null,
+      "createdId": null,
+      "timestamp": "2025-12-01T13:51:49.361Z"
+    }
+  }
+}

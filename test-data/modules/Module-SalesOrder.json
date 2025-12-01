@@ -26,10 +26,10 @@
       "POST": [
         "/erp-apis/SalesOrder",
         {
-          "orderDate": "2025-11-26T16:30:10.986Z",
+          "orderDate": "2025-12-01T13:29:57.545Z",
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
           "externalCode": "string",
-          "expiryDate": "2025-11-26T16:30:10.986Z",
+          "expiryDate": "2025-12-01T13:29:57.545Z",
           "description": "string",
           "termsAndConditions": "string",
           "customerId": 1,
@@ -95,8 +95,8 @@
         "/erp-apis/SalesOrder",
         {
           "id": "<createdId>",
-          "orderDate": "2025-11-26T16:30:10.986Z",
-          "expiryDate": "2025-11-26T16:30:10.986Z",
+          "orderDate": "2025-12-01T13:29:57.545Z",
+          "expiryDate": "2025-12-01T13:29:57.545Z",
           "description": "string",
           "termsAndConditions": "string",
           "customerId": "<createdId>",

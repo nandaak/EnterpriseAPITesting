@@ -24,7 +24,7 @@
       "POST": [
         "/erp-apis/Invoice",
         {
-          "invoiceDate": "2025-11-26T16:30:10.966Z",
+          "invoiceDate": "2025-12-01T13:29:57.528Z",
           "description": "string",
           "isExternalPurchase": true,
           "warehouseId": 1,
@@ -84,7 +84,7 @@
         "/erp-apis/Invoice",
         {
           "id": "<createdId>",
-          "invoiceDate": "2025-11-26T16:30:10.966Z",
+          "invoiceDate": "2025-12-01T13:29:57.528Z",
           "description": "string",
           "isExternalPurchase": true,
           "warehouseId": "<createdId>",

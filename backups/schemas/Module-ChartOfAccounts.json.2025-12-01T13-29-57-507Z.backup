@@ -1,0 +1,172 @@
+{
+  "ChartOfAccounts": {
+    "GET__erp-apis_ChartOfAccounts": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "AccountCode",
+        "Nature",
+        "IncludedIds",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_Export": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchKey",
+        "AccountCode",
+        "Nature",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_GetHasNoChildrenList": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetHasNoChildrenList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "AccountCode",
+        "Nature",
+        "AccountTypeId",
+        "AccountSectionIds",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_GetTree": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetTree",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_ChartOfAccounts_GetParentAccounts": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetParentAccounts",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "query"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_Get": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/Get",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_ChildrenAccountsDropDown": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/ChildrenAccountsDropDown",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_GetById": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "id"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_GetAccountDetails": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetAccountDetails",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_ChartOfAccounts_AddAccount": {
+      "POST": [
+        "/erp-apis/ChartOfAccounts/AddAccount",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_ChartOfAccounts_EditAccount": {
+      "PUT": [
+        "/erp-apis/ChartOfAccounts/EditAccount",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_ChartOfAccounts_AccountActivation": {
+      "PUT": [
+        "/erp-apis/ChartOfAccounts/AccountActivation",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "DELETE__erp-apis_ChartOfAccounts_Delete": {
+      "DELETE": [
+        "/erp-apis/ChartOfAccounts/Delete",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_ChartOfAccounts_GetAccountOpeningBalance": {
+      "GET": [
+        "/erp-apis/ChartOfAccounts/GetAccountOpeningBalance",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "id"
+      ]
+    },
+    "POST__erp-apis_ChartOfAccounts_ImportExcel": {
+      "POST": [
+        "/erp-apis/ChartOfAccounts/ImportExcel",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "WorksheetIndex",
+        "Save"
+      ]
+    }
+  }
+}

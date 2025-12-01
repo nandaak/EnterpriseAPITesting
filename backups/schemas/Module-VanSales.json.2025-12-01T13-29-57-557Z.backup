@@ -1,0 +1,185 @@
+{
+  "VanSales": {
+    "GET__erp-apis_VanSales_GetSalesInvoiceByCustomerId": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceByCustomerId",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceById__Id_": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceToReturnById__Id_": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceToReturnById/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_VanSales_ExportCustomerById": {
+      "GET": [
+        "/erp-apis/VanSales/ExportCustomerById",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetCustomerCreditLimit": {
+      "GET": [
+        "/erp-apis/VanSales/GetCustomerCreditLimit",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "CustomerId"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesManCreditLimit": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesManCreditLimit",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "POST__erp-apis_VanSales_AddReturnSalesInvoice": {
+      "POST": [
+        "/erp-apis/VanSales/AddReturnSalesInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "PUT__erp-apis_VanSales_EditCustomerCategory": {
+      "PUT": [
+        "/erp-apis/VanSales/EditCustomerCategory",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_AddSalesInvoice": {
+      "POST": [
+        "/erp-apis/VanSales/AddSalesInvoice",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_AddPaymentIn": {
+      "POST": [
+        "/erp-apis/VanSales/AddPaymentIn",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_ProcessSyncBack": {
+      "POST": [
+        "/erp-apis/VanSales/ProcessSyncBack",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_VanSales_GetSyncBackStatus": {
+      "GET": [
+        "/erp-apis/VanSales/GetSyncBackStatus",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "OperationId"
+      ]
+    },
+    "GET__erp-apis_VanSales_GetSalesInvoiceQRCode": {
+      "GET": [
+        "/erp-apis/VanSales/GetSalesInvoiceQRCode",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_VanSales_SalesReport": {
+      "POST": [
+        "/erp-apis/VanSales/SalesReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "SalesmanIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "DeviceIds",
+        "VisitIds",
+        "PaymentStatus",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "POST__erp-apis_VanSales_ExportSalesReport": {
+      "POST": [
+        "/erp-apis/VanSales/ExportSalesReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "FromDate",
+        "ToDate",
+        "CustomerIds",
+        "SalesmanIds",
+        "WarehouseIds",
+        "Statuses",
+        "PaymentTermIds",
+        "DeviceIds",
+        "VisitIds",
+        "PaymentStatus",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    }
+  }
+}

@@ -20,14 +20,14 @@
         {
           "name": "string",
           "code": "string",
-          "fromDate": "2025-11-26",
-          "toDate": "2025-11-26",
+          "fromDate": "2025-12-01",
+          "toDate": "2025-12-01",
           "noOfExtraPeriods": 1,
           "financialYearPeriods": [
             {
               "status": true,
-              "periodStart": "2025-11-26",
-              "periodEnd": "2025-11-26"
+              "periodStart": "2025-12-01",
+              "periodEnd": "2025-12-01"
             }
           ]
         }

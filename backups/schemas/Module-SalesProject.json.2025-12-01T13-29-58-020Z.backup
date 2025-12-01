@@ -1,0 +1,131 @@
+{
+  "SalesProject": {
+    "POST__erp-apis_SalesProject": {
+      "POST": [
+        "/erp-apis/SalesProject",
+        {
+          "name": "string",
+          "nameAr": "string",
+          "description": "string",
+          "customerId": 1,
+          "startDate": "2025-12-01T13:29:57.546Z",
+          "endDate": "2025-12-01T13:29:57.546Z",
+          "contractValue": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SalesProject": {
+      "GET": [
+        "/erp-apis/SalesProject",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "PageNumber",
+        "PageSize",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "PUT__erp-apis_SalesProject": {
+      "PUT": [
+        "/erp-apis/SalesProject",
+        {
+          "id": "00000000-0000-0000-0000-000000000000",
+          "name": "string",
+          "nameAr": "string",
+          "description": "string",
+          "customerId": 1,
+          "startDate": "2025-12-01T13:29:57.546Z",
+          "endDate": "2025-12-01T13:29:57.546Z",
+          "contractValue": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "GET__erp-apis_SalesProject__Id_": {
+      "GET": [
+        "/erp-apis/SalesProject/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "DELETE__erp-apis_SalesProject__Id_": {
+      "DELETE": [
+        "/erp-apis/SalesProject/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_SalesProject_View__Id_": {
+      "GET": [
+        "/erp-apis/SalesProject/View/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    },
+    "GET__erp-apis_SalesProject_Export": {
+      "GET": [
+        "/erp-apis/SalesProject/Export",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "IsRtl",
+        "ExportType",
+        "TotalValues",
+        "GroupSubTotals",
+        "GroupByPropertyName",
+        "IncludedColumns",
+        "SortBy",
+        "SortColumn"
+      ]
+    },
+    "GET__erp-apis_SalesProject_GetSalesProjectList": {
+      "GET": [
+        "/erp-apis/SalesProject/GetSalesProjectList",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomerId"
+      ]
+    },
+    "GET__erp-apis_SalesProject_GetSalesProjectListByCustomers": {
+      "GET": [
+        "/erp-apis/SalesProject/GetSalesProjectListByCustomers",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "CustomersId"
+      ]
+    },
+    "GET__erp-apis_SalesProject_GetSalesProjectForInvoice__Id_": {
+      "GET": [
+        "/erp-apis/SalesProject/GetSalesProjectForInvoice/{Id}",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "Id"
+      ]
+    }
+  }
+}

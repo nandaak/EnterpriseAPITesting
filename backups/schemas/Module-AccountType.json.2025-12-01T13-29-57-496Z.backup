@@ -1,0 +1,15 @@
+{
+  "AccountType": {
+    "GET__erp-apis_AccountType": {
+      "GET": [
+        "/erp-apis/AccountType",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "SearchTerm",
+        "SectionId"
+      ]
+    }
+  }
+}

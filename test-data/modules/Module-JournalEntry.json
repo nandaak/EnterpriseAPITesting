@@ -24,7 +24,7 @@
         "/erp-apis/JournalEntry",
         {
           "refrenceNumber": "string",
-          "journalDate": "2025-11-26T16:30:10.967Z",
+          "journalDate": "2025-12-01T13:29:57.529Z",
           "type": "Manual",
           "description": "string",
           "periodId": "string",
@@ -39,7 +39,7 @@
               "accountId": 1,
               "isVatLine": true,
               "hasVat": true,
-              "createdOn": "2025-11-26T16:30:10.967Z",
+              "createdOn": "2025-12-01T13:29:57.529Z",
               "costCenters": [
                 {}
               ]
@@ -101,7 +101,7 @@
         {
           "id": "<createdId>",
           "referenceNumber": "string",
-          "journalDate": "2025-11-26T16:30:10.967Z",
+          "journalDate": "2025-12-01T13:29:57.529Z",
           "description": "string",
           "isHeaderDescriptionCopied": true,
           "journalEntryLines": [
@@ -117,7 +117,7 @@
               "isVatLine": true,
               "hasVat": true,
               "currencyId": "<createdId>",
-              "createdOn": "2025-11-26T16:30:10.967Z",
+              "createdOn": "2025-12-01T13:29:57.529Z",
               "costCenters": [
                 {}
               ]

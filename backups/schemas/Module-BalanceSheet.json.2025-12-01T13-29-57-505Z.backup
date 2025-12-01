@@ -1,0 +1,22 @@
+{
+  "BalanceSheet": {
+    "POST__erp-apis_BalanceSheet": {
+      "POST": [
+        "/erp-apis/BalanceSheet",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    },
+    "POST__erp-apis_BalanceSheet_PrintOutBalanceSheetReport": {
+      "POST": [
+        "/erp-apis/BalanceSheet/PrintOutBalanceSheetReport",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "isRtl"
+      ]
+    }
+  }
+}

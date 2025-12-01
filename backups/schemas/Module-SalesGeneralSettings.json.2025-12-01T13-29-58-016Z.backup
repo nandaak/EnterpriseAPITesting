@@ -1,0 +1,26 @@
+{
+  "SalesGeneralSettings": {
+    "GET__erp-apis_SalesGeneralSettings": {
+      "GET": [
+        "/erp-apis/SalesGeneralSettings",
+        {}
+      ],
+      "summary": "",
+      "parameters": [
+        "request"
+      ]
+    },
+    "PUT__erp-apis_SalesGeneralSettings": {
+      "PUT": [
+        "/erp-apis/SalesGeneralSettings",
+        {
+          "invoiceOverdueBlocked": true,
+          "creditLimitRestricted": true,
+          "serviceItemsRevenueAccountId": 1
+        }
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}

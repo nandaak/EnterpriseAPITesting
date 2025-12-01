@@ -25,7 +25,7 @@
       "POST": [
         "/erp-apis/PaymentOut",
         {
-          "paymentOutDate": "2025-11-26T16:30:10.973Z",
+          "paymentOutDate": "2025-12-01T13:29:57.535Z",
           "description": "string",
           "paymentHub": "Treasury",
           "paymentHubDetailId": "string",
@@ -66,7 +66,7 @@
         "/erp-apis/PaymentOut",
         {
           "id": "<createdId>",
-          "paymentOutDate": "2025-11-26T16:30:10.974Z",
+          "paymentOutDate": "2025-12-01T13:29:57.535Z",
           "description": "string",
           "paymentHubDetailId": "<createdId>",
           "bankAccountId": "<createdId>",

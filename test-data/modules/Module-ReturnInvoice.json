@@ -24,7 +24,7 @@
         "/erp-apis/ReturnInvoice",
         {
           "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-          "returnInvoiceDate": "2025-11-26T16:30:10.979Z",
+          "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
           "invoiceHeaderId": "00000000-0000-0000-0000-000000000000",
           "description": "string",
           "returnInvoiceDetails": [
@@ -43,7 +43,7 @@
         "/erp-apis/ReturnInvoice",
         {
           "id": "<createdId>",
-          "returnInvoiceDate": "2025-11-26T16:30:10.979Z",
+          "returnInvoiceDate": "2025-12-01T13:29:57.540Z",
           "description": "string",
           "returnInvoiceDetails": [
             {

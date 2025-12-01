@@ -75,7 +75,12 @@
     "schema:enhance:payloads": "node scripts/complete-schema-enhancer.js",
     "schema:complete:update": "npm run swagger:advanced:fetch && npm run swagger:advanced:generate && npm run swagger:advanced:modules && npm run schema:enhance:payloads",
     "schema:harmonize:ids": "node scripts/schema-id-harmonizer.js",
-    "schema:production:ready": "npm run swagger:advanced:fetch && npm run swagger:advanced:generate && npm run swagger:advanced:modules && npm run schema:enhance:payloads && npm run schema:harmonize:ids"
+    "schema:production:ready": "npm run swagger:advanced:fetch && npm run swagger:advanced:generate && npm run swagger:advanced:modules && npm run schema:enhance:payloads && npm run schema:harmonize:ids",
+    "test:enhanced": "jest tests/enhanced-crud-suite.test.js --runInBand",
+    "test:enhanced:verbose": "jest tests/enhanced-crud-suite.test.js --runInBand --verbose",
+    "test:generate:modules": "node scripts/generate-module-tests.js",
+    "test:generated": "jest tests/generated-modules --runInBand",
+    "test:complete:suite": "npm run test:generate:modules && npm run test:generated"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",

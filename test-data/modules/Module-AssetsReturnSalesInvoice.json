@@ -22,7 +22,7 @@
       "POST": [
         "/erp-apis/AssetsReturnSalesInvoice",
         {
-          "date": "2025-11-26T16:30:10.938Z",
+          "date": "2025-12-01T13:29:57.503Z",
           "reference": "string",
           "description": "string",
           "customerId": 1,
@@ -58,7 +58,7 @@
         "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
         {
           "id": "<createdId>",
-          "date": "2025-11-26T16:30:10.938Z",
+          "date": "2025-12-01T13:29:57.503Z",
           "reference": "string",
           "description": "string",
           "customerId": "<createdId>",

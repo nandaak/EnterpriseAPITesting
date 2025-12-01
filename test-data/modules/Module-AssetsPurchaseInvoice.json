@@ -23,7 +23,7 @@
       "POST": [
         "/erp-apis/AssetsPurchaseInvoice",
         {
-          "date": "2025-11-26T16:30:10.936Z",
+          "date": "2025-12-01T13:29:57.501Z",
           "description": "string",
           "vendorId": 1,
           "vendorCode": "string",
@@ -51,7 +51,7 @@
               "taxNameAr": "string",
               "assetLocationId": 1,
               "assetLocationName": "string",
-              "activationDate": "2025-11-26T16:30:10.936Z"
+              "activationDate": "2025-12-01T13:29:57.501Z"
             }
           ]
         }
@@ -64,7 +64,7 @@
         "/erp-apis/AssetsPurchaseInvoice",
         {
           "id": "<createdId>",
-          "date": "2025-11-26T16:30:10.937Z",
+          "date": "2025-12-01T13:29:57.501Z",
           "description": "string",
           "vendorId": "<createdId>",
           "vendorCode": "string",
@@ -93,7 +93,7 @@
               "taxNameAr": "string",
               "assetLocationId": "<createdId>",
               "assetLocationName": "string",
-              "activationDate": "2025-11-26T16:30:10.937Z"
+              "activationDate": "2025-12-01T13:29:57.501Z"
             }
           ]
         }

@@ -133,8 +133,8 @@
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-11-26T16:30:10.943Z",
-          "periodicActiveTo": "2025-11-26T16:30:10.943Z",
+          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.508Z",
           "costCenters": [
             {
               "percentage": 1,
@@ -167,8 +167,8 @@
             "00000000-0000-0000-0000-000000000000"
           ],
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-11-26T16:30:10.943Z",
-          "periodicActiveTo": "2025-11-26T16:30:10.943Z",
+          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.508Z",
           "costCenters": [
             {
               "id": "<createdId>",
@@ -187,8 +187,8 @@
         {
           "id": "<createdId>",
           "accountActivation": "Active",
-          "periodicActiveFrom": "2025-11-26T16:30:10.943Z",
-          "periodicActiveTo": "2025-11-26T16:30:10.943Z"
+          "periodicActiveFrom": "2025-12-01T13:29:57.508Z",
+          "periodicActiveTo": "2025-12-01T13:29:57.508Z"
         }
       ],
       "summary": "",

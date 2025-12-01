@@ -1,0 +1,12 @@
+{
+  "SIPaymentReconciliation": {
+    "POST__erp-apis_SIPaymentReconciliation": {
+      "POST": [
+        "/erp-apis/SIPaymentReconciliation",
+        {}
+      ],
+      "summary": "",
+      "parameters": []
+    }
+  }
+}
