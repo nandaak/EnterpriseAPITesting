@@ -16,8 +16,12 @@ const TokenManager = require('../utils/token-manager');
 const logger = require('../utils/logger');
 const { validateAndEnhancePayload } = require('../utils/payload-validator');
 const { handleTestError } = require('../utils/error-handler');
+const { getFailureLogger } = require('../utils/failure-response-logger');
 const fs = require('fs');
 const path = require('path');
+
+// Initialize failure logger
+const failureLogger = getFailureLogger();
 
 // Initialize adapter
 const adapter = new EnhancedSchemaAdapter();
@@ -66,13 +70,13 @@ class IDRegistry {
     if (!this.registry[moduleName]) {
       this.registry[moduleName] = [];
     }
-    
+
     this.registry[moduleName].push({
       id,
       createdAt: new Date().toISOString(),
       ...metadata
     });
-    
+
     this.saveRegistry();
   }
 
@@ -99,35 +103,35 @@ const testResults = {
 };
 
 describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
-  
+
   beforeAll(async () => {
     logger.info('🚀 Starting Enhanced CRUD Test Suite');
     logger.info('='.repeat(70));
-    
+
     // Ensure valid authentication token
     logger.info('🔐 Validating authentication...');
     try {
       const tokenStatus = await TokenManager.validateAndRefreshTokenWithStatus();
-      
+
       if (!tokenStatus.success) {
         throw new Error(`Authentication failed: ${tokenStatus.message}`);
       }
-      
+
       logger.info(`✅ Authentication successful: ${tokenStatus.message}`);
-      
+
       // Verify token is loaded in API client
       const token = await TokenManager.getValidToken();
       if (!token) {
         throw new Error('No valid token available for API client');
       }
-      
+
       logger.info(`✅ Token loaded (length: ${token.length} characters)`);
-      
+
     } catch (error) {
       logger.error(`❌ Authentication setup failed: ${error.message}`);
       throw error;
     }
-    
+
     logger.info('📊 Test Suite Information:');
     logger.info(`   Total modules available: ${adapter.getModules().length}`);
     logger.info(`   Testable modules: ${adapter.getTestableModules().length}`);
@@ -137,7 +141,7 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
   afterAll(() => {
     logger.info('Enhanced CRUD Test Suite completed');
     logger.info(`Results: ${testResults.passed} passed, ${testResults.failed} failed, ${testResults.skipped} skipped`);
-    
+
     // Save final results
     const resultsPath = 'test-results/enhanced-crud-results.json';
     const dir = path.dirname(resultsPath);
@@ -145,6 +149,19 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
       fs.mkdirSync(dir, { recursive: true });
     }
     fs.writeFileSync(resultsPath, JSON.stringify(testResults, null, 2));
+
+    // Generate failure response report
+    const failureReport = failureLogger.generateReport();
+    const failureStats = failureLogger.getStats();
+
+    logger.info('📊 Failure Response Summary:');
+    logger.info(`   Total failures logged: ${failureStats.total}`);
+    logger.info(`   400 Bad Request: ${failureStats.status400}`);
+    logger.info(`   404 Not Found: ${failureStats.status404}`);
+    logger.info(`   500 Server Error: ${failureStats.status500}`);
+    logger.info(`   Unique URLs: ${failureStats.uniqueUrls}`);
+    logger.info(`   Report saved: failure_response.json`);
+    logger.info(`   Detailed report: ${failureReport.reportPath}`);
   });
 
   // Get testable modules
@@ -168,13 +185,13 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
       if (crudOps.POST) {
         test(`CREATE - ${moduleName}`, async () => {
           testResults.total++;
-          
+
           try {
             const [url, payload] = crudOps.POST.data;
-            
+
             // Validate and enhance payload
             const enhancedPayload = validateAndEnhancePayload(moduleName, payload, 'POST');
-            
+
             logger.info(`Testing CREATE for ${moduleName}`);
             logger.debug(`URL: ${url}`);
             logger.debug(`Payload: ${JSON.stringify(enhancedPayload, null, 2)}`);
@@ -186,20 +203,20 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
 
             // Extract ID from response
             createdId = response.data.id || response.data.Id || response.data.ID;
-            
+
             if (createdId) {
               logger.success(`Created ${moduleName} with ID: ${createdId}`);
-              
+
               // Store in registry
               idRegistry.store(moduleName, createdId, {
                 operation: 'CREATE',
                 url,
                 status: 'success'
               });
-              
+
               // Store in adapter
               adapter.storeId(moduleName, createdId);
-              
+
               moduleStats.create = 'PASSED';
               testResults.passed++;
             } else {
@@ -209,16 +226,29 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             }
 
           } catch (error) {
+            const [url, payload] = crudOps.POST.data;
             const errorInfo = handleTestError(error, {
               moduleName,
               operation: 'CREATE',
-              url: crudOps.POST.data[0],
-              payload: crudOps.POST.data[1]
+              url,
+              payload
             });
-            
+
+            // Log failure response if 400, 404, or 500
+            if (error.response && (error.response.status === 400 || error.response.status === 404 || error.response.status === 500)) {
+              failureLogger.logFailure(
+                'POST',
+                url,
+                error.response.status,
+                error.response.data,
+                payload
+              );
+              logger.warn(`Failure logged: POST ${url} - Status ${error.response.status}`);
+            }
+
             logger.error(`CREATE failed for ${moduleName}: ${errorInfo.message}`);
             logger.debug(`Error category: ${errorInfo.category} - ${errorInfo.suggestion}`);
-            
+
             moduleStats.create = 'FAILED';
             testResults.failed++;
             throw error;
@@ -246,7 +276,7 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             }
 
             const [url] = prepared;
-            
+
             logger.info(`Testing READ for ${moduleName} with ID: ${createdId}`);
             logger.debug(`URL: ${url}`);
 
@@ -260,6 +290,21 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             testResults.passed++;
 
           } catch (error) {
+            // Log failure response if 400, 404, or 500
+            if (error.response && (error.response.status === 400 || error.response.status === 404 || error.response.status === 500)) {
+              const url = adapter.prepareOperation(crudOps.GET.data, createdId)?.[0];
+              if (url) {
+                failureLogger.logFailure(
+                  'GET',
+                  url,
+                  error.response.status,
+                  error.response.data,
+                  null
+                );
+                logger.warn(`Failure logged: GET ${url} - Status ${error.response.status}`);
+              }
+            }
+
             logger.error(`READ failed for ${moduleName}: ${error.message}`);
             moduleStats.read = 'FAILED';
             testResults.failed++;
@@ -288,10 +333,10 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             }
 
             const [url, payload] = prepared;
-            
+
             // Validate and enhance payload
             const enhancedPayload = validateAndEnhancePayload(moduleName, payload, 'PUT');
-            
+
             logger.info(`Testing UPDATE for ${moduleName} with ID: ${createdId}`);
             logger.debug(`URL: ${url}`);
             logger.debug(`Payload: ${JSON.stringify(enhancedPayload, null, 2)}`);
@@ -305,6 +350,22 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             testResults.passed++;
 
           } catch (error) {
+            // Log failure response if 400, 404, or 500
+            if (error.response && (error.response.status === 400 || error.response.status === 404 || error.response.status === 500)) {
+              const prepared = adapter.prepareOperation(crudOps.PUT.data, createdId);
+              if (prepared) {
+                const [url, payload] = prepared;
+                failureLogger.logFailure(
+                  'PUT',
+                  url,
+                  error.response.status,
+                  error.response.data,
+                  payload
+                );
+                logger.warn(`Failure logged: PUT ${url} - Status ${error.response.status}`);
+              }
+            }
+
             logger.error(`UPDATE failed for ${moduleName}: ${error.message}`);
             moduleStats.update = 'FAILED';
             testResults.failed++;
@@ -333,7 +394,7 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             }
 
             const [url] = prepared;
-            
+
             logger.info(`Testing DELETE for ${moduleName} with ID: ${createdId}`);
             logger.debug(`URL: ${url}`);
 
@@ -346,6 +407,21 @@ describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
             testResults.passed++;
 
           } catch (error) {
+            // Log failure response if 400, 404, or 500
+            if (error.response && (error.response.status === 400 || error.response.status === 404 || error.response.status === 500)) {
+              const url = adapter.prepareOperation(crudOps.DELETE.data, createdId)?.[0];
+              if (url) {
+                failureLogger.logFailure(
+                  'DELETE',
+                  url,
+                  error.response.status,
+                  error.response.data,
+                  null
+                );
+                logger.warn(`Failure logged: DELETE ${url} - Status ${error.response.status}`);
+              }
+            }
+
             logger.error(`DELETE failed for ${moduleName}: ${error.message}`);
             moduleStats.delete = 'FAILED';
             testResults.failed++;

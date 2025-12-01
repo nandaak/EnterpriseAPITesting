@@ -13,6 +13,27 @@
       "operation": "CREATE",
       "url": "/erp-apis/CostCenter/AddCostCenter",
       "status": "success"
+    },
+    {
+      "id": 48,
+      "createdAt": "2025-12-01T16:09:43.972Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CostCenter/AddCostCenter",
+      "status": "success"
+    },
+    {
+      "id": 49,
+      "createdAt": "2025-12-01T16:19:32.373Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CostCenter/AddCostCenter",
+      "status": "success"
+    },
+    {
+      "id": 50,
+      "createdAt": "2025-12-01T16:51:13.426Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CostCenter/AddCostCenter",
+      "status": "success"
     }
   ],
   "CustomerCategory": [
@@ -29,6 +50,27 @@
       "operation": "CREATE",
       "url": "/erp-apis/CustomerCategory",
       "status": "success"
+    },
+    {
+      "id": 46,
+      "createdAt": "2025-12-01T16:09:45.851Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CustomerCategory",
+      "status": "success"
+    },
+    {
+      "id": 47,
+      "createdAt": "2025-12-01T16:19:34.369Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CustomerCategory",
+      "status": "success"
+    },
+    {
+      "id": 48,
+      "createdAt": "2025-12-01T16:51:15.274Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/CustomerCategory",
+      "status": "success"
     }
   ],
   "Tag": [
@@ -42,6 +84,27 @@
     {
       "id": 37,
       "createdAt": "2025-12-01T15:58:06.138Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/Tag",
+      "status": "success"
+    },
+    {
+      "id": 38,
+      "createdAt": "2025-12-01T16:09:53.602Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/Tag",
+      "status": "success"
+    },
+    {
+      "id": 39,
+      "createdAt": "2025-12-01T16:19:42.234Z",
+      "operation": "CREATE",
+      "url": "/erp-apis/Tag",
+      "status": "success"
+    },
+    {
+      "id": 40,
+      "createdAt": "2025-12-01T16:51:23.076Z",
       "operation": "CREATE",
       "url": "/erp-apis/Tag",
       "status": "success"

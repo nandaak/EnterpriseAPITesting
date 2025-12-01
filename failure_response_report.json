@@ -1,0 +1,540 @@
+{
+  "timestamp": "2025-12-01T16:51:35.900Z",
+  "statistics": {
+    "total": 22,
+    "status400": 0,
+    "status404": 0,
+    "status500": 22,
+    "uniqueUrls": 22,
+    "uniqueMethods": 3
+  },
+  "failures": {
+    "POST /erp-apis/AssetsDepreciation": {
+      "method": "POST",
+      "url": "/erp-apis/AssetsDepreciation",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:11.120Z",
+      "response": {
+        "messageCode": 3006,
+        "message": "لم يتم العثور على أصول مؤهلة للإهلاك.",
+        "correlationId": "835c4a77c9f9f774a098369c9497f2a4",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "depreciationDate": "2025-11-26T16:29:05.635Z",
+        "assetIds": [
+          1
+        ],
+        "name": "Test AssetsDepreciation",
+        "nameAr": "Test AssetsDepreciation عربي"
+      }
+    },
+    "POST /erp-apis/AssetsLocation": {
+      "method": "POST",
+      "url": "/erp-apis/AssetsLocation",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:11.318Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "96ca8341a8664236c1ef5d741385c618",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "parentId": 1,
+        "costCenterId": 1,
+        "isDetailed": true
+      }
+    },
+    "POST /erp-apis/AssetsSalesInvoice": {
+      "method": "POST",
+      "url": "/erp-apis/AssetsSalesInvoice",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:12.291Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "الأصل 'as00000' - car تم بيعه بالفعل.",
+        "correlationId": "a63afa49040b0ad518576c71775ca2ee",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "date": "2025-11-26T16:29:05.635Z",
+        "reference": "string",
+        "description": "string",
+        "customerId": 1,
+        "customerCode": "string",
+        "customerName": "string",
+        "customerNameAr": "string",
+        "paymentTermId": 1,
+        "paymentTermCode": "string",
+        "paymentTermName": "string",
+        "paymentTermNameAr": "string",
+        "applicationSource": "ERP",
+        "assetsSalesInvoiceDetails": [
+          {
+            "id": "00000000-0000-0000-0000-000000000000",
+            "assetId": 1,
+            "assetName": "string",
+            "assetCode": "string",
+            "quantity": 1,
+            "price": 1,
+            "taxId": 1,
+            "taxName": "string",
+            "taxNameAr": "string",
+            "vatPercentage": 1
+          }
+        ]
+      }
+    },
+    "POST /erp-apis/ChartOfAccounts/AddAccount": {
+      "method": "POST",
+      "url": "/erp-apis/ChartOfAccounts/AddAccount",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:13.225Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "11c891c4b30bc29ba3e9997b15bd2906",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "parentId": 1,
+        "natureId": "Debit",
+        "costCenterConfig": "Mandatory",
+        "hasNoChild": true,
+        "accountTypeId": 1,
+        "accountSectionId": 1,
+        "currencyId": 1,
+        "tags": [
+          1
+        ],
+        "companies": [
+          "00000000-0000-0000-0000-000000000000"
+        ],
+        "accountActivation": "Active",
+        "periodicActiveFrom": "2025-11-26T16:29:05.635Z",
+        "periodicActiveTo": "2025-11-26T16:29:05.635Z",
+        "costCenters": [
+          {
+            "percentage": 1,
+            "costCenterId": 1
+          }
+        ]
+      }
+    },
+    "DELETE /erp-apis/CostCenter/Delete": {
+      "method": "DELETE",
+      "url": "/erp-apis/CostCenter/Delete",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:13.997Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "b7ed83db190bccccf48625471527a45a",
+        "validationErrors": null
+      },
+      "requestPayload": null
+    },
+    "POST /erp-apis/CurrentUserInfo/GenerateAppToken": {
+      "method": "POST",
+      "url": "/erp-apis/CurrentUserInfo/GenerateAppToken",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:14.882Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Failed to get service account token: Unauthorized - {\"error\":\"unauthorized_client\",\"error_description\":\"Client not enabled to retrieve service account\"}",
+        "correlationId": "95be86bbb478e12919f26f2fe4f7eeda",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "Test CurrentUserInfo",
+        "nameAr": "CurrentUserInfo تجريبي"
+      }
+    },
+    "PUT /erp-apis/CustomerCategory": {
+      "method": "PUT",
+      "url": "/erp-apis/CustomerCategory",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:15.691Z",
+      "response": {
+        "messageCode": 3006,
+        "message": "Database error: The UPDATE statement conflicted with the FOREIGN KEY constraint \"FK_CustomerCategory_PaymentTerm_PaymentTermId\". The conflict occurred in database \"MicrotecApps.shared\", table \"Finance.PaymentTerm\", column 'Id'.",
+        "correlationId": "edc0b48974814c3cdb09947dc9405598",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "id": "48",
+        "name": "string",
+        "nameAr": "string",
+        "code": "string",
+        "receivableAccountId": "48",
+        "salesAccountId": "48",
+        "salesReturnAccountId": "48",
+        "discountAccountId": "48",
+        "pricePolicyId": "48",
+        "paymentTermId": "48",
+        "marketType": "B2B"
+      }
+    },
+    "POST /erp-apis/DiscountPolicy": {
+      "method": "POST",
+      "url": "/erp-apis/DiscountPolicy",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:16.722Z",
+      "response": {
+        "messageCode": 9004,
+        "message": "يوجد تسلسل بالفعل (pd00001)، يرجى تعديل التسلسل ليتوافق مع القيم الحالية.",
+        "correlationId": "af60093229501ff3c4797fd5b1d2a0f1",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "discountPercentage": 1,
+        "userIds": [
+          "00000000-0000-0000-0000-000000000000"
+        ]
+      }
+    },
+    "POST /erp-apis/Employee/AddPersonal": {
+      "method": "POST",
+      "url": "/erp-apis/Employee/AddPersonal",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:16.936Z",
+      "response": {
+        "messageCode": 4001,
+        "message": "  غير صالح attachmentId تنسيق .",
+        "correlationId": "2de3306edfa570343a56e2e28c41d3f8",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "attendanceCode": 1,
+        "employeeName": "string",
+        "employeePhoto": "string",
+        "birthDate": "2025-11-26T16:29:05.636Z",
+        "countryOfBirth": "string",
+        "birthCity": 1,
+        "nationality": "string",
+        "gender": "Male",
+        "maritalStatus": "Single",
+        "religion": "Muslim",
+        "militaryStatus": "Finished",
+        "militaryNumber": "string",
+        "bloodType": "APositive",
+        "withSpecialNeeds": true
+      }
+    },
+    "POST /erp-apis/HrGeneralSetting/GetNextSequence": {
+      "method": "POST",
+      "url": "/erp-apis/HrGeneralSetting/GetNextSequence",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:17.886Z",
+      "response": {
+        "messageCode": 9000,
+        "message": "لم يتم العثور على تكويد تسلسل لـ PaymentIn",
+        "correlationId": "fd9e3f4d0d96b77ad18089e1ac23a21e",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "screen": "PaymentIn",
+        "module": "Accounting",
+        "transactionDate": "2025-11-26",
+        "saveToContext": true
+      }
+    },
+    "POST /erp-apis/JournalEntry": {
+      "method": "POST",
+      "url": "/erp-apis/JournalEntry",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:18.486Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "ff0cbb33b48f85729025117c00c8c966",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "refrenceNumber": "string",
+        "journalDate": "2025-11-26T16:29:05.636Z",
+        "type": "Manual",
+        "description": "string",
+        "periodId": "string",
+        "isHeaderDescriptionCopied": true,
+        "journalEntryLines": [
+          {
+            "lineDescription": "string",
+            "debitAmount": 1,
+            "creditAmount": 1,
+            "currencyRate": 1,
+            "currencyId": 1,
+            "accountId": 1,
+            "isVatLine": true,
+            "hasVat": true,
+            "createdOn": "2025-11-26T16:29:05.636Z",
+            "costCenters": [
+              {}
+            ]
+          }
+        ],
+        "journalEntryAttachments": [
+          {
+            "attachmentId": "string",
+            "name": "string"
+          }
+        ],
+        "enableWorkflow": true
+      }
+    },
+    "POST /erp-apis/Levels": {
+      "method": "POST",
+      "url": "/erp-apis/Levels",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:18.671Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "0d0eaaa8f760d63d0b7e976159f5e947",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "levels": [
+          {
+            "id": 1,
+            "name": "string",
+            "levelNumber": 1,
+            "numberOfDigits": 1
+          }
+        ],
+        "name": "Test Levels",
+        "nameAr": "Test Levels عربي"
+      }
+    },
+    "POST /erp-apis/OpeningBalanceJournalEntry": {
+      "method": "POST",
+      "url": "/erp-apis/OpeningBalanceJournalEntry",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:19.164Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "633fee936f8119d358a8dda62843d046",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "refrenceNumber": "string",
+        "journalDate": "2025-11-26T16:29:05.636Z",
+        "type": "Manual",
+        "description": "string",
+        "openingBalanceJournalEntryLines": [
+          {
+            "lineDescription": "string",
+            "debitAmount": 1,
+            "creditAmount": 1,
+            "currencyRate": 1,
+            "currencyId": 1,
+            "accountId": 1,
+            "costCenters": [
+              {}
+            ]
+          }
+        ],
+        "openingBalanceJournalEntryAttachments": [
+          {
+            "attachmentId": "string",
+            "name": "string"
+          }
+        ]
+      }
+    },
+    "POST /erp-apis/ReturnInvoice": {
+      "method": "POST",
+      "url": "/erp-apis/ReturnInvoice",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:20.776Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "9be3a9e9f910269d3a005ad03206323f",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+        "returnInvoiceDate": "2025-11-26T16:29:05.637Z",
+        "invoiceHeaderId": "00000000-0000-0000-0000-000000000000",
+        "description": "string",
+        "returnInvoiceDetails": [
+          {
+            "toReturnQuantity": 1,
+            "invoiceDetailId": "00000000-0000-0000-0000-000000000000"
+          }
+        ]
+      }
+    },
+    "POST /erp-apis/SalesProject": {
+      "method": "POST",
+      "url": "/erp-apis/SalesProject",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:22.330Z",
+      "response": {
+        "messageCode": 9004,
+        "message": "يوجد تسلسل بالفعل (pd00000)، يرجى تعديل التسلسل ليتوافق مع القيم الحالية.",
+        "correlationId": "4fb838cf6cf6e1a912120be42cce4cf3",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "description": "string",
+        "customerId": 1,
+        "startDate": "2025-11-26T16:29:05.638Z",
+        "endDate": "2025-11-26T16:29:05.638Z",
+        "contractValue": 1
+      }
+    },
+    "PUT /erp-apis/Tag": {
+      "method": "PUT",
+      "url": "/erp-apis/Tag",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:23.464Z",
+      "response": {
+        "messageCode": 3006,
+        "message": "Database error: The INSERT statement conflicted with the FOREIGN KEY constraint \"FK_TagModule_Module_ModuleId\". The conflict occurred in database \"MicrotecApps.shared\", table \"Gs.Module\", column 'Id'.",
+        "correlationId": "438cee4ac5f5ea5194a1dc32bdbb1ef9",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "id": "40",
+        "name": "string",
+        "nameAr": "string",
+        "code": "string",
+        "modulesId": [
+          "40"
+        ],
+        "isActive": true
+      }
+    },
+    "POST /erp-apis/Tax": {
+      "method": "POST",
+      "url": "/erp-apis/Tax",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:23.837Z",
+      "response": {
+        "messageCode": 3006,
+        "message": "الكود موجود بالفعل",
+        "correlationId": "38d79eb7d06826bc3843fbe5dc243a67",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "code": "string",
+        "ratio": 1,
+        "accountId": 1,
+        "taxGroupId": 1
+      }
+    },
+    "POST /erp-apis/TaxGroup": {
+      "method": "POST",
+      "url": "/erp-apis/TaxGroup",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:24.056Z",
+      "response": {
+        "messageCode": 3006,
+        "message": "الكود موجود بالفعل",
+        "correlationId": "ed7e5d86080a57fc20599af63e5ba3d9",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "code": "string",
+        "companyId": "string",
+        "branchId": "string"
+      }
+    },
+    "POST /erp-apis/Treasury": {
+      "method": "POST",
+      "url": "/erp-apis/Treasury",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:24.469Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "194a826cd35dbca1edac96555e60ed0a",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "name": "string",
+        "nameAr": "string",
+        "currencyId": 1,
+        "branches": [
+          "00000000-0000-0000-0000-000000000000"
+        ],
+        "accountId": 1,
+        "journalEntryLineId": "00000000-0000-0000-0000-000000000000",
+        "accountOpeningBalance": 1,
+        "openingBalance": 1
+      }
+    },
+    "POST /erp-apis/User": {
+      "method": "POST",
+      "url": "/erp-apis/User",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:24.864Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Object reference not set to an instance of an object.",
+        "correlationId": "8fde746adc02d57f68368bb8f3e0631a",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "id": "00000000-0000-0000-0000-000000000000",
+        "name": "string",
+        "email": "string",
+        "subdomain": "string",
+        "tenantId": "00000000-0000-0000-0000-000000000000",
+        "identityId": "string",
+        "phone": "string",
+        "countryCode": "string"
+      }
+    },
+    "POST /erp-apis/api/workflows/ExecuteAction": {
+      "method": "POST",
+      "url": "/erp-apis/api/workflows/ExecuteAction",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:35.703Z",
+      "response": null,
+      "requestPayload": {
+        "requestTracking": "string",
+        "actionId": 1,
+        "controlValues": [
+          {
+            "actionControlId": 1,
+            "value": "string"
+          }
+        ]
+      }
+    },
+    "POST /erp-apis/ZatcaDevice/Activate": {
+      "method": "POST",
+      "url": "/erp-apis/ZatcaDevice/Activate",
+      "statusCode": 500,
+      "timestamp": "2025-12-01T16:51:35.894Z",
+      "response": {
+        "messageCode": 5001,
+        "message": "Value cannot be null. (Parameter 'Device configuration not found.')",
+        "correlationId": "f6bb0265e69706938fb98cab290d3583",
+        "validationErrors": null
+      },
+      "requestPayload": {
+        "environment": "Production",
+        "activationCode": "string",
+        "name": "Test ZatcaDevice",
+        "nameAr": "Test ZatcaDevice عربي"
+      }
+    }
+  }
+}

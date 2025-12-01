@@ -88,6 +88,7 @@
     "fix:payloads:advanced": "node scripts/advanced-payload-fixer.js",
     "analyze:tests": "node scripts/final-test-analyzer.js",
     "analyze:errors": "node scripts/test-error-analyzer.js",
+    "analyze:failures": "node scripts/analyze-failure-responses.js",
     "fix:all": "npm run fix:comprehensive && npm run fix:payloads:advanced && npm run analyze:tests"
   },
   "devDependencies": {

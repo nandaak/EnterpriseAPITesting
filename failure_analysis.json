@@ -1,0 +1,98 @@
+{
+  "timestamp": "2025-12-01T16:20:13.309Z",
+  "summary": {
+    "total": 22,
+    "status400": 0,
+    "status404": 0,
+    "status500": 22
+  },
+  "byMethod": {
+    "GET": 0,
+    "POST": 19,
+    "PUT": 2,
+    "DELETE": 1
+  },
+  "topErrors": [
+    {
+      "message": "Object reference not set to an instance of an object.",
+      "count": 9,
+      "examples": [
+        "POST /erp-apis/AssetsLocation",
+        "POST /erp-apis/ChartOfAccounts/AddAccount",
+        "DELETE /erp-apis/CostCenter/Delete"
+      ]
+    },
+    {
+      "message": "الكود موجود بالفعل",
+      "count": 2,
+      "examples": [
+        "POST /erp-apis/Tax",
+        "POST /erp-apis/TaxGroup"
+      ]
+    },
+    {
+      "message": "لم يتم العثور على أصول مؤهلة للإهلاك.",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/AssetsDepreciation"
+      ]
+    },
+    {
+      "message": "الأصل 'as00000' - car تم بيعه بالفعل.",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/AssetsSalesInvoice"
+      ]
+    },
+    {
+      "message": "Failed to get service account token: Unauthorized - {\"error\":\"unauthorized_client\",\"error_description\":\"Client not enabled to retrieve service account\"}",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/CurrentUserInfo/GenerateAppToken"
+      ]
+    },
+    {
+      "message": "Database error: The UPDATE statement conflicted with the FOREIGN KEY constraint \"FK_CustomerCategory_PaymentTerm_PaymentTermId\". The conflict occurred in database \"MicrotecApps.shared\", table \"Finance.PaymentTerm\", column 'Id'.",
+      "count": 1,
+      "examples": [
+        "PUT /erp-apis/CustomerCategory"
+      ]
+    },
+    {
+      "message": "يوجد تسلسل بالفعل (pd00001)، يرجى تعديل التسلسل ليتوافق مع القيم الحالية.",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/DiscountPolicy"
+      ]
+    },
+    {
+      "message": "  غير صالح attachmentId تنسيق .",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/Employee/AddPersonal"
+      ]
+    },
+    {
+      "message": "لم يتم العثور على تكويد تسلسل لـ PaymentIn",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/HrGeneralSetting/GetNextSequence"
+      ]
+    },
+    {
+      "message": "يوجد تسلسل بالفعل (pd00000)، يرجى تعديل التسلسل ليتوافق مع القيم الحالية.",
+      "count": 1,
+      "examples": [
+        "POST /erp-apis/SalesProject"
+      ]
+    }
+  ],
+  "validationErrors": 0,
+  "recommendations": [
+    "Review and fix 400 errors by adding required fields",
+    "Verify 404 errors - check URLs and resource IDs",
+    "Investigate 500 errors with backend team",
+    "Update payload templates based on error messages",
+    "Add field validation before sending requests"
+  ]
+}
