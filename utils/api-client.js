@@ -4,6 +4,7 @@ const axios = require("axios");
 const apiConfig = require("../config/api-config");
 const logger = require("./logger");
 const TokenManager = require("./token-manager");
+const Logger = require("./logger");
 
 class ApiClient {
   constructor(customConfig = {}) {
@@ -223,6 +224,7 @@ class ApiClient {
   async request(config) {
     try {
       const response = await this.client(config);
+      Logger.info(`Response Data: ${response.data}`)
       return {
         data: response.data,
         status: response.status,
