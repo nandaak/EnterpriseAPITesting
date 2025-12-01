@@ -60,18 +60,23 @@ class ApiClient {
    * Check if the API client is ready with token
    */
   isReady() {
-    return !!(this.token && this.client);
+    const authHeader = this.client?.defaults?.headers?.Authorization || 
+                       this.client?.defaults?.headers?.common?.Authorization;
+    return !!(authHeader && this.client);
   }
 
   /**
    * Get token status for debugging
    */
   getTokenStatus() {
+    const authHeader = this.client?.defaults?.headers?.Authorization || 
+                       this.client?.defaults?.headers?.common?.Authorization;
+    
     return {
-      hasToken: !!this.token,
-      tokenLength: this.token ? this.token.length : 0,
-      tokenPreview: this.token
-        ? this.token.substring(0, 20) + "..."
+      hasToken: !!authHeader,
+      tokenLength: authHeader ? authHeader.length : 0,
+      tokenPreview: authHeader
+        ? authHeader.substring(0, 20) + "..."
         : "No token",
       isReady: this.isReady(),
     };

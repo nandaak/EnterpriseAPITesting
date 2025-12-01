@@ -80,7 +80,10 @@
     "test:enhanced:verbose": "jest tests/enhanced-crud-suite.test.js --runInBand --verbose",
     "test:generate:modules": "node scripts/generate-module-tests.js",
     "test:generated": "jest tests/generated-modules --runInBand",
-    "test:complete:suite": "npm run test:generate:modules && npm run test:generated"
+    "test:complete:suite": "npm run test:generate:modules && npm run test:generated",
+    "test:auth": "jest tests/auth-validation.test.js --runInBand --verbose",
+    "test:auth:quick": "jest tests/auth-validation.test.js --runInBand",
+    "test:with:auth": "npm run test:auth && npm run test:enhanced"
   },
   "devDependencies": {
     "@babel/core": "^7.28.5",

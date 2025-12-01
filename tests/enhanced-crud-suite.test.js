@@ -12,6 +12,7 @@
 
 const EnhancedSchemaAdapter = require('../utils/enhanced-schema-adapter');
 const apiClient = require('../utils/api-client');
+const TokenManager = require('../utils/token-manager');
 const logger = require('../utils/logger');
 const fs = require('fs');
 const path = require('path');
@@ -97,10 +98,38 @@ const testResults = {
 
 describe('Enhanced CRUD Test Suite - All 96 Modules', () => {
   
-  beforeAll(() => {
-    logger.info('Starting Enhanced CRUD Test Suite');
-    logger.info(`Total modules available: ${adapter.getModules().length}`);
-    logger.info(`Testable modules: ${adapter.getTestableModules().length}`);
+  beforeAll(async () => {
+    logger.info('🚀 Starting Enhanced CRUD Test Suite');
+    logger.info('='.repeat(70));
+    
+    // Ensure valid authentication token
+    logger.info('🔐 Validating authentication...');
+    try {
+      const tokenStatus = await TokenManager.validateAndRefreshTokenWithStatus();
+      
+      if (!tokenStatus.success) {
+        throw new Error(`Authentication failed: ${tokenStatus.message}`);
+      }
+      
+      logger.info(`✅ Authentication successful: ${tokenStatus.message}`);
+      
+      // Verify token is loaded in API client
+      const token = await TokenManager.getValidToken();
+      if (!token) {
+        throw new Error('No valid token available for API client');
+      }
+      
+      logger.info(`✅ Token loaded (length: ${token.length} characters)`);
+      
+    } catch (error) {
+      logger.error(`❌ Authentication setup failed: ${error.message}`);
+      throw error;
+    }
+    
+    logger.info('📊 Test Suite Information:');
+    logger.info(`   Total modules available: ${adapter.getModules().length}`);
+    logger.info(`   Testable modules: ${adapter.getTestableModules().length}`);
+    logger.info('='.repeat(70));
   });
 
   afterAll(() => {
