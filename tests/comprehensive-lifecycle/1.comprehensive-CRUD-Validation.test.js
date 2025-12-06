@@ -64,7 +64,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
   const hasMinimumCRUDOperations = (moduleConfig) => {
     if (!moduleConfig) return false;
-    const requiredOps = ["Post", "View"];
+    const requiredOps = ["CREATE", "View"];
     const validOps = requiredOps.filter(
       (op) =>
         moduleConfig[op] &&
@@ -108,8 +108,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
   const hasEndpoints = (moduleConfig) => {
     if (!moduleConfig || typeof moduleConfig !== "object") return false;
     const endpointTypes = [
-      "Post",
-      "PUT",
+      "CREATE",
+      "EDIT",
       "DELETE",
       "View",
       "EDIT",
@@ -234,10 +234,10 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
               try {
                 await crudHelper.initialize();
                 hasValidCreateOperation =
-                  moduleConfig.Post &&
-                  Array.isArray(moduleConfig.Post) &&
-                  moduleConfig.Post[0] &&
-                  isValidUrl(moduleConfig.Post[0]);
+                  moduleConfig.CREATE &&
+                  Array.isArray(moduleConfig.CREATE) &&
+                  moduleConfig.CREATE[0] &&
+                  isValidUrl(moduleConfig.CREATE[0]);
 
                 logger.info(
                   `🎯 STARTING COMPLETE CRUD LIFECYCLE FOR: ${fullModuleName}`
@@ -378,7 +378,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
-                    "Post"
+                    "CREATE"
                   );
                   if (skipCheck.skip) {
                     logger.warn(
@@ -392,7 +392,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                   logger.info(`🔄 ${fullModuleName} - PHASE 1: CREATE`);
 
                   const { createdId, response, originalData } =
-                    await crudHelper.runCreateTest("Post");
+                    await crudHelper.runCreateTest("CREATE");
 
                   expect([
                     HTTP_STATUS_CODES.CREATED,
@@ -528,7 +528,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
-                    "PUT"
+                    "EDIT"
                   );
                   if (skipCheck.skip) {
                     logger.warn(
@@ -551,7 +551,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                   logger.info(`✏️ ${fullModuleName} - PHASE 3: UPDATE`);
 
                   const { response, updatedData } =
-                    await crudHelper.runUpdateTest("PUT");
+                    await crudHelper.runUpdateTest("EDIT");
 
                   const validStatuses = [
                     HTTP_STATUS_CODES.OK,

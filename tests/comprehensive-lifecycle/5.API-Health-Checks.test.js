@@ -83,7 +83,7 @@ describe("Individual API Endpoint Health Checks", () => {
           response = await apiClient.post(endpoint.url, cleanPostPayload);
           break;
 
-        case "PUT":
+        case "EDIT":
           const putPayload = endpoint.payload || {
             id: "health-check-test-id-12345",
             description: "Health check test - safe update operation",
@@ -396,7 +396,7 @@ describe("Individual API Endpoint Health Checks", () => {
         logger.error("   1. Schema file exists and is valid JSON");
         logger.error("   2. Endpoints have valid URL formats");
         logger.error(
-          "   3. HTTP operations (Post, PUT, etc.) are properly defined"
+          "   3. HTTP operations (CREATE, EDIT, etc.) are properly defined"
         );
 
         // This will fail the test, which is appropriate

@@ -40,7 +40,7 @@ class SecurityHelpers {
 
     const operation = moduleConfig[preferredOperation];
     // NOTE: Original code assumed operation to be an object with method/path.
-    // Given the test uses moduleConfig.Post[0] (a URL string), this helper is likely misaligned.
+    // Given the test uses moduleConfig.CREATE[0] (a URL string), this helper is likely misaligned.
     // Returning the endpoint array for simplicity, as tests rely on index [0] being the URL.
     if (Array.isArray(operation) && operation[0]) {
       // Return the entire array/config entry
@@ -162,7 +162,7 @@ class SecurityHelpers {
   static async testSQLInjectionProtection(moduleConfig, moduleName = "") {
     logger.info(`🛡️ Starting advanced SQL Injection tests for ${moduleName}`);
     const results = [];
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return [
@@ -246,7 +246,7 @@ class SecurityHelpers {
   static async testXSSProtection(moduleConfig, moduleName = "") {
     logger.info(`🕷️ Starting advanced XSS Protection tests for ${moduleName}`);
     const results = [];
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return [
@@ -329,7 +329,7 @@ class SecurityHelpers {
   static async testAuthorizationSecurity(moduleConfig, moduleName = "") {
     logger.info(`🔐 Starting Authorization Security Tests for ${moduleName}`);
     const results = [];
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return [

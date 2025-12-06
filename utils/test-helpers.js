@@ -331,12 +331,12 @@ class TestHelpers {
       test: async () => {
         logger.debug(`   Testing: No Token for ${moduleName}`);
 
-        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+        if (moduleConfig.CREATE && moduleConfig.CREATE[0] !== "URL_HERE") {
           const client = apiClient.withNoToken();
           const testData = this.getDefaultTestData().getPostData();
 
           try {
-            const response = await client.post(moduleConfig.Post[0], testData);
+            const response = await client.post(moduleConfig.CREATE[0], testData);
 
             return {
               expected: [401, 403],
@@ -364,12 +364,12 @@ class TestHelpers {
       test: async () => {
         logger.debug(`   Testing: Wrong Token for ${moduleName}`);
 
-        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+        if (moduleConfig.CREATE && moduleConfig.CREATE[0] !== "URL_HERE") {
           const client = apiClient.withWrongToken();
           const testData = this.getDefaultTestData().getPostData();
 
           try {
-            const response = await client.post(moduleConfig.Post[0], testData);
+            const response = await client.post(moduleConfig.CREATE[0], testData);
 
             return {
               expected: [401, 403],
@@ -397,12 +397,12 @@ class TestHelpers {
       test: async () => {
         logger.debug(`   Testing: Expired Token for ${moduleName}`);
 
-        if (moduleConfig.Post && moduleConfig.Post[0] !== "URL_HERE") {
+        if (moduleConfig.CREATE && moduleConfig.CREATE[0] !== "URL_HERE") {
           const client = apiClient.withExpiredToken();
           const testData = this.getDefaultTestData().getPostData();
 
           try {
-            const response = await client.post(moduleConfig.Post[0], testData);
+            const response = await client.post(moduleConfig.CREATE[0], testData);
 
             return {
               expected: [401, 403],
@@ -467,7 +467,7 @@ class TestHelpers {
    */
   static async testSQLInjectionProtection(moduleConfig, moduleName = "") {
     const results = [];
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return [
@@ -545,7 +545,7 @@ class TestHelpers {
    */
   static async testXSSProtection(moduleConfig, moduleName = "") {
     const results = [];
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return [
@@ -765,7 +765,7 @@ class TestHelpers {
     moduleConfig,
     moduleName = ""
   ) {
-    const endpoint = moduleConfig.Post;
+    const endpoint = moduleConfig.CREATE;
 
     if (!endpoint || endpoint[0] === "URL_HERE") {
       return {

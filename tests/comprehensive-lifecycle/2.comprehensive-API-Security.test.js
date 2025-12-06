@@ -112,14 +112,14 @@ describe("Comprehensive API Security Testing", () => {
       if (typeof moduleConfig !== "object" || moduleConfig === null) return;
 
       const hasEndpoints =
-        moduleConfig.Post ||
-        moduleConfig.PUT ||
+        moduleConfig.CREATE ||
+        moduleConfig.EDIT ||
         moduleConfig.DELETE ||
         moduleConfig.View ||
         moduleConfig.EDIT ||
         moduleConfig.LookUP ||
         moduleConfig.Commit ||
-        moduleConfig.GET;
+        moduleConfig.View;
 
       if (hasEndpoints) {
         const fullModuleName = parentPath
@@ -254,7 +254,7 @@ describe("Comprehensive API Security Testing", () => {
               const maliciousResults =
                 await SecurityHelpers.testMaliciousPayloads(
                   moduleConfig,
-                  "Post",
+                  "CREATE",
                   fullModuleName
                 );
               securityResults.maliciousPayloads = maliciousResults;
@@ -300,7 +300,7 @@ describe("Comprehensive API Security Testing", () => {
               const nullFieldsResult =
                 await SecurityHelpers.testNullRequiredFields(
                   moduleConfig,
-                  "Post",
+                  "CREATE",
                   fullModuleName
                 );
               securityResults.nullFields = nullFieldsResult;
@@ -334,7 +334,7 @@ describe("Comprehensive API Security Testing", () => {
           // =========================================================================
           // SECURITY TEST CASE 4: EDIT WITH NULL REQUIRED FIELDS (Conditional)
           // =========================================================================
-          if (moduleConfig.PUT) {
+          if (moduleConfig.EDIT) {
             test("[TC-4] Edit Validation - Reject Null Required Fields in Updates", async () => {
               try {
                 testContext.testType = "edit_null_validation";
@@ -347,7 +347,7 @@ describe("Comprehensive API Security Testing", () => {
                 const nullEditResult =
                   await SecurityHelpers.testNullRequiredFields(
                     moduleConfig,
-                    "PUT",
+                    "EDIT",
                     fullModuleName
                   );
                 securityResults.nullFieldsEdit = nullEditResult;

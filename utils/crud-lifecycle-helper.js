@@ -61,7 +61,7 @@ class CrudLifecycleHelper {
   /**
    * 🎯 PHASE 1: CREATE - Create a new resource
    */
-  async runCreateTest(operationKey = "Post") {
+  async runCreateTest(operationKey = "CREATE") {
     if (this.moduleSkipFlag) {
       throw new Error(
         `❌ SKIPPING TEST: Previous failure in module ${this.actualModulePath}`
@@ -233,7 +233,7 @@ class CrudLifecycleHelper {
   /**
    * 🎯 PHASE 3: UPDATE - Modify the created resource
    */
-  async runUpdateTest(operationKey = "PUT") {
+  async runUpdateTest(operationKey = "EDIT") {
     this.enforcePrerequisite("createdId");
     const currentId = this.getCreatedId();
 
@@ -766,7 +766,7 @@ class CrudLifecycleHelper {
           originalData: this.resourceState.originalData ? 
             this.sanitizeDataForStorage(this.resourceState.originalData) : null,
           creationMethod: 'POST',
-          apiEndpoint: this.getModuleEndpoint('Post'),
+          apiEndpoint: this.getModuleEndpoint('CREATE'),
           testSuite: 'comprehensive-CRUD-Validation'
         }
       };

@@ -45,11 +45,11 @@ const loadSchema = () => {
 const getHttpMethod = (operation) => {
   const methodMap = {
     Post: "POST",
-    PUT: "PUT",
+    PUT: "EDIT",
     DELETE: "DELETE",
     View: "GET",
     GET: "GET",
-    EDIT: "PUT",
+    EDIT: "EDIT",
     LookUP: "GET",
     Commit: "POST",
   };
@@ -68,8 +68,8 @@ const extractEndpointsFromSchema = (schema) => {
 
     // Check if current level has HTTP operations directly
     const httpOperations = [
-      "Post",
-      "PUT",
+      "CREATE",
+      "EDIT",
       "DELETE",
       "View",
       "GET",

@@ -62,7 +62,7 @@ function generateMaliciousPayload(moduleName, requestIndex) {
  * @returns {Promise<object>} An object containing the test results, metrics, and status.
  */
 async function testPerformanceUnderMaliciousLoad(moduleConfig, fullModuleName) {
-  const defaultPostUrl = moduleConfig.Post?.[0];
+  const defaultPostUrl = moduleConfig.CREATE?.[0];
 
   if (!defaultPostUrl) {
     return {

@@ -103,8 +103,8 @@ describe("Advanced Security Testing", () => {
       if (typeof moduleConfig !== "object" || moduleConfig === null) return;
 
       const hasEndpoints =
-        moduleConfig.Post ||
-        moduleConfig.PUT ||
+        moduleConfig.CREATE ||
+        moduleConfig.EDIT ||
         moduleConfig.DELETE ||
         moduleConfig.View ||
         moduleConfig.EDIT ||

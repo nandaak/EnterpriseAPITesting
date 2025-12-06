@@ -11,7 +11,7 @@ const { loadSchema, isValidUrl } = require("../../utils/helper");
  *
  * Purpose: Test system performance and resilience under malicious load conditions
  * Coverage: Concurrent requests, error handling, response times, throughput
- * Scope: Automatically tests all modules with POST endpoints under stress conditions
+ * Scope: Automatically tests all modules with CREATE endpoints under stress conditions
  *
  * @version 2.0.3
  * @author Mohamed Said Ibrahim
@@ -124,7 +124,7 @@ describe("Performance Under Malicious Load", () => {
         (val) => typeof val === "object" && val !== null && !Array.isArray(val)
       );
 
-      const endpointArray = moduleConfig.Post || [];
+      const endpointArray = moduleConfig.CREATE || [];
       const hasPostEndpoint =
         endpointArray.length > 0 && isValidUrl(endpointArray[0]);
 
@@ -153,7 +153,7 @@ describe("Performance Under Malicious Load", () => {
             testContext = {
               module: fullModuleName,
               startTime: new Date().toISOString(),
-              endpoint: moduleConfig.Post[0],
+              endpoint: moduleConfig.CREATE[0],
             };
           });
 
