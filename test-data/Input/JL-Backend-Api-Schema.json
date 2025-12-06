@@ -2,7 +2,15 @@
   "Accounting": {
     "Transaction": {
       "Journal_Entry": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/JournalEntry/<createdId>",
+          {}
+        ],
+        "View": [
+          "/erp-apis/JournalEntry/View?Id=<createdId>",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/JournalEntry",
           {
             "refrenceNumber": null,
@@ -28,7 +36,7 @@
             "journalEntryAttachments": []
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/JournalEntry/Edit",
           {
             "journalCode": "jl20080828_0939",
@@ -88,14 +96,6 @@
             "journalEntryAttachments": [],
             "id": "<createdId>"
           }
-        ],
-        "DELETE": [
-          "/erp-apis/JournalEntry/<createdId>",
-          {}
-        ],
-        "View": [
-          "/erp-apis/JournalEntry/View?Id=<createdId>",
-          {}
         ]
       }
     }

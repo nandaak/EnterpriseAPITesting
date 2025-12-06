@@ -2,14 +2,6 @@
   "General_Settings": {
     "Master_Data": {
       "Company_Definition": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -17,21 +9,26 @@
         "View": [
           "/erp-apis/Company/GetFirstCompany",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Discount_Policy": {
-        "Post": [
-          "/erp-apis/DiscountPolicy",
-          {
-            "name": "string",
-            "nameAr": "string",
-            "discountPercentage": 1,
-            "userIds": [
-              "00000000-0000-0000-0000-000000000000"
-            ]
-          }
+        "DELETE": [
+          "/erp-apis/DiscountPolicy/<createdId>",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/DiscountPolicy/<createdId>",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/DiscountPolicy",
           {
             "id": "<createdId>",
@@ -43,28 +40,19 @@
             ]
           }
         ],
-        "DELETE": [
-          "/erp-apis/DiscountPolicy/<createdId>",
-          {}
-        ],
-        "View": [
-          "/erp-apis/DiscountPolicy/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/DiscountPolicy/<createdId>",
-          {}
+        "CREATE": [
+          "/erp-apis/DiscountPolicy",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "discountPercentage": 1,
+            "userIds": [
+              "00000000-0000-0000-0000-000000000000"
+            ]
+          }
         ]
       },
       "Requests": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -72,10 +60,34 @@
         "LookUP": [
           "/erp-apis/api/workflows/GetAllProcessesLookup",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Financial_Calendar": {
-        "Post": [
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "/erp-apis/FinancialYear",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "code": "string"
+          }
+        ],
+        "LookUP": [
+          "/erp-apis/FinancialYear/GetLastYearDate",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/FinancialYear",
           {
             "name": "string",
@@ -91,37 +103,9 @@
               }
             ]
           }
-        ],
-        "PUT": [
-          "/erp-apis/FinancialYear",
-          {
-            "id": "<createdId>",
-            "name": "string",
-            "code": "string"
-          }
-        ],
-        "DELETE": [
-          "URL_HERE",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/FinancialYear/<createdId>",
-          {}
-        ],
-        "LookUP": [
-          "/erp-apis/FinancialYear/GetLastYearDate",
-          {}
         ]
       },
       "Tax_Group": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -129,17 +113,17 @@
         "LookUP": [
           "/erp-apis/TaxGroup",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Tax_Definition": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -147,17 +131,17 @@
         "LookUP": [
           "/erp-apis/Tax",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Currency_Definition": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -165,10 +149,22 @@
         "LookUP": [
           "/erp-apis/Currency",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Currency_Conversion": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/CurrencyConversion/<createdId>",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/CurrencyConversion",
           {
             "fromCurrencyId": 1,
@@ -177,7 +173,7 @@
             "note": "string"
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/CurrencyConversion",
           {
             "id": "<createdId>",
@@ -186,14 +182,20 @@
             "toCurrencyId": "<createdId>",
             "note": "string"
           }
-        ],
-        "DELETE": [
-          "/erp-apis/CurrencyConversion/<createdId>",
-          {}
         ]
       },
       "Tags_Definition": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/Tag?Id=28",
+          {
+            "Id": 28
+          }
+        ],
+        "LookUP": [
+          "/erp-apis/Tag",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/Tag",
           {
             "name": "string",
@@ -203,7 +205,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/Tag",
           {
             "id": "<createdId>",
@@ -215,27 +217,9 @@
             ],
             "isActive": true
           }
-        ],
-        "DELETE": [
-          "/erp-apis/Tag?Id=28",
-          {
-            "Id": 28
-          }
-        ],
-        "LookUP": [
-          "/erp-apis/Tag",
-          {}
         ]
       },
       "Workflow_Configuration": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -243,41 +227,33 @@
         "LookUP": [
           "/erp-apis/api/workflows/GetAllProcessesLookup?isActive=true",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       }
     },
     "Reports": {
       "VAT_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/GeneralSettingReport/VatReport?DateFrom=2025-10-01&DateTo=2025-10-14",
+          "URL_HERE",
           {}
         ]
       },
       "Vat_Management": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/SalesInvoice/ZatcaInvoices",
+          "URL_HERE",
           {}
         ]
       }
     },
     "Administration": {
       "Users_Management": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -285,17 +261,17 @@
         "LookUP": [
           "/erp-apis/Lookup?lookups=License",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Generate_App_Token": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -303,17 +279,17 @@
         "LookUP": [
           "/erp-apis/CurrentUserInfo/GetAppToken",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Electronic_Integration": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -321,23 +297,31 @@
         "LookUP": [
           "/erp-apis/ZatcaDevice/CurrentInfo",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "User_Management": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
         ],
         "LookUP": [
           "/erp-apis/UserBranchAccess/GetAll",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
           {}
         ]
       }
@@ -346,21 +330,25 @@
   "Accounting": {
     "Master_Data": {
       "Accounting_General_Settings": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
           "URL_HERE",
           {}
         ]
       },
       "Chart_of_Accounts": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/ChartOfAccounts/GetAccountDetails?id=1293",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/ChartOfAccounts/AddAccount",
           {
             "name": "string",
@@ -389,7 +377,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/ChartOfAccounts/EditAccount",
           {
             "id": "<createdId>",
@@ -419,14 +407,14 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/ChartOfAccounts/GetAccountDetails?id=1293",
-          {}
         ]
       },
       "Cost_Center_Definition": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/CostCenter/Delete?Id=79",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/CostCenter/AddCostCenter",
           {
             "name": "string",
@@ -436,7 +424,7 @@
             "isActive": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/CostCenter/EditCostCenter",
           {
             "id": "<createdId>",
@@ -446,16 +434,20 @@
             "isDetail": true,
             "isActive": true
           }
-        ],
-        "DELETE": [
-          "/erp-apis/CostCenter/Delete?Id=79",
-          {}
         ]
       }
     },
     "Transaction": {
       "Journal_Entry": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/JournalEntry/a331f1a1-32cb-4aed-40ab-08de0c2835e1",
+          {}
+        ],
+        "View": [
+          "/erp-apis/JournalEntry/View?Id=5acc117a-e6d7-4a0e-ccfa-08ddf3a0811c",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/JournalEntry",
           {
             "refrenceNumber": "string",
@@ -489,7 +481,7 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/JournalEntry/Edit",
           {
             "id": "<createdId>",
@@ -524,25 +516,9 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/JournalEntry/a331f1a1-32cb-4aed-40ab-08de0c2835e1",
-          {}
-        ],
-        "View": [
-          "/erp-apis/JournalEntry/View?Id=5acc117a-e6d7-4a0e-ccfa-08ddf3a0811c",
-          {}
         ]
       },
       "Accounts_Opening_Balance": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -550,48 +526,44 @@
         "LookUP": [
           "/erp-apis/OpeningBalanceJournalEntry/",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       }
     },
     "Reports": {
       "Account_Statement": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/ChartOfAccounts/ChildrenAccountsDropDown?",
+          "URL_HERE",
           {}
         ]
       },
       "Cost_Center_Statement": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/CostCenter/CostCenterDropDown?",
+          "URL_HERE",
           {}
         ]
       },
       "Trial_Balance": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Income_Statement": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/FinancialYear/FinancialYearDropDown",
+          "URL_HERE",
           {}
         ]
       },
       "Financial_Position": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
@@ -601,14 +573,6 @@
   "Finance": {
     "Master_Data": {
       "Finance_General_Settings": {
-        "Post": [
-          "/erp-apis/FinanceGeneralSettings",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -616,10 +580,28 @@
         "LookUP": [
           "/erp-apis/FinanceGeneralSettings",
           {}
+        ],
+        "CREATE": [
+          "/erp-apis/FinanceGeneralSettings",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Treasury_Definition": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/Treasury/<createdId>",
+          {
+            "Id": 35
+          }
+        ],
+        "LookUP": [
+          "/erp-apis/Treasury",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/Treasury",
           {
             "name": "string",
@@ -634,7 +616,7 @@
             "openingBalance": 1
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/Treasury",
           {
             "id": "<createdId>",
@@ -649,81 +631,9 @@
             "accountOpeningBalance": 1,
             "openingBalance": 1
           }
-        ],
-        "DELETE": [
-          "/erp-apis/Treasury/<createdId>",
-          {
-            "Id": 35
-          }
-        ],
-        "LookUP": [
-          "/erp-apis/Treasury",
-          {}
         ]
       },
       "Bank_Definition": {
-        "Post": [
-          "/erp-apis/Bank",
-          {
-            "code": "string",
-            "shortName": "string",
-            "contactName": "string",
-            "phone": "string",
-            "name": "string",
-            "nameAr": "string",
-            "bankAddress": "string",
-            "bankEmail": "string",
-            "fax": "string",
-            "bankAccounts": [
-              {
-                "accountNumber": "string",
-                "glAccountId": 1,
-                "iban": "string",
-                "currencyId": 1,
-                "accountOpeningBalance": 1,
-                "openingBalance": 1,
-                "userPermission": [
-                  {}
-                ],
-                "branches": [
-                  {}
-                ]
-              }
-            ]
-          }
-        ],
-        "PUT": [
-          "/erp-apis/Bank/Edit",
-          {
-            "id": "<createdId>",
-            "code": "string",
-            "shortName": "string",
-            "contactName": "string",
-            "phone": "string",
-            "name": "string",
-            "nameAr": "string",
-            "bankAddress": "string",
-            "bankEmail": "string",
-            "fax": "string",
-            "bankAccounts": [
-              {
-                "id": "<createdId>",
-                "accountNumber": "string",
-                "glAccountId": "<createdId>",
-                "iban": "string",
-                "currencyId": "<createdId>",
-                "accountOpeningBalance": 1,
-                "openingBalance": 1,
-                "userPermission": [
-                  {}
-                ],
-                "branches": [
-                  {}
-                ]
-              }
-            ]
-          }
-        ],
         "DELETE": [
           "/erp-apis/Bank/<createdId>",
           {
@@ -762,17 +672,71 @@
               }
             ]
           }
+        ],
+        "CREATE": [
+          "/erp-apis/Bank",
+          {
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
+            "bankAccounts": [
+              {
+                "accountNumber": "string",
+                "glAccountId": 1,
+                "iban": "string",
+                "currencyId": 1,
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
+                ],
+                "branches": [
+                  {}
+                ]
+              }
+            ]
+          }
+        ],
+        "EDIT": [
+          "/erp-apis/Bank/Edit",
+          {
+            "id": "<createdId>",
+            "code": "string",
+            "shortName": "string",
+            "contactName": "string",
+            "phone": "string",
+            "name": "string",
+            "nameAr": "string",
+            "bankAddress": "string",
+            "bankEmail": "string",
+            "fax": "string",
+            "bankAccounts": [
+              {
+                "id": "<createdId>",
+                "accountNumber": "string",
+                "glAccountId": "<createdId>",
+                "iban": "string",
+                "currencyId": "<createdId>",
+                "accountOpeningBalance": 1,
+                "openingBalance": 1,
+                "userPermission": [
+                  {}
+                ],
+                "branches": [
+                  {}
+                ]
+              }
+            ]
+          }
         ]
       },
       "Payment_Methods": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -780,25 +744,28 @@
         "View": [
           "/erp-apis/PaymentMethod/<createdId>",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Payment_Terms": {
-        "Post": [
-          "/erp-apis/PaymentTerms",
+        "DELETE": [
+          "/erp-apis/PaymentTerms/<createdId>",
           {
-            "name": "string",
-            "nameAr": "string",
-            "paymentTermLines": [
-              {
-                "dueTermValue": 1,
-                "afterValue": 1,
-                "afterPeriod": {},
-                "note": "string"
-              }
-            ]
+            "Id": 33
           }
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/PaymentTerms/View/<createdId>",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/PaymentTerms",
           {
             "id": "<createdId>",
@@ -815,62 +782,51 @@
             ]
           }
         ],
-        "DELETE": [
-          "/erp-apis/PaymentTerms/<createdId>",
+        "CREATE": [
+          "/erp-apis/PaymentTerms",
           {
-            "Id": 33
+            "name": "string",
+            "nameAr": "string",
+            "paymentTermLines": [
+              {
+                "dueTermValue": 1,
+                "afterValue": 1,
+                "afterPeriod": {},
+                "note": "string"
+              }
+            ]
           }
-        ],
-        "View": [
-          "/erp-apis/PaymentTerms/View/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/PaymentTerms/<createdId>",
-          {}
         ]
       }
     },
     "Reports": {
       "Treasury_Statement": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Bank_Account_Statement": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Payment_Reconciliation_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/Customer/GetAllCustomerAdvancedSearch?PageNumber=1&PageSize=25&SortBy=1",
+          "URL_HERE",
           {}
         ]
       },
       "Payment_Out_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/ChartOfAccounts/GetHasNoChildrenList",
+          "URL_HERE",
           {}
         ]
       },
       "Payment_In_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/PaymentIn/GetCashReceiptReport?ToDate=2025-10-14&FromDate=2025-10-14&PageSize=25&PageNumber=1",
+          "URL_HERE",
           {}
         ]
       }
@@ -919,7 +875,17 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "DELETE": [
+          "/erp-apis/PaymentIn/f2337325-740c-4b24-7378-08ddf360e24c",
+          {
+            "Id": "f2337325-740c-4b24-7378-08ddf360e24c"
+          }
+        ],
+        "View": [
+          "/erp-apis/PaymentIn/GetView/77966f84-9638-47b5-6153-08de09b5d890",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/PaymentIn",
           {
             "id": "<createdId>",
@@ -952,20 +918,20 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/PaymentIn/f2337325-740c-4b24-7378-08ddf360e24c",
-          {
-            "Id": "f2337325-740c-4b24-7378-08ddf360e24c"
-          }
-        ],
-        "View": [
-          "/erp-apis/PaymentIn/GetView/77966f84-9638-47b5-6153-08de09b5d890",
-          {}
         ]
       },
       "Payment_OUT": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/PaymentOut/517399ff-248e-411e-27ce-08de0b743e4c",
+          {
+            "Id": "517399ff-248e-411e-27ce-08de0b743e4c"
+          }
+        ],
+        "View": [
+          "/erp-apis/PaymentOut/GetView/60040464-a2f7-45de-45f7-08de09de88e0",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/PaymentOut",
           {
             "paymentOutDate": "2025-12-01T13:29:57.416Z",
@@ -1001,7 +967,7 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/PaymentOut",
           {
             "id": "<createdId>",
@@ -1033,20 +999,20 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/PaymentOut/517399ff-248e-411e-27ce-08de0b743e4c",
-          {
-            "Id": "517399ff-248e-411e-27ce-08de0b743e4c"
-          }
-        ],
-        "View": [
-          "/erp-apis/PaymentOut/GetView/60040464-a2f7-45de-45f7-08de09de88e0",
-          {}
         ]
       },
       "Fund_Transfer": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/FundTransfer/7ff98845-ab16-44d0-c423-08de0bd989d2",
+          {
+            "Id": "7ff98845-ab16-44d0-c423-08de0bd989d2"
+          }
+        ],
+        "View": [
+          "/erp-apis/FundTransfer/0f989fc1-1d71-4496-2c17-08de0366777a/view",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/FundTransfer",
           {
             "date": "2025-12-01T13:29:57.417Z",
@@ -1074,7 +1040,7 @@
             "fundTransferFromDetail": {}
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/FundTransfer",
           {
             "id": "<createdId>",
@@ -1101,28 +1067,18 @@
             },
             "fundTransferFromDetail": {}
           }
-        ],
-        "DELETE": [
-          "/erp-apis/FundTransfer/7ff98845-ab16-44d0-c423-08de0bd989d2",
-          {
-            "Id": "7ff98845-ab16-44d0-c423-08de0bd989d2"
-          }
-        ],
-        "View": [
-          "/erp-apis/FundTransfer/0f989fc1-1d71-4496-2c17-08de0366777a/view",
-          {}
         ]
       },
       "Payment_Reconciliations": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
           "URL_HERE",
           {}
         ]
@@ -1132,14 +1088,6 @@
   "Sales": {
     "Master_Data": {
       "Sales_General_Settings": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -1147,24 +1095,22 @@
         "LookUP": [
           "/erp-apis/SalesGeneralSettings",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Customer_Category": {
-        "Post": [
-          "/erp-apis/CustomerCategory",
-          {
-            "name": "string",
-            "nameAr": "string",
-            "receivableAccountId": 1,
-            "salesAccountId": 1,
-            "salesReturnAccountId": 1,
-            "discountAccountId": 1,
-            "pricePolicyId": 1,
-            "paymentTermId": 1,
-            "marketType": "B2B"
-          }
+        "DELETE": [
+          "/erp-apis/CustomerCategory/<createdId>",
+          {}
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/CustomerCategory",
           {
             "id": "<createdId>",
@@ -1180,89 +1126,27 @@
             "marketType": "B2B"
           }
         ],
-        "DELETE": [
-          "/erp-apis/CustomerCategory/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/CustomerCategory/<createdId>",
-          {}
+        "CREATE": [
+          "/erp-apis/CustomerCategory",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
+          }
         ]
       },
       "Customer_Definition": {
-        "Post": [
-          "/erp-apis/Customer",
-          {
-            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-            "externalCode": "string",
-            "name": "string",
-            "nameAr": "string",
-            "categoryId": 1,
-            "marketType": "B2B",
-            "birthdate": "2025-12-01T13:29:57.417Z",
-            "photo": "string",
-            "tagIds": [
-              1
-            ],
-            "contactInfo": {
-              "contactPhone": "string",
-              "contactEmail": "string",
-              "contactMobileCode": "string",
-              "contactMobile": "string",
-              "contactWebsite": "string",
-              "contactFax": "string",
-              "contactPersonPhone": "string",
-              "contactPersonMobileCode": "string",
-              "contactPersonMobile": "string",
-              "contactPersonEmail": "string",
-              "contactPersonName": "string"
-            },
-            "financialInfo": {
-              "paymentTermId": 1,
-              "pricePolicyId": 1,
-              "allowCreditLimit": true,
-              "creditLimit": 1,
-              "currencyId": 1
-            },
-            "legalInfo": {
-              "commercialRegistrationNumber": "string",
-              "taxIdentificationNumber": "string",
-              "street": "string",
-              "citySubdivisionName": "string",
-              "cityName": "string",
-              "postalZone": "string",
-              "countrySubEntity": "string",
-              "countryId": "string",
-              "buildingNumber": "string",
-              "additionalStreetName": "string",
-              "registrationName": "string",
-              "otherID": "string",
-              "nationalNumber": "string"
-            },
-            "accountingInfo": {
-              "receivableAccountId": 1,
-              "salesAccountId": 1,
-              "salesReturnAccountId": 1,
-              "discountAccountId": 1
-            },
-            "customerAddresses": [
-              {
-                "longitude": 1,
-                "latitude": 1,
-                "errorRadius": 1
-              }
-            ],
-            "customerMarketPlaces": [
-              {
-                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
-                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
-                "salesManId": "00000000-0000-0000-0000-000000000000",
-                "address": "string"
-              }
-            ]
-          }
+        "DELETE": [
+          "/erp-apis/Customer/<createdId>",
+          {}
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/Customer",
           {
             "id": "<createdId>",
@@ -1335,31 +1219,80 @@
             ]
           }
         ],
-        "DELETE": [
-          "/erp-apis/Customer/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/Customer/<createdId>",
-          {}
+        "CREATE": [
+          "/erp-apis/Customer",
+          {
+            "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+            "externalCode": "string",
+            "name": "string",
+            "nameAr": "string",
+            "categoryId": 1,
+            "marketType": "B2B",
+            "birthdate": "2025-12-01T13:29:57.417Z",
+            "photo": "string",
+            "tagIds": [
+              1
+            ],
+            "contactInfo": {
+              "contactPhone": "string",
+              "contactEmail": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactWebsite": "string",
+              "contactFax": "string",
+              "contactPersonPhone": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonEmail": "string",
+              "contactPersonName": "string"
+            },
+            "financialInfo": {
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "allowCreditLimit": true,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "legalInfo": {
+              "commercialRegistrationNumber": "string",
+              "taxIdentificationNumber": "string",
+              "street": "string",
+              "citySubdivisionName": "string",
+              "cityName": "string",
+              "postalZone": "string",
+              "countrySubEntity": "string",
+              "countryId": "string",
+              "buildingNumber": "string",
+              "additionalStreetName": "string",
+              "registrationName": "string",
+              "otherID": "string",
+              "nationalNumber": "string"
+            },
+            "accountingInfo": {
+              "receivableAccountId": 1,
+              "salesAccountId": 1,
+              "salesReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "customerAddresses": [
+              {
+                "longitude": 1,
+                "latitude": 1,
+                "errorRadius": 1
+              }
+            ],
+            "customerMarketPlaces": [
+              {
+                "externalIdentifier": "00000000-0000-0000-0000-000000000000",
+                "marketPlaceId": "00000000-0000-0000-0000-000000000000",
+                "salesManId": "00000000-0000-0000-0000-000000000000",
+                "address": "string"
+              }
+            ]
+          }
         ]
       },
       "Sales_Team": {
-        "Post": [
-          "/erp-apis/SalesTeam",
-          {
-            "name": "string",
-            "nameAr": "string"
-          }
-        ],
-        "PUT": [
-          "/erp-apis/SalesTeam/EditSalesTeamGeneral",
-          {
-            "id": "<createdId>",
-            "name": "string",
-            "nameAr": "string"
-          }
-        ],
         "DELETE": [
           "/erp-apis/SalesTeam/3c78f5f1-a86a-4068-32c2-08de0b58f0ab",
           {}
@@ -1367,10 +1300,33 @@
         "View": [
           "/erp-apis/SalesTeam/4398784e-deb1-4033-7a87-08ddf5b7a51e",
           {}
+        ],
+        "CREATE": [
+          "/erp-apis/SalesTeam",
+          {
+            "name": "string",
+            "nameAr": "string"
+          }
+        ],
+        "EDIT": [
+          "/erp-apis/SalesTeam/EditSalesTeamGeneral",
+          {
+            "id": "<createdId>",
+            "name": "string",
+            "nameAr": "string"
+          }
         ]
       },
       "Salesman_Definition": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/SalesMan/f0e7e970-effc-4a6c-ad44-08de0beb1255",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesMan/96b7c675-12b0-438d-6150-08ddfb78e9cc",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/SalesMan",
           {
             "salesTeamId": "00000000-0000-0000-0000-000000000000",
@@ -1385,7 +1341,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/SalesMan",
           {
             "id": "<createdId>",
@@ -1404,18 +1360,18 @@
               1
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/SalesMan/f0e7e970-effc-4a6c-ad44-08de0beb1255",
-          {}
-        ],
-        "View": [
-          "/erp-apis/SalesMan/96b7c675-12b0-438d-6150-08ddfb78e9cc",
-          {}
         ]
       },
       "Price_Policy": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/PricePolicy/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Inventory/GetAllItemsLookup?IncludeService=true",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/PricePolicy",
           {
             "name": "string",
@@ -1436,7 +1392,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/PricePolicy",
           {
             "id": "<createdId>",
@@ -1458,18 +1414,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/PricePolicy/<createdId>",
-          {}
-        ],
-        "LookUP": [
-          "/erp-apis/Inventory/GetAllItemsLookup?IncludeService=true",
-          {}
         ]
       },
       "Market_Place": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/MarketPlace/fb133b89-8b43-4986-afc7-08de0b8870a2",
+          {}
+        ],
+        "View": [
+          "/erp-apis/MarketPlace/2f51050b-e9c8-4b7e-19cf-08de093c8d6c",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/MarketPlace",
           {
             "name": "string",
@@ -1480,7 +1436,7 @@
             "errorRadius": 1
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/MarketPlace",
           {
             "id": "<createdId>",
@@ -1491,30 +1447,18 @@
             "longitude": 1,
             "errorRadius": 1
           }
-        ],
-        "DELETE": [
-          "/erp-apis/MarketPlace/fb133b89-8b43-4986-afc7-08de0b8870a2",
-          {}
-        ],
-        "View": [
-          "/erp-apis/MarketPlace/2f51050b-e9c8-4b7e-19cf-08de093c8d6c",
-          {}
         ]
       },
       "Project_Definition": {
-        "Post": [
-          "/erp-apis/SalesProject",
-          {
-            "name": "string",
-            "nameAr": "string",
-            "description": "string",
-            "customerId": 1,
-            "startDate": "2025-12-01T13:29:57.417Z",
-            "endDate": "2025-12-01T13:29:57.417Z",
-            "contractValue": 1
-          }
+        "DELETE": [
+          "/erp-apis/SalesProject/dd432f24-4a3a-402f-0b34-08de0b84d67d",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/SalesProject/View/56f62dfa-521f-4cbe-547f-08ddf5c905cc",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/SalesProject",
           {
             "id": "<createdId>",
@@ -1527,41 +1471,31 @@
             "contractValue": 1
           }
         ],
-        "DELETE": [
-          "/erp-apis/SalesProject/dd432f24-4a3a-402f-0b34-08de0b84d67d",
-          {}
-        ],
-        "View": [
-          "/erp-apis/SalesProject/View/56f62dfa-521f-4cbe-547f-08ddf5c905cc",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/SalesProject/56f62dfa-521f-4cbe-547f-08ddf5c905cc",
-          {}
+        "CREATE": [
+          "/erp-apis/SalesProject",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "description": "string",
+            "customerId": 1,
+            "startDate": "2025-12-01T13:29:57.417Z",
+            "endDate": "2025-12-01T13:29:57.417Z",
+            "contractValue": 1
+          }
         ]
       }
     },
     "Transaction": {
       "Customer_Opening_Balance": {
-        "Post": [
-          "/erp-apis/CustomerOpeningBalance",
-          {
-            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
-            "amountNature": "Debit",
-            "customerOpeningBalanceDetails": [
-              {
-                "id": "00000000-0000-0000-0000-000000000000",
-                "customerId": 1,
-                "balance": 1,
-                "balanceType": {},
-                "dueDates": [
-                  {}
-                ]
-              }
-            ]
-          }
+        "DELETE": [
+          "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/d60c0043-584d-4cb1-2c25-08de0beecb44",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/839838e6-e868-45d9-cc18-08ddfab82b16",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/CustomerOpeningBalance",
           {
             "id": "<createdId>",
@@ -1580,21 +1514,35 @@
             ]
           }
         ],
-        "DELETE": [
-          "/erp-apis/CustomerOpeningBalance/DeleteOpeningBalanceHeader/d60c0043-584d-4cb1-2c25-08de0beecb44",
-          {}
-        ],
-        "View": [
-          "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/839838e6-e868-45d9-cc18-08ddfab82b16",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/CustomerOpeningBalance/GetById/839838e6-e868-45d9-cc18-08ddfab82b16",
-          {}
+        "CREATE": [
+          "/erp-apis/CustomerOpeningBalance",
+          {
+            "openingBalanceJournalEntryLineId": "00000000-0000-0000-0000-000000000000",
+            "amountNature": "Debit",
+            "customerOpeningBalanceDetails": [
+              {
+                "id": "00000000-0000-0000-0000-000000000000",
+                "customerId": 1,
+                "balance": 1,
+                "balanceType": {},
+                "dueDates": [
+                  {}
+                ]
+              }
+            ]
+          }
         ]
       },
       "Sales_Order": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/SalesOrder/45002048-b761-4ca0-e03a-08de0b5296f5",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesOrder/GetSalesOrderViewById/64a39178-fa3f-43d2-7c27-08ddf4e4e933",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/SalesOrder",
           {
             "orderDate": "2025-12-01T13:29:57.417Z",
@@ -1658,7 +1606,7 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/SalesOrder",
           {
             "id": "<createdId>",
@@ -1722,18 +1670,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/SalesOrder/45002048-b761-4ca0-e03a-08de0b5296f5",
-          {}
-        ],
-        "View": [
-          "/erp-apis/SalesOrder/GetSalesOrderViewById/64a39178-fa3f-43d2-7c27-08ddf4e4e933",
-          {}
         ]
       },
       "Sales_Invoice": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/SalesInvoice/71910b4a-fb6e-4004-8368-08de0b52563c",
+          {}
+        ],
+        "View": [
+          "/erp-apis/SalesInvoice/GetInvoiceViewById/c37f7375-238b-4713-5948-08de022af952",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/SalesInvoice",
           {
             "externalIdentifier": "00000000-0000-0000-0000-000000000000",
@@ -1837,7 +1785,7 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/SalesInvoice",
           {
             "id": "<createdId>",
@@ -1931,18 +1879,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/SalesInvoice/71910b4a-fb6e-4004-8368-08de0b52563c",
-          {}
-        ],
-        "View": [
-          "/erp-apis/SalesInvoice/GetInvoiceViewById/c37f7375-238b-4713-5948-08de022af952",
-          {}
         ]
       },
       "Return_Sales_Invoice": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/ReturnSalesInvoice/fec52941-da1c-4c92-1454-08de0b53bf60",
+          {}
+        ],
+        "View": [
+          "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/8019eec8-68a4-42e1-dd97-08ddf6f641b4",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/ReturnSalesInvoice",
           {
             "externalIdentifier": "00000000-0000-0000-0000-000000000000",
@@ -1972,7 +1920,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/ReturnSalesInvoice",
           {
             "id": "<createdId>",
@@ -1987,18 +1935,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/ReturnSalesInvoice/fec52941-da1c-4c92-1454-08de0b53bf60",
-          {}
-        ],
-        "View": [
-          "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/8019eec8-68a4-42e1-dd97-08ddf6f641b4",
-          {}
         ]
       },
       "Project_Invoice": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/SalesProjectInvoice/fe2df806-652d-4c80-be0f-08de0bf3da68",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/SalesProjectInvoice",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/SalesProjectInvoice",
           {
             "invoiceDate": "2025-12-01T13:29:57.418Z",
@@ -2022,7 +1970,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/SalesProjectInvoice",
           {
             "id": "<createdId>",
@@ -2047,25 +1995,9 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/SalesProjectInvoice/fe2df806-652d-4c80-be0f-08de0bf3da68",
-          {}
-        ],
-        "LookUP": [
-          "/erp-apis/SalesProjectInvoice",
-          {}
         ]
       },
       "Sessions": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2073,17 +2005,17 @@
         "LookUP": [
           "/erp-apis/POSSession",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "POS_Sales_Invoice": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2091,17 +2023,17 @@
         "LookUP": [
           "/erp-apis/POSSession/GetAllPOSInvoicesList",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "POS_Return_Sales_Invoice": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2109,35 +2041,39 @@
         "LookUP": [
           "/erp-apis/POSSession/GetAllPOSReturnInvoicesList",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       }
     },
     "Reports": {
       "Customer_Statement": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Customer_Balance_Report": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Customer_Aging_Report": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Sales_Invoice_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/Lookup?lookups=PaymentInStatus&lookups=SalesInvoiceStatus",
+          "URL_HERE",
           {}
         ]
       }
@@ -2146,21 +2082,11 @@
   "Purchase": {
     "Master_Data": {
       "Vendor_Category": {
-        "Post": [
-          "/erp-apis/VendorCategory",
-          {
-            "name": "string",
-            "nameAr": "string",
-            "payableAccountId": 1,
-            "purchaseAccountId": 1,
-            "purchaseReturnAccountId": 1,
-            "discountAccountId": 1,
-            "pricePolicyId": 1,
-            "paymentTermId": 1,
-            "marketType": "B2B"
-          }
+        "DELETE": [
+          "/erp-apis/VendorCategory/<createdId>",
+          {}
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/VendorCategory",
           {
             "id": "<createdId>",
@@ -2175,68 +2101,31 @@
             "marketType": "B2B"
           }
         ],
-        "DELETE": [
-          "/erp-apis/VendorCategory/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/VendorCategory/<createdId>",
-          {}
-        ]
-      },
-      "Vendor_Definition": {
-        "Post": [
-          "/erp-apis/Vendor",
+        "CREATE": [
+          "/erp-apis/VendorCategory",
           {
             "name": "string",
             "nameAr": "string",
-            "photo": "string",
-            "birthDate": "2025-12-01T13:29:57.418Z",
-            "vendorCategoryId": 1,
-            "vendorInformation": {
-              "contactPhone": "string",
-              "contactMobileCode": "string",
-              "contactMobile": "string",
-              "contactFax": "string",
-              "contactEmail": "string",
-              "contactWebsite": "string",
-              "contactPersonName": "string",
-              "contactPersonMobileCode": "string",
-              "contactPersonMobile": "string",
-              "contactPersonPhone": "string",
-              "contactPersonEmail": "string"
-            },
-            "vendorAddress": {
-              "state": "string",
-              "street": "string",
-              "longitude": 1,
-              "latitude": 1,
-              "radius": 1,
-              "countryId": "string",
-              "cityId": 1
-            },
-            "vendorLegal": {
-              "taxId": "string",
-              "commercialId": "string"
-            },
-            "vendorFinancial": {
-              "paymentTermId": 1,
-              "pricePolicyId": 1,
-              "creditLimit": 1,
-              "currencyId": 1
-            },
-            "vendorAccounting": {
-              "payableAccountId": 1,
-              "purchaseAccountId": 1,
-              "purchaseReturnAccountId": 1,
-              "discountAccountId": 1
-            },
-            "vendorTagIds": [
-              1
-            ]
+            "payableAccountId": 1,
+            "purchaseAccountId": 1,
+            "purchaseReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B"
           }
+        ]
+      },
+      "Vendor_Definition": {
+        "DELETE": [
+          "URL_HERE",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/Vendor/View/<createdId>",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/Vendor",
           {
             "id": "<createdId>",
@@ -2293,30 +2182,61 @@
             ]
           }
         ],
-        "DELETE": [
-          "URL_HERE",
-          {}
-        ],
-        "View": [
-          "/erp-apis/Vendor/View/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/Vendor/<createdId>",
-          {}
+        "CREATE": [
+          "/erp-apis/Vendor",
+          {
+            "name": "string",
+            "nameAr": "string",
+            "photo": "string",
+            "birthDate": "2025-12-01T13:29:57.418Z",
+            "vendorCategoryId": 1,
+            "vendorInformation": {
+              "contactPhone": "string",
+              "contactMobileCode": "string",
+              "contactMobile": "string",
+              "contactFax": "string",
+              "contactEmail": "string",
+              "contactWebsite": "string",
+              "contactPersonName": "string",
+              "contactPersonMobileCode": "string",
+              "contactPersonMobile": "string",
+              "contactPersonPhone": "string",
+              "contactPersonEmail": "string"
+            },
+            "vendorAddress": {
+              "state": "string",
+              "street": "string",
+              "longitude": 1,
+              "latitude": 1,
+              "radius": 1,
+              "countryId": "string",
+              "cityId": 1
+            },
+            "vendorLegal": {
+              "taxId": "string",
+              "commercialId": "string"
+            },
+            "vendorFinancial": {
+              "paymentTermId": 1,
+              "pricePolicyId": 1,
+              "creditLimit": 1,
+              "currencyId": 1
+            },
+            "vendorAccounting": {
+              "payableAccountId": 1,
+              "purchaseAccountId": 1,
+              "purchaseReturnAccountId": 1,
+              "discountAccountId": 1
+            },
+            "vendorTagIds": [
+              1
+            ]
+          }
         ]
       }
     },
     "Transaction": {
       "Vendor_Opening_Balance": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2324,10 +2244,26 @@
         "View": [
           "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/38ab27ae-12d0-4a9c-4e17-08ddf922b609",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Purchase_Order": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/PurchaseOrder/d1d39a83-87ed-4780-6f81-08de0c927b1a",
+          {}
+        ],
+        "View": [
+          "/erp-apis/PurchaseOrder/9424e365-375f-4ce4-02df-08de04d79603/View",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/PurchaseOrder",
           {
             "orderDate": "2025-12-01T13:29:57.418Z",
@@ -2379,7 +2315,7 @@
             "enableWorkflow": true
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/PurchaseOrder",
           {
             "id": "<createdId>",
@@ -2432,73 +2368,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/PurchaseOrder/d1d39a83-87ed-4780-6f81-08de0c927b1a",
-          {}
-        ],
-        "View": [
-          "/erp-apis/PurchaseOrder/9424e365-375f-4ce4-02df-08de04d79603/View",
-          {}
         ]
       },
       "Purchase_Invoice": {
-        "Post": [
-          "/erp-apis/Invoice",
-          {
-            "invoiceDate": "2025-12-01T13:29:57.418Z",
-            "description": "string",
-            "isExternalPurchase": true,
-            "warehouseId": 1,
-            "warehouseName": "string",
-            "vendorId": 1,
-            "vendorName": "string",
-            "currencyId": 1,
-            "currencyName": "string",
-            "currencyRate": 1,
-            "paymentTermId": 1,
-            "reference": "string",
-            "sourceType": "Direct",
-            "sourceId": "00000000-0000-0000-0000-000000000000",
-            "sourceCode": "string",
-            "invoiceDetails": [
-              {
-                "barCode": "string",
-                "barCodeId": 1,
-                "itemId": 1,
-                "itemCode": "string",
-                "itemName": "string",
-                "itemVariantId": 1,
-                "itemVariantCode": "string",
-                "itemVariantNameEn": "string",
-                "itemVariantNameAr": "string",
-                "categoryId": 1,
-                "itemCategoryNameAr": "string",
-                "itemCategoryNameEn": "string",
-                "categoryType": {},
-                "description": "string",
-                "uomId": "00000000-0000-0000-0000-000000000000",
-                "uomCode": "string",
-                "uomNameAr": "string",
-                "uomNameEn": "string",
-                "quantity": 1,
-                "cost": 1,
-                "discountPercentage": 1,
-                "discountAmount": 1,
-                "vatPercentage": 1,
-                "taxId": 1,
-                "notes": "string",
-                "invoiceEntryMode": {},
-                "trackingType": {},
-                "hasExpiryDate": true,
-                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
-                "invoiceTracking": {}
-              }
-            ],
-            "enableWorkflow": true
-          }
+        "DELETE": [
+          "/erp-apis/Invoice/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/erp-apis/Invoice/GetInvoiceViewById/116f3b7f-2ff1-4e59-c25d-08de04d48c6a",
+          {}
+        ],
+        "EDIT": [
           "/erp-apis/Invoice/GetInvoiceViewById/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
           {
             "id": "<createdId>",
@@ -2580,21 +2461,72 @@
             ]
           }
         ],
-        "DELETE": [
-          "/erp-apis/Invoice/d1e94ec2-22bc-4855-2e60-08de0c2877c6",
-          {}
-        ],
-        "View": [
-          "/erp-apis/Invoice/GetInvoiceViewById/116f3b7f-2ff1-4e59-c25d-08de04d48c6a",
-          {}
-        ],
-        "EDIT": [
-          "/erp-apis/Invoice/GetById/116f3b7f-2ff1-4e59-c25d-08de04d48c6a",
-          {}
+        "CREATE": [
+          "/erp-apis/Invoice",
+          {
+            "invoiceDate": "2025-12-01T13:29:57.418Z",
+            "description": "string",
+            "isExternalPurchase": true,
+            "warehouseId": 1,
+            "warehouseName": "string",
+            "vendorId": 1,
+            "vendorName": "string",
+            "currencyId": 1,
+            "currencyName": "string",
+            "currencyRate": 1,
+            "paymentTermId": 1,
+            "reference": "string",
+            "sourceType": "Direct",
+            "sourceId": "00000000-0000-0000-0000-000000000000",
+            "sourceCode": "string",
+            "invoiceDetails": [
+              {
+                "barCode": "string",
+                "barCodeId": 1,
+                "itemId": 1,
+                "itemCode": "string",
+                "itemName": "string",
+                "itemVariantId": 1,
+                "itemVariantCode": "string",
+                "itemVariantNameEn": "string",
+                "itemVariantNameAr": "string",
+                "categoryId": 1,
+                "itemCategoryNameAr": "string",
+                "itemCategoryNameEn": "string",
+                "categoryType": {},
+                "description": "string",
+                "uomId": "00000000-0000-0000-0000-000000000000",
+                "uomCode": "string",
+                "uomNameAr": "string",
+                "uomNameEn": "string",
+                "quantity": 1,
+                "cost": 1,
+                "discountPercentage": 1,
+                "discountAmount": 1,
+                "vatPercentage": 1,
+                "taxId": 1,
+                "notes": "string",
+                "invoiceEntryMode": {},
+                "trackingType": {},
+                "hasExpiryDate": true,
+                "sourceDetailId": "00000000-0000-0000-0000-000000000000",
+                "invoiceTracking": {}
+              }
+            ],
+            "enableWorkflow": true
+          }
         ]
       },
       "Return_Purchase_Invoice": {
-        "Post": [
+        "DELETE": [
+          "/erp-apis/ReturnInvoice/71aebbc5-af57-41d6-9b9d-08de0c28d8f3",
+          {}
+        ],
+        "View": [
+          "/erp-apis/ReturnInvoice/88c55678-aad7-411e-669c-08ddf6ab1a39/GetViewById",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/ReturnInvoice",
           {
             "externalIdentifier": "00000000-0000-0000-0000-000000000000",
@@ -2609,7 +2541,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/erp-apis/ReturnInvoice",
           {
             "id": "<createdId>",
@@ -2622,37 +2554,25 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/erp-apis/ReturnInvoice/71aebbc5-af57-41d6-9b9d-08de0c28d8f3",
-          {}
-        ],
-        "View": [
-          "/erp-apis/ReturnInvoice/88c55678-aad7-411e-669c-08ddf6ab1a39/GetViewById",
-          {}
         ]
       }
     },
     "Reports": {
       "Vendor_Statement": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Vendor_Balance_Report": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Purchase_Invoice_Report": {
-        "GET": [
-          "URL_HERE",
-          {}
-        ],
         "LookUP": [
-          "/erp-apis/Lookup?lookups=PurchaseInvoiceStatus",
+          "URL_HERE",
           {}
         ]
       }
@@ -2661,14 +2581,6 @@
   "Inventory": {
     "Master_Data": {
       "Inventory_General_Settings": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2676,17 +2588,17 @@
         "LookUP": [
           "/inventory-apis/InventoryGeneralSetting",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Item_Category": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -2694,10 +2606,26 @@
         "LookUP": [
           "/inventory-apis/ItemCategory/GetTree",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Re_order_Rules": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/ReOrderRules?id=9",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/ReOrderRules",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/ReOrderRules",
           {
             "id": 0,
@@ -2710,7 +2638,7 @@
             "maxQty": "10"
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/ReOrderRules",
           {
             "id": "<createdId>",
@@ -2722,18 +2650,18 @@
             "minQty": "10",
             "maxQty": "30"
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/ReOrderRules?id=9",
-          {}
-        ],
-        "LookUP": [
-          "/inventory-apis/ReOrderRules",
-          {}
         ]
       },
       "Item_Definition": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/Item/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/Item/GetGeneralData/<createdId>",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/Item",
           {
             "name": "mno",
@@ -2743,7 +2671,7 @@
             "uomCategoryId": 14
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/Item/EditGeneralData",
           {
             "id": "<createdId>",
@@ -2765,61 +2693,18 @@
             "itemTypeAr": "مخزنى",
             "maxDiscount": 100
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/Item/<createdId>",
-          {}
-        ],
-        "LookUP": [
-          "/inventory-apis/Item/GetGeneralData/<createdId>",
-          {}
         ]
       },
       "UOM": {
-        "Post": [
-          "/inventory-apis/UOMCategories",
-          {
-            "nameAr": "non",
-            "nameEn": "non",
-            "unitOfMeasures": [
-              {
-                "code": "",
-                "nameAr": "سنتيمتر (سم)",
-                "nameEn": "Centimeter (cm)",
-                "shortName": "",
-                "isBaseUnit": true,
-                "factor": 1,
-                "BaseCalculation": 1,
-                "calculation": "1",
-                "reversal": "1",
-                "BaseReversal": 1,
-                "uomCategoryId": 0,
-                "systemUnitOfMeasureId": 3,
-                "fromUnitOfMeasureId": ""
-              },
-              {
-                "code": "",
-                "nameAr": "متر (م)",
-                "nameEn": "Meter (m)",
-                "shortName": "",
-                "factor": 1,
-                "calculation": "1 * 1 (1)",
-                "BaseCalculation": 1,
-                "calculationShow": "1 * 1 (1)",
-                "BaseReversal": 1,
-                "BaseReversalShow": "1 / 1 (1)",
-                "reversal": "1 / 1 (1)",
-                "isBaseUnit": false,
-                "uomCategoryId": 0,
-                "systemUnitOfMeasureName": "Meter (m)",
-                "systemUnitOfMeasureId": 1,
-                "fromUnitOfMeasureId": "Centimeter (cm)",
-                "systemUnitOfMeasureCategoryId": ""
-              }
-            ]
-          }
+        "DELETE": [
+          "/inventory-apis/UOM/8ba4b86a-8a37-417a-a1f5-e06861184988",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/inventory-apis/UOMCategories/GetUOMCategoryWithUomsById/<createdId>",
+          {}
+        ],
+        "EDIT": [
           "/inventory-apis/UOMCategories/Edit",
           {
             "id": "<createdId>",
@@ -2867,21 +2752,60 @@
             ]
           }
         ],
-        "DELETE": [
-          "/inventory-apis/UOM/8ba4b86a-8a37-417a-a1f5-e06861184988",
-          {}
-        ],
-        "View": [
-          "/inventory-apis/UOMCategories/GetUOMCategoryWithUomsById/<createdId>",
-          {}
-        ],
-        "EDIT": [
-          "/inventory-apis/UOMCategories/Edit",
-          {}
+        "CREATE": [
+          "/inventory-apis/UOMCategories",
+          {
+            "nameAr": "non",
+            "nameEn": "non",
+            "unitOfMeasures": [
+              {
+                "code": "",
+                "nameAr": "سنتيمتر (سم)",
+                "nameEn": "Centimeter (cm)",
+                "shortName": "",
+                "isBaseUnit": true,
+                "factor": 1,
+                "BaseCalculation": 1,
+                "calculation": "1",
+                "reversal": "1",
+                "BaseReversal": 1,
+                "uomCategoryId": 0,
+                "systemUnitOfMeasureId": 3,
+                "fromUnitOfMeasureId": ""
+              },
+              {
+                "code": "",
+                "nameAr": "متر (م)",
+                "nameEn": "Meter (m)",
+                "shortName": "",
+                "factor": 1,
+                "calculation": "1 * 1 (1)",
+                "BaseCalculation": 1,
+                "calculationShow": "1 * 1 (1)",
+                "BaseReversal": 1,
+                "BaseReversalShow": "1 / 1 (1)",
+                "reversal": "1 / 1 (1)",
+                "isBaseUnit": false,
+                "uomCategoryId": 0,
+                "systemUnitOfMeasureName": "Meter (m)",
+                "systemUnitOfMeasureId": 1,
+                "fromUnitOfMeasureId": "Centimeter (cm)",
+                "systemUnitOfMeasureCategoryId": ""
+              }
+            ]
+          }
         ]
       },
       "Attributes_definitions": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/AttributeGroup/<createdId>",
+          {}
+        ],
+        "LookUP": [
+          "/inventory-apis/AttributeGroup/GetAllWithValues",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/AttributeGroup/AddAttributeGroupWithAttributeValues",
           [
             {
@@ -2891,7 +2815,7 @@
             }
           ]
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/AttributeGroup/EditAttributeGroupWithAttributeValues",
           {
             "id": "<createdId>",
@@ -2906,32 +2830,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/AttributeGroup/<createdId>",
-          {}
-        ],
-        "LookUP": [
-          "/inventory-apis/AttributeGroup/GetAllWithValues",
-          {}
         ]
       },
       "Warehouse_definitions": {
-        "Post": [
-          "/inventory-apis/WareHouse/QuickAdd",
-          {
-            "name": "war9",
-            "nameAr": "war9",
-            "branchWarehouses": [
-              "17987a69-16b3-420b-b066-08ddf360e24c",
-              "6ac9b711-ce24-4790-447c-08ddf38f2dd6",
-              "b09981d8-29ef-4f1b-bf59-08ddf4494443",
-              "f7ea8813-c55b-4759-bf5a-08ddf4494443"
-            ],
-            "warehouseType": 1
-          }
+        "DELETE": [
+          "/inventory-apis/WareHouse/DeleteWareHouse/<createdId>",
+          {}
         ],
-        "PUT": [
+        "View": [
+          "/inventory-apis/WareHouse/GetItems?warehouseId=175&PageNumber=1&PageSize=25&SortBy=1",
+          {}
+        ],
+        "EDIT": [
           "/inventory-apis/WareHouse/EditWareHouse",
           {
             "id": "43",
@@ -2958,32 +2868,27 @@
             }
           }
         ],
-        "DELETE": [
-          "/inventory-apis/WareHouse/DeleteWareHouse/<createdId>",
-          {}
-        ],
-        "View": [
-          "/inventory-apis/WareHouse/GetItems?warehouseId=175&PageNumber=1&PageSize=25&SortBy=1",
-          {}
-        ],
-        "EDIT": [
-          "/inventory-apis/WareHouse/<createdId>",
-          {}
+        "CREATE": [
+          "/inventory-apis/WareHouse/QuickAdd",
+          {
+            "name": "war9",
+            "nameAr": "war9",
+            "branchWarehouses": [
+              "17987a69-16b3-420b-b066-08ddf360e24c",
+              "6ac9b711-ce24-4790-447c-08ddf38f2dd6",
+              "b09981d8-29ef-4f1b-bf59-08ddf4494443",
+              "f7ea8813-c55b-4759-bf5a-08ddf4494443"
+            ],
+            "warehouseType": 1
+          }
         ]
       },
       "Operational_Tag": {
-        "Post": [
-          "/inventory-apis/OperationalTag",
-          {
-            "code": "",
-            "name": "ics",
-            "nameAr": "ics",
-            "operationType": "StockIn",
-            "warehouseId": 16,
-            "glAccountId": 1376
-          }
+        "DELETE": [
+          "/inventory-apis/OperationalTag/3f9fddd3-b235-4841-2cbd-08de0c98240f",
+          {}
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/OperationalTag",
           {
             "id": "<createdId>",
@@ -2995,26 +2900,21 @@
             "glAccountId": "<createdId>"
           }
         ],
-        "DELETE": [
-          "/inventory-apis/OperationalTag/3f9fddd3-b235-4841-2cbd-08de0c98240f",
-          {}
-        ],
-        "EDIT": [
-          "/inventory-apis/OperationalTag/acbf950d-4157-49f3-4fc8-08de0946eeac",
-          {}
+        "CREATE": [
+          "/inventory-apis/OperationalTag",
+          {
+            "code": "",
+            "name": "ics",
+            "nameAr": "ics",
+            "operationType": "StockIn",
+            "warehouseId": 16,
+            "glAccountId": 1376
+          }
         ]
       }
     },
     "Transaction": {
       "Inventory_Opening_Balance": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3022,10 +2922,26 @@
         "View": [
           "/inventory-apis/InvOpeningBalance/GetInvOpeningBalanceViewById/596d4b41-8c29-473d-1f32-08de054afc30",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       },
       "Inventory_Count": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/Count/68eb09fd-bfd8-466b-7741-08de00fd3346",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/Count",
           {
             "transactionDate": "2025-10-16T09:55:40.265Z",
@@ -3033,7 +2949,7 @@
             "reconcileType": "Inventory"
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
           {
             "id": "<createdId>",
@@ -3059,18 +2975,18 @@
             ],
             "countAttachments": []
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/Count/53f72b84-9b42-40ef-530f-08de0c9a3c47",
-          {}
-        ],
-        "View": [
-          "/inventory-apis/Count/68eb09fd-bfd8-466b-7741-08de00fd3346",
-          {}
         ]
       },
       "Stock_IN": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/StockIn/7f24c4f2-f91f-483c-aaec-08de0c9a993f",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/StockIn/GetStockInViewById/e8db4f21-6469-4064-5b78-08de0501484c",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/StockIn",
           {
             "id": "",
@@ -3114,7 +3030,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/StockIn",
           {
             "id": "<createdId>",
@@ -3175,18 +3091,14 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/StockIn/7f24c4f2-f91f-483c-aaec-08de0c9a993f",
-          {}
-        ],
-        "View": [
-          "/inventory-apis/StockIn/GetStockInViewById/e8db4f21-6469-4064-5b78-08de0501484c",
-          {}
         ]
       },
       "Stock_OUT": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/StockOut/94d1fca9-dab1-455f-c139-08de0c9af5c3",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/StockOut",
           {
             "receiptDate": "2025-10-16T10:00:42.865Z",
@@ -3217,7 +3129,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/StockOut",
           {
             "id": "<createdId>",
@@ -3253,14 +3165,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/StockOut/94d1fca9-dab1-455f-c139-08de0c9af5c3",
-          {}
         ]
       },
       "Stock_Transfer": {
-        "Post": [
+        "DELETE": [
+          "/inventory-apis/StockTransfer/d7536d43-c458-421d-4312-08de0c9b584c",
+          {}
+        ],
+        "View": [
+          "/inventory-apis/StockTransfer/GetStockTransferViewById/dab3dfa4-b9d9-465d-882a-08ddf5c2920f",
+          {}
+        ],
+        "CREATE": [
           "/inventory-apis/StockTransfer",
           {
             "receiptDate": "2025-10-16T10:03:17.407Z",
@@ -3291,7 +3207,7 @@
             ]
           }
         ],
-        "PUT": [
+        "EDIT": [
           "/inventory-apis/StockTransfer",
           {
             "id": "<createdId>",
@@ -3325,26 +3241,18 @@
               }
             ]
           }
-        ],
-        "DELETE": [
-          "/inventory-apis/StockTransfer/d7536d43-c458-421d-4312-08de0c9b584c",
-          {}
-        ],
-        "View": [
-          "/inventory-apis/StockTransfer/GetStockTransferViewById/dab3dfa4-b9d9-465d-882a-08ddf5c2920f",
-          {}
         ]
       }
     },
     "Reports": {
       "Item_Card_Report": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
       },
       "Inventory_balance_Report": {
-        "GET": [
+        "LookUP": [
           "URL_HERE",
           {}
         ]
@@ -3354,7 +3262,15 @@
   "Distribution": {
     "Master_Data": {
       "Device_Management": {
-        "Post": [
+        "DELETE": [
+          "URL_HERE",
+          {}
+        ],
+        "LookUP": [
+          "/erp-apis/Device",
+          {}
+        ],
+        "CREATE": [
           "/erp-apis/Device",
           {
             "name": "string",
@@ -3364,28 +3280,12 @@
             "deviceLicenseId": "00000000-0000-0000-0000-000000000000"
           }
         ],
-        "PUT": [
+        "EDIT": [
           "URL_HERE",
-          {}
-        ],
-        "DELETE": [
-          "URL_HERE",
-          {}
-        ],
-        "LookUP": [
-          "/erp-apis/Device",
           {}
         ]
       },
       "Journey_Plan": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3393,25 +3293,33 @@
         "LookUP": [
           "/erp-apis/SalesManVisit/GetSalesManList",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       }
     },
     "Transaction": {
       "Transfer_Request": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
         ],
         "LookUP": [
           "/erp-apis/TransferRequest?SortColumn=createdOn&PageSize=25",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
           {}
         ]
       }
@@ -3421,20 +3329,20 @@
   "Human_Resources": {
     "Master_Data": {
       "Employee": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
         ],
         "LookUP": [
           "/erp-apis/Employee",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
           {}
         ]
       }
@@ -3445,14 +3353,6 @@
   "Fixed_Assets": {
     "Master_Data": {
       "Fixed_Assets_Groups": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3462,19 +3362,15 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/FixedAssetsGroup/<createdId>",
+          "URL_HERE",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
           {}
         ]
       },
       "Assets": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3484,19 +3380,15 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/Assets/<createdId>",
+          "URL_HERE",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
           {}
         ]
       },
       "Assets_Locations": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3504,19 +3396,19 @@
         "LookUP": [
           "/erp-apis/AssetsLocation/GetAssetsLocationTree",
           {}
+        ],
+        "CREATE": [
+          "URL_HERE",
+          {}
+        ],
+        "EDIT": [
+          "URL_HERE",
+          {}
         ]
       }
     },
     "Transaction": {
       "Assets_Opening_Balances": {
-        "Post": [
-          "URL_HERE",
-          {}
-        ],
-        "PUT": [
-          "URL_HERE",
-          {}
-        ],
         "DELETE": [
           "URL_HERE",
           {}
@@ -3526,7 +3418,11 @@
           {}
         ],
         "EDIT": [
-          "/erp-apis/AssetsOpeningBalance/f08ba421-41de-475b-0c63-08ddfb5c9c5b",
+          "URL_HERE",
+          {}
+        ],
+        "CREATE": [
+          "URL_HERE",
           {}
         ]
       }

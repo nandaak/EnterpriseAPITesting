@@ -1,0 +1,5678 @@
+{
+  "totalChanges": 709,
+  "changes": [
+    {
+      "module": "AccountingGeneralSettings",
+      "endpoint": "GET__erp-apis_AccountingGeneralSettings",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AccountingGeneralSettings",
+      "method": "GET"
+    },
+    {
+      "module": "AccountingGeneralSettings",
+      "endpoint": "PUT__erp-apis_AccountingGeneralSettings",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AccountingGeneralSettings",
+      "method": "PUT"
+    },
+    {
+      "module": "AccountingGeneralSettings",
+      "endpoint": "GET__erp-apis_AccountingGeneralSettings_GetTaxWithAccount",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AccountingGeneralSettings/GetTaxWithAccount",
+      "method": "GET"
+    },
+    {
+      "module": "AccountingReports",
+      "endpoint": "POST__erp-apis_AccountingReports_AccountStatmentReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AccountingReports/AccountStatmentReport",
+      "method": "POST"
+    },
+    {
+      "module": "AccountingReports",
+      "endpoint": "GET__erp-apis_AccountingReports_PrintOutAccountStatement",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/AccountingReports/PrintOutAccountStatement",
+      "method": "GET"
+    },
+    {
+      "module": "AccountingReports",
+      "endpoint": "GET__erp-apis_AccountingReports_ExportAccountStatement",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AccountingReports/ExportAccountStatement",
+      "method": "GET"
+    },
+    {
+      "module": "AccountSection",
+      "endpoint": "GET__erp-apis_AccountSection",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AccountSection",
+      "method": "GET"
+    },
+    {
+      "module": "AccountType",
+      "endpoint": "GET__erp-apis_AccountType",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AccountType",
+      "method": "GET"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "GET__erp-apis_Assets",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Assets",
+      "method": "GET"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "PUT__erp-apis_Assets",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Assets",
+      "method": "PUT"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "POST__erp-apis_Assets",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Assets",
+      "method": "POST"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "GET__erp-apis_Assets__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Assets/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "GET__erp-apis_Assets_GetByIdViewAssets",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Assets/GetByIdViewAssets",
+      "method": "GET"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "GET__erp-apis_Assets_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Assets/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Assets",
+      "endpoint": "GET__erp-apis_Assets_GetAssetsDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Assets/GetAssetsDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "POST__erp-apis_AssetsDepreciation",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsDepreciation",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "PUT__erp-apis_AssetsDepreciation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsDepreciation",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsDepreciation",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation__AssetsDepreciationId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsDepreciation/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "POST__erp-apis_AssetsDepreciation__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsDepreciation/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "POST__erp-apis_AssetsDepreciation_Save",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsDepreciation/Save",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation_GetAllPeriods",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsDepreciation/GetAllPeriods",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsDepreciation/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation_AssetsDepreciationReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsDepreciation/AssetsDepreciationReport",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsDepreciation",
+      "endpoint": "GET__erp-apis_AssetsDepreciation_ExportAssetsDepreciationReport",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsDepreciation/ExportAssetsDepreciationReport",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "GET__erp-apis_AssetsLocation__id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsLocation/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "GET__erp-apis_AssetsLocation_GetByIdViewAssetsLocation__id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsLocation/GetByIdViewAssetsLocation/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "GET__erp-apis_AssetsLocation_GetAssetsLocationTree",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsLocation/GetAssetsLocationTree",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "GET__erp-apis_AssetsLocation_GetAssetsLocationParentDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsLocation/GetAssetsLocationParentDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "GET__erp-apis_AssetsLocation_GetAssetsLocationDetailedDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsLocation/GetAssetsLocationDetailedDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "POST__erp-apis_AssetsLocation",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsLocation",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsLocation",
+      "endpoint": "PUT__erp-apis_AssetsLocation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsLocation",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "GET__erp-apis_AssetsOpeningBalance",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsOpeningBalance",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "POST__erp-apis_AssetsOpeningBalance",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsOpeningBalance",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "PUT__erp-apis_AssetsOpeningBalance",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsOpeningBalance",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "GET__erp-apis_AssetsOpeningBalance__id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsOpeningBalance/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "GET__erp-apis_AssetsOpeningBalance_GetAssetsOpeningBalanceViewById__id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsOpeningBalance/GetAssetsOpeningBalanceViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "GET__erp-apis_AssetsOpeningBalance_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsOpeningBalance/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "POST__erp-apis_AssetsOpeningBalance__id__Unpost",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsOpeningBalance/<createdId>/Unpost",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsOpeningBalance",
+      "endpoint": "POST__erp-apis_AssetsOpeningBalance__id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsOpeningBalance/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsPurchaseInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "POST__erp-apis_AssetsPurchaseInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "PUT__erp-apis_AssetsPurchaseInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsPurchaseInvoice_GetById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice/GetById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsPurchaseInvoice_GetViewById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice/GetViewById",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsPurchaseInvoice_GetAllAssetsPurchaseInvoiceByVendorId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice/GetAllAssetsPurchaseInvoiceByVendorId",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsPurchaseInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsPurchaseInvoice",
+      "endpoint": "POST__erp-apis_AssetsPurchaseInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsPurchaseInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnPurchaseInvoice__Id__GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnPurchaseInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "POST__erp-apis_AssetsReturnPurchaseInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "PUT__erp-apis_AssetsReturnPurchaseInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnPurchaseInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnPurchaseInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "POST__erp-apis_AssetsReturnPurchaseInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsReturnPurchaseInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnPurchaseInvoice_PrintOut",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/AssetsReturnPurchaseInvoice/PrintOut",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "POST__erp-apis_AssetsReturnSalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "PUT__erp-apis_AssetsReturnSalesInvoice__Id_",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnSalesInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnSalesInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsReturnSalesInvoice_PrintOut",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice/PrintOut",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsReturnSalesInvoice",
+      "endpoint": "POST__erp-apis_AssetsReturnSalesInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsReturnSalesInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "POST__erp-apis_AssetsSalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsSalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "PUT__erp-apis_AssetsSalesInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/AssetsSalesInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsSalesInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/AssetsSalesInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsSalesInvoice__id__GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/AssetsSalesInvoice/<createdId>/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsSalesInvoice_GetAllAssetsSalesInvoiceByCustomerId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/AssetsSalesInvoice/GetAllAssetsSalesInvoiceByCustomerId",
+      "method": "GET"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "POST__erp-apis_AssetsSalesInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/AssetsSalesInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "AssetsSalesInvoice",
+      "endpoint": "GET__erp-apis_AssetsSalesInvoice_PrintOut",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/AssetsSalesInvoice/PrintOut",
+      "method": "GET"
+    },
+    {
+      "module": "Attachments",
+      "endpoint": "DownloadBase64Attachment",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/api/attachments/DownloadBase64Attachment/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Attachments",
+      "endpoint": "DownloadAttachment",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/api/attachments/DownloadAttachment/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Attachments",
+      "endpoint": "UploadBase64Attachment",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/api/attachments/UploadBase64Attachment",
+      "method": "POST"
+    },
+    {
+      "module": "BalanceSheet",
+      "endpoint": "POST__erp-apis_BalanceSheet",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/BalanceSheet",
+      "method": "POST"
+    },
+    {
+      "module": "BalanceSheet",
+      "endpoint": "POST__erp-apis_BalanceSheet_PrintOutBalanceSheetReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/BalanceSheet/PrintOutBalanceSheetReport",
+      "method": "POST"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Bank",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "POST__erp-apis_Bank",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Bank",
+      "method": "POST"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Bank/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_BankAccountDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Bank/BankAccountDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_MultiBankAccountDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Bank/MultiBankAccountDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_BankDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Bank/BankDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_GetAccountBalance__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Bank/GetAccountBalance/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Bank/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "PUT__erp-apis_Bank_Edit",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Bank/Edit",
+      "method": "PUT"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Bank/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Bank",
+      "endpoint": "GET__erp-apis_Bank_GetAllBankAdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Bank/GetAllBankAdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "Branch",
+      "endpoint": "GET__erp-apis_Branch__CompanyId__GetAll",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Branch/<createdId>/GetAll",
+      "method": "GET"
+    },
+    {
+      "module": "Branch",
+      "endpoint": "GET__erp-apis_Branch__Id__GetCompanyBranch",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Branch/<createdId>/GetCompanyBranch",
+      "method": "GET"
+    },
+    {
+      "module": "Branch",
+      "endpoint": "GET__erp-apis_Branch_BranchDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Branch/BranchDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Branch",
+      "endpoint": "PUT__erp-apis_Branch",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Branch",
+      "method": "PUT"
+    },
+    {
+      "module": "Branch",
+      "endpoint": "POST__erp-apis_Branch",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Branch",
+      "method": "POST"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ChartOfAccounts",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/ChartOfAccounts/Export",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetHasNoChildrenList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetHasNoChildrenList",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetTree",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetTree",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetParentAccounts",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetParentAccounts",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_Get",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ChartOfAccounts/Get",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_ChildrenAccountsDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ChartOfAccounts/ChildrenAccountsDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetAccountDetails",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetAccountDetails",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "POST__erp-apis_ChartOfAccounts_AddAccount",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ChartOfAccounts/AddAccount",
+      "method": "POST"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "PUT__erp-apis_ChartOfAccounts_EditAccount",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/ChartOfAccounts/EditAccount",
+      "method": "PUT"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "PUT__erp-apis_ChartOfAccounts_AccountActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/ChartOfAccounts/AccountActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "GET__erp-apis_ChartOfAccounts_GetAccountOpeningBalance",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ChartOfAccounts/GetAccountOpeningBalance",
+      "method": "GET"
+    },
+    {
+      "module": "ChartOfAccounts",
+      "endpoint": "POST__erp-apis_ChartOfAccounts_ImportExcel",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ChartOfAccounts/ImportExcel",
+      "method": "POST"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company__Id__GetCompanyAddress",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Company/<createdId>/GetCompanyAddress",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company__Id__GetCompanyContact",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Company/<createdId>/GetCompanyContact",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company__Id__GetCompanyLegal",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Company/<createdId>/GetCompanyLegal",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company__Id__GetCompanyHierarchy",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Company/<createdId>/GetCompanyHierarchy",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company_CompanyDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Company/CompanyDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company_GetCompanyCountry",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Company/GetCompanyCountry",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "GET__erp-apis_Company_GetFirstCompany",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Company/GetFirstCompany",
+      "method": "GET"
+    },
+    {
+      "module": "Company",
+      "endpoint": "PUT__erp-apis_Company_EditCompanyAddress",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Company/EditCompanyAddress",
+      "method": "PUT"
+    },
+    {
+      "module": "Company",
+      "endpoint": "PUT__erp-apis_Company_EditCompanyContact",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Company/EditCompanyContact",
+      "method": "PUT"
+    },
+    {
+      "module": "Company",
+      "endpoint": "PUT__erp-apis_Company_EditCompanyLegal",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Company/EditCompanyLegal",
+      "method": "PUT"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_GetCostCenters",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CostCenter/GetCostCenters",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CostCenter/Export",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_GetTree",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CostCenter/GetTree",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_GetAllParentsCostCenters",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CostCenter/GetAllParentsCostCenters",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_GetCostCenterDetails",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CostCenter/GetCostCenterDetails",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CostCenter/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "POST__erp-apis_CostCenter_AddCostCenter",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CostCenter/AddCostCenter",
+      "method": "POST"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "PUT__erp-apis_CostCenter_EditCostCenter",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/CostCenter/EditCostCenter",
+      "method": "PUT"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "PUT__erp-apis_CostCenter_CostCenterActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/CostCenter/CostCenterActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "CostCenter",
+      "endpoint": "GET__erp-apis_CostCenter_CostCenterDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CostCenter/CostCenterDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenterReports",
+      "endpoint": "POST__erp-apis_CostCenterReports",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CostCenterReports",
+      "method": "POST"
+    },
+    {
+      "module": "CostCenterReports",
+      "endpoint": "GET__erp-apis_CostCenterReports_PrintOut",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/CostCenterReports/PrintOut",
+      "method": "GET"
+    },
+    {
+      "module": "CostCenterReports",
+      "endpoint": "POST__erp-apis_CostCenterReports_IncomeStatement",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CostCenterReports/IncomeStatement",
+      "method": "POST"
+    },
+    {
+      "module": "CostCenterReports",
+      "endpoint": "GET__erp-apis_CostCenterReports_ExportIncomeStatement",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CostCenterReports/ExportIncomeStatement",
+      "method": "GET"
+    },
+    {
+      "module": "Country",
+      "endpoint": "GET__erp-apis_Country",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Country",
+      "method": "GET"
+    },
+    {
+      "module": "Country",
+      "endpoint": "GET__erp-apis_Country_GetCities",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Country/GetCities",
+      "method": "GET"
+    },
+    {
+      "module": "Country",
+      "endpoint": "GET__erp-apis_Country_GetNationality",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Country/GetNationality",
+      "method": "GET"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "GET__erp-apis_Currency",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Currency",
+      "method": "GET"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "POST__erp-apis_Currency",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Currency",
+      "method": "POST"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "PUT__erp-apis_Currency",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Currency",
+      "method": "PUT"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "GET__erp-apis_Currency_CurrencyDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Currency/CurrencyDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "GET__erp-apis_Currency__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Currency/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Currency",
+      "endpoint": "GET__erp-apis_Currency_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Currency/Export",
+      "method": "GET"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "GET__erp-apis_CurrencyConversion",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrencyConversion",
+      "method": "GET"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "POST__erp-apis_CurrencyConversion",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CurrencyConversion",
+      "method": "POST"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "PUT__erp-apis_CurrencyConversion",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/CurrencyConversion",
+      "method": "PUT"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "GET__erp-apis_CurrencyConversion_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CurrencyConversion/Export",
+      "method": "GET"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "GET__erp-apis_CurrencyConversion__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CurrencyConversion/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "CurrencyConversion",
+      "endpoint": "GET__erp-apis_CurrencyConversion_rate",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrencyConversion/rate",
+      "method": "GET"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "GET__erp-apis_CurrentUserInfo",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrentUserInfo",
+      "method": "GET"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "GET__erp-apis_CurrentUserInfo_GetUserClaims",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrentUserInfo/GetUserClaims",
+      "method": "GET"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "GET__erp-apis_CurrentUserInfo_GetUserProfile",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrentUserInfo/GetUserProfile",
+      "method": "GET"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "POST__erp-apis_CurrentUserInfo_GenerateAppToken",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CurrentUserInfo/GenerateAppToken",
+      "method": "POST"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "GET__erp-apis_CurrentUserInfo_GetAppToken",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CurrentUserInfo/GetAppToken",
+      "method": "GET"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "POST__erp-apis_CurrentUserInfo_RevokeAppToken",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CurrentUserInfo/RevokeAppToken",
+      "method": "POST"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "POST__erp-apis_CurrentUserInfo_UpdateUserPreferance",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CurrentUserInfo/UpdateUserPreferance",
+      "method": "POST"
+    },
+    {
+      "module": "CurrentUserInfo",
+      "endpoint": "POST__erp-apis_CurrentUserInfo_RevokeUserTokens",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CurrentUserInfo/RevokeUserTokens",
+      "method": "POST"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "POST__erp-apis_Customer",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Customer",
+      "method": "POST"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "PUT__erp-apis_Customer",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Customer",
+      "method": "PUT"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "POST__erp-apis_Customer_Search",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Customer/Search",
+      "method": "POST"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetAllCustomersForPOS",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/GetAllCustomersForPOS",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_DropDownByAccountId__AccountId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Customer/DropDownByAccountId/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetAllCustomersDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/GetAllCustomersDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_CustomerWithCurrencyLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/CustomerWithCurrencyLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_LatestCustomerWithCurrencyLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/LatestCustomerWithCurrencyLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Customer/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_ExportCustomerMarketPlace",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Customer/ExportCustomerMarketPlace",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Customer/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetCustomerView__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Customer/GetCustomerView/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetAllCustomerAdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/GetAllCustomerAdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetCustomersWithMarketTypeLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/GetCustomersWithMarketTypeLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Customer",
+      "endpoint": "GET__erp-apis_Customer_GetCreditLimit",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Customer/GetCreditLimit",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "POST__erp-apis_CustomerCategory",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CustomerCategory",
+      "method": "POST"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "GET__erp-apis_CustomerCategory",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerCategory",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "PUT__erp-apis_CustomerCategory",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/CustomerCategory",
+      "method": "PUT"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "GET__erp-apis_CustomerCategory_GetAllCustomerCategoriesForPOS",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerCategory/GetAllCustomerCategoriesForPOS",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "GET__erp-apis_CustomerCategory_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CustomerCategory/Export",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "GET__erp-apis_CustomerCategory__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CustomerCategory/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerCategory",
+      "endpoint": "GET__erp-apis_CustomerCategory_CustomerCategoryDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerCategory/CustomerCategoryDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "GET__erp-apis_CustomerOpeningBalance",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerOpeningBalance",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "POST__erp-apis_CustomerOpeningBalance",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CustomerOpeningBalance",
+      "method": "POST"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "PUT__erp-apis_CustomerOpeningBalance",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/CustomerOpeningBalance",
+      "method": "PUT"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "GET__erp-apis_CustomerOpeningBalance_GetById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CustomerOpeningBalance/GetById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "GET__erp-apis_CustomerOpeningBalance_GetOpeningBalanceView__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/CustomerOpeningBalance/GetOpeningBalanceView/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "GET__erp-apis_CustomerOpeningBalance_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CustomerOpeningBalance/Export",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "POST__erp-apis_CustomerOpeningBalance__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CustomerOpeningBalance/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "CustomerOpeningBalance",
+      "endpoint": "POST__erp-apis_CustomerOpeningBalance__Id__UnPost",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CustomerOpeningBalance/<createdId>/UnPost",
+      "method": "POST"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_CustomerStatmentReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerReports/CustomerStatmentReport",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_PrintOutCustomerStatementReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/CustomerReports/PrintOutCustomerStatementReport",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "POST__erp-apis_CustomerReports_CustomerBalanceReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/CustomerReports/CustomerBalanceReport",
+      "method": "POST"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_PrintOutCustomerBalanceReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/CustomerReports/PrintOutCustomerBalanceReport",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_CustomerAgingReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerReports/CustomerAgingReport",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_CustomerAgingDetailReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/CustomerReports/CustomerAgingDetailReport",
+      "method": "GET"
+    },
+    {
+      "module": "CustomerReports",
+      "endpoint": "GET__erp-apis_CustomerReports_ExportCustomerAgingDetailReport",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/CustomerReports/ExportCustomerAgingDetailReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetSalesStatusReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetSalesStatusReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetReturnSalesStatusReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetReturnSalesStatusReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetMonthlySalesReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetMonthlySalesReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopSalesProducts",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopSalesProducts",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopSalesCustomersReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopSalesCustomersReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopSalesCategories",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopSalesCategories",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopSalesManReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopSalesManReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetInvoiceStatusReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetInvoiceStatusReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetMonthlyPurchaseReturnReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetMonthlyPurchaseReturnReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetReturnInvoiceStatusReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetReturnInvoiceStatusReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopPurchasedProducts",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopPurchasedProducts",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopVendorsReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopVendorsReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetTopPurchasedCategories",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetTopPurchasedCategories",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_GetPaymentStatusCount",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/GetPaymentStatusCount",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_CashFlowSummary",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/CashFlowSummary",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_BankAccountBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/BankAccountBalances",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_TotalBanksTreasuries",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/TotalBanksTreasuries",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_TreasuriesAccountBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/TreasuriesAccountBalances",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_IncomeReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/IncomeReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_OutgoingReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/OutgoingReport",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_LastIncomeTransactions",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/LastIncomeTransactions",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_LastOutgoingTransactions",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/LastOutgoingTransactions",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_AccountTypeBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/AccountTypeBalances",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_JournalEntryStatus",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/JournalEntryStatus",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_JournalEntryTypeCount",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/JournalEntryTypeCount",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_CashBankAccountBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/CashBankAccountBalances",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_RevenueSteam",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/RevenueSteam",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_AccountsBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/AccountsBalances",
+      "method": "GET"
+    },
+    {
+      "module": "Dashboard",
+      "endpoint": "GET__erp-apis_Dashboard_CostCenterBalances",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Dashboard/CostCenterBalances",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetTopSalesBySalesMan",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetTopSalesBySalesMan",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetTopSalesBySalesTeam",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetTopSalesBySalesTeam",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetTopSellingProducts",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetTopSellingProducts",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetLatestVisits",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetLatestVisits",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetDevicesStatistics",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetDevicesStatistics",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetSalesByDevice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetSalesByDevice",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetSalesByRegion",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetSalesByRegion",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetCustomersByRegion",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetCustomersByRegion",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetVisitsByRegion",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetVisitsByRegion",
+      "method": "GET"
+    },
+    {
+      "module": "DashBoard",
+      "endpoint": "GET__erp-apis_DashBoard_GetTotalSalesAndReturn",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DashBoard/GetTotalSalesAndReturn",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "POST__erp-apis_Device",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Device",
+      "method": "POST"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Device/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetSalesmanlist",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetSalesmanlist",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetDeviceDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetDeviceDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "POST__erp-apis_Device_ReportDeviceInfo",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Device/ReportDeviceInfo",
+      "method": "POST"
+    },
+    {
+      "module": "Device",
+      "endpoint": "PUT__erp-apis_Device_EditDevice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Device/EditDevice",
+      "method": "PUT"
+    },
+    {
+      "module": "Device",
+      "endpoint": "PUT__erp-apis_Device_EditDeviceActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Device/EditDeviceActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetDeviceLicenese",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetDeviceLicenese",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "POST__erp-apis_Device_SendDeviceVerificationCode",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Device/SendDeviceVerificationCode",
+      "method": "POST"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GenerateQrCodeLink",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GenerateQrCodeLink",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetDeviceInfo",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetDeviceInfo",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetCompanyBranchInfo",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetCompanyBranchInfo",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_GetDeviceList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Device/GetDeviceList",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "GET__erp-apis_Device_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Device/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Device",
+      "endpoint": "POST__erp-apis_Device_DisconnectDevice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Device/DisconnectDevice",
+      "method": "POST"
+    },
+    {
+      "module": "DeviceVerification",
+      "endpoint": "POST__erp-apis_DeviceVerification_SendVerificationCode",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/DeviceVerification/SendVerificationCode",
+      "method": "POST"
+    },
+    {
+      "module": "DeviceVerification",
+      "endpoint": "POST__erp-apis_DeviceVerification_VerifyDevice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/DeviceVerification/VerifyDevice",
+      "method": "POST"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DiscountPolicy",
+      "method": "GET"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "POST__erp-apis_DiscountPolicy",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/DiscountPolicy",
+      "method": "POST"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "PUT__erp-apis_DiscountPolicy",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/DiscountPolicy",
+      "method": "PUT"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/DiscountPolicy/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/DiscountPolicy/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/DiscountPolicy/Export",
+      "method": "GET"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy_GetUsersAdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DiscountPolicy/GetUsersAdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "DiscountPolicy",
+      "endpoint": "GET__erp-apis_DiscountPolicy_GetCurrentUserDiscountPolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/DiscountPolicy/GetCurrentUserDiscountPolicy",
+      "method": "GET"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "GET__erp-apis_Employee",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Employee",
+      "method": "GET"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "GET__erp-apis_Employee_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Employee/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "POST__erp-apis_Employee_AddPersonal",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Employee/AddPersonal",
+      "method": "POST"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "PUT__erp-apis_Employee_EditPersonal",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Employee/EditPersonal",
+      "method": "PUT"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "GET__erp-apis_Employee_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Employee/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "Employee",
+      "endpoint": "GET__erp-apis_Employee_View",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Employee/View",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceGeneralSettings",
+      "endpoint": "GET__erp-apis_FinanceGeneralSettings",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinanceGeneralSettings",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceGeneralSettings",
+      "endpoint": "PUT__erp-apis_FinanceGeneralSettings",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/FinanceGeneralSettings",
+      "method": "PUT"
+    },
+    {
+      "module": "FinanceGeneralSettings",
+      "endpoint": "GET__erp-apis_FinanceGeneralSettings_GetTaxWithAccount",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinanceGeneralSettings/GetTaxWithAccount",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "POST__erp-apis_FinanceReports_TreasuryStatement",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinanceReports/TreasuryStatement",
+      "method": "POST"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "POST__erp-apis_FinanceReports_BankAccountStatement",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinanceReports/BankAccountStatement",
+      "method": "POST"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "GET__erp-apis_FinanceReports_PrintOutBankAccountStatement",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/FinanceReports/PrintOutBankAccountStatement",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "GET__erp-apis_FinanceReports_SIPaymentReconciliationStatement",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinanceReports/SIPaymentReconciliationStatement",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "GET__erp-apis_FinanceReports_PrintOutTreasuryStatement",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/FinanceReports/PrintOutTreasuryStatement",
+      "method": "GET"
+    },
+    {
+      "module": "FinanceReports",
+      "endpoint": "GET__erp-apis_FinanceReports_PrintOutSIPaymentReconciliation",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/FinanceReports/PrintOutSIPaymentReconciliation",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "POST__erp-apis_FinancialYear",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinancialYear",
+      "method": "POST"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "PUT__erp-apis_FinancialYear",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/FinancialYear",
+      "method": "PUT"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/FinancialYear/Export",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_GetLastYearDate",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear/GetLastYearDate",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/FinancialYear/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_GetOpenFinancialPeriodDate",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear/GetOpenFinancialPeriodDate",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_GetOpenFinancialYearDate",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear/GetOpenFinancialYearDate",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_GetReportYearByDate",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear/GetReportYearByDate",
+      "method": "GET"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "POST__erp-apis_FinancialYear__Id__Open",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinancialYear/<createdId>/Open",
+      "method": "POST"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "POST__erp-apis_FinancialYear__Id__Close",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinancialYear/<createdId>/Close",
+      "method": "POST"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "POST__erp-apis_FinancialYear_OpenFinancialPeriod",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinancialYear/OpenFinancialPeriod",
+      "method": "POST"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "POST__erp-apis_FinancialYear_CloseFinancialPeriod",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FinancialYear/CloseFinancialPeriod",
+      "method": "POST"
+    },
+    {
+      "module": "FinancialYear",
+      "endpoint": "GET__erp-apis_FinancialYear_FinancialYearDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FinancialYear/FinancialYearDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGeneralSettings",
+      "endpoint": "GET__erp-apis_FixedAssetsGeneralSettings",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FixedAssetsGeneralSettings",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGeneralSettings",
+      "endpoint": "PUT__erp-apis_FixedAssetsGeneralSettings",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/FixedAssetsGeneralSettings",
+      "method": "PUT"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "GET__erp-apis_FixedAssetsGroup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FixedAssetsGroup",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "POST__erp-apis_FixedAssetsGroup",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FixedAssetsGroup",
+      "method": "POST"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "PUT__erp-apis_FixedAssetsGroup",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/FixedAssetsGroup",
+      "method": "PUT"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "GET__erp-apis_FixedAssetsGroup__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/FixedAssetsGroup/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "GET__erp-apis_FixedAssetsGroup_GetByIdViewFixedAssetsGroup",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/FixedAssetsGroup/GetByIdViewFixedAssetsGroup",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "GET__erp-apis_FixedAssetsGroup_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/FixedAssetsGroup/Export",
+      "method": "GET"
+    },
+    {
+      "module": "FixedAssetsGroup",
+      "endpoint": "GET__erp-apis_FixedAssetsGroup_GetFixedAssetsGroupsDropDownList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FixedAssetsGroup/GetFixedAssetsGroupsDropDownList",
+      "method": "GET"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "GET__erp-apis_FundTransfer",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/FundTransfer",
+      "method": "GET"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "POST__erp-apis_FundTransfer",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FundTransfer",
+      "method": "POST"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "PUT__erp-apis_FundTransfer",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/FundTransfer",
+      "method": "PUT"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "GET__erp-apis_FundTransfer__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/FundTransfer/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "GET__erp-apis_FundTransfer_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/FundTransfer/Export",
+      "method": "GET"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "GET__erp-apis_FundTransfer__Id__View",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/FundTransfer/<createdId>/View",
+      "method": "GET"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "POST__erp-apis_FundTransfer__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/FundTransfer/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "FundTransfer",
+      "endpoint": "GET__erp-apis_FundTransfer_PrintOutFundTransfer",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/FundTransfer/PrintOutFundTransfer",
+      "method": "GET"
+    },
+    {
+      "module": "GeneralSettingReport",
+      "endpoint": "GET__erp-apis_GeneralSettingReport_VatReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/GeneralSettingReport/VatReport",
+      "method": "GET"
+    },
+    {
+      "module": "GeneralSettingReport",
+      "endpoint": "GET__erp-apis_GeneralSettingReport_VatSummaryReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/GeneralSettingReport/VatSummaryReport",
+      "method": "GET"
+    },
+    {
+      "module": "GeneralSettingReport",
+      "endpoint": "GET__erp-apis_GeneralSettingReport_PrintOutVatSummaryReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/GeneralSettingReport/PrintOutVatSummaryReport",
+      "method": "GET"
+    },
+    {
+      "module": "GeneralSettingReport",
+      "endpoint": "GET__erp-apis_GeneralSettingReport_PrintOutVatReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/GeneralSettingReport/PrintOutVatReport",
+      "method": "GET"
+    },
+    {
+      "module": "HrGeneralSetting",
+      "endpoint": "POST__erp-apis_HrGeneralSetting_GetNextSequence",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/HrGeneralSetting/GetNextSequence",
+      "method": "POST"
+    },
+    {
+      "module": "HrGeneralSetting",
+      "endpoint": "POST__erp-apis_HrGeneralSetting_GetNextSequenceList",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/HrGeneralSetting/GetNextSequenceList",
+      "method": "POST"
+    },
+    {
+      "module": "HrGeneralSetting",
+      "endpoint": "GET__erp-apis_HrGeneralSetting_GetUserCompany",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/HrGeneralSetting/GetUserCompany",
+      "method": "GET"
+    },
+    {
+      "module": "HrGeneralSetting",
+      "endpoint": "GET__erp-apis_HrGeneralSetting_GetUserBranch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/HrGeneralSetting/GetUserBranch",
+      "method": "GET"
+    },
+    {
+      "module": "Import",
+      "endpoint": "POST__erp-apis_Import",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Import",
+      "method": "POST"
+    },
+    {
+      "module": "Import",
+      "endpoint": "POST__erp-apis_Import_Confirm__type_",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Import/Confirm/{type}",
+      "method": "POST"
+    },
+    {
+      "module": "Import",
+      "endpoint": "GET__erp-apis_Import_ExcelWithErrors__type_",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Import/ExcelWithErrors/{type}",
+      "method": "GET"
+    },
+    {
+      "module": "Import",
+      "endpoint": "GET__erp-apis_Import_GetRows",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Import/GetRows",
+      "method": "GET"
+    },
+    {
+      "module": "Import",
+      "endpoint": "GET__erp-apis_Import_DownloadTemplate__type_",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Import/DownloadTemplate/{type}",
+      "method": "GET"
+    },
+    {
+      "module": "Import",
+      "endpoint": "GET__erp-apis_Import_GetStatistics__type_",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Import/GetStatistics/{type}",
+      "method": "GET"
+    },
+    {
+      "module": "Import",
+      "endpoint": "POST__erp-apis_Import_CancelUpload__type_",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Import/CancelUpload/{type}",
+      "method": "POST"
+    },
+    {
+      "module": "IncomeStatement",
+      "endpoint": "POST__erp-apis_IncomeStatement",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/IncomeStatement",
+      "method": "POST"
+    },
+    {
+      "module": "IncomeStatement",
+      "endpoint": "POST__erp-apis_IncomeStatement_PrintOutIncomeStatementReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/IncomeStatement/PrintOutIncomeStatementReport",
+      "method": "POST"
+    },
+    {
+      "module": "Inventory",
+      "endpoint": "GET__erp-apis_Inventory_SharedWarehousesLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Inventory/SharedWarehousesLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Inventory",
+      "endpoint": "GET__erp-apis_Inventory_GetAllItemsLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Inventory/GetAllItemsLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Inventory",
+      "endpoint": "GET__erp-apis_Inventory_GetChildItemCategoriesList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Inventory/GetChildItemCategoriesList",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Invoice",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "POST__erp-apis_Invoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Invoice",
+      "method": "POST"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "PUT__erp-apis_Invoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Invoice",
+      "method": "PUT"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_GetById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Invoice/GetById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_GetInvoiceViewById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Invoice/GetInvoiceViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_PrintOutPurchaseInvoice",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/Invoice/PrintOutPurchaseInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_PurchaseInvoiceReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Invoice/PurchaseInvoiceReport",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Invoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_ExportPurchaseInvoice",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Invoice/ExportPurchaseInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_InvoiceLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Invoice/InvoiceLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "POST__erp-apis_Invoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Invoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice_GetItemByBarcode",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Invoice/GetItemByBarcode",
+      "method": "GET"
+    },
+    {
+      "module": "Invoice",
+      "endpoint": "GET__erp-apis_Invoice__Id__GetInvoiceToReturnById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Invoice/<createdId>/GetInvoiceToReturnById",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "GET__erp-apis_JournalEntry",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/JournalEntry",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "POST__erp-apis_JournalEntry",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/JournalEntry",
+      "method": "POST"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "GET__erp-apis_JournalEntry_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/JournalEntry/Export",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "GET__erp-apis_JournalEntry_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/JournalEntry/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "GET__erp-apis_JournalEntry_View",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/JournalEntry/View",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "PUT__erp-apis_JournalEntry_Edit",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/JournalEntry/Edit",
+      "method": "PUT"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "PUT__erp-apis_JournalEntry_ChangeStatus",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/JournalEntry/ChangeStatus",
+      "method": "PUT"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "GET__erp-apis_JournalEntry_PrintOutJournalEntry",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/JournalEntry/PrintOutJournalEntry",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "POST__erp-apis_JournalEntry__Id__Reverse",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/JournalEntry/<createdId>/Reverse",
+      "method": "POST"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "POST__erp-apis_JournalEntry_ReverseList",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/JournalEntry/ReverseList",
+      "method": "POST"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "POST__erp-apis_JournalEntry_Action",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/JournalEntry/Action",
+      "method": "POST"
+    },
+    {
+      "module": "JournalEntry",
+      "endpoint": "POST__erp-apis_JournalEntry__Id__Unpost",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/JournalEntry/<createdId>/Unpost",
+      "method": "POST"
+    },
+    {
+      "module": "JournalEntryTemplete",
+      "endpoint": "GET__erp-apis_JournalEntryTemplete",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/JournalEntryTemplete",
+      "method": "GET"
+    },
+    {
+      "module": "JournalEntryTemplete",
+      "endpoint": "GET__erp-apis_JournalEntryTemplete_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/JournalEntryTemplete/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "Levels",
+      "endpoint": "GET__erp-apis_Levels",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Levels",
+      "method": "GET"
+    },
+    {
+      "module": "Levels",
+      "endpoint": "POST__erp-apis_Levels",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Levels",
+      "method": "POST"
+    },
+    {
+      "module": "Lookup",
+      "endpoint": "GET__erp-apis_Lookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Lookup",
+      "method": "GET"
+    },
+    {
+      "module": "MarketPlace",
+      "endpoint": "POST__erp-apis_MarketPlace",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/MarketPlace",
+      "method": "POST"
+    },
+    {
+      "module": "MarketPlace",
+      "endpoint": "GET__erp-apis_MarketPlace",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/MarketPlace",
+      "method": "GET"
+    },
+    {
+      "module": "MarketPlace",
+      "endpoint": "PUT__erp-apis_MarketPlace",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/MarketPlace",
+      "method": "PUT"
+    },
+    {
+      "module": "MarketPlace",
+      "endpoint": "GET__erp-apis_MarketPlace_MarketPlaceDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/MarketPlace/MarketPlaceDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "MarketPlace",
+      "endpoint": "GET__erp-apis_MarketPlace__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/MarketPlace/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "POST__erp-apis_OpeningBalanceJournalEntry",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry",
+      "method": "POST"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_GetDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/GetDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesDropDown__JournalId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/GetLinesDropDown/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesVendorDropDown__JournalId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/GetLinesVendorDropDown/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_GetLinesAssetDropDown__JournalId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/GetLinesAssetDropDown/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/Export",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_PrintOutJLOpenBalance",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/PrintOutJLOpenBalance",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "GET__erp-apis_OpeningBalanceJournalEntry_View",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/View",
+      "method": "GET"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "PUT__erp-apis_OpeningBalanceJournalEntry_Edit",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/Edit",
+      "method": "PUT"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "PUT__erp-apis_OpeningBalanceJournalEntry_ChangeStatus",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/ChangeStatus",
+      "method": "PUT"
+    },
+    {
+      "module": "OpeningBalanceJournalEntry",
+      "endpoint": "POST__erp-apis_OpeningBalanceJournalEntry__Id__UnPost",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/OpeningBalanceJournalEntry/<createdId>/UnPost",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentIn",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "POST__erp-apis_PaymentIn",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentIn",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "PUT__erp-apis_PaymentIn",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PaymentIn",
+      "method": "PUT"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PaymentIn/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentIn/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_GetView__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentIn/GetView/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "POST__erp-apis_PaymentIn_SaveAndPostInvoicePaymentIn",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentIn/SaveAndPostInvoicePaymentIn",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "POST__erp-apis_PaymentIn__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentIn/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_PrintOutCashReceipt",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/PaymentIn/PrintOutCashReceipt",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_PrintOutPaymentIn",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/PaymentIn/PrintOutPaymentIn",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_GetAllPaymentInAdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentIn/GetAllPaymentInAdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_GetPaymentInFillDataByInvoiceId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentIn/GetPaymentInFillDataByInvoiceId",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentIn",
+      "endpoint": "GET__erp-apis_PaymentIn_GetCashReceiptReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentIn/GetCashReceiptReport",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentMethod",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "POST__erp-apis_PaymentMethod",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentMethod",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "PUT__erp-apis_PaymentMethod",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PaymentMethod",
+      "method": "PUT"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod_GetAllBankPaymentMethodsDropdown__BankId___BankAccountId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentMethod/GetAllBankPaymentMethodsDropdown/<createdId>/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod_GetAllTreasuriesPaymentMethodsDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentMethod/GetAllTreasuriesPaymentMethodsDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod_GetAllPaymentMethodList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentMethod/GetAllPaymentMethodList",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PaymentMethod/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentMethod",
+      "endpoint": "GET__erp-apis_PaymentMethod__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentMethod/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentOut",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "POST__erp-apis_PaymentOut",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentOut",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "PUT__erp-apis_PaymentOut",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PaymentOut",
+      "method": "PUT"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PaymentOut/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentOut/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut_GetView__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentOut/GetView/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "POST__erp-apis_PaymentOut__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentOut/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut_PrintOutPaymentOut",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/PaymentOut/PrintOutPaymentOut",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut_GetCashPaymentReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentOut/GetCashPaymentReport",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentOut",
+      "endpoint": "GET__erp-apis_PaymentOut_PrintOutCashPaymentReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/PaymentOut/PrintOutCashPaymentReport",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "GET__erp-apis_PaymentTerms",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentTerms",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "POST__erp-apis_PaymentTerms",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PaymentTerms",
+      "method": "POST"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "PUT__erp-apis_PaymentTerms",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PaymentTerms",
+      "method": "PUT"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "GET__erp-apis_PaymentTerms_PaymentTermsDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PaymentTerms/PaymentTermsDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "GET__erp-apis_PaymentTerms_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PaymentTerms/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "GET__erp-apis_PaymentTerms__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentTerms/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PaymentTerms",
+      "endpoint": "GET__erp-apis_PaymentTerms_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PaymentTerms/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "POST__erp-apis_POSSession",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/POSSession",
+      "method": "POST"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetAllInvoicesBySessionId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession/GetAllInvoicesBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetAllPOSSessions",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession/GetAllPOSSessions",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetAllPOSInvoicesList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession/GetAllPOSInvoicesList",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetAllPOSReturnInvoicesList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession/GetAllPOSReturnInvoicesList",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetPOSInvoiceViewById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetPOSInvoiceViewById",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetPOSReturnInvoiceViewById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetPOSReturnInvoiceViewById",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetAllReturnInvoicesBySessionId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/POSSession/GetAllReturnInvoicesBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetPaymentsSummaryBySessionId",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetPaymentsSummaryBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetStockSummaryBySessionId",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetStockSummaryBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetSalesSummaryBySessionId",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetSalesSummaryBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetCashBoxSummaryBySessionId",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetCashBoxSummaryBySessionId",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_GetPOSSessionTransactionsList",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/GetPOSSessionTransactionsList",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/POSSession/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "POST__erp-apis_POSSession_PostPOSSession",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/POSSession/PostPOSSession",
+      "method": "POST"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_ExportAllPOSInvoicesList",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/POSSession/ExportAllPOSInvoicesList",
+      "method": "GET"
+    },
+    {
+      "module": "POSSession",
+      "endpoint": "GET__erp-apis_POSSession_ExportAllPOSReturnInvoicesList",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/POSSession/ExportAllPOSReturnInvoicesList",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PricePolicy",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "POST__erp-apis_PricePolicy",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PricePolicy",
+      "method": "POST"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "PUT__erp-apis_PricePolicy",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PricePolicy",
+      "method": "PUT"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PricePolicy/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy_DropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PricePolicy/DropDown",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PricePolicy/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PricePolicy/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "POST__erp-apis_PricePolicy_ValidateExcel",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PricePolicy/ValidateExcel",
+      "method": "POST"
+    },
+    {
+      "module": "PricePolicy",
+      "endpoint": "GET__erp-apis_PricePolicy_GetItemPricePolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PricePolicy/GetItemPricePolicy",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PurchaseOrder",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "POST__erp-apis_PurchaseOrder",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PurchaseOrder",
+      "method": "POST"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "PUT__erp-apis_PurchaseOrder",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/PurchaseOrder",
+      "method": "PUT"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PurchaseOrder/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder__Id__View",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PurchaseOrder/<createdId>/View",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "POST__erp-apis_PurchaseOrder__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/PurchaseOrder/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/PurchaseOrder/Export",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder_PrintOutPurchaseOrder",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/PurchaseOrder/PrintOutPurchaseOrder",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder_Lookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PurchaseOrder/Lookup",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder_AdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PurchaseOrder/AdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseOrder",
+      "endpoint": "GET__erp-apis_PurchaseOrder__Id__GetPurchaseOrderToInvoice",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/PurchaseOrder/<createdId>/GetPurchaseOrderToInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "PurchaseTax",
+      "endpoint": "GET__erp-apis_PurchaseTax_GetTaxDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/PurchaseTax/GetTaxDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "ReportCore",
+      "endpoint": "GET__erp-apis_ReportCore",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ReportCore",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "GET__erp-apis_ReturnInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ReturnInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "POST__erp-apis_ReturnInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ReturnInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "PUT__erp-apis_ReturnInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/ReturnInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "GET__erp-apis_ReturnInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ReturnInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "GET__erp-apis_ReturnInvoice__Id__GetViewById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ReturnInvoice/<createdId>/GetViewById",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "POST__erp-apis_ReturnInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ReturnInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "GET__erp-apis_ReturnInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/ReturnInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnInvoice",
+      "endpoint": "GET__erp-apis_ReturnInvoice_PrintOutReturnPurchaseInvoice",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/ReturnInvoice/PrintOutReturnPurchaseInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_ReturnSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ReturnSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "POST__erp-apis_ReturnSalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ReturnSalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "PUT__erp-apis_ReturnSalesInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/ReturnSalesInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_ReturnSalesInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ReturnSalesInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_ReturnSalesInvoice_GetInvoiceViewById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/ReturnSalesInvoice/GetInvoiceViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_ReturnSalesInvoice_PrintOutReturnSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/ReturnSalesInvoice/PrintOutReturnSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "POST__erp-apis_ReturnSalesInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ReturnSalesInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "ReturnSalesInvoice",
+      "endpoint": "GET__erp-apis_ReturnSalesInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/ReturnSalesInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetAllRoles",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetAllRoles",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetRoleById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Role/GetRoleById",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "POST__erp-apis_Role",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Role",
+      "method": "POST"
+    },
+    {
+      "module": "Role",
+      "endpoint": "PUT__erp-apis_Role",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Role",
+      "method": "PUT"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetAllModules",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetAllModules",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetServicesByModule",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetServicesByModule",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetActionsByService",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetActionsByService",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetWorkflowActionsByService",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetWorkflowActionsByService",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_GetAllUsers",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/GetAllUsers",
+      "method": "GET"
+    },
+    {
+      "module": "Role",
+      "endpoint": "GET__erp-apis_Role_CurrentUserPriceRoleDto",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Role/CurrentUserPriceRoleDto",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "GET__erp-apis_SalesArea",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesArea",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "GET__erp-apis_SalesArea_GetSalesArea",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesArea/GetSalesArea",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "GET__erp-apis_SalesArea_GetSalesAreaById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesArea/GetSalesAreaById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "GET__erp-apis_SalesArea_GetSalesAreaViewById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesArea/GetSalesAreaViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "GET__erp-apis_SalesArea_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesArea/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "POST__erp-apis_SalesArea_AddSalesArea",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesArea/AddSalesArea",
+      "method": "POST"
+    },
+    {
+      "module": "SalesArea",
+      "endpoint": "PUT__erp-apis_SalesArea_EditSalesArea",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesArea/EditSalesArea",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesGeneralSettings",
+      "endpoint": "GET__erp-apis_SalesGeneralSettings",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesGeneralSettings",
+      "method": "GET"
+    },
+    {
+      "module": "SalesGeneralSettings",
+      "endpoint": "PUT__erp-apis_SalesGeneralSettings",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesGeneralSettings",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "POST__erp-apis_SalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "PUT__erp-apis_SalesInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_ZatcaInvoices",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice/ZatcaInvoices",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_GetInvoiceViewById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesInvoice/GetInvoiceViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_GetSalesInvoiceByCustomerId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice/GetSalesInvoiceByCustomerId",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_PrintOutSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/SalesInvoice/PrintOutSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_ExportSalesInvoice",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesInvoice/ExportSalesInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_SalesInvoiceReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice/SalesInvoiceReport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_ZatcaExport",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesInvoice/ZatcaExport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_GetSalesItemByBarcode",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice/GetSalesItemByBarcode",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "POST__erp-apis_SalesInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "POST__erp-apis_SalesInvoice__Id__UploadToZatca",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>/UploadToZatca",
+      "method": "POST"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "POST__erp-apis_SalesInvoice_SaveSalesInvoicePaymentIntent",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesInvoice/SaveSalesInvoicePaymentIntent",
+      "method": "POST"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice__SalesInvoiceId__GetSalesInvoicePaymentIntent",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoicePaymentIntent",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice_SalesInvoiceLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesInvoice/SalesInvoiceLookup",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice__Id__GetSalesInvoiceToReturnById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>/GetSalesInvoiceToReturnById",
+      "method": "GET"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "POST__erp-apis_SalesInvoice_Reconcile",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesInvoice/Reconcile",
+      "method": "POST"
+    },
+    {
+      "module": "SalesInvoice",
+      "endpoint": "GET__erp-apis_SalesInvoice__Id__ZatcaLogs",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesInvoice/<createdId>/ZatcaLogs",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "POST__erp-apis_SalesMan",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesMan",
+      "method": "POST"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesmanlist",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesmanlist",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManLookup",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManBalance",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManBalance",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManPermission",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManPermission",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManPricePolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManPricePolicy",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditSalesManPermission",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditSalesManPermission",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditSalesManPricePolicy",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditSalesManPricePolicy",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditSalesManBalance",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditSalesManBalance",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditTargetCommissionConfig",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditTargetCommissionConfig",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditSalesManWarehouse",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditSalesManWarehouse",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "PUT__erp-apis_SalesMan_EditSalesManActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesMan/EditSalesManActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesMan/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetSalesManInfo",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetSalesManInfo",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetUsersList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetUsersList",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesMan/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_TargetCommissionDetailReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/TargetCommissionDetailReport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_TargetCommissionReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/TargetCommissionReport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_ExportTargetCommissionDetailReport",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesMan/ExportTargetCommissionDetailReport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_ExportTargetCommissionReport",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesMan/ExportTargetCommissionReport",
+      "method": "GET"
+    },
+    {
+      "module": "SalesMan",
+      "endpoint": "GET__erp-apis_SalesMan_GetCustomersAccordingToSalesMan",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesMan/GetCustomersAccordingToSalesMan",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetVisitList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetVisitList",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetVisitsCalendar",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetVisitsCalendar",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesManVisit/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "POST__erp-apis_SalesManVisit",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesManVisit",
+      "method": "POST"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "PUT__erp-apis_SalesManVisit",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesManVisit",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetCustomerList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetCustomerList",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetSalesManList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetSalesManList",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetMarketPlaceListFilters",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetMarketPlaceListFilters",
+      "method": "GET"
+    },
+    {
+      "module": "SalesManVisit",
+      "endpoint": "GET__erp-apis_SalesManVisit_GetVisitDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesManVisit/GetVisitDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesOrder",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "POST__erp-apis_SalesOrder",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesOrder",
+      "method": "POST"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "PUT__erp-apis_SalesOrder",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesOrder",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesOrder/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesOrder/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder_GetSalesOrderViewById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesOrder/GetSalesOrderViewById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder_PrintOutSalesOrder",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/SalesOrder/PrintOutSalesOrder",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder_FilterSalesOrders",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesOrder/FilterSalesOrders",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder_GetSalesOrdersToInvoice",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesOrder/GetSalesOrdersToInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "GET__erp-apis_SalesOrder__Id__GetSalesOrderToInvoice",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesOrder/<createdId>/GetSalesOrderToInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesOrder",
+      "endpoint": "POST__erp-apis_SalesOrder__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesOrder/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "POST__erp-apis_SalesProject",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesProject",
+      "method": "POST"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesProject",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "PUT__erp-apis_SalesProject",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesProject",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesProject/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesProject/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesProject/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject_GetSalesProjectList",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesProject/GetSalesProjectList",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject_GetSalesProjectListByCustomers",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesProject/GetSalesProjectListByCustomers",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProject",
+      "endpoint": "GET__erp-apis_SalesProject_GetSalesProjectForInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesProject/GetSalesProjectForInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "GET__erp-apis_SalesProjectInvoice",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesProjectInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "POST__erp-apis_SalesProjectInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesProjectInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "PUT__erp-apis_SalesProjectInvoice",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesProjectInvoice",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "GET__erp-apis_SalesProjectInvoice_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesProjectInvoice/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "GET__erp-apis_SalesProjectInvoice_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesProjectInvoice/Export",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "GET__erp-apis_SalesProjectInvoice__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesProjectInvoice/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "POST__erp-apis_SalesProjectInvoice__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesProjectInvoice/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "SalesProjectInvoice",
+      "endpoint": "GET__erp-apis_SalesProjectInvoice_PrintOutSalesProjectInvoice",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/SalesProjectInvoice/PrintOutSalesProjectInvoice",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesTeam",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "POST__erp-apis_SalesTeam",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SalesTeam",
+      "method": "POST"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam_GetSalesTeamDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesTeam/GetSalesTeamDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesTeam/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam_GetSalesTeamBalance",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/SalesTeam/GetSalesTeamBalance",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam_GetSalesTeamPermission",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesTeam/GetSalesTeamPermission",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam_GetSalesTeamPricePolicy",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SalesTeam/GetSalesTeamPricePolicy",
+      "method": "GET"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "PUT__erp-apis_SalesTeam_EditSalesTeamGeneral",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesTeam/EditSalesTeamGeneral",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "PUT__erp-apis_SalesTeam_EditSalesTeamBalance",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesTeam/EditSalesTeamBalance",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "PUT__erp-apis_SalesTeam_EditSalesTeamPermission",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesTeam/EditSalesTeamPermission",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "PUT__erp-apis_SalesTeam_EditSalesTeamPricePolicy",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesTeam/EditSalesTeamPricePolicy",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "PUT__erp-apis_SalesTeam_EditSalesTeamActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/SalesTeam/EditSalesTeamActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "SalesTeam",
+      "endpoint": "GET__erp-apis_SalesTeam_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/SalesTeam/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Sequence",
+      "endpoint": "GET__erp-apis_Sequence__Screen_",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Sequence/{Screen}",
+      "method": "GET"
+    },
+    {
+      "module": "Sequence",
+      "endpoint": "POST__erp-apis_Sequence",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Sequence",
+      "method": "POST"
+    },
+    {
+      "module": "Sequence",
+      "endpoint": "GET__erp-apis_Sequence_CanReset",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Sequence/CanReset",
+      "method": "GET"
+    },
+    {
+      "module": "Sequence",
+      "endpoint": "POST__erp-apis_Sequence_Reset",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Sequence/Reset",
+      "method": "POST"
+    },
+    {
+      "module": "SideMenu",
+      "endpoint": "GET__erp-apis_SideMenu",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SideMenu",
+      "method": "GET"
+    },
+    {
+      "module": "SideMenu",
+      "endpoint": "GET__erp-apis_SideMenu_GetUserSubDomainModules",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SideMenu/GetUserSubDomainModules",
+      "method": "GET"
+    },
+    {
+      "module": "SideMenu",
+      "endpoint": "GET__erp-apis_SideMenu_LoadConfig",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/SideMenu/LoadConfig",
+      "method": "GET"
+    },
+    {
+      "module": "SIPaymentReconciliation",
+      "endpoint": "POST__erp-apis_SIPaymentReconciliation",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/SIPaymentReconciliation",
+      "method": "POST"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "GET__erp-apis_Tag_Tagdropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Tag/Tagdropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "GET__erp-apis_Tag",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Tag",
+      "method": "GET"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "POST__erp-apis_Tag",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tag",
+      "method": "POST"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "PUT__erp-apis_Tag",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Tag",
+      "method": "PUT"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "GET__erp-apis_Tag_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Tag/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "GET__erp-apis_Tag_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Tag/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "PUT__erp-apis_Tag_Activate",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Tag/Activate",
+      "method": "PUT"
+    },
+    {
+      "module": "Tag",
+      "endpoint": "PUT__erp-apis_Tag_Deactivate",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Tag/Deactivate",
+      "method": "PUT"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "GET__erp-apis_Tax",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Tax",
+      "method": "GET"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "POST__erp-apis_Tax",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tax",
+      "method": "POST"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "PUT__erp-apis_Tax",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Tax",
+      "method": "PUT"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "GET__erp-apis_Tax_GetAllTaxesForPOS",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Tax/GetAllTaxesForPOS",
+      "method": "GET"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "GET__erp-apis_Tax_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Tax/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "GET__erp-apis_Tax_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Tax/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "Tax",
+      "endpoint": "GET__erp-apis_Tax_Taxdropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Tax/Taxdropdown",
+      "method": "GET"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "GET__erp-apis_TaxGroup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/TaxGroup",
+      "method": "GET"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "POST__erp-apis_TaxGroup",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/TaxGroup",
+      "method": "POST"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "PUT__erp-apis_TaxGroup",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/TaxGroup",
+      "method": "PUT"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "GET__erp-apis_TaxGroup_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/TaxGroup/Export",
+      "method": "GET"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "GET__erp-apis_TaxGroup_GetById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/TaxGroup/GetById",
+      "method": "GET"
+    },
+    {
+      "module": "TaxGroup",
+      "endpoint": "GET__erp-apis_TaxGroup_TaxGroupDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/TaxGroup/TaxGroupDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_MigrateSubDomain",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/MigrateSubDomain",
+      "method": "POST"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_MigrateSubDomains",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/MigrateSubDomains",
+      "method": "POST"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_SeedBusinessInitialData",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/SeedBusinessInitialData",
+      "method": "POST"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_AddSubdomain",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/AddSubdomain",
+      "method": "POST"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_Decrypt",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/Decrypt",
+      "method": "POST"
+    },
+    {
+      "module": "Tenant",
+      "endpoint": "POST__erp-apis_Tenant_Encrypt",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Tenant/Encrypt",
+      "method": "POST"
+    },
+    {
+      "module": "TransferRequest",
+      "endpoint": "POST__erp-apis_TransferRequest",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/TransferRequest",
+      "method": "POST"
+    },
+    {
+      "module": "TransferRequest",
+      "endpoint": "GET__erp-apis_TransferRequest",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/TransferRequest",
+      "method": "GET"
+    },
+    {
+      "module": "TransferRequest",
+      "endpoint": "PUT__erp-apis_TransferRequest_DeclineTransfer__Id_",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/TransferRequest/DeclineTransfer/<createdId>",
+      "method": "PUT"
+    },
+    {
+      "module": "TransferRequest",
+      "endpoint": "GET__erp-apis_TransferRequest__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/TransferRequest/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "TransferRequest",
+      "endpoint": "GET__erp-apis_TransferRequest_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/TransferRequest/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Translation",
+      "endpoint": "GET__erp-apis_Translation_GetTranslations",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Translation/GetTranslations",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Treasury",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "POST__erp-apis_Treasury",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Treasury",
+      "method": "POST"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "PUT__erp-apis_Treasury",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Treasury",
+      "method": "PUT"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Treasury/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury_GetAllTreasuriesDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Treasury/GetAllTreasuriesDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Treasury/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury_GetBalance__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Treasury/GetBalance/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Treasury/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Treasury",
+      "endpoint": "GET__erp-apis_Treasury_GetAllTreasuryAdvancedSearch",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Treasury/GetAllTreasuryAdvancedSearch",
+      "method": "GET"
+    },
+    {
+      "module": "TrialBalance",
+      "endpoint": "POST__erp-apis_TrialBalance",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/TrialBalance",
+      "method": "POST"
+    },
+    {
+      "module": "TrialBalance",
+      "endpoint": "GET__erp-apis_TrialBalance",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/TrialBalance",
+      "method": "GET"
+    },
+    {
+      "module": "TrialBalance",
+      "endpoint": "GET__erp-apis_TrialBalance_TrialBalanceTreeReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/TrialBalance/TrialBalanceTreeReport",
+      "method": "GET"
+    },
+    {
+      "module": "TrialBalance",
+      "endpoint": "GET__erp-apis_TrialBalance_ExportTrialBalance",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/TrialBalance/ExportTrialBalance",
+      "method": "GET"
+    },
+    {
+      "module": "User",
+      "endpoint": "POST__erp-apis_User",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/User",
+      "method": "POST"
+    },
+    {
+      "module": "User",
+      "endpoint": "GET__erp-apis_User_UsersDropdownQuery",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/User/UsersDropdownQuery",
+      "method": "GET"
+    },
+    {
+      "module": "User",
+      "endpoint": "GET__erp-apis_User_GetUserNameById",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/User/GetUserNameById",
+      "method": "GET"
+    },
+    {
+      "module": "User",
+      "endpoint": "PUT__erp-apis_User_UpdateUserProfile",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/User/UpdateUserProfile",
+      "method": "PUT"
+    },
+    {
+      "module": "User",
+      "endpoint": "PUT__erp-apis_User_ChangePassword",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/User/ChangePassword",
+      "method": "PUT"
+    },
+    {
+      "module": "User",
+      "endpoint": "PUT__erp-apis_User_UpdateUserActivation",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/User/UpdateUserActivation",
+      "method": "PUT"
+    },
+    {
+      "module": "UserBranchAccess",
+      "endpoint": "GET__erp-apis_UserBranchAccess_GetAll",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/UserBranchAccess/GetAll",
+      "method": "GET"
+    },
+    {
+      "module": "UserBranchAccess",
+      "endpoint": "GET__erp-apis_UserBranchAccess__UserId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/UserBranchAccess/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "UserBranchAccess",
+      "endpoint": "PUT__erp-apis_UserBranchAccess",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/UserBranchAccess",
+      "method": "PUT"
+    },
+    {
+      "module": "UserSettings",
+      "endpoint": "GET__erp-apis_UserSettings_GetAll",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/UserSettings/GetAll",
+      "method": "GET"
+    },
+    {
+      "module": "UserSettings",
+      "endpoint": "GET__erp-apis_UserSettings__UserId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/UserSettings/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "UserSettings",
+      "endpoint": "PUT__erp-apis_UserSettings",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/UserSettings",
+      "method": "PUT"
+    },
+    {
+      "module": "UserSettings",
+      "endpoint": "GET__erp-apis_UserSettings_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/UserSettings/Export",
+      "method": "GET"
+    },
+    {
+      "module": "UserSettings",
+      "endpoint": "POST__erp-apis_UserSettings_Copy",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/UserSettings/Copy",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSalesInvoiceByCustomerId",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VanSales/GetSalesInvoiceByCustomerId",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSalesInvoiceById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VanSales/GetSalesInvoiceById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSalesInvoiceToReturnById__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VanSales/GetSalesInvoiceToReturnById/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_ExportCustomerById",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/VanSales/ExportCustomerById",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetCustomerCreditLimit",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VanSales/GetCustomerCreditLimit",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSalesManCreditLimit",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VanSales/GetSalesManCreditLimit",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_AddReturnSalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/AddReturnSalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "PUT__erp-apis_VanSales_EditCustomerCategory",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/VanSales/EditCustomerCategory",
+      "method": "PUT"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_AddSalesInvoice",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/AddSalesInvoice",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_AddPaymentIn",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/AddPaymentIn",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_ProcessSyncBack",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/ProcessSyncBack",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSyncBackStatus",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VanSales/GetSyncBackStatus",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "GET__erp-apis_VanSales_GetSalesInvoiceQRCode",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VanSales/GetSalesInvoiceQRCode",
+      "method": "GET"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_SalesReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/SalesReport",
+      "method": "POST"
+    },
+    {
+      "module": "VanSales",
+      "endpoint": "POST__erp-apis_VanSales_ExportSalesReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VanSales/ExportSalesReport",
+      "method": "POST"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Vendor",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "POST__erp-apis_Vendor",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Vendor",
+      "method": "POST"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "PUT__erp-apis_Vendor",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/Vendor",
+      "method": "PUT"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "POST__erp-apis_Vendor_Search",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Vendor/Search",
+      "method": "POST"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_DropDownByAccountId__AccountId_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Vendor/DropDownByAccountId/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_GetAllVendorsDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Vendor/GetAllVendorsDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_VendorWithCurrencyLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Vendor/VendorWithCurrencyLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_LatestVendorWithCurrencyLookup",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/Vendor/LatestVendorWithCurrencyLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/Vendor/Export",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Vendor/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Vendor",
+      "endpoint": "GET__erp-apis_Vendor_View__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/Vendor/View/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "GET__erp-apis_VendorCategory",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VendorCategory",
+      "method": "GET"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "POST__erp-apis_VendorCategory",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VendorCategory",
+      "method": "POST"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "PUT__erp-apis_VendorCategory",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/VendorCategory",
+      "method": "PUT"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "GET__erp-apis_VendorCategory_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/VendorCategory/Export",
+      "method": "GET"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "GET__erp-apis_VendorCategory_VendorCategoryDropdown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VendorCategory/VendorCategoryDropdown",
+      "method": "GET"
+    },
+    {
+      "module": "VendorCategory",
+      "endpoint": "GET__erp-apis_VendorCategory__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VendorCategory/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "POST__erp-apis_VendorOpeningBalance",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VendorOpeningBalance",
+      "method": "POST"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "GET__erp-apis_VendorOpeningBalance",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VendorOpeningBalance",
+      "method": "GET"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "PUT__erp-apis_VendorOpeningBalance",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/VendorOpeningBalance",
+      "method": "PUT"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "GET__erp-apis_VendorOpeningBalance__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VendorOpeningBalance/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "GET__erp-apis_VendorOpeningBalance_Export",
+      "oldKey": "GET",
+      "newKey": "EXPORT",
+      "apiPath": "/erp-apis/VendorOpeningBalance/Export",
+      "method": "GET"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "GET__erp-apis_VendorOpeningBalance_GetOpeningBalanceView__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/VendorOpeningBalance/GetOpeningBalanceView/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "POST__erp-apis_VendorOpeningBalance__Id__Post",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VendorOpeningBalance/<createdId>/Post",
+      "method": "POST"
+    },
+    {
+      "module": "VendorOpeningBalance",
+      "endpoint": "POST__erp-apis_VendorOpeningBalance__Id__UnPost",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VendorOpeningBalance/<createdId>/UnPost",
+      "method": "POST"
+    },
+    {
+      "module": "VendorReports",
+      "endpoint": "GET__erp-apis_VendorReports_VendorStatmentReport",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/VendorReports/VendorStatmentReport",
+      "method": "GET"
+    },
+    {
+      "module": "VendorReports",
+      "endpoint": "GET__erp-apis_VendorReports_PrintOutVendorStatementReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/VendorReports/PrintOutVendorStatementReport",
+      "method": "GET"
+    },
+    {
+      "module": "VendorReports",
+      "endpoint": "POST__erp-apis_VendorReports_VendorBalanceReport",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/VendorReports/VendorBalanceReport",
+      "method": "POST"
+    },
+    {
+      "module": "VendorReports",
+      "endpoint": "GET__erp-apis_VendorReports_PrintOutVendorBalanceReport",
+      "oldKey": "GET",
+      "newKey": "PRINT",
+      "apiPath": "/erp-apis/VendorReports/PrintOutVendorBalanceReport",
+      "method": "GET"
+    },
+    {
+      "module": "Workflow",
+      "endpoint": "POST__erp-apis_Workflow_StartWorkflow",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Workflow/StartWorkflow",
+      "method": "POST"
+    },
+    {
+      "module": "Workflow",
+      "endpoint": "POST__erp-apis_Workflow_WorkflowAllowed",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/Workflow/WorkflowAllowed",
+      "method": "POST"
+    },
+    {
+      "module": "WorkflowConfiguration",
+      "endpoint": "GET__erp-apis_WorkflowConfiguration",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/WorkflowConfiguration",
+      "method": "GET"
+    },
+    {
+      "module": "WorkflowConfiguration",
+      "endpoint": "POST__erp-apis_WorkflowConfiguration",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/WorkflowConfiguration",
+      "method": "POST"
+    },
+    {
+      "module": "WorkflowConfiguration",
+      "endpoint": "PUT__erp-apis_WorkflowConfiguration",
+      "oldKey": "PUT",
+      "newKey": "EDIT",
+      "apiPath": "/erp-apis/WorkflowConfiguration",
+      "method": "PUT"
+    },
+    {
+      "module": "WorkflowConfiguration",
+      "endpoint": "GET__erp-apis_WorkflowConfiguration__Id_",
+      "oldKey": "GET",
+      "newKey": "View",
+      "apiPath": "/erp-apis/WorkflowConfiguration/<createdId>",
+      "method": "GET"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "ExecuteAction",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/api/workflows/ExecuteAction",
+      "method": "POST"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "CancelRequest",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/api/workflows/CancelRequest/<createdId>",
+      "method": "POST"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetAllRequests",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/api/workflows/GetAllRequests",
+      "method": "POST"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetRequestHistory",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/api/workflows/GetRequestHistory/{RequestTracking}",
+      "method": "GET"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetRequestUserAction",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/api/workflows/GetRequestUserAction/{requestTracking}",
+      "method": "GET"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetRequestsCount",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/api/workflows/GetRequestsCount",
+      "method": "GET"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetAllProcessesDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/api/workflows/GetAllProcessesLookup",
+      "method": "GET"
+    },
+    {
+      "module": "Workflows",
+      "endpoint": "GetUsersDropDown",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/api/workflows/GetUsersDropDown",
+      "method": "GET"
+    },
+    {
+      "module": "ZatcaDevice",
+      "endpoint": "POST__erp-apis_ZatcaDevice_Activate",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ZatcaDevice/Activate",
+      "method": "POST"
+    },
+    {
+      "module": "ZatcaDevice",
+      "endpoint": "POST__erp-apis_ZatcaDevice_UpdateDeviceConfiguration",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ZatcaDevice/UpdateDeviceConfiguration",
+      "method": "POST"
+    },
+    {
+      "module": "ZatcaDevice",
+      "endpoint": "POST__erp-apis_ZatcaDevice_Deactivate",
+      "oldKey": "POST",
+      "newKey": "CREATE",
+      "apiPath": "/erp-apis/ZatcaDevice/Deactivate",
+      "method": "POST"
+    },
+    {
+      "module": "ZatcaDevice",
+      "endpoint": "GET__erp-apis_ZatcaDevice_CurrentInfo",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ZatcaDevice/CurrentInfo",
+      "method": "GET"
+    },
+    {
+      "module": "ZatcaDevice",
+      "endpoint": "GET__erp-apis_ZatcaDevice_Status",
+      "oldKey": "GET",
+      "newKey": "LookUP",
+      "apiPath": "/erp-apis/ZatcaDevice/Status",
+      "method": "GET"
+    }
+  ],
+  "timestamp": "2025-12-06T13:12:48.568Z"
+}

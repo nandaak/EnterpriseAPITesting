@@ -1,0 +1,164 @@
+{
+  "timestamp": "2025-12-06T13:30:32.688Z",
+  "summary": {
+    "totalFiles": 7,
+    "totalEndpoints": 2436,
+    "totalValid": 2353,
+    "totalInvalid": 0,
+    "overallValidationRate": 96.59,
+    "aggregateDistribution": {
+      "CREATE": 441,
+      "EDIT": 249,
+      "DELETE": 225,
+      "View": 381,
+      "LookUP": 786,
+      "EXPORT": 186,
+      "PRINT": 85,
+      "OTHER": 0
+    }
+  },
+  "results": [
+    {
+      "fileName": "Complete-Standarized-ERP-Api-Schema.json",
+      "totalEndpoints": 28,
+      "validEndpoints": 0,
+      "invalidEndpoints": 0,
+      "validationRate": 0,
+      "keyDistribution": {
+        "CREATE": 0,
+        "EDIT": 0,
+        "DELETE": 0,
+        "View": 0,
+        "LookUP": 0,
+        "EXPORT": 0,
+        "PRINT": 0,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "Enhanced-ERP-Api-Schema-Advanced-Fixed.json",
+      "totalEndpoints": 784,
+      "validEndpoints": 784,
+      "invalidEndpoints": 0,
+      "validationRate": 100,
+      "keyDistribution": {
+        "CREATE": 147,
+        "EDIT": 83,
+        "DELETE": 75,
+        "View": 127,
+        "LookUP": 262,
+        "EXPORT": 62,
+        "PRINT": 28,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "Enhanced-ERP-Api-Schema-With-Payloads.json",
+      "totalEndpoints": 784,
+      "validEndpoints": 784,
+      "invalidEndpoints": 0,
+      "validationRate": 100,
+      "keyDistribution": {
+        "CREATE": 147,
+        "EDIT": 83,
+        "DELETE": 75,
+        "View": 127,
+        "LookUP": 262,
+        "EXPORT": 62,
+        "PRINT": 28,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "Enhanced-ERP-Api-Schema.json",
+      "totalEndpoints": 785,
+      "validEndpoints": 785,
+      "invalidEndpoints": 0,
+      "validationRate": 100,
+      "keyDistribution": {
+        "CREATE": 147,
+        "EDIT": 83,
+        "DELETE": 75,
+        "View": 127,
+        "LookUP": 262,
+        "EXPORT": 62,
+        "PRINT": 29,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "JL-Backend-Api-Schema.json",
+      "totalEndpoints": 1,
+      "validEndpoints": 0,
+      "invalidEndpoints": 0,
+      "validationRate": 0,
+      "keyDistribution": {
+        "CREATE": 0,
+        "EDIT": 0,
+        "DELETE": 0,
+        "View": 0,
+        "LookUP": 0,
+        "EXPORT": 0,
+        "PRINT": 0,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "Main-Backend-Api-Schema.json",
+      "totalEndpoints": 27,
+      "validEndpoints": 0,
+      "invalidEndpoints": 0,
+      "validationRate": 0,
+      "keyDistribution": {
+        "CREATE": 0,
+        "EDIT": 0,
+        "DELETE": 0,
+        "View": 0,
+        "LookUP": 0,
+        "EXPORT": 0,
+        "PRINT": 0,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    },
+    {
+      "fileName": "Main-Standarized-Backend-Api-Schema.json",
+      "totalEndpoints": 27,
+      "validEndpoints": 0,
+      "invalidEndpoints": 0,
+      "validationRate": 0,
+      "keyDistribution": {
+        "CREATE": 0,
+        "EDIT": 0,
+        "DELETE": 0,
+        "View": 0,
+        "LookUP": 0,
+        "EXPORT": 0,
+        "PRINT": 0,
+        "OTHER": 0
+      },
+      "isValid": true,
+      "invalidDetails": []
+    }
+  ],
+  "validKeys": [
+    "CREATE",
+    "EDIT",
+    "DELETE",
+    "View",
+    "LookUP",
+    "EXPORT",
+    "PRINT"
+  ]
+}
