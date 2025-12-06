@@ -2,10 +2,10 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2025-12-06T11:04:43.517Z",
-    "lastUpdated": "2025-12-06T11:04:46.954Z",
+    "lastUpdated": "2025-12-06T12:05:58.143Z",
     "totalModules": 4,
-    "totalIds": 4,
-    "totalActive": 4,
+    "totalIds": 8,
+    "totalActive": 8,
     "totalDeleted": 0,
     "description": "Centralized registry for all created resource IDs across all ERP modules"
   },
@@ -73,22 +73,83 @@
               }
             }
           }
+        },
+        {
+          "id": "44",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 44,
+            "length": 2,
+            "isPositive": true
+          },
+          "module": "General_Settings.Master_Data.Tags_Definition",
+          "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+          "timestamp": "2025-12-06T12:05:54.727Z",
+          "createdAt": "2025-12-06T12:05:54.727Z",
+          "lifecycle": {
+            "created": "2025-12-06T12:05:54.727Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2025-12-06T12:05:54.727Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/Tag",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 44,
+            "code": "tag-43",
+            "name": "string",
+            "nameAr": "string",
+            "isActive": true,
+            "modulesId": [
+              1
+            ]
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/Tag",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 44,
+                "length": 2,
+                "isPositive": true
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:43.517Z",
-      "lastCreated": "2025-12-06T11:04:43.517Z",
+      "lastCreated": "2025-12-06T12:05:54.727Z",
       "lastDeleted": null,
-      "totalCreated": 1,
+      "totalCreated": 2,
       "totalDeleted": 0,
-      "totalActive": 1,
-      "currentId": "43",
+      "totalActive": 2,
+      "currentId": "44",
       "statistics": {
         "idTypes": {
-          "numeric": 1
+          "numeric": 2
         },
         "averageIdLength": "2.00",
         "creationTimes": [
-          "2025-12-06T11:04:43.517Z"
+          "2025-12-06T11:04:43.517Z",
+          "2025-12-06T12:05:54.727Z"
         ]
       }
     },
@@ -155,22 +216,83 @@
               }
             }
           }
+        },
+        {
+          "id": "56",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 56,
+            "length": 2,
+            "isPositive": true
+          },
+          "module": "Accounting.Master_Data.Cost_Center_Definition",
+          "moduleDisplayName": "Accounting → Master Data → Cost Center Definition",
+          "timestamp": "2025-12-06T12:05:55.429Z",
+          "createdAt": "2025-12-06T12:05:55.429Z",
+          "lifecycle": {
+            "created": "2025-12-06T12:05:55.429Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2025-12-06T12:05:55.429Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/CostCenter/AddCostCenter",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 56,
+            "name": "string",
+            "nameAr": "string",
+            "code": "118",
+            "parentCostCenter": "cost ",
+            "parentCostCenterAr": "cost ",
+            "type": "Detail",
+            "isActive": true
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/CostCenter/AddCostCenter",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 56,
+                "length": 2,
+                "isPositive": true
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:44.196Z",
-      "lastCreated": "2025-12-06T11:04:44.196Z",
+      "lastCreated": "2025-12-06T12:05:55.429Z",
       "lastDeleted": null,
-      "totalCreated": 1,
+      "totalCreated": 2,
       "totalDeleted": 0,
-      "totalActive": 1,
-      "currentId": "55",
+      "totalActive": 2,
+      "currentId": "56",
       "statistics": {
         "idTypes": {
-          "numeric": 1
+          "numeric": 2
         },
         "averageIdLength": "2.00",
         "creationTimes": [
-          "2025-12-06T11:04:44.196Z"
+          "2025-12-06T11:04:44.196Z",
+          "2025-12-06T12:05:55.429Z"
         ]
       }
     },
@@ -242,22 +364,88 @@
               }
             }
           }
+        },
+        {
+          "id": "53",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 53,
+            "length": 2,
+            "isPositive": true
+          },
+          "module": "Sales.Master_Data.Customer_Category",
+          "moduleDisplayName": "Sales → Master Data → Customer Category",
+          "timestamp": "2025-12-06T12:05:57.623Z",
+          "createdAt": "2025-12-06T12:05:57.623Z",
+          "lifecycle": {
+            "created": "2025-12-06T12:05:57.623Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2025-12-06T12:05:57.623Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 53,
+            "name": "string",
+            "nameAr": "string",
+            "code": "CCategory-53",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B",
+            "createdOn": "2025-12-06T15:05:57.5029383+03:00",
+            "updatedOn": "2025-12-06T15:05:57.5066181+03:00"
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 53,
+                "length": 2,
+                "isPositive": true
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:46.357Z",
-      "lastCreated": "2025-12-06T11:04:46.357Z",
+      "lastCreated": "2025-12-06T12:05:57.623Z",
       "lastDeleted": null,
-      "totalCreated": 1,
+      "totalCreated": 2,
       "totalDeleted": 0,
-      "totalActive": 1,
-      "currentId": "52",
+      "totalActive": 2,
+      "currentId": "53",
       "statistics": {
         "idTypes": {
-          "numeric": 1
+          "numeric": 2
         },
         "averageIdLength": "2.00",
         "creationTimes": [
-          "2025-12-06T11:04:46.357Z"
+          "2025-12-06T11:04:46.357Z",
+          "2025-12-06T12:05:57.623Z"
         ]
       }
     },
@@ -315,27 +503,315 @@
               }
             }
           }
+        },
+        {
+          "id": "54ab091c-4fdf-427c-4659-08de34b65439",
+          "idType": "guid",
+          "idFormat": "guid-generic",
+          "idMetadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "NCS"
+          },
+          "module": "Sales.Master_Data.Sales_Team",
+          "moduleDisplayName": "Sales → Master Data → Sales Team",
+          "timestamp": "2025-12-06T12:05:58.143Z",
+          "createdAt": "2025-12-06T12:05:58.143Z",
+          "lifecycle": {
+            "created": "2025-12-06T12:05:58.143Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2025-12-06T12:05:58.143Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": null,
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "responseStatus": 200,
+            "idType": "guid",
+            "idFormat": "guid-generic",
+            "idMetadata": {
+              "type": "guid",
+              "format": "guid-generic",
+              "isValid": true,
+              "metadata": {
+                "length": 36,
+                "version": 4,
+                "variant": "NCS"
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:46.954Z",
-      "lastCreated": "2025-12-06T11:04:46.954Z",
+      "lastCreated": "2025-12-06T12:05:58.143Z",
       "lastDeleted": null,
-      "totalCreated": 1,
+      "totalCreated": 2,
       "totalDeleted": 0,
-      "totalActive": 1,
-      "currentId": "e6ce62c1-3f09-41c3-4658-08de34b65439",
+      "totalActive": 2,
+      "currentId": "54ab091c-4fdf-427c-4659-08de34b65439",
       "statistics": {
         "idTypes": {
-          "guid": 1
+          "guid": 2
         },
         "averageIdLength": "36.00",
         "creationTimes": [
-          "2025-12-06T11:04:46.954Z"
+          "2025-12-06T11:04:46.954Z",
+          "2025-12-06T12:05:58.143Z"
         ]
       }
     }
   },
   "allIds": [
+    {
+      "id": "54ab091c-4fdf-427c-4659-08de34b65439",
+      "idType": "guid",
+      "idFormat": "guid-generic",
+      "idMetadata": {
+        "length": 36,
+        "version": 4,
+        "variant": "NCS"
+      },
+      "module": "Sales.Master_Data.Sales_Team",
+      "moduleDisplayName": "Sales → Master Data → Sales Team",
+      "timestamp": "2025-12-06T12:05:58.143Z",
+      "createdAt": "2025-12-06T12:05:58.143Z",
+      "lifecycle": {
+        "created": "2025-12-06T12:05:58.143Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2025-12-06T12:05:58.143Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": null,
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "responseStatus": 200,
+        "idType": "guid",
+        "idFormat": "guid-generic",
+        "idMetadata": {
+          "type": "guid",
+          "format": "guid-generic",
+          "isValid": true,
+          "metadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "NCS"
+          }
+        }
+      }
+    },
+    {
+      "id": "53",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 53,
+        "length": 2,
+        "isPositive": true
+      },
+      "module": "Sales.Master_Data.Customer_Category",
+      "moduleDisplayName": "Sales → Master Data → Customer Category",
+      "timestamp": "2025-12-06T12:05:57.623Z",
+      "createdAt": "2025-12-06T12:05:57.623Z",
+      "lifecycle": {
+        "created": "2025-12-06T12:05:57.623Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2025-12-06T12:05:57.623Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 53,
+        "name": "string",
+        "nameAr": "string",
+        "code": "CCategory-53",
+        "receivableAccountId": 1,
+        "salesAccountId": 1,
+        "salesReturnAccountId": 1,
+        "discountAccountId": 1,
+        "pricePolicyId": 1,
+        "paymentTermId": 1,
+        "marketType": "B2B",
+        "createdOn": "2025-12-06T15:05:57.5029383+03:00",
+        "updatedOn": "2025-12-06T15:05:57.5066181+03:00"
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 53,
+            "length": 2,
+            "isPositive": true
+          }
+        }
+      }
+    },
+    {
+      "id": "56",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 56,
+        "length": 2,
+        "isPositive": true
+      },
+      "module": "Accounting.Master_Data.Cost_Center_Definition",
+      "moduleDisplayName": "Accounting → Master Data → Cost Center Definition",
+      "timestamp": "2025-12-06T12:05:55.429Z",
+      "createdAt": "2025-12-06T12:05:55.429Z",
+      "lifecycle": {
+        "created": "2025-12-06T12:05:55.429Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2025-12-06T12:05:55.429Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/CostCenter/AddCostCenter",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 56,
+        "name": "string",
+        "nameAr": "string",
+        "code": "118",
+        "parentCostCenter": "cost ",
+        "parentCostCenterAr": "cost ",
+        "type": "Detail",
+        "isActive": true
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/CostCenter/AddCostCenter",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 56,
+            "length": 2,
+            "isPositive": true
+          }
+        }
+      }
+    },
+    {
+      "id": "44",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 44,
+        "length": 2,
+        "isPositive": true
+      },
+      "module": "General_Settings.Master_Data.Tags_Definition",
+      "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+      "timestamp": "2025-12-06T12:05:54.727Z",
+      "createdAt": "2025-12-06T12:05:54.727Z",
+      "lifecycle": {
+        "created": "2025-12-06T12:05:54.727Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2025-12-06T12:05:54.727Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/Tag",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 44,
+        "code": "tag-43",
+        "name": "string",
+        "nameAr": "string",
+        "isActive": true,
+        "modulesId": [
+          1
+        ]
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/Tag",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 44,
+            "length": 2,
+            "isPositive": true
+          }
+        }
+      }
+    },
     {
       "id": "e6ce62c1-3f09-41c3-4658-08de34b65439",
       "idType": "guid",
@@ -575,19 +1051,43 @@
   ],
   "statistics": {
     "idTypeDistribution": {
-      "numeric": 3,
-      "guid": 1
+      "numeric": 6,
+      "guid": 2
     },
     "moduleDistribution": {
-      "General_Settings.Master_Data.Tags_Definition": 1,
-      "Accounting.Master_Data.Cost_Center_Definition": 1,
-      "Sales.Master_Data.Customer_Category": 1,
-      "Sales.Master_Data.Sales_Team": 1
+      "General_Settings.Master_Data.Tags_Definition": 2,
+      "Accounting.Master_Data.Cost_Center_Definition": 2,
+      "Sales.Master_Data.Customer_Category": 2,
+      "Sales.Master_Data.Sales_Team": 2
     },
     "creationTimeline": [],
     "averageIdLength": "10.50",
     "mostActiveModule": "General_Settings.Master_Data.Tags_Definition",
     "recentActivity": [
+      {
+        "id": "54ab091c-4fdf-427c-4659-08de34b65439",
+        "module": "Sales → Master Data → Sales Team",
+        "timestamp": "2025-12-06T12:05:58.143Z",
+        "status": "active"
+      },
+      {
+        "id": "53",
+        "module": "Sales → Master Data → Customer Category",
+        "timestamp": "2025-12-06T12:05:57.623Z",
+        "status": "active"
+      },
+      {
+        "id": "56",
+        "module": "Accounting → Master Data → Cost Center Definition",
+        "timestamp": "2025-12-06T12:05:55.429Z",
+        "status": "active"
+      },
+      {
+        "id": "44",
+        "module": "General Settings → Master Data → Tags Definition",
+        "timestamp": "2025-12-06T12:05:54.727Z",
+        "status": "active"
+      },
       {
         "id": "e6ce62c1-3f09-41c3-4658-08de34b65439",
         "module": "Sales → Master Data → Sales Team",
