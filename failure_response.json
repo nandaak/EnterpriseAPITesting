@@ -3,11 +3,11 @@
     "method": "POST",
     "url": "/erp-apis/AssetsDepreciation",
     "statusCode": 500,
-    "timestamp": "2025-12-01T16:51:11.120Z",
+    "timestamp": "2025-12-06T10:46:47.728Z",
     "response": {
       "messageCode": 3006,
       "message": "لم يتم العثور على أصول مؤهلة للإهلاك.",
-      "correlationId": "835c4a77c9f9f774a098369c9497f2a4",
+      "correlationId": "ce3f094cbcb9b26a19832f4029a34a73",
       "validationErrors": null
     },
     "requestPayload": {
@@ -23,11 +23,11 @@
     "method": "POST",
     "url": "/erp-apis/AssetsLocation",
     "statusCode": 500,
-    "timestamp": "2025-12-01T16:51:11.318Z",
+    "timestamp": "2025-12-06T10:46:48.213Z",
     "response": {
       "messageCode": 5001,
       "message": "Object reference not set to an instance of an object.",
-      "correlationId": "96ca8341a8664236c1ef5d741385c618",
+      "correlationId": "4963427aa2dc2ba022884fa4b63aecb2",
       "validationErrors": null
     },
     "requestPayload": {
@@ -41,11 +41,11 @@
     "method": "POST",
     "url": "/erp-apis/AssetsSalesInvoice",
     "statusCode": 500,
-    "timestamp": "2025-12-01T16:51:12.291Z",
+    "timestamp": "2025-12-06T10:46:50.773Z",
     "response": {
       "messageCode": 5001,
-      "message": "الأصل 'as00000' - car تم بيعه بالفعل.",
-      "correlationId": "a63afa49040b0ad518576c71775ca2ee",
+      "message": "الأصل as00000 - car لا يمكن بيعه. يرجى التأكد من تحديث الإهلاك قبل محاولة بيع هذا الأصل.",
+      "correlationId": "b241f8594900676dbd7e7730dcf0b77f",
       "validationErrors": null
     },
     "requestPayload": {
@@ -524,6 +524,51 @@
       "activationCode": "string",
       "name": "Test ZatcaDevice",
       "nameAr": "Test ZatcaDevice عربي"
+    }
+  },
+  "POST /erp-apis/AssetsPurchaseInvoice": {
+    "method": "POST",
+    "url": "/erp-apis/AssetsPurchaseInvoice",
+    "statusCode": 500,
+    "timestamp": "2025-12-06T10:46:49.721Z",
+    "response": {
+      "messageCode": 3006,
+      "message": "Invalid state transition from WaitingForAcquisition",
+      "correlationId": "88d6d9801410da81339435074f96e1e8",
+      "validationErrors": null
+    },
+    "requestPayload": {
+      "date": "2025-11-26T16:29:05.635Z",
+      "description": "string",
+      "vendorId": 1,
+      "vendorCode": "string",
+      "vendorName": "string",
+      "vendorNameAr": "string",
+      "currencyId": 1,
+      "currencyName": "string",
+      "currencyNameAr": "string",
+      "currencyRate": 1,
+      "reference": "string",
+      "paymentTermId": 1,
+      "paymentTermName": "string",
+      "paymentTermNameAr": "string",
+      "assetsPurchaseInvoiceDetails": [
+        {
+          "assetId": 1,
+          "assetName": "string",
+          "quantity": 1,
+          "cost": 1,
+          "discountPercentage": 1,
+          "discountAmount": 1,
+          "vatPercentage": 1,
+          "taxId": 1,
+          "taxName": "string",
+          "taxNameAr": "string",
+          "assetLocationId": 1,
+          "assetLocationName": "string",
+          "activationDate": "2025-11-26T16:29:05.635Z"
+        }
+      ]
     }
   }
 }

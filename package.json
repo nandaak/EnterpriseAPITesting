@@ -3,6 +3,7 @@
   "version": "1.3.0",
   "description": "Comprehensive API Testing Suite for ERP System",
   "scripts": {
+    "fetchToken":"node fetchToken.js",
     "test:CRUD": "npm test -- tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --verbose",
     "test:Security": "npm test -- tests/comprehensive-lifecycle/2.comprehensive-API-Security.test.js --verbose",
     "test:Performance": "npm test -- tests/comprehensive-lifecycle/4.Performance-Malicious-Load.test.js --verbose",

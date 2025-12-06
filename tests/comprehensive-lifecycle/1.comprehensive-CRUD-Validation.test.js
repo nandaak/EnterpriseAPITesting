@@ -47,6 +47,13 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
   // Helper methods (keep existing implementations)
   const isValidUrl = (string) => {
     if (!string || string === "URL_HERE") return false;
+    
+    // Accept relative URLs that start with /
+    if (typeof string === 'string' && string.startsWith('/')) {
+      return true;
+    }
+    
+    // Try to parse as absolute URL
     try {
       new URL(string);
       return true;
@@ -185,10 +192,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
    * COMPLETE CRUD LIFECYCLE TESTING FUNCTION
    */
   const runCompleteCRUDLifecycleOnAllModules = (modules, parentPath = "") => {
+    logger.debug(`Processing level: "${parentPath || 'ROOT'}" with ${Object.keys(modules).length} entries`);
+    
     Object.entries(modules).forEach(([moduleName, moduleConfig]) => {
-      if (typeof moduleConfig !== "object" || moduleConfig === null) return;
+      if (typeof moduleConfig !== "object" || moduleConfig === null) {
+        logger.debug(`  Skipping ${moduleName}: not an object`);
+        return;
+      }
 
       const moduleHasEndpoints = hasEndpoints(moduleConfig);
+      logger.debug(`  Checking ${moduleName}: hasEndpoints=${moduleHasEndpoints}`);
 
       if (moduleHasEndpoints) {
         const fullModuleName = parentPath
@@ -196,8 +209,11 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
           : moduleName;
 
         crudTestSummary.modulesTested++;
+        
+        logger.info(`Found module with endpoints: ${fullModuleName}`);
 
         if (!fullModuleName.includes("Reports")) {
+          logger.info(`Creating test suite for: ${fullModuleName}`);
           describe(`COMPLETE CRUD LIFECYCLE: ${fullModuleName}`, () => {
             let moduleStartTime;
             let lifecycleResults = {};
@@ -854,14 +870,40 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
       // Recursively test nested modules
       if (typeof moduleConfig === "object" && !hasEndpoints(moduleConfig)) {
-        runCompleteCRUDLifecycleOnAllModules(
-          moduleConfig,
-          parentPath ? `${parentPath}.${moduleName}` : moduleName
-        );
+        const newPath = parentPath ? `${parentPath}.${moduleName}` : moduleName;
+        logger.debug(`  Recursing into ${moduleName} (path: ${newPath})`);
+        runCompleteCRUDLifecycleOnAllModules(moduleConfig, newPath);
       }
     });
   };
 
+  // Debug: Log what we're working with
+  const schemaToUse = modulesConfig.schema || modulesConfig;
+  logger.info(`About to process schema with ${Object.keys(schemaToUse).length} top-level keys`);
+  logger.info(`Top-level keys: ${Object.keys(schemaToUse).join(', ')}`);
+  
+  // Check first module structure
+  const firstKey = Object.keys(schemaToUse)[0];
+  if (firstKey) {
+    const firstModule = schemaToUse[firstKey];
+    logger.info(`First key "${firstKey}" type: ${typeof firstModule}`);
+    logger.info(`First key has endpoints: ${hasEndpoints(firstModule)}`);
+    if (typeof firstModule === 'object') {
+      logger.info(`First key sub-keys: ${Object.keys(firstModule).slice(0, 5).join(', ')}`);
+    }
+  }
+  
   // Run complete CRUD lifecycle on all modules
-  runCompleteCRUDLifecycleOnAllModules(modulesConfig.schema || modulesConfig);
+  // This MUST be called synchronously during test discovery
+  runCompleteCRUDLifecycleOnAllModules(schemaToUse);
+  
+  logger.info(`After processing: ${crudTestSummary.modulesTested} modules tested`);
+  
+  // Dummy test to ensure Jest doesn't complain if no modules found
+  if (crudTestSummary.modulesTested === 0) {
+    test("No testable modules found", () => {
+      logger.warn("No testable modules were found in the schema");
+      expect(modulesConfig).toBeDefined();
+    });
+  }
 });
