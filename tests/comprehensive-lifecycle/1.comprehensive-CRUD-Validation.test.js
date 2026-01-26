@@ -46,10 +46,14 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
   // Helper methods (keep existing implementations)
   const isValidUrl = (string) => {
-    if (!string || string === "URL_HERE") return false;
+    // Check for null, undefined, empty string, or placeholder
+    if (!string || string === "URL_HERE" || string.trim() === "") return false;
+    
+    // Ensure it's a string
+    if (typeof string !== 'string') return false;
     
     // Accept relative URLs that start with /
-    if (typeof string === 'string' && string.startsWith('/')) {
+    if (string.startsWith('/')) {
       return true;
     }
     
@@ -96,6 +100,15 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
       };
     }
     const endpoint = operation[0];
+    
+    // Check for empty string explicitly
+    if (endpoint === '' || (typeof endpoint === 'string' && endpoint.trim() === '')) {
+      return {
+        skip: true,
+        reason: `Empty URL for operation '${operationType}'`,
+      };
+    }
+    
     if (!isValidUrl(endpoint)) {
       return {
         skip: true,
@@ -303,6 +316,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                 startTime: new Date().toISOString(),
                 hasValidCreateOperation: hasValidCreateOperation,
                 lifecyclePhase: "UNKNOWN",
+                wasSkipped: false, // Track if test was skipped
               };
             });
 
@@ -313,21 +327,28 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
               crudTestSummary.totalTests++;
 
               let testStatus = "passed";
-              try {
-                if (
-                  testState.snapshotState &&
-                  testState.snapshotState.unmatched > 0
-                ) {
+              
+              // Check if test was marked as skipped
+              if (testContext.wasSkipped) {
+                testStatus = "skipped";
+                // Don't increment passedTests or failedTests for skipped tests
+              } else {
+                try {
+                  if (
+                    testState.snapshotState &&
+                    testState.snapshotState.unmatched > 0
+                  ) {
+                    testStatus = "failed";
+                    crudTestSummary.failedTests++;
+                    moduleOverallSuccess = false;
+                  } else {
+                    crudTestSummary.passedTests++;
+                  }
+                } catch (e) {
                   testStatus = "failed";
                   crudTestSummary.failedTests++;
                   moduleOverallSuccess = false;
-                } else {
-                  crudTestSummary.passedTests++;
                 }
-              } catch (e) {
-                testStatus = "failed";
-                crudTestSummary.failedTests++;
-                moduleOverallSuccess = false;
               }
 
               const testResult = {
@@ -351,6 +372,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
 
               if (testStatus === "passed") {
                 logger.debug(`✅ ${fullModuleName} - ${testName} completed`);
+              } else if (testStatus === "skipped") {
+                logger.debug(`⏸️ ${fullModuleName} - ${testName} skipped`);
               } else {
                 logger.error(`❌ ${fullModuleName} - ${testName} failed`);
               }
@@ -371,8 +394,9 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - CREATE skipped: Module initialization failed`
                     );
+                    testContext.wasSkipped = true;
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -384,8 +408,9 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - CREATE skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
+                    hasValidCreateOperation = false;
                     return;
                   }
 
@@ -448,8 +473,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - INITIAL VIEW skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -461,17 +486,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - INITIAL VIEW skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
                   if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: No resource ID`
+                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: No resource ID (CREATE was skipped or failed)`
                     );
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -521,8 +545,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - UPDATE skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -534,17 +558,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - UPDATE skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
                   if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ ${fullModuleName} - UPDATE skipped: No resource ID`
+                      `⏸️ ${fullModuleName} - UPDATE skipped: No resource ID (CREATE was skipped or failed)`
                     );
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -594,8 +617,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -607,17 +630,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
                   if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: No resource ID`
+                      `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: No resource ID (CREATE was skipped or failed)`
                     );
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -676,8 +698,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - DELETE skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -689,17 +711,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - DELETE skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
                   if (!hasValidCreateOperation || !createdResourceId) {
                     logger.warn(
-                      `⏸️ ${fullModuleName} - DELETE skipped: No resource ID`
+                      `⏸️ ${fullModuleName} - DELETE skipped: No resource ID (CREATE was skipped or failed)`
                     );
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -750,8 +771,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 
@@ -763,8 +784,16 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: ${skipCheck.reason}`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
+                    return;
+                  }
+
+                  if (!hasValidCreateOperation || !createdResourceId) {
+                    logger.warn(
+                      `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: No resource ID (CREATE was skipped or failed)`
+                    );
+                    crudTestSummary.skippedTests++;
                     return;
                   }
 
@@ -819,8 +848,8 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     logger.warn(
                       `⏸️ ${fullModuleName} - CONFIGURATION skipped: Module failure`
                     );
+                    testContext.wasSkipped = true;
                     crudTestSummary.skippedTests++;
-                    expect(true).toBe(true);
                     return;
                   }
 

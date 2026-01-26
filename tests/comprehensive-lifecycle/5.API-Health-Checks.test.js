@@ -21,10 +21,25 @@ const { TEST_CONFIG, HTTP_STATUS_CODES, FILE_PATHS } = Constants;
  * @version 4.0.0
  * @author Mohamed Said Ibrahim
  */
+
+// Configuration: Set to a number to limit endpoints for quick testing, or null for all
+const MAX_ENDPOINTS_TO_TEST = process.env.MAX_HEALTH_CHECK_ENDPOINTS 
+  ? parseInt(process.env.MAX_HEALTH_CHECK_ENDPOINTS) 
+  : null; // Set to null to test all endpoints
+
 let allEndpoints = [];
 
 const schema = loadSchema();
-allEndpoints = extractEndpointsFromSchema(schema);
+const extractedEndpoints = extractEndpointsFromSchema(schema);
+
+// Apply limit if configured
+if (MAX_ENDPOINTS_TO_TEST && extractedEndpoints.length > MAX_ENDPOINTS_TO_TEST) {
+  logger.info(`⚠️  Limiting health checks to ${MAX_ENDPOINTS_TO_TEST} endpoints (out of ${extractedEndpoints.length})`);
+  logger.info(`   Set MAX_HEALTH_CHECK_ENDPOINTS=null to test all endpoints`);
+  allEndpoints = extractedEndpoints.slice(0, MAX_ENDPOINTS_TO_TEST);
+} else {
+  allEndpoints = extractedEndpoints;
+}
 describe("Individual API Endpoint Health Checks", () => {
   let testResults = [];
   let globalSummary = {

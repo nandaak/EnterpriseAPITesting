@@ -173,7 +173,7 @@ class CrudLifecycleHelper {
           type: this.createdIdType,
           format: idExtraction.format,
           length: this.createdId.length,
-          savedToFile: saveSuccess,
+          savedToFile: registryResult.success,
           dataVerified: dataExists,
           metadata: this.createdIdMetadata,
         },

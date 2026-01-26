@@ -1,17 +1,25 @@
 const logger = require("./logger");
 const fs = require("fs");
 const path = require("path");
-const API_Schema = "test-data/Input/Main-Backend-Api-Schema.json";
+const API_Schema = "test-data/Input/Enhanced-ERP-Api-Schema-With-Payloads.json";
 
-// Enhanced URL validation
+// Enhanced URL validation - handles both full URLs and relative paths
 const isValidUrl = (string) => {
   if (!string || typeof string !== "string") return false;
   if (string === "URL_HERE" || string.trim() === "") return false;
+  
+  // Handle placeholder replacement
   if (string.includes("<createdId>")) {
-    // Replace placeholder with test ID for valid testing
-    return string.replace("<createdId>", "test-health-check-id");
+    string = string.replace("<createdId>", "test-health-check-id");
   }
 
+  // Check if it's a relative path (starts with /)
+  if (string.startsWith("/")) {
+    // Valid relative path - should start with / and contain valid characters
+    return /^\/[a-zA-Z0-9\-_\/{}]*$/.test(string);
+  }
+
+  // Check if it's a full URL
   try {
     const url = new URL(string);
     return url.protocol === "http:" || url.protocol === "https:";
@@ -56,92 +64,71 @@ const getHttpMethod = (operation) => {
   return methodMap[operation] || "GET";
 };
 
-// FIXED: Professional schema processing with better traversal
+// FIXED: Professional schema processing for Enhanced schema structure
 const extractEndpointsFromSchema = (schema) => {
   const endpoints = [];
   let endpointCount = 0;
 
   logger.info("🔄 Starting professional schema traversal...");
 
-  const traverse = (obj, currentPath = []) => {
-    if (!obj || typeof obj !== "object") return;
+  // HTTP methods to look for in the Enhanced schema
+  const httpMethods = ["GET", "POST", "PUT", "DELETE", "PATCH"];
 
-    // Check if current level has HTTP operations directly
-    const httpOperations = [
-      "CREATE",
-      "EDIT",
-      "DELETE",
-      "View",
-      "GET",
-      "EDIT",
-      "LookUP",
-      "Commit",
-    ];
+  // Traverse the schema structure
+  Object.entries(schema).forEach(([moduleName, moduleData]) => {
+    if (!moduleData || typeof moduleData !== "object") return;
 
-    // Look for operations at current level
-    httpOperations.forEach((operation) => {
-      if (
-        obj[operation] &&
-        Array.isArray(obj[operation]) &&
-        obj[operation][0]
-      ) {
-        const endpointUrl = obj[operation][0];
-        const processedUrl = endpointUrl.includes("<createdId>")
-          ? endpointUrl.replace("<createdId>", "test-health-check-id")
-          : endpointUrl;
+    // Each module contains operation objects
+    Object.entries(moduleData).forEach(([operationKey, operationData]) => {
+      if (!operationData || typeof operationData !== "object") return;
 
-        if (isValidUrl(processedUrl)) {
-          endpointCount++;
-          const modulePath =
-            currentPath.length > 0 ? currentPath.join(".") : "Root";
+      // Check for HTTP method arrays in the operation
+      httpMethods.forEach((method) => {
+        if (
+          operationData[method] &&
+          Array.isArray(operationData[method]) &&
+          operationData[method][0]
+        ) {
+          const endpointUrl = operationData[method][0];
+          const payload = operationData[method][1] || null;
 
-          endpoints.push({
-            id: endpointCount,
-            url: processedUrl,
-            method: getHttpMethod(operation),
-            operation: operation,
-            module: modulePath,
-            fullPath: `${modulePath}.${operation}`,
-            payload: obj[operation][1] || null,
-            requiresAuth: true,
-            testNumber: endpointCount,
-            originalUrl: endpointUrl, // Keep original for reference
-          });
+          // Process URL (replace placeholders if needed)
+          const processedUrl = endpointUrl.includes("<createdId>")
+            ? endpointUrl.replace("<createdId>", "test-health-check-id")
+            : endpointUrl;
 
-          logger.debug(
-            `📍 [${String(endpointCount).padStart(
-              3,
-              "0"
-            )}] Found: ${operation} ${modulePath}`
-          );
+          if (isValidUrl(processedUrl)) {
+            endpointCount++;
+
+            endpoints.push({
+              id: endpointCount,
+              url: processedUrl,
+              method: method,
+              operation: operationKey,
+              module: moduleName,
+              fullPath: `${moduleName}.${operationKey}`,
+              payload: payload,
+              requiresAuth: true,
+              testNumber: endpointCount,
+              originalUrl: endpointUrl,
+              summary: operationData.summary || "",
+              parameters: operationData.parameters || [],
+            });
+
+            if (endpointCount <= 5 || endpointCount % 100 === 0) {
+              logger.debug(
+                `📍 [${String(endpointCount).padStart(
+                  3,
+                  "0"
+                )}] Found: ${method} ${moduleName}.${operationKey}`
+              );
+            }
+          }
         }
-      }
+      });
     });
+  });
 
-    // Recursively traverse nested objects
-    Object.entries(obj).forEach(([key, value]) => {
-      if (
-        value &&
-        typeof value === "object" &&
-        value !== null &&
-        !Array.isArray(value)
-      ) {
-        // Only traverse if it's not an operation array and looks like a module container
-        const isLikelyModule =
-          !httpOperations.includes(key) &&
-          typeof value === "object" &&
-          Object.keys(value).some(
-            (k) => httpOperations.includes(k) || typeof value[k] === "object"
-          );
-
-        if (isLikelyModule) {
-          traverse(value, [...currentPath, key]);
-        }
-      }
-    });
-  };
-
-  traverse(schema);
   logger.info(
     `✅ Schema traversal complete. Found ${endpoints.length} valid endpoints`
   );
@@ -156,6 +143,21 @@ const extractEndpointsFromSchema = (schema) => {
     logger.info("🌐 Method Distribution:");
     Object.entries(methodDistribution).forEach(([method, count]) => {
       logger.info(`   - ${method}: ${count} endpoints`);
+    });
+
+    // Log module distribution
+    const moduleDistribution = {};
+    endpoints.forEach((ep) => {
+      moduleDistribution[ep.module] = (moduleDistribution[ep.module] || 0) + 1;
+    });
+
+    const topModules = Object.entries(moduleDistribution)
+      .sort(([, a], [, b]) => b - a)
+      .slice(0, 5);
+
+    logger.info("📦 Top 5 Modules:");
+    topModules.forEach(([module, count]) => {
+      logger.info(`   - ${module}: ${count} endpoints`);
     });
   }
 
