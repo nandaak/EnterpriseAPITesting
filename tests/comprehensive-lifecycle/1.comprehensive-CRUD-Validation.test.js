@@ -221,6 +221,17 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
           ? `${parentPath}.${moduleName}`
           : moduleName;
 
+        // Check if CREATE operation has valid URL before creating test suite
+        const createUrl = moduleConfig.CREATE && Array.isArray(moduleConfig.CREATE) ? moduleConfig.CREATE[0] : null;
+        const hasValidCreateUrl = createUrl && createUrl !== 'URL_HERE' && createUrl.trim() !== '' && isValidUrl(createUrl);
+        
+        // Skip modules with invalid CREATE URLs entirely
+        if (!hasValidCreateUrl) {
+          logger.warn(`⏸️ Skipping module ${fullModuleName}: CREATE URL is invalid or missing (${createUrl || 'not set'})`);
+          crudTestSummary.skippedTests += 7; // 6 CRUD phases + 1 config test
+          return;
+        }
+
         crudTestSummary.modulesTested++;
         
         logger.info(`Found module with endpoints: ${fullModuleName}`);
