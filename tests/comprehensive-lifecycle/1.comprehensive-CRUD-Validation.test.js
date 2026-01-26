@@ -248,6 +248,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             let crudHelper;
             let moduleOverallSuccess = true;
             let completedLifecycle = false;
+            let currentTestFailed = false; // Track if current test failed
 
             beforeAll(async () => {
               moduleStartTime = Date.now();
@@ -322,6 +323,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             });
 
             beforeEach(() => {
+              currentTestFailed = false; // Reset for each test
               testContext = {
                 module: fullModuleName,
                 startTime: new Date().toISOString(),
@@ -343,23 +345,14 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
               if (testContext.wasSkipped) {
                 testStatus = "skipped";
                 // Don't increment passedTests or failedTests for skipped tests
+              } else if (currentTestFailed) {
+                // Test threw an error
+                testStatus = "failed";
+                crudTestSummary.failedTests++;
+                moduleOverallSuccess = false;
               } else {
-                try {
-                  if (
-                    testState.snapshotState &&
-                    testState.snapshotState.unmatched > 0
-                  ) {
-                    testStatus = "failed";
-                    crudTestSummary.failedTests++;
-                    moduleOverallSuccess = false;
-                  } else {
-                    crudTestSummary.passedTests++;
-                  }
-                } catch (e) {
-                  testStatus = "failed";
-                  crudTestSummary.failedTests++;
-                  moduleOverallSuccess = false;
-                }
+                // Test passed
+                crudTestSummary.passedTests++;
               }
 
               const testResult = {
@@ -459,6 +452,7 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                     originalData: originalData,
                   };
                 } catch (error) {
+                  currentTestFailed = true;
                   logger.error(
                     `❌ ${fullModuleName} - PHASE 1 FAILED: ${error.message}`
                   );
@@ -476,18 +470,19 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             test(
               "🎯 [PHASE 2/6] VIEW - Retrieve and verify the newly created resource",
               async () => {
+                // Check if previous phase failed - if so, skip this test
+                if (!moduleOverallSuccess || !hasValidCreateOperation || !createdResourceId) {
+                  testContext.wasSkipped = true;
+                  crudTestSummary.skippedTests++;
+                  logger.warn(
+                    `⏸️ ${fullModuleName} - INITIAL VIEW skipped: Previous phase failed or no resource ID`
+                  );
+                  return;
+                }
+
                 try {
                   testContext.lifecyclePhase = "VIEW_INITIAL";
                   testContext.operation = "VIEW";
-
-                  if (!moduleOverallSuccess) {
-                    logger.warn(
-                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: Module failure`
-                    );
-                    testContext.wasSkipped = true;
-                    crudTestSummary.skippedTests++;
-                    return;
-                  }
 
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
@@ -498,14 +493,6 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                       `⏸️ ${fullModuleName} - INITIAL VIEW skipped: ${skipCheck.reason}`
                     );
                     testContext.wasSkipped = true;
-                    crudTestSummary.skippedTests++;
-                    return;
-                  }
-
-                  if (!hasValidCreateOperation || !createdResourceId) {
-                    logger.warn(
-                      `⏸️ ${fullModuleName} - INITIAL VIEW skipped: No resource ID (CREATE was skipped or failed)`
-                    );
                     crudTestSummary.skippedTests++;
                     return;
                   }
@@ -548,18 +535,19 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             test(
               "🎯 [PHASE 3/6] UPDATE - Modify and update the created resource",
               async () => {
+                // Check if previous phase failed - if so, skip this test
+                if (!moduleOverallSuccess || !hasValidCreateOperation || !createdResourceId) {
+                  testContext.wasSkipped = true;
+                  crudTestSummary.skippedTests++;
+                  logger.warn(
+                    `⏸️ ${fullModuleName} - UPDATE skipped: Previous phase failed or no resource ID`
+                  );
+                  return;
+                }
+
                 try {
                   testContext.lifecyclePhase = "UPDATE";
                   testContext.operation = "UPDATE";
-
-                  if (!moduleOverallSuccess) {
-                    logger.warn(
-                      `⏸️ ${fullModuleName} - UPDATE skipped: Module failure`
-                    );
-                    testContext.wasSkipped = true;
-                    crudTestSummary.skippedTests++;
-                    return;
-                  }
 
                   const skipCheck = skipIfNoValidOperations(
                     moduleConfig,
@@ -570,14 +558,6 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
                       `⏸️ ${fullModuleName} - UPDATE skipped: ${skipCheck.reason}`
                     );
                     testContext.wasSkipped = true;
-                    crudTestSummary.skippedTests++;
-                    return;
-                  }
-
-                  if (!hasValidCreateOperation || !createdResourceId) {
-                    logger.warn(
-                      `⏸️ ${fullModuleName} - UPDATE skipped: No resource ID (CREATE was skipped or failed)`
-                    );
                     crudTestSummary.skippedTests++;
                     return;
                   }
@@ -620,11 +600,21 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             test(
               "🎯 [PHASE 4/6] VIEW - Verify the updates were applied successfully",
               async () => {
+                // Check if previous phase failed - if so, skip this test
+                if (!moduleOverallSuccess || !hasValidCreateOperation || !createdResourceId) {
+                  testContext.wasSkipped = true;
+                  crudTestSummary.skippedTests++;
+                  logger.warn(
+                    `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: Previous phase failed or no resource ID`
+                  );
+                  return;
+                }
+
                 try {
                   testContext.lifecyclePhase = "VIEW_POST_UPDATE";
                   testContext.operation = "VIEW_POST_UPDATE";
 
-                  if (!moduleOverallSuccess) {
+                  if (false) {
                     logger.warn(
                       `⏸️ ${fullModuleName} - POST-UPDATE VIEW skipped: Module failure`
                     );
@@ -701,11 +691,21 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             test(
               "🎯 [PHASE 5/6] DELETE - Remove the resource from the system",
               async () => {
+                // Check if previous phase failed - if so, skip this test
+                if (!moduleOverallSuccess || !hasValidCreateOperation || !createdResourceId) {
+                  testContext.wasSkipped = true;
+                  crudTestSummary.skippedTests++;
+                  logger.warn(
+                    `⏸️ ${fullModuleName} - DELETE skipped: Previous phase failed or no resource ID`
+                  );
+                  return;
+                }
+
                 try {
                   testContext.lifecyclePhase = "DELETE";
                   testContext.operation = "DELETE";
 
-                  if (!moduleOverallSuccess) {
+                  if (false) {
                     logger.warn(
                       `⏸️ ${fullModuleName} - DELETE skipped: Module failure`
                     );
@@ -774,11 +774,21 @@ describe("Enterprise Complete CRUD Lifecycle Validation Suite", () => {
             test(
               "🎯 [PHASE 6/6] NEGATIVE VIEW - Verify resource no longer exists (404 Test)",
               async () => {
+                // Check if previous phase failed - if so, skip this test
+                if (!moduleOverallSuccess || !hasValidCreateOperation || !createdResourceId) {
+                  testContext.wasSkipped = true;
+                  crudTestSummary.skippedTests++;
+                  logger.warn(
+                    `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: Previous phase failed or no resource ID`
+                  );
+                  return;
+                }
+
                 try {
                   testContext.lifecyclePhase = "NEGATIVE_VIEW";
                   testContext.operation = "NEGATIVE_VIEW";
 
-                  if (!moduleOverallSuccess) {
+                  if (false) {
                     logger.warn(
                       `⏸️ ${fullModuleName} - NEGATIVE VIEW skipped: Module failure`
                     );
