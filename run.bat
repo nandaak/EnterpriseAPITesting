@@ -1,5 +1,5 @@
 @echo off
-cd /d D:\MicrotecSaud\Jest-Api-testing-project
+cd /d D:\MicrotecSaud\Jest-enterprise-erp-api-testing
 
 echo Running Test Suite 1: CRUD Validation
 call npx jest tests/comprehensive-lifecycle/1.comprehensive-CRUD-Validation.test.js --config=jest.config.js
