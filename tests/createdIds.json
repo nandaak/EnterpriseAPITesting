@@ -2,11 +2,11 @@
   "metadata": {
     "version": "2.0.0",
     "created": "2025-12-06T11:04:43.517Z",
-    "lastUpdated": "2026-01-26T17:10:27.560Z",
+    "lastUpdated": "2026-01-27T17:38:16.963Z",
     "totalModules": 5,
-    "totalIds": 151,
-    "totalActive": 107,
-    "totalDeleted": 44,
+    "totalIds": 157,
+    "totalActive": 111,
+    "totalDeleted": 46,
     "description": "Centralized registry for all created resource IDs across all ERP modules"
   },
   "modules": {
@@ -3013,23 +3013,141 @@
               }
             }
           }
+        },
+        {
+          "id": "65",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 65,
+            "length": 2,
+            "isPositive": true
+          },
+          "module": "General_Settings.Master_Data.Tags_Definition",
+          "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+          "timestamp": "2026-01-26T20:07:02.343Z",
+          "createdAt": "2026-01-26T20:07:02.343Z",
+          "lifecycle": {
+            "created": "2026-01-26T20:07:02.343Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-26T20:07:02.343Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/Tag",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 65,
+            "code": "tag-64",
+            "name": "string",
+            "nameAr": "string",
+            "isActive": true,
+            "modulesId": [
+              1
+            ]
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/Tag",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 65,
+                "length": 2,
+                "isPositive": true
+              }
+            }
+          }
+        },
+        {
+          "id": "66",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 66,
+            "length": 2,
+            "isPositive": true
+          },
+          "module": "General_Settings.Master_Data.Tags_Definition",
+          "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+          "timestamp": "2026-01-27T17:38:11.823Z",
+          "createdAt": "2026-01-27T17:38:11.823Z",
+          "lifecycle": {
+            "created": "2026-01-27T17:38:11.823Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-27T17:38:11.823Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/Tag",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 66,
+            "code": "tag-65",
+            "name": "string",
+            "nameAr": "string",
+            "isActive": true,
+            "modulesId": [
+              1
+            ]
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/Tag",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 66,
+                "length": 2,
+                "isPositive": true
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:43.517Z",
-      "lastCreated": "2026-01-26T17:10:23.809Z",
+      "lastCreated": "2026-01-27T17:38:11.823Z",
       "lastDeleted": null,
-      "totalCreated": 50,
+      "totalCreated": 52,
       "totalDeleted": 0,
-      "totalActive": 50,
-      "currentId": "64",
+      "totalActive": 52,
+      "currentId": "66",
       "statistics": {
         "idTypes": {
-          "numeric": 50
+          "numeric": 52
         },
         "averageIdLength": "2.00",
         "creationTimes": [
-          "2026-01-26T17:06:40.735Z",
-          "2026-01-26T17:07:04.355Z",
           "2026-01-26T17:07:05.151Z",
           "2026-01-26T17:07:20.837Z",
           "2026-01-26T17:07:40.405Z",
@@ -3037,7 +3155,9 @@
           "2026-01-26T17:08:00.033Z",
           "2026-01-26T17:10:00.570Z",
           "2026-01-26T17:10:03.323Z",
-          "2026-01-26T17:10:23.809Z"
+          "2026-01-26T17:10:23.809Z",
+          "2026-01-26T20:07:02.343Z",
+          "2026-01-27T17:38:11.823Z"
         ]
       }
     },
@@ -6437,23 +6557,151 @@
               }
             }
           }
+        },
+        {
+          "id": "163",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 163,
+            "length": 3,
+            "isPositive": true
+          },
+          "module": "Sales.Master_Data.Customer_Category",
+          "moduleDisplayName": "Sales → Master Data → Customer Category",
+          "timestamp": "2026-01-26T20:07:08.340Z",
+          "createdAt": "2026-01-26T20:07:08.340Z",
+          "lifecycle": {
+            "created": "2026-01-26T20:07:08.340Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-26T20:07:08.340Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 163,
+            "name": "string",
+            "nameAr": "string",
+            "code": "CCategory-163",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B",
+            "createdOn": "2026-01-26T22:07:08.2822778+02:00",
+            "updatedOn": null
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 163,
+                "length": 3,
+                "isPositive": true
+              }
+            }
+          }
+        },
+        {
+          "id": "164",
+          "idType": "numeric",
+          "idFormat": "integer",
+          "idMetadata": {
+            "value": 164,
+            "length": 3,
+            "isPositive": true
+          },
+          "module": "Sales.Master_Data.Customer_Category",
+          "moduleDisplayName": "Sales → Master Data → Customer Category",
+          "timestamp": "2026-01-27T17:38:14.969Z",
+          "createdAt": "2026-01-27T17:38:14.969Z",
+          "lifecycle": {
+            "created": "2026-01-27T17:38:14.969Z",
+            "updated": null,
+            "deleted": null,
+            "viewedCount": 0,
+            "lastViewed": null,
+            "updateCount": 0,
+            "lastUpdated": null
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-27T17:38:14.969Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": {
+            "id": 164,
+            "name": "string",
+            "nameAr": "string",
+            "code": "CCategory-164",
+            "receivableAccountId": 1,
+            "salesAccountId": 1,
+            "salesReturnAccountId": 1,
+            "discountAccountId": 1,
+            "pricePolicyId": 1,
+            "paymentTermId": 1,
+            "marketType": "B2B",
+            "createdOn": "2026-01-27T19:38:14.0369607+02:00",
+            "updatedOn": null
+          },
+          "status": "active",
+          "metadata": {
+            "endpoint": "/erp-apis/CustomerCategory",
+            "responseStatus": 200,
+            "idType": "numeric",
+            "idFormat": "integer",
+            "idMetadata": {
+              "type": "numeric",
+              "format": "integer",
+              "isValid": true,
+              "metadata": {
+                "value": 164,
+                "length": 3,
+                "isPositive": true
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:46.357Z",
-      "lastCreated": "2026-01-26T17:10:26.088Z",
+      "lastCreated": "2026-01-27T17:38:14.969Z",
       "lastDeleted": null,
-      "totalCreated": 50,
+      "totalCreated": 52,
       "totalDeleted": 0,
-      "totalActive": 50,
-      "currentId": "161",
+      "totalActive": 52,
+      "currentId": "164",
       "statistics": {
         "idTypes": {
-          "numeric": 50
+          "numeric": 52
         },
         "averageIdLength": "2.96",
         "creationTimes": [
-          "2026-01-26T17:06:44.031Z",
-          "2026-01-26T17:07:07.018Z",
           "2026-01-26T17:07:07.650Z",
           "2026-01-26T17:07:23.265Z",
           "2026-01-26T17:07:44.448Z",
@@ -6461,7 +6709,9 @@
           "2026-01-26T17:08:03.261Z",
           "2026-01-26T17:10:03.041Z",
           "2026-01-26T17:10:07.149Z",
-          "2026-01-26T17:10:26.088Z"
+          "2026-01-26T17:10:26.088Z",
+          "2026-01-26T20:07:08.340Z",
+          "2026-01-27T17:38:14.969Z"
         ]
       }
     },
@@ -8916,24 +9166,124 @@
               }
             }
           }
+        },
+        {
+          "id": "ca66a733-a2ba-4ee8-542d-08de5d167cce",
+          "idType": "guid",
+          "idFormat": "guid-generic",
+          "idMetadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "NCS"
+          },
+          "module": "Sales.Master_Data.Sales_Team",
+          "moduleDisplayName": "Sales → Master Data → Sales Team",
+          "timestamp": "2026-01-26T20:07:09.900Z",
+          "createdAt": "2026-01-26T20:07:09.900Z",
+          "lifecycle": {
+            "created": "2026-01-26T20:07:09.900Z",
+            "updated": "2026-01-26T20:07:10.736Z",
+            "deleted": "2026-01-26T20:07:11.351Z",
+            "viewedCount": 2,
+            "lastViewed": "2026-01-26T20:07:10.986Z",
+            "updateCount": 1,
+            "lastUpdated": "2026-01-26T20:07:10.736Z"
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-26T20:07:09.900Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": null,
+          "status": "deleted",
+          "metadata": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "responseStatus": 200,
+            "idType": "guid",
+            "idFormat": "guid-generic",
+            "idMetadata": {
+              "type": "guid",
+              "format": "guid-generic",
+              "isValid": true,
+              "metadata": {
+                "length": 36,
+                "version": 4,
+                "variant": "NCS"
+              }
+            }
+          }
+        },
+        {
+          "id": "7d524a7d-66c9-4d76-9d51-08de5dcad995",
+          "idType": "uuid",
+          "idFormat": "uuid-v4",
+          "idMetadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "RFC4122"
+          },
+          "module": "Sales.Master_Data.Sales_Team",
+          "moduleDisplayName": "Sales → Master Data → Sales Team",
+          "timestamp": "2026-01-27T17:38:15.783Z",
+          "createdAt": "2026-01-27T17:38:15.783Z",
+          "lifecycle": {
+            "created": "2026-01-27T17:38:15.783Z",
+            "updated": "2026-01-27T17:38:16.365Z",
+            "deleted": "2026-01-27T17:38:16.951Z",
+            "viewedCount": 2,
+            "lastViewed": "2026-01-27T17:38:16.518Z",
+            "updateCount": 1,
+            "lastUpdated": "2026-01-27T17:38:16.365Z"
+          },
+          "testInfo": {
+            "phase": "CREATE",
+            "suite": "comprehensive-CRUD-Validation",
+            "timestamp": "2026-01-27T17:38:15.783Z"
+          },
+          "apiInfo": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "method": "POST",
+            "responseStatus": 200
+          },
+          "dataSnapshot": null,
+          "status": "deleted",
+          "metadata": {
+            "endpoint": "/erp-apis/SalesTeam",
+            "responseStatus": 200,
+            "idType": "uuid",
+            "idFormat": "uuid-v4",
+            "idMetadata": {
+              "type": "uuid",
+              "format": "uuid-v4",
+              "isValid": true,
+              "metadata": {
+                "length": 36,
+                "version": 4,
+                "variant": "RFC4122"
+              }
+            }
+          }
         }
       ],
       "firstCreated": "2025-12-06T11:04:46.954Z",
-      "lastCreated": "2026-01-26T17:10:26.694Z",
-      "lastDeleted": "2026-01-26T17:10:27.560Z",
-      "totalCreated": 48,
-      "totalDeleted": 89,
+      "lastCreated": "2026-01-27T17:38:15.783Z",
+      "lastDeleted": "2026-01-27T17:38:16.963Z",
+      "totalCreated": 50,
+      "totalDeleted": 93,
       "totalActive": 4,
       "currentId": null,
       "statistics": {
         "idTypes": {
-          "guid": 4,
-          "uuid": 44
+          "guid": 5,
+          "uuid": 45
         },
         "averageIdLength": "36.00",
         "creationTimes": [
-          "2026-01-26T17:06:27.983Z",
-          "2026-01-26T17:06:44.684Z",
           "2026-01-26T17:07:08.308Z",
           "2026-01-26T17:07:23.874Z",
           "2026-01-26T17:07:45.242Z",
@@ -8941,11 +9291,11 @@
           "2026-01-26T17:08:04.277Z",
           "2026-01-26T17:10:03.625Z",
           "2026-01-26T17:10:07.904Z",
-          "2026-01-26T17:10:26.694Z"
+          "2026-01-26T17:10:26.694Z",
+          "2026-01-26T20:07:09.900Z",
+          "2026-01-27T17:38:15.783Z"
         ],
         "deletionTimes": [
-          "2026-01-26T17:06:28.532Z",
-          "2026-01-26T17:06:29.288Z",
           "2026-01-26T17:06:45.910Z",
           "2026-01-26T17:07:09.230Z",
           "2026-01-26T17:07:25.352Z",
@@ -8953,7 +9303,9 @@
           "2026-01-26T17:08:05.212Z",
           "2026-01-26T17:10:04.504Z",
           "2026-01-26T17:10:09.332Z",
-          "2026-01-26T17:10:27.560Z"
+          "2026-01-26T17:10:27.560Z",
+          "2026-01-26T20:07:11.382Z",
+          "2026-01-27T17:38:16.963Z"
         ]
       },
       "currentIdObject": null
@@ -9033,6 +9385,358 @@
     }
   },
   "allIds": [
+    {
+      "id": "7d524a7d-66c9-4d76-9d51-08de5dcad995",
+      "idType": "uuid",
+      "idFormat": "uuid-v4",
+      "idMetadata": {
+        "length": 36,
+        "version": 4,
+        "variant": "RFC4122"
+      },
+      "module": "Sales.Master_Data.Sales_Team",
+      "moduleDisplayName": "Sales → Master Data → Sales Team",
+      "timestamp": "2026-01-27T17:38:15.783Z",
+      "createdAt": "2026-01-27T17:38:15.783Z",
+      "lifecycle": {
+        "created": "2026-01-27T17:38:15.783Z",
+        "updated": "2026-01-27T17:38:16.365Z",
+        "deleted": "2026-01-27T17:38:16.951Z",
+        "viewedCount": 2,
+        "lastViewed": "2026-01-27T17:38:16.518Z",
+        "updateCount": 1,
+        "lastUpdated": "2026-01-27T17:38:16.365Z"
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-27T17:38:15.783Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": null,
+      "status": "deleted",
+      "metadata": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "responseStatus": 200,
+        "idType": "uuid",
+        "idFormat": "uuid-v4",
+        "idMetadata": {
+          "type": "uuid",
+          "format": "uuid-v4",
+          "isValid": true,
+          "metadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "RFC4122"
+          }
+        }
+      }
+    },
+    {
+      "id": "164",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 164,
+        "length": 3,
+        "isPositive": true
+      },
+      "module": "Sales.Master_Data.Customer_Category",
+      "moduleDisplayName": "Sales → Master Data → Customer Category",
+      "timestamp": "2026-01-27T17:38:14.969Z",
+      "createdAt": "2026-01-27T17:38:14.969Z",
+      "lifecycle": {
+        "created": "2026-01-27T17:38:14.969Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-27T17:38:14.969Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 164,
+        "name": "string",
+        "nameAr": "string",
+        "code": "CCategory-164",
+        "receivableAccountId": 1,
+        "salesAccountId": 1,
+        "salesReturnAccountId": 1,
+        "discountAccountId": 1,
+        "pricePolicyId": 1,
+        "paymentTermId": 1,
+        "marketType": "B2B",
+        "createdOn": "2026-01-27T19:38:14.0369607+02:00",
+        "updatedOn": null
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 164,
+            "length": 3,
+            "isPositive": true
+          }
+        }
+      }
+    },
+    {
+      "id": "66",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 66,
+        "length": 2,
+        "isPositive": true
+      },
+      "module": "General_Settings.Master_Data.Tags_Definition",
+      "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+      "timestamp": "2026-01-27T17:38:11.823Z",
+      "createdAt": "2026-01-27T17:38:11.823Z",
+      "lifecycle": {
+        "created": "2026-01-27T17:38:11.823Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-27T17:38:11.823Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/Tag",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 66,
+        "code": "tag-65",
+        "name": "string",
+        "nameAr": "string",
+        "isActive": true,
+        "modulesId": [
+          1
+        ]
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/Tag",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 66,
+            "length": 2,
+            "isPositive": true
+          }
+        }
+      }
+    },
+    {
+      "id": "ca66a733-a2ba-4ee8-542d-08de5d167cce",
+      "idType": "guid",
+      "idFormat": "guid-generic",
+      "idMetadata": {
+        "length": 36,
+        "version": 4,
+        "variant": "NCS"
+      },
+      "module": "Sales.Master_Data.Sales_Team",
+      "moduleDisplayName": "Sales → Master Data → Sales Team",
+      "timestamp": "2026-01-26T20:07:09.900Z",
+      "createdAt": "2026-01-26T20:07:09.900Z",
+      "lifecycle": {
+        "created": "2026-01-26T20:07:09.900Z",
+        "updated": "2026-01-26T20:07:10.736Z",
+        "deleted": "2026-01-26T20:07:11.351Z",
+        "viewedCount": 2,
+        "lastViewed": "2026-01-26T20:07:10.986Z",
+        "updateCount": 1,
+        "lastUpdated": "2026-01-26T20:07:10.736Z"
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-26T20:07:09.900Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": null,
+      "status": "deleted",
+      "metadata": {
+        "endpoint": "/erp-apis/SalesTeam",
+        "responseStatus": 200,
+        "idType": "guid",
+        "idFormat": "guid-generic",
+        "idMetadata": {
+          "type": "guid",
+          "format": "guid-generic",
+          "isValid": true,
+          "metadata": {
+            "length": 36,
+            "version": 4,
+            "variant": "NCS"
+          }
+        }
+      }
+    },
+    {
+      "id": "163",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 163,
+        "length": 3,
+        "isPositive": true
+      },
+      "module": "Sales.Master_Data.Customer_Category",
+      "moduleDisplayName": "Sales → Master Data → Customer Category",
+      "timestamp": "2026-01-26T20:07:08.340Z",
+      "createdAt": "2026-01-26T20:07:08.340Z",
+      "lifecycle": {
+        "created": "2026-01-26T20:07:08.340Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-26T20:07:08.340Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 163,
+        "name": "string",
+        "nameAr": "string",
+        "code": "CCategory-163",
+        "receivableAccountId": 1,
+        "salesAccountId": 1,
+        "salesReturnAccountId": 1,
+        "discountAccountId": 1,
+        "pricePolicyId": 1,
+        "paymentTermId": 1,
+        "marketType": "B2B",
+        "createdOn": "2026-01-26T22:07:08.2822778+02:00",
+        "updatedOn": null
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/CustomerCategory",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 163,
+            "length": 3,
+            "isPositive": true
+          }
+        }
+      }
+    },
+    {
+      "id": "65",
+      "idType": "numeric",
+      "idFormat": "integer",
+      "idMetadata": {
+        "value": 65,
+        "length": 2,
+        "isPositive": true
+      },
+      "module": "General_Settings.Master_Data.Tags_Definition",
+      "moduleDisplayName": "General Settings → Master Data → Tags Definition",
+      "timestamp": "2026-01-26T20:07:02.343Z",
+      "createdAt": "2026-01-26T20:07:02.343Z",
+      "lifecycle": {
+        "created": "2026-01-26T20:07:02.343Z",
+        "updated": null,
+        "deleted": null,
+        "viewedCount": 0,
+        "lastViewed": null,
+        "updateCount": 0,
+        "lastUpdated": null
+      },
+      "testInfo": {
+        "phase": "CREATE",
+        "suite": "comprehensive-CRUD-Validation",
+        "timestamp": "2026-01-26T20:07:02.343Z"
+      },
+      "apiInfo": {
+        "endpoint": "/erp-apis/Tag",
+        "method": "POST",
+        "responseStatus": 200
+      },
+      "dataSnapshot": {
+        "id": 65,
+        "code": "tag-64",
+        "name": "string",
+        "nameAr": "string",
+        "isActive": true,
+        "modulesId": [
+          1
+        ]
+      },
+      "status": "active",
+      "metadata": {
+        "endpoint": "/erp-apis/Tag",
+        "responseStatus": 200,
+        "idType": "numeric",
+        "idFormat": "integer",
+        "idMetadata": {
+          "type": "numeric",
+          "format": "integer",
+          "isValid": true,
+          "metadata": {
+            "value": 65,
+            "length": 2,
+            "isPositive": true
+          }
+        }
+      }
+    },
     {
       "id": "1c00f270-da0d-4f40-9715-08de5cee5317",
       "idType": "uuid",
@@ -17905,26 +18609,62 @@
   ],
   "statistics": {
     "idTypeDistribution": {
-      "numeric": 102,
-      "uuid": 45,
-      "guid": 4
+      "numeric": 106,
+      "guid": 5,
+      "uuid": 46
     },
     "moduleDistribution": {
-      "General_Settings.Master_Data.Tags_Definition": 50,
+      "General_Settings.Master_Data.Tags_Definition": 52,
       "Accounting.Master_Data.Cost_Center_Definition": 2,
-      "Sales.Master_Data.Customer_Category": 50,
-      "Sales.Master_Data.Sales_Team": 48,
+      "Sales.Master_Data.Customer_Category": 52,
+      "Sales.Master_Data.Sales_Team": 50,
       "Sales.Master_Data.Market_Place": 1
     },
     "creationTimeline": [],
-    "averageIdLength": "13.35",
+    "averageIdLength": "13.36",
     "mostActiveModule": "General_Settings.Master_Data.Tags_Definition",
     "recentActivity": [
+      {
+        "id": "7d524a7d-66c9-4d76-9d51-08de5dcad995",
+        "module": "Sales → Master Data → Sales Team",
+        "timestamp": "2026-01-27T17:38:15.783Z",
+        "status": "active"
+      },
+      {
+        "id": "164",
+        "module": "Sales → Master Data → Customer Category",
+        "timestamp": "2026-01-27T17:38:14.969Z",
+        "status": "active"
+      },
+      {
+        "id": "66",
+        "module": "General Settings → Master Data → Tags Definition",
+        "timestamp": "2026-01-27T17:38:11.823Z",
+        "status": "active"
+      },
+      {
+        "id": "ca66a733-a2ba-4ee8-542d-08de5d167cce",
+        "module": "Sales → Master Data → Sales Team",
+        "timestamp": "2026-01-26T20:07:09.900Z",
+        "status": "deleted"
+      },
+      {
+        "id": "163",
+        "module": "Sales → Master Data → Customer Category",
+        "timestamp": "2026-01-26T20:07:08.340Z",
+        "status": "active"
+      },
+      {
+        "id": "65",
+        "module": "General Settings → Master Data → Tags Definition",
+        "timestamp": "2026-01-26T20:07:02.343Z",
+        "status": "active"
+      },
       {
         "id": "1c00f270-da0d-4f40-9715-08de5cee5317",
         "module": "Sales → Master Data → Sales Team",
         "timestamp": "2026-01-26T17:10:26.694Z",
-        "status": "active"
+        "status": "deleted"
       },
       {
         "id": "161",
@@ -18183,42 +18923,6 @@
         "module": "Sales → Master Data → Sales Team",
         "timestamp": "2026-01-26T17:05:07.631Z",
         "status": "deleted"
-      },
-      {
-        "id": "146",
-        "module": "Sales → Master Data → Customer Category",
-        "timestamp": "2026-01-26T17:05:05.970Z",
-        "status": "active"
-      },
-      {
-        "id": "49",
-        "module": "General Settings → Master Data → Tags Definition",
-        "timestamp": "2026-01-26T17:05:01.746Z",
-        "status": "active"
-      },
-      {
-        "id": "dff6d9a3-f27c-44e3-9705-08de5cee5317",
-        "module": "Sales → Master Data → Sales Team",
-        "timestamp": "2026-01-26T17:04:46.014Z",
-        "status": "deleted"
-      },
-      {
-        "id": "145",
-        "module": "Sales → Master Data → Customer Category",
-        "timestamp": "2026-01-26T17:04:45.347Z",
-        "status": "active"
-      },
-      {
-        "id": "15a3ed18-d9f8-419b-9704-08de5cee5317",
-        "module": "Sales → Master Data → Sales Team",
-        "timestamp": "2026-01-26T17:04:43.817Z",
-        "status": "deleted"
-      },
-      {
-        "id": "144",
-        "module": "Sales → Master Data → Customer Category",
-        "timestamp": "2026-01-26T17:04:43.046Z",
-        "status": "active"
       }
     ]
   }

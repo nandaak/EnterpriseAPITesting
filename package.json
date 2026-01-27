@@ -68,6 +68,10 @@
     "install-deps": "npm install --save-dev @babel/core @babel/preset-env babel-jest",
     
     "comment:authentication": "=== Authentication Management ===",
+    "validate-token": "node validate-token.js",
+    "validate-token:status": "node validate-token.js --status",
+    "validate-token:force": "node validate-token.js --force",
+    "fetchToken": "node fetchToken.js",
     "fetch-token": "node fetchToken.js",
     "check-token": "node check-token.js",
     "debug-token": "node debug-token.js",

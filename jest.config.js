@@ -4,6 +4,9 @@ module.exports = {
   testTimeout: 30000,
   verbose: true,
 
+  // Global setup - runs ONCE before all tests (token validation)
+  globalSetup: "./jest.globalSetup.js",
+
   // Enable the setup file
   setupFilesAfterEnv: ["./jest.setup.js"],
 

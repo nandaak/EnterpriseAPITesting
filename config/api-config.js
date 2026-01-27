@@ -1,4 +1,4 @@
-// config/api-config.js - Enhanced version
+// config/api-config.js - Enhanced version with dynamic token loading
 require("dotenv").config();
 const TokenManager = require("../utils/token-manager");
 const logger = require("../utils/logger");
@@ -8,7 +8,7 @@ const getApiConfig = () => {
   // Use ENDPOINT from .env as the primary base URL (dynamic endpoint support)
   const baseURL = process.env.ENDPOINT || process.env.API_BASE_URL || "https://microtecsaudi.com:2032";
 
-  // Get and validate token
+  // Get and validate token - ALWAYS read fresh from file
   let rawToken = TokenManager.readTokenFromFile();
   let tokenSource = "token.txt";
 
