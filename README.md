@@ -36,7 +36,7 @@ The test suite is organized into **5 comprehensive test categories** under `test
 ## 📁 Project Structure
 
 ```
-enterprise-erp-api-testing/
+enterpriseapitesting/
 │
 ├── tests/
 │   ├── comprehensive-lifecycle/          # Main test suites
@@ -106,8 +106,8 @@ enterprise-erp-api-testing/
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/MohamedSci/enterprise-erp-api-testing.git
-   cd enterprise-erp-api-testing
+   git clone https://github.com/MohamedSci/enterpriseapitesting.git
+   cd enterpriseapitesting
    ```
 
 2. **Install dependencies**
